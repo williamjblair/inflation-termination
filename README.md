@@ -150,8 +150,8 @@ The gate refuses a literal `sorry` or `admit` anywhere under `TriangleInflation/
 from `TriangleInflation/Defs.lean` and fails if the committed file differs, and fails on any
 axiom outside `[propext, Classical.choice, Quot.sound]`.
 
-Lean `v4.33.1`; Mathlib pinned at `0df444a360eaa60ab8c11dca51a86af692955474`. Mathlib is the
-only dependency.
+Lean `v4.33.0`; Mathlib pinned at `db584cd6d46c92f209a44c0f1c829460d327499d`, a commit on
+canonical `master`. Mathlib is the only dependency.
 
 ## Coverage
 
@@ -183,8 +183,8 @@ All declarations are in the namespace `TriangleInflation`.
 The manuscript is not yet posted to arXiv. This registry entry is meant to precede it and to
 be cited by it. `paper/release/PRIORITY_AUDIT.md` records `PRIORITY_NOT_KILLED`, with
 Navascués–Wolfe 2020 §4.1 as the strongest located predecessor, and does not certify
-firstness; `paper/release/NONCLAIMS.md` still carries the line "Not formal (Lean)
-verification", written before this formalization existed. No independent human review of the
+firstness; `paper/release/NONCLAIMS.md` records exactly what is and is not formalized, and
+its scope agrees with the Coverage table above. No independent human review of the
 mathematics has been performed.
 
 A green build here is a scoped, re-checkable build and axiom result. It is not scientific

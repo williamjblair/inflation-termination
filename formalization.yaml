@@ -40,7 +40,7 @@ sources:
     type: "preprint"
     location: "Theorem 3.2 (thm:main) and the corollary that follows it; the construction is Section 3.1, the incompatibility Section 3.2, the injectable-set characterization Appendix A"
     relationship: "formalizes"
-    author_endorsement: "author"
+    author_endorsement: "participated"
     note: >-
       The manuscript is included in this repository under paper/ (main.pdf and its LaTeX
       sources) together with its claim, non-claim, priority and reproduction documents
