@@ -1,0 +1,7 @@
+{
+  "challenge_module": "Palomar.TriangleInflation.Challenge",
+  "solution_module": "PalomarSolutions.TriangleInflation",
+  "theorem_names": ["TriangleInflation.no_finite_characterizing_order"],
+  "permitted_axioms": ["propext", "Quot.sound", "Classical.choice"],
+  "enable_nanoda": false
+}

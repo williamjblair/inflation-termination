@@ -1,0 +1,27 @@
+\section{Open problems}\label{sec:open}
+
+The construction and the fan inequality explain the exponent $1/3$ through the same scales. Along $P_\eps$, the all-zero atom has probability of order $\eps$, while each zero marginal has order $\eps^{2/3}$. In the defect cube, the $t-1$ other cells on each line contribute at most $(t-1)\eps$ to that marginal. The construction therefore passes when $t$ is of order $\eps^{-1/3}$. In a fan of that size, both $tz$ and $m+\binom t2m^2$ have order $\eps^{2/3}$. Their leading coefficients give the upper constant $4-2\sqrt3$.
+
+\begin{question}[Exact leading constant]\label{q:constant}
+Does $\eps^{1/3}\tmin^H(P_\eps)$ converge? If so, what is its limit, and do the three hierarchies share it?
+\end{question}
+The current bounds give the interval $[\tfrac12,4-2\sqrt3]$. The finite certificates determine the first rejecting order at $\eps=k^{-3}$ for $k\in\{4,6,8,10,16\}$; the passing and fan bounds differ at the larger tested values.
+
+\begin{question}[Worst-case convergence exponent]\label{q:hausdorff}
+For $H_n=\sup_{P\in\INW_n}d_{\TV}(P,\Ctri)$, which rate between the bounds $\Omega(n^{-3})$ and $O(n^{-1/2})$ is sharp?
+\end{question}
+
+\begin{question}[Explicit rejecting orders beyond Finner]\label{q:effective}
+Can one bound the rejecting order in directly evaluable quantities of an incompatible input law that satisfies every Finner inequality?
+\end{question}
+Theorem~\ref{thm:fan} covers Finner violations. The distance and bit-length bounds apply more broadly, but computing the distance or extracting the constants from quantifier elimination need not be practical.
+
+\begin{question}[Finite stabilization]\label{q:classification}
+Which correlation scenarios and observed alphabet sizes admit a finite characterizing order?
+\end{question}
+The star scenarios of \cite{NW2020} terminate at order two. The binary triangle, and hence every triangle with at least two outcomes at each node, does not. The defect construction uses the fact that each pair of observed nodes shares a source; extending it to other graphs requires a corresponding construction of the copied marginals.
+
+\begin{question}[Quantum and no-signalling analogues]\label{q:quantum}
+For which quantum or no-signalling inflation hierarchies can one construct incompatible laws with an unbounded first rejecting order and determine its growth?
+\end{question}
+This question requires specifying both the hierarchy and the compatible resource model; the classical proof here does not decide it.

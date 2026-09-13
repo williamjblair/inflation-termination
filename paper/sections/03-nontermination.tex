@@ -1,0 +1,38 @@
+\section{The explicit nontermination family}\label{sec:main}
+
+For $0<\eps<1$ and $0\le r\le1$ define the three-bit law
+\begin{equation}\label{eq:Q}
+Q(\eps,r)=\eps\,\delta_{000}+(1-\eps)\,\Bern(r)^{\otimes3},
+\end{equation}
+a point mass at $000$ with weight $\eps$ mixed with three independent bits that equal $1$ with probability $r$. Throughout, $\Bern(r)$ denotes the law on $\{0,1\}$ with $\Bern(r)(1)=r$.
+
+\begin{theorem}[Membership at every finite order]\label{thm:membership}
+Let $t\ge1$, $0<\eps<1$ and $0\le r\le(1-\eps)^{t-1}$. Then
+\[
+Q(\eps,r)\in\Iexp_t\subseteq\IAI_t\subseteq\INW_t.
+\]
+\end{theorem}
+
+\begin{theorem}[No finite characterizing order]\label{thm:main}
+For every integer $t\ge1$, with $\eps_t=1/(2t^3)$ and $r_t=(1-\eps_t)^{t-1}$, the law $P_t=Q(\eps_t,r_t)$ satisfies
+\[
+P_t\in\Iexp_t\subseteq\IAI_t\subseteq\INW_t
+\qquad\text{and}\qquad
+P_t(000)^2-P_{t,A}(0)P_{t,B}(0)P_{t,C}(0)\ \ge\ \frac{\eps_t^2}{2}\ >0,
+\]
+so $P_t\notin\Ctri$. Hence none of the three finite-order tests characterizes $\Ctri$ at any finite order.
+\end{theorem}
+
+Theorem~\ref{thm:main} includes $t=1$, where $P_1=\tfrac12(\delta_{000}+\delta_{111})$, the perfectly correlated three-bit law, which is the standard example of a triangle-incompatible distribution and passes the trivial order-one test.
+
+\begin{corollary}[Larger alphabets]\label{cor:alphabets}
+For the triangle with observed alphabets of any sizes $n_A,n_B,n_C\ge2$, no finite order of the Navascués--Wolfe hierarchy characterizes the compatible set.
+\end{corollary}
+\begin{proof}
+Regard $P_t$ as a law on the larger alphabets, supported on $\{0,1\}^3$. A compatible realization of a law supported on $\{0,1\}^3$ has response kernels that output values outside $\{0,1\}$ with probability zero, so it is a binary realization; hence $P_t$ remains incompatible. The order-$t$ witness $\Gamma_t$ of Theorem~\ref{thm:main}, viewed as a law on the larger copied alphabets, still has the required symmetry and diagonal law. So $P_t\in\INW_t\setminus\mathcal C$ for the larger scenario as well.
+\end{proof}
+
+
+\input{sections/03a-construction}
+\input{sections/03b-incompatibility}
+\input{sections/03c-survival}

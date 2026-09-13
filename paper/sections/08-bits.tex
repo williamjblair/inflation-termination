@@ -1,0 +1,20 @@
+\section{Rational input bit-length complexity}\label{sec:bits}
+
+\begin{proposition}[Required order in the input size]\label{prop:bits}
+Encode each of the eight rational atoms by its reduced numerator and positive denominator in ordinary binary, with delimiters of linear overhead. For a law $P$ on three bits, let $\ell(P)$ be its total bit length. For each $H\in\{\mathrm{NW},\mathrm{AI},\mathrm{exp}\}$,
+\[
+\max\bigl\{\tmin^H(P):\ \ell(P)\le B,\ P\notin\Ctri\bigr\}=2^{\Theta(B)} .
+\]
+\end{proposition}
+
+\begin{proof}[Proof of Proposition~\ref{prop:bits}]
+\emph{Lower bound.} With $k=2^j$, $\eps=k^{-3}$ and $\sigma=1/(2k^2)$, the eight atoms of $P_\eps$ are rationals with denominator $8k^9$ and numerators of $O(j)$ bits, so $\ell(P_\eps)=O(j)$, while Proposition~\ref{prop:family} gives $\tmin^H(P_\eps)>k/2=2^{j-1}$. Choosing $j$ proportional to $B$ gives $2^{\Omega(B)}$.
+
+\emph{Upper bound.} By \cite{RGW2018}, $\Ctri$ is the image of a compact semialgebraic parameter space (six latent values per source and stochastic binary response tables) under a polynomial map, hence a closed semialgebraic subset of the simplex. The function $u(P)=d_2(P,\Ctri)^2$ is therefore semialgebraic, and its graph is described by a fixed quantifier-free formula $\Phi(P,u)$ in integer polynomials of fixed degrees, by real quantifier elimination \cite{BasuPollackRoy2006}. For a rational $P$ of bit length $B$, substituting $P$ and clearing denominators turns the atoms of $\Phi$ into univariate integer polynomials in $u$ of fixed degree and coefficient height $2^{O(B)}$. The set of $u$ satisfying $\Phi(P,u)$ is the single point $u(P)$; discard identically zero specialized polynomials, whose comparisons have constant truth values. If none of the remaining polynomials vanished at $u(P)$, their signs would persist on a neighbourhood and the formula would define an interval. Thus some nonzero specialized polynomial $f$ vanishes at $u(P)$. Remove any factor $u^r$ from $f$ to obtain $g(u)=a_0+\cdots+a_du^d$ with $a_0\ne0$, the same nonzero root, and coefficient height at most $H=2^{O(B)}$. For $0<u<1/(H+1)$,
+\[
+\Bigl|\sum_{i=1}^d a_i u^i\Bigr|\le H\sum_{i=1}^d u^i<\frac{Hu}{1-u}<1\le|a_0|,
+\]
+so $g(u)\ne0$. Hence $u(P)\ge2^{-O(B)}$ when $P$ is incompatible, and Proposition~\ref{prop:promised} gives $\tmin^{\mathrm{NW}}(P)\le3(1-\|P\|_2^2)/u(P)+1=2^{O(B)}$; the two smaller feasible sets reject no later.
+\end{proof}
+
+For the fixed binary triangle, a quantifier-free membership formula contains a fixed number of fixed-degree integer polynomials. Evaluating their signs at a rational input takes time polynomial in $B$. Quantifier elimination supplies such a formula in principle \cite{BasuPollackRoy2006}, although deriving and storing it may be impractical. Thus the exponential inflation-order bound coexists with a polynomial-time decision procedure for this fixed scenario. For an incompatible rational input, one can also compute the first rejecting order by enumerating exact rational feasibility problems.

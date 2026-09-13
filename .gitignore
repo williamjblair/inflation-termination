@@ -1,0 +1,8 @@
+/.lake/
+/lake-packages/
+/build/
+*.olean
+__pycache__/
+*.py[cod]
+**/.lake/
+.DS_Store

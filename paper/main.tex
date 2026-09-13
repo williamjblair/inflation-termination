@@ -1,0 +1,65 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1.1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\usepackage{booktabs}
+\usepackage{enumitem}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{question}[theorem]{Question}
+
+\DeclareMathOperator{\Law}{Law}
+\DeclareMathOperator{\Bern}{Bern}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\TV}{TV}
+\newcommand{\Ctri}{\mathcal C_{\triangle}}
+\newcommand{\INW}{\mathcal I^{\mathrm{NW}}}
+\newcommand{\IAI}{\mathcal I^{\mathrm{AI}}}
+\newcommand{\Iexp}{\mathcal I^{\mathrm{exp}}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\newcommand{\one}{\mathbf 1}
+\newcommand{\tmin}{t_{\min}}
+
+\title{Inflation for the Classical Triangle:\\ Nontermination and Quantitative Complexity}
+\author{William Blair\\[2pt]\small\texttt{willjblair1@gmail.com}}
+\date{September 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+No finite order of classical inflation characterizes compatibility in the binary triangle. This answers a question of Navascués and Wolfe, whose hierarchy rejects each incompatible distribution at some finite order. For every order $t$, we construct a rational three-bit distribution that passes the full symmetric test with its tensor-power diagonal law, as well as the ancestral-independence and recursively expressible-set constraints, but violates the Finner inequality. The witness uses independent Bernoulli defects on a cube of source-copy indices. Along a second explicit family $P_\eps$ approaching a compatible point, the first rejecting order is $\Theta(\eps^{-1/3})$, with asymptotic lower and upper constants $1/2$ and $4-2\sqrt3$. We obtain the upper bound from a family of finite-order inequalities and compute the leading total-variation and Euclidean distances to the compatible set. The rejecting order therefore grows as the inverse cube root of distance along this family, while another family approaches compatibility with rejecting order two. A second-moment inequality gives an explicit rejecting order for every Finner-violating law. For a general correlation scenario with $L$ sources and $K$ joint outcomes, a total-variation distance promise $\delta>0$ gives the bound $\lfloor LK/(4\delta^2)\rfloor+1$. For rational binary-triangle laws encoded in at most $B$ bits, the worst required order is $2^{\Theta(B)}$. All proofs are analytic; exact finite certificates accompany the paper.
+\end{abstract}
+
+\input{sections/01-introduction}
+\input{sections/02-triangle-inflation}
+\input{sections/03-nontermination}
+\input{sections/04-fan}
+\input{sections/05-exponent}
+\input{sections/06-distance}
+\input{sections/07-general-bounds}
+\input{sections/08-bits}
+\input{sections/09-prior-work}
+\input{sections/10-open-problems}
+\input{sections/11-reproducibility}
+
+\appendix
+\input{appendices/A-expressible}
+\input{appendices/C-certificates}
+
+\section*{Acknowledgments}
+The manuscript and the verification code were prepared with substantial assistance from AI systems. All mathematical claims were checked by exact certificates or by hand, and the author takes full responsibility for the content.
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}

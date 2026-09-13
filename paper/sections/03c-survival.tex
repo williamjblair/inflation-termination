@@ -1,0 +1,41 @@
+\subsection{Survival of every finite order}\label{sec:survival}
+
+The defect law $\Gamma_t$ witnesses $Q(\eps,r)\in\Iexp_t$, which is Theorem~\ref{thm:membership}. The three feasible sets require successively more of $\Gamma_t$; we verify them in order.
+
+\subsubsection{The Navascués--Wolfe conditions}
+Symmetry is Lemma~\ref{lem:symmetry}. For the diagonal law, let $R_\ell$ be the union of the three lines of the diagonal triangle $\Delta_{\ell\ell\ell}$:
+\begin{equation}\label{eq:Rl}
+R_\ell=\{(\ell,\ell,k):k\in[t]\}\cup\{(\ell,j,\ell):j\in[t]\}\cup\{(i,\ell,\ell):i\in[t]\}.
+\end{equation}
+Equivalently, $R_\ell$ is the set of cells with at least two coordinates equal to $\ell$; it has $3t-2$ cells.
+
+\begin{lemma}[Diagonal supports are mutually disjoint]\label{lem:diag}
+If $\ell\ne m$ then $R_\ell\cap R_m=\emptyset$. Consequently the $t$ diagonal triangles depend on mutually disjoint families of independent bits, are mutually independent under $\Gamma_t$, and their joint law is $Q(\eps,r)^{\otimes t}$.
+\end{lemma}
+\begin{proof}
+A cell has three coordinates; it cannot have two of them equal to $\ell$ and two equal to $m\ne\ell$. The private bits of distinct diagonal triangles are distinct. Mutual independence of functions of disjoint families of independent variables follows, and Lemma~\ref{lem:triangle-law} identifies each factor.
+\end{proof}
+
+The lemma proves the tensor-power diagonal law, so $Q(\eps,r)\in\INW_t$.
+
+\subsubsection{The ancestral-independence conditions}
+Every injectable set is a subset of some copied triangle $\Delta_{ijk}$ (Definition~\ref{def:AI}), so its prescribed marginal is a projection of $Q(\eps,r)$ and is matched by Lemma~\ref{lem:triangle-law}. A union of pairwise ancestrally independent injectable sets is, by Lemma~\ref{lem:disjoint} applied to the union, a family of outputs depending on pairwise disjoint families of independent bits, hence mutually independent, with the prescribed product law. This proves $Q(\eps,r)\in\IAI_t$. In particular the higher-degree relations that Navascués and Wolfe mention but do not impose, such as $\Law(A^{12},B^{21},C^{12})=P_A\otimes P_B\otimes P_C$, hold for $\Gamma_t$: the three observations $A^{12},B^{21},C^{12}$ have ancestor sets $\{X_1,Z_2\}$, $\{X_2,Y_1\}$ and $\{Z_1,Y_2\}$. Their lines $(1,2,\cdot)$, $(2,\cdot,1)$ and $(\cdot,1,2)$ are pairwise disjoint.
+
+\subsubsection{The recursively expressible conditions}
+The AI conditions do not by themselves give the conditional-product prescriptions of Definition~\ref{def:exp}, which use $d$-separations in the genuine inflated graph. Every such separation also holds for the defect law.
+
+\begin{lemma}[Latent-projection containment]\label{lem:projection}
+Let $H_t$ be the directed acyclic graph with the defect and private bits as root vertices and the copied observations as their children according to \eqref{eq:outputs}. The latent projection of $H_t$ onto the observed vertices is a subgraph of the latent projection of the order-$t$ inflated triangle onto the same vertices.
+\end{lemma}
+\begin{proof}
+Both projections have only the observed vertices, all of which are sinks, and a bidirected edge between two observed vertices exactly when they share a latent parent. In $H_t$ a private bit has one child and creates no edge, and a defect $D_{ijk}$ has children $A^{ij},B^{ik},C^{jk}$, creating the three edges $A^{ij}\!\leftrightarrow\!B^{ik}$, $A^{ij}\!\leftrightarrow\!C^{jk}$, $B^{ik}\!\leftrightarrow\!C^{jk}$. In the genuine inflation these three pairs share $X_i$, $Z_j$ and $Y_k$ respectively, so the same three edges are present.
+\end{proof}
+
+\begin{lemma}[Recursive prescriptions hold]\label{lem:expressible}
+Every marginal prescribed by the recursion of Definition~\ref{def:exp} equals the corresponding marginal of $\Gamma_t$.
+\end{lemma}
+\begin{proof}
+$\Gamma_t$ is Markov with respect to $H_t$, so every conditional independence among observed sets that is implied by $d$-separation in $H_t$ holds under $\Gamma_t$. For these two-layer graphs, an active path between observed vertices alternates between latent roots and observed colliders; every internal observed vertex must belong to the conditioning set, since observed vertices have no descendants. Equivalently, in the bidirected projection an active path has all its internal vertices in the conditioning set. Deleting bidirected edges cannot create such a path. Lemma~\ref{lem:projection} therefore transfers every observed $d$-separation of the genuine inflation to $H_t$. Now induct on the recursion. Injectable base sets are matched by Lemma~\ref{lem:triangle-law}. At a conditional-product step with $X'\perp_dY'\mid Z'$, the transferred conditional independence gives $\Gamma_t(x',y',z')=\Gamma_t(x',z')\Gamma_t(y',z')/\Gamma_t(z')$ whenever $\Gamma_t(z')>0$, while for $\Gamma_t(z')=0$ both numerator marginals and the joint atom vanish, matching the zero branch. Marginalization of a matched set is matched. Copy-index equalities among prescribed marginals follow from Lemma~\ref{lem:symmetry}.
+\end{proof}
+
+This proves $Q(\eps,r)\in\Iexp_t$ and completes the proof of Theorem~\ref{thm:membership}. Theorem~\ref{thm:main} follows by combining Theorem~\ref{thm:membership} at $r=r_t=(1-\eps_t)^{t-1}$ with Lemma~\ref{lem:violation}.

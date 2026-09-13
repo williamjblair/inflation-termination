@@ -1,0 +1,15 @@
+\section{Relation to prior work}\label{sec:prior}
+
+\paragraph{Finite-order convergence.}
+Navascués and Wolfe \cite[Section 4.1]{NW2020} give a binary family that passes second-order triangle inflation while violating Finner, and ask whether any finite order characterizes compatibility. Theorem~\ref{thm:main} extends that separation to every order with a different family. They also exhibit a polynomial optimization problem whose inflation relaxations fail to attain the exact optimum at any finite order, in a scenario where every law is compatible. Our result concerns the compatibility tests themselves.
+
+\paragraph{Network inequalities.}
+Finner's inequality \cite{Finner1992} supplies the incompatibility test. Renou et al.\ \cite{Renou2019} prove its triangle-network form for quantum sources and for no-signalling boxes combined by local wirings, and give the classical Cauchy--Schwarz argument used here. The explicit rational violation margin in Lemma~\ref{lem:violation} comes from our choice of parameters.
+
+The first fan inequality follows the marginal-polytope method of Wolfe, Spekkens and Fritz \cite[Section IV.D]{WSF2019}: prove a pointwise inequality on copied observations, then substitute the prescribed marginals. Fraser and Wolfe \cite{FraserWolfe2018} derive triangle inequalities from the wagon-wheel and web inflations. Theorem~\ref{thm:fan} gives a closed formula indexed by the order, together with a second-moment bound. Along $P_\eps$, its rejecting order matches the exponent of the passing construction. Recent work of da Silva, Pozas-Kerstjens and Parisio \cite{daSilvaPozasKerstjensParisio2025} studies local models and conjectural boundaries for permutation-invariant binary-triangle distributions; our bounds concern how the inflation order grows near a compatible point.
+
+\paragraph{Quantitative convergence and effectivity.}
+Proposition~\ref{prop:promised} refines the finite-sampling estimate in \cite{NW2020} by retaining the exact collision probability and the factor $1-\|P\|_2^2$. The bit-length upper bound combines this estimate with the finite latent-cardinality theorem of Rosset, Gisin and Wolfe \cite{RGW2018}, quantifier elimination, and an elementary bound on nonzero polynomial roots. Its lower bound uses rational members of $P_\eps$.
+
+\paragraph{Quantum inflation.}
+Wolfe et al.\ \cite{WolfeEtAl2021QuantumInflation} develop quantum inflation, and Ligthart, Gachechiladze and Gross \cite{LigthartGachechiladzeGross2023} construct a provably convergent variant. The distinction between quantum models matters for such convergence statements. The present nontermination theorem applies to classical inflation and the two strengthenings defined in Section~\ref{sec:setup}.

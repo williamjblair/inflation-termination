@@ -1,0 +1,34 @@
+\subsection{Genuine incompatibility}\label{sec:incompat}
+
+\begin{lemma}[Finner inequality for the triangle]\label{lem:finner}
+Every $P\in\Ctri$ satisfies the inequality $P(000)^2\le P_A(0)P_B(0)P_C(0)$.
+\end{lemma}
+\begin{proof}
+Let the sources have laws $\mu_X,\mu_Y,\mu_Z$ on arbitrary measurable spaces and let
+\[
+f(x,z)=\Pr(A=0\mid x,z),\qquad g(x,y)=\Pr(B=0\mid x,y),\qquad h(z,y)=\Pr(C=0\mid z,y)
+\]
+be the response probabilities, measurable functions with values in $[0,1]$. Conditional independence of the responses given the sources gives $P(000)=\int f(x,z)g(x,y)h(z,y)\,d\mu_X\,d\mu_Y\,d\mu_Z$. Put $u(x)^2=\int g(x,y)^2\,d\mu_Y(y)$ and $v(z)^2=\int h(z,y)^2\,d\mu_Y(y)$. Cauchy--Schwarz in $y$, then Cauchy--Schwarz in the independent pair $(x,z)$, then $f^2\le f$, $g^2\le g$, $h^2\le h$ (all three functions lie in $[0,1]$) give
+\[
+\begin{aligned}
+P(000)&\le\int f(x,z)u(x)v(z)\,d\mu_Xd\mu_Z\\
+&\le\Bigl(\int f^2\,d\mu_Xd\mu_Z\Bigr)^{1/2}\Bigl(\int u^2\,d\mu_X\int v^2\,d\mu_Z\Bigr)^{1/2}
+\le\sqrt{P_A(0)P_B(0)P_C(0)}.
+\end{aligned}
+\]
+Tonelli's theorem justifies every interchange, since all integrands are nonnegative and bounded. The argument uses neither finiteness of the latent alphabets nor determinism of the responses.
+\end{proof}
+
+The inequality is the triangle case of Finner's generalized Hölder inequality \cite{Finner1992}; Renou et al.\ \cite{Renou2019} derived it for the triangle network in this event form and proved it for quantum sources and for no-signalling boxes combined by local wirings.
+
+\begin{lemma}[Violation by the witness]\label{lem:violation}
+Let $t\ge1$, $0<\eps<t^{-3}$ and $P=Q(\eps,(1-\eps)^{t-1})$. Then $P(000)^2>P_A(0)P_B(0)P_C(0)$; in particular $P\notin\Ctri$. For $\eps=\eps_t=1/(2t^3)$,
+\[
+P_t(000)^2-P_{t,A}(0)P_{t,B}(0)P_{t,C}(0)\ \ge\ \eps_t^2-t^3\eps_t^3=\frac{\eps_t^2}{2}.
+\]
+\end{lemma}
+\begin{proof}
+With $r=(1-\eps)^{t-1}$, $P(000)=\eps+(1-\eps)(1-r)^3\ge\eps$ and, by symmetry of the three coordinates, $P_A(0)=P_B(0)=P_C(0)=1-(1-\eps)r=1-(1-\eps)^t\le t\eps$ by Bernoulli's inequality. Hence $P(000)^2\ge\eps^2$ and $P_A(0)P_B(0)P_C(0)\le t^3\eps^3$, and $\eps^2>t^3\eps^3$ exactly when $\eps<t^{-3}$. For $\eps_t=1/(2t^3)$ the difference is at least $\eps_t^2(1-t^3\eps_t)=\eps_t^2/2$.
+\end{proof}
+
+At $t=1$ the witness is $P_1=\tfrac12(\delta_{000}+\delta_{111})$ with $P_1(000)^2=1/4$ and $P_{1,A}(0)^3=1/8$; the margin $1/8$ is $\eps_1^2/2$.

@@ -1,0 +1,34 @@
+\section{Introduction}\label{sec:intro}
+
+In the classical triangle, three independent latent sources generate three observations through responses $A=A(X,Z)$, $B=B(X,Y)$ and $C=C(Z,Y)$. The sources may have arbitrary alphabets; here the observations are binary. Their compatible joint laws form a nonconvex set. Finite latent-cardinality bounds imply that this set has a finite semialgebraic description, but an explicit characterization remains unavailable even in the binary case \cite{Fritz2012,RGW2018}.
+
+Wolfe, Spekkens and Fritz introduced inflation as a test of causal compatibility \cite{WSF2019}. At order $t$, one copies each source $t$ times and asks for a joint law on the copied observations with specified marginals. Navascués and Wolfe proved that their hierarchy is asymptotically complete \cite{NW2020}. They also asked whether a fixed scenario and fixed observed alphabets admit a finite characterizing order. We give a negative answer for the binary triangle and quantify the order needed along an explicit family approaching compatibility.
+
+\paragraph{Theorem A: no finite order.}
+For the triangle no finite order suffices, already for binary observed variables. For every integer $t\ge1$ put
+\[
+\eps_t=\frac1{2t^3},\qquad r_t=(1-\eps_t)^{t-1},\qquad
+P_t=\eps_t\,\delta_{000}+(1-\eps_t)\,\Bern(r_t)^{\otimes3},
+\]
+where $\Bern(r)$ takes the value $1$ with probability $r$.
+
+\begin{theorem}\label{thm:main-intro}
+For every $t\ge1$, $P_t$ satisfies the complete order-$t$ Navascués--Wolfe inflation test for the triangle and is not compatible with the triangle: $P_t(000)^2-P_{t,A}(0)P_{t,B}(0)P_{t,C}(0)\ge\eps_t^2/2>0$, in violation of the Finner inequality that every triangle-compatible distribution obeys. Consequently, for the triangle with observed alphabets of any sizes $\ge2$, no finite order of the hierarchy characterizes classical compatibility.
+\end{theorem}
+
+We use the full order-$t$ test of \cite{NW2020}: a single normalized distribution on all $3t^2$ copied observations, invariant under independent permutations of the three families of copy indices, whose $t$ diagonal copies of the triangle are jointly distributed as $P_t^{\otimes t}$. The global law we construct satisfies, in addition, every ancestral-independence product prescription and every recursively expressible-set prescription of \cite{WSF2019}, so the conclusion holds for those stronger finite tests as well.
+
+The witness depends on the order: $\forall t\,\exists P_t$. Asymptotic completeness still rejects each fixed incompatible distribution at some finite order.
+
+\paragraph{Theorem B: a sharp rejecting-order exponent.}
+The second result measures how fast the required order grows along one family. For $0<\eps<1/8$, put $P_\eps=\eps\,\delta_{000}+(1-\eps)\Bern(1-\tfrac12\eps^{2/3})^{\otimes3}$; these laws are incompatible and converge to the compatible point $\delta_{111}$ as $\eps\downarrow0$. Their first rejecting order satisfies
+\[
+\tfrac12\le\liminf_{\eps\downarrow0}\eps^{1/3}\tmin^H(P_\eps)\le\limsup_{\eps\downarrow0}\eps^{1/3}\tmin^H(P_\eps)\le4-2\sqrt3
+\]
+for each of the three hierarchies (Proposition~\ref{prop:family}). We prove the exponent $1/3$; we do not prove that a limiting constant exists or what it is. The lower bound is the passing construction of Theorem A. The upper bound is an inequality that every order-$t$ feasible law obeys, $tP(000)\le P_A(0)+\binom t2P_B(0)P_C(0)$ (Theorem~\ref{thm:fan}). A second-moment inequality in the same theorem gives an explicit rejecting order for any Finner-violating law. Theorem~\ref{thm:distance} shows that $\eps$ is, to leading order, $(1-2^{-3/2})^{-1}$ times the total-variation distance from $P_\eps$ to the compatible set, so along this family the rejecting order diverges like the inverse cube root of the distance to compatibility. The statement is about one direction of approach to the boundary; Proposition~\ref{prop:Rp} gives another family approaching compatibility whose rejecting order is $2$.
+
+\paragraph{Bounds from distance and input size.}
+For a correlation scenario with $L$ sources and $K$ joint outcomes, a promised total-variation distance $\delta>0$ from compatibility gives the rejecting-order bound $\lfloor LK/(4\delta^2)\rfloor+1$ (Proposition~\ref{prop:promised}). This follows from the convergence argument of \cite{NW2020}. For rational binary-triangle laws with at most $B$ bits, the worst required order is $2^{\Theta(B)}$ (Proposition~\ref{prop:bits}). These are bounds on inflation order; the semialgebraic description also gives a separate decision procedure for exact compatibility.
+
+\paragraph{Method.}
+The construction is a ``defect cube'': independent Bernoulli$(\eps)$ bits $D_{ijk}$ on the cube $[t]^3$, with $A^{ij}=\prod_k(1-D_{ijk})$, $B^{ik}=\prod_j(1-D_{ijk})$, $C^{jk}=\prod_i(1-D_{ijk})$. Each copied triangle sees the three lines through one cell, which meet only at that cell, so its law is the mixture above; the $t$ diagonal triangles use disjoint families of cells, so they are independent; and permuting copy indices permutes independent bits. Incompatibility is the Finner inequality $P(000)^2\le P_A(0)P_B(0)P_C(0)$, proved by two applications of Cauchy--Schwarz for arbitrary stochastic responses and latent alphabets, following \cite{Finner1992,Renou2019}. The computer-assisted content consists of exact rational certificates at orders $1$, $2$ and $3$ and for the fan inequality along $P_\eps$; they check the analytic claims on finite tables and the proofs do not use them.

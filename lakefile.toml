@@ -1,0 +1,27 @@
+name = "triangleInflation"
+version = "0.1.0"
+keywords = ["math", "formal-proofs", "causal-inference", "inflation"]
+defaultTargets = ["TriangleInflation", "Palomar", "PalomarSolutions"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4"
+rev = "0df444a360eaa60ab8c11dca51a86af692955474"
+
+[[lean_lib]]
+name = "TriangleInflation"
+
+[[lean_lib]]
+name = "Palomar"
+# One Challenge per registry entry, Mathlib-only by Palomar's rule. Each is
+# built on its own; there is no aggregating root module.
+roots = ["Palomar.TriangleInflation.Challenge"]
+
+[[lean_lib]]
+name = "PalomarSolutions"
+# A Solution declares the same names as its Challenge (Comparator compares
+# them). Solutions live under their own root module, not under `Palomar`:
+# Palomar's verifier puts its recompiled Challenge first on LEAN_PATH, and Lean
+# resolves every module sharing that root directory there, so a Solution under
+# `Palomar.*` is never found (PalomarSubmission#108).
+roots = ["PalomarSolutions.TriangleInflation"]

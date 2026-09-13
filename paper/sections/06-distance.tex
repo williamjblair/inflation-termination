@@ -1,0 +1,61 @@
+\section{Distance to the compatible set}\label{sec:distance}
+
+The parameter $\eps$ of the family $P_\eps$ is, to leading order, a fixed multiple of the distance from $P_\eps$ to the compatible set, in total variation and in Euclidean norm. Combined with Proposition~\ref{prop:family} this turns the exponent into a statement about geometry near the boundary of $\Ctri$.
+
+\begin{theorem}[Distance asymptotics]\label{thm:distance}
+For $P_\eps=Q(\eps,1-\tfrac12\eps^{2/3})$, $0<\eps<1/8$,
+\[
+d_{\TV}(P_\eps,\Ctri)=\bigl(1-2^{-3/2}\bigr)\eps+O(\eps^{4/3}),\qquad
+d_2(P_\eps,\Ctri)=\sqrt{8/7}\,\bigl(1-2^{-3/2}\bigr)\eps+O(\eps^{4/3}).
+\]
+\end{theorem}
+
+\begin{corollary}[Direction-specific boundary complexity]\label{cor:geometry}
+For $H\in\{\mathrm{NW},\mathrm{AI},\mathrm{exp}\}$,
+\[
+\tmin^H(P_\eps)=\Theta\bigl(d_{\TV}(P_\eps,\Ctri)^{-1/3}\bigr)=\Theta\bigl(d_2(P_\eps,\Ctri)^{-1/3}\bigr)\qquad(\eps\downarrow0).
+\]
+This is a statement about one direction of approach to the boundary; by Proposition~\ref{prop:Rp} no such lower bound holds uniformly over all incompatible laws.
+\end{corollary}
+
+\begin{proof}[Proof of Theorem~\ref{thm:distance}]
+Put $\sigma=\tfrac12\eps^{2/3}$, $m=\eps+(1-\eps)\sigma$, $z=\eps+(1-\eps)\sigma^3$, $c_0=2^{-3/2}$ and $d_0=1-c_0$. We prove the lower bounds and then construct one compatible law attaining both leading constants.
+
+\emph{Lower bounds.} The product law $\Bern(1-\sigma)^{\otimes3}$ is compatible and within total variation $\eps$ of $P_\eps$. Compactness of $\Ctri$ gives a nearest law in either norm \cite{RGW2018}. A total-variation minimizer $Q$ therefore has distance $\delta=O(\eps)$. Since probabilities of events differ by at most $\delta$,
+\[
+Q(000)\ge z-\delta,\qquad Q_V(0)\le m+\delta\quad(V=A,B,C).
+\]
+Finner gives
+\[
+z-\delta\le(m+\delta)^{3/2}
+ =c_0\eps+O(\eps^{4/3}),
+\]
+so $\delta\ge d_0\eps-O(\eps^{4/3})$.
+
+A Euclidean minimizer $Q_2$ also satisfies $\|P_\eps-Q_2\|_2=O(\eps)$, by comparison with the product law. Cauchy--Schwarz bounds each one-variable marginal error by $2\|P_\eps-Q_2\|_2$, since each marginal sums four atoms. Hence Finner gives $Q_2(000)\le c_0\eps+O(\eps^{4/3})$. Set $D=P_\eps(000)-Q_2(000)$; then $D\ge d_0\eps-O(\eps^{4/3})>0$ for small $\eps$. The other seven coordinates of $Q_2-P_\eps$ sum to $D$, so
+\[
+\|Q_2-P_\eps\|_2^2\ge D^2+\frac{D^2}{7}.
+\]
+This proves the Euclidean lower bound.
+
+\emph{A compatible approximation.} Set $h=d_0/7$ and $u=\sigma+(c_0+h)\eps$. Each source carries a base bit with success probability $\sqrt u$ and a flag with success probability $h\eps$, all six bits independent. A node outputs $0$ if both incident base bits equal $1$ or either incident flag equals $1$. These probabilities lie in $[0,1]$ for small $\eps$, and the resulting law $Q_\eps$ belongs to $\Ctri$.
+
+Without flags, the atom probabilities are $u^{3/2}$ at $000$, $u-u^{3/2}$ at each one-zero atom, zero at each two-zero atom, and $1-3u+2u^{3/2}$ at $111$. A single flag forces the two nodes incident to its source to zero. Except on a base-output event of probability $O(u)$, it transfers mass from $111$ to the two-zero atom associated with that source. Multiple flags have probability $O(\eps^2)$. The errors from these exceptions are $O(\eps u+\eps^2)=O(\eps^{5/3})$.
+
+Using $u^{3/2}=c_0\eps+O(\eps^{4/3})$ gives the following atom probabilities, with an $O(\eps^{4/3})$ remainder in each entry:
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Atom & $P_\eps$ & $Q_\eps$ \\
+\midrule
+$000$ & $\eps$ & $c_0\eps$ \\
+Each of $011,101,110$ & $\sigma$ & $\sigma+h\eps$ \\
+Each of $001,010,100$ & $0$ & $h\eps$ \\
+$111$ & $1-3\sigma-\eps$ & $1-3\sigma-(c_0+6h)\eps$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+Since $1-c_0=7h$, the deviation at $000$ is $-d_0\eps+O(\eps^{4/3})$ and at each of the other seven atoms it is $h\eps+O(\eps^{4/3})$. Its total variation is $d_0\eps+O(\eps^{4/3})$ and its Euclidean norm is $\sqrt{8/7}\,d_0\eps+O(\eps^{4/3})$, proving both upper bounds.
+\end{proof}
+
+Corollary~\ref{cor:geometry} follows from Theorem~\ref{thm:distance} and Proposition~\ref{prop:family}. The constant $1-2^{-3/2}$ is the fraction of the rare atom $P_\eps(000)\approx\eps$ that no compatible law can retain once its zero marginals are pinned near $\tfrac12\eps^{2/3}$, by the Finner inequality.
