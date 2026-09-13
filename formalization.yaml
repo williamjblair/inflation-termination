@@ -45,9 +45,9 @@ sources:
       The manuscript is included in this repository under paper/ (main.pdf and its LaTeX
       sources) together with its claim, non-claim, priority and reproduction documents
       under paper/release/. It is not yet posted to arXiv; this registry entry is intended
-      to precede it and to be cited by it. The manuscript's own NONCLAIMS.md still carries
-      the line "Not formal (Lean) verification", written before this formalization existed;
-      the present repository is that verification for Theorem 3.2 and its corollary.
+      to precede it and to be cited by it. Its Section 11 ("Formal verification") and
+      paper/release/NONCLAIMS.md state exactly what this repository proves and what it
+      leaves unformalized.
   - title: "Inflation for quantum causal structures"
     authors: ["Miguel Navascués", "Elie Wolfe"]
     id: "https://doi.org/10.1007/s10955-020-02561-9"
@@ -131,11 +131,14 @@ status:
 automation:
   methods:
     - method: "agent"
-      models: []
+      models: ["claude-opus-5", "claude-fable-5-1"]
       framework: "Claude Code agent sessions"
       tool_setup: >-
-        The Lean development was produced in AI-agent sessions directed and audited by the
-        author, alongside an exact-rational certificate suite that checks the order 1, 2
+        The Lean development was produced in Claude Code agent sessions directed and audited by
+        the author: Claude Fable 5.1 planned the file layout, reviewed every theorem statement
+        against the manuscript before proofs were attempted, and audited the result; Claude
+        Opus 5 subagents wrote the definitions skeleton and the proofs, one file each, in
+        parallel. It was produced alongside an exact-rational certificate suite that checks the order 1, 2
         and 3 inflation linear programs and the fan certificates independently of Lean.
         Those certificates are described in paper/release/REPRODUCE.md and appendix
         paper/appendices/C-certificates.tex; the Lean proofs are analytic and do not depend

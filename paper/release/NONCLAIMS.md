@@ -29,5 +29,5 @@ The manuscript does not claim, and the reader must not infer:
 - **Not that the fan crossing is the first complete-LP rejection** in general.
 - **Not scenarios other than the triangle.**
 - **Not priority / firstness**; see PRIORITY_AUDIT.md.
-- **Not formal (Lean) verification.**
+- **Formal verification is partial, and its scope is stated.** Theorem 3.2 (Theorem A) with Lemmas 3.3–3.9 and Theorem 3.1 for the Navascués–Wolfe and ancestral-independence hierarchies, Appendix A, Theorem 4.1 with its rejecting-order bound, Proposition 4.2, the finite bounds of Proposition 5.1, and the triangle case of Proposition 7.1 are formalized in Lean 4 with Mathlib (`lean/ResourceTheory/Inflation/`; no `sorry`; axioms `propext`, `Classical.choice`, `Quot.sound` only; coverage map `lean/coverage/inflation-nontermination.json`). Not formalized: the recursively expressible hierarchy of Definition 2.3 (so formal membership statements cover I^AI_t ⊆ I^NW_t), arbitrary measurable latent spaces (the formal compatible set has finite latent alphabets, which is the weaker reading of incompatibility), Theorem 6.1, Corollary 6.2, Proposition 8.1, the liminf/limsup form of Proposition 5.1, and Corollary 3.4.
 - **Not the strong-converse or faithfulness theorems**, which belong to a separate paper.
