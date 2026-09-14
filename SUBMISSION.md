@@ -25,19 +25,19 @@ byte-identically from the library definition files.
 
 ## 1. Create the public repository
 
-- [ ] Create the public GitHub repository `williamjblair/inflation-termination`. That is the
+- [x] Create the public GitHub repository `williamjblair/inflation-termination`. Done 2026-09-14. That is the
       URL the manuscript already cites (the macro `\repourl` in `paper/main.tex`, one line
       to change if you pick another name or account; the abstract, the introduction,
       Section 16, Appendix B and the code-availability paragraph all use it). Renaming after
       registration is not free, because the record pins a repository URL.
-- [ ] `git remote add origin git@github.com:williamjblair/inflation-termination.git`
-- [ ] `git push -u origin main`
+- [x] Remote added and `main` pushed (2026-09-14; first pushed commit 805bd6d2e6d4cd0eb160253949e4615f6ee03e77).
 - [ ] Confirm that `paper/main.pdf` and the LaTeX sources are content you are willing to
       have public before the arXiv posting. This repository is meant to precede the
       preprint; `paper/release/RELEASE_STATUS.md` records that the manuscript has not been
       posted or submitted anywhere.
-- [ ] Record the full 40-character commit SHA of the pushed `main`. Palomar pins that exact
-      commit, so any later change needs a new version of the record.
+- [ ] Record the full 40-character commit SHA of the pushed `main` at the moment you submit
+      (`git rev-parse HEAD`; it moves with every commit, including this checklist edit).
+      Palomar pins that exact commit, so any later change needs a new version of the record.
 
 ## 2. Check the submission requirements once against the published standard
 
