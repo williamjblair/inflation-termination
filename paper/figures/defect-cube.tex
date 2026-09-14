@@ -1,21 +1,30 @@
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
+\centering
+\begin{minipage}[c]{.48\linewidth}
 \centering
 \begin{tikzpicture}[x={(1cm,0cm)},y={(.48cm,.32cm)},z={(0cm,1cm)}]
-\foreach \x in {0,...,3}{\foreach \y in {0,...,3}{\draw[black!12,thin] (\x,\y,0)--(\x,\y,3);}}
-\foreach \x in {0,...,3}{\foreach \z in {0,...,3}{\draw[black!12,thin] (\x,0,\z)--(\x,3,\z);}}
-\foreach \y in {0,...,3}{\foreach \z in {0,...,3}{\draw[black!12,thin] (0,\y,\z)--(3,\y,\z);}}
-\draw[inkblue,line width=1.5pt] (1,1,0)--(1,1,3) node[above,font=\small] {$A^{ij}$: vary $k$};
-\draw[inkrust,line width=1.5pt,dashed] (1,0,1)--(1,3,1) node[right,font=\small] {$B^{ik}$: vary $j$};
-\draw[inkgreen,line width=1.5pt,densely dotted] (0,1,1)--(3,1,1) node[right,font=\small] {$C^{jk}$: vary $i$};
+\foreach \x in {0,...,3}{\foreach \y in {0,...,3}{\draw[black!16,thin] (\x,\y,0)--(\x,\y,3);}}
+\foreach \x in {0,...,3}{\foreach \z in {0,...,3}{\draw[black!16,thin] (\x,0,\z)--(\x,3,\z);}}
+\foreach \y in {0,...,3}{\foreach \z in {0,...,3}{\draw[black!16,thin] (0,\y,\z)--(3,\y,\z);}}
+\draw[inkblue,line width=1.5pt] (1,1,0)--(1,1,3);
+\draw[inkrust,line width=1.5pt,dashed] (1,0,1)--(1,3,1);
+\draw[inkgreen,line width=1.5pt,densely dotted] (0,1,1)--(3,1,1);
 \fill (1,1,1) circle (2.5pt);
-\node[fill=white,inner sep=2pt,anchor=east,font=\small] (d) at (-.8,.4,1.7) {$D_{ijk}$};
-\draw[-{Latex}] (d.east)--(1,1,1);
+\node[anchor=east,font=\small] (d) at (-.25,0,1.9) {$D_{ijk}$};
+\draw[-{Latex},shorten >=3pt] (d.east)--(1,1,1);
 \end{tikzpicture}
-\hspace{5mm}
-\begin{minipage}[b]{.35\linewidth}\small
-The three lines share one cell.\\[5pt]
-$D_{ijk}=1$: all three outputs are zero.\\[5pt]
-$D_{ijk}=0$: the remaining inputs are disjoint, giving three independent $\Bern(r)$ outputs.\\[5pt]
+\end{minipage}\hfill
+\begin{minipage}[c]{.47\linewidth}
+\small\raggedright
+\begin{tabular}{@{}ll@{}}
+\textcolor{inkblue}{\rule[2pt]{16pt}{1pt}} & $A^{ij}$: vary $k$ (solid)\\[4pt]
+\textcolor{inkrust}{\tikz\draw[dashed,line width=1pt] (0,0)--(.56,0);} & $B^{ik}$: vary $j$ (dashed)\\[4pt]
+\textcolor{inkgreen}{\tikz\draw[densely dotted,line width=1pt] (0,0)--(.56,0);} & $C^{jk}$: vary $i$ (dotted)
+\end{tabular}
+\par\medskip
+The three lines share one cell.\par\smallskip
+$D_{ijk}=1$: all three outputs are zero.\par\smallskip
+$D_{ijk}=0$: the remaining inputs are disjoint, giving three independent $\Bern(r)$ outputs.\par\smallskip
 $\Law(\Delta_{ijk})=Q(\eps,r)$.
 \end{minipage}
 \caption{The defect-cube construction, shown for four indices per axis. A copied observation outputs one precisely when all defects on its line and its private bit are zero. The shared cell supplies the $\eps\delta_{000}$ component; disjoint residual lines supply the product component. These defects construct an inflation witness, not independent pair sources for the target.}\label{fig:defect-cube}

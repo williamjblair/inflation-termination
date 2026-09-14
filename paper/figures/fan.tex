@@ -1,13 +1,16 @@
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 \centering
 \begin{tikzpicture}[x=1cm,y=1cm]
-\node[observer,draw=inkblue] (a) at (4,2.2) {$A^{11}$};
-\foreach \k/\x in {1/0,2/2.5,3/5,4/7.5}{
-\node[observer] (b\k) at (\x,0) {$B^{1\k}$};
-\node[observer] (c\k) at (\x+1,0) {$C^{1\k}$};
-\draw[network,black!45] (a)--(b\k)--(c\k)--(a);
+\node[observer,draw=inkblue,minimum size=8mm] (a) at (4.7,2.5) {$A^{11}$};
+\foreach \k/\x in {1/0,2/2.8,3/5.6,4/8.4}{
+\node[observer,minimum size=8mm] (b\k) at (\x,0) {$B^{1\k}$};
+\node[observer,minimum size=8mm] (c\k) at (\x+1,0) {$C^{1\k}$};
 }
-\draw[inkrust,dashed,line width=1pt] (b1.south) to[bend right=20] node[below,font=\small] {different $Y$ indices: $\mathbb E[\mathsf B_1\mathsf C_3]=bc$} (c3.south);
+\begin{scope}[on background layer]
+\foreach \k in {1,...,4}{\draw[network,black!45] (b\k)--(a)--(c\k) (b\k)--(c\k);}
+\end{scope}
+\draw[inkrust,dashed,line width=1pt] (b1.south) .. controls (0,-1.2) and (6.6,-1.2) .. (c3.south);
+\node[font=\small,inkrust,align=center] at (4.7,-1.8) {Different $Y$ indices: disjoint ancestors\\[4pt]$\mathbb E[\mathsf B_1\mathsf C_3]=bc$};
 \end{tikzpicture}
 \caption{A fan with four copied triangles sharing $A^{11}$. Solid edges indicate shared ancestry within each triangle; the drawing is an incidence schematic. The cross pair $B^{1k},C^{1\ell}$ has disjoint ancestors for $k\ne\ell$ and can be placed in distinct diagonal rows. These cross moments yield both inequalities in Theorem~\ref{thm:fan}.}\label{fig:fan}
 \end{figure}

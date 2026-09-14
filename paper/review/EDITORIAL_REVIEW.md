@@ -64,3 +64,12 @@ The main Lean statements and certificate bytes were not changed. New prose proof
 ## Publication state
 
 This is a local revision. No push, arXiv upload, Palomar registration, or message to another person was performed. The previously registered version 1 and the pending version-2 submission described by the author identify their earlier snapshots. The local revision should not be described as the manuscript already attached to either record.
+
+
+## Figure and spacing follow-up
+
+The layout review after commit `802d4ab` revised all eight figures: aligned panel labels and node sizes, increased the convex-order arrow clearance, moved defect-cube labels into a separate legend, separated the fan connector from its explanation, and widened the threshold plot gutter. Caption and float spacing is now explicit. Float barriers keep the path illustration before the target-properties lemma and the convex-order diagram before the following corollary. Both tables have improved row spacing; the certificate table uses ragged-right columns, and bibliography URLs can wrap without stretching prose.
+
+The manuscript remains 53 pages with eight figures. All pages were rendered for a layout sweep, with enlarged inspection of every figure, both numbered tables, and the bibliography. Main and standalone builds were checked again; the mathematical statements, Lean sources, and certificate data were unchanged in this follow-up. Earlier Lean and exact arithmetic checks above were not rerun for these layout changes.
+
+The editorial revision was committed and pushed as `802d4ab`; the author has also authorized committing and pushing this layout follow-up. Neither action updates an arXiv submission or a Palomar record.

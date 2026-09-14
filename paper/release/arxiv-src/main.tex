@@ -2,9 +2,10 @@
 \usepackage[margin=1.1in]{geometry}
 \usepackage{amsmath,amssymb,amsthm,mathtools}
 \usepackage{microtype}
+\usepackage{xurl}
 \usepackage[hidelinks]{hyperref}
 \hypersetup{pdftitle={Inflation for Classical Pair-Source Networks: Termination and Quantitative Obstructions},pdfauthor={William Blair}}
-\usepackage{booktabs}
+\usepackage{booktabs,array}
 \usepackage{enumitem}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
@@ -12,6 +13,11 @@
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta,positioning,calc,backgrounds}
 \usepackage[font=small,labelfont=bf]{caption}
+\captionsetup[figure]{skip=10pt}
+\captionsetup[table]{skip=8pt}
+\setlength{\textfloatsep}{16pt plus 2pt minus 2pt}
+\setlength{\intextsep}{16pt plus 2pt minus 2pt}
+\setlength{\floatsep}{14pt plus 2pt minus 2pt}
 \usepackage[section]{placeins}
 \definecolor{inkblue}{HTML}{245577}
 \definecolor{inkrust}{HTML}{A54F2A}
@@ -83,7 +89,7 @@ Let $G$ be a finite simple graph without isolated vertices, with binary observed
 
 The proof has three ingredients. On a double-star, an inflation witness determines joint response tables for the two central vertices (Theorem~\ref{thm:doublestar}). Every other connected graph contains an induced cycle or a five-vertex path. We construct an incompatible law accepted at each prescribed order on both types of subgraph, then extend it to the ambient graph (Theorems~\ref{thm:cycle} and~\ref{thm:fivepath}, Lemma~\ref{lem:transport}). Figure~\ref{fig:classification} illustrates the dividing line. The reconstruction extends the order-two star result of Navascués and Wolfe~\cite{NW2020} and resolves their four-on-line example for binary endpoints.
 
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 \centering
 \begin{tikzpicture}[x=1cm,y=1cm]
 \node[font=\small\bfseries,inkgreen] at (1.9,1.6) {Finite termination};
@@ -91,17 +97,17 @@ The proof has three ingredients. On a double-star, an inflation witness determin
 \draw[network,inkgreen,line width=1.4pt] (b)--(c);
 \foreach \i/\x/\y in {1/0/0.85,2/0/-0.85,3/3.8/0.85,4/3.8/-0.85}{\node[observer,minimum size=3mm] (l\i) at (\x,\y) {};}
 \draw[network] (l1)--(b)--(l2) (l3)--(c)--(l4);
-\node[font=\small,align=center] at (1.9,-1.5) {Double-stars\\diameter $\le3$};
-\node[font=\small,inkgreen] at (1.9,-2.25) {$\mathcal I_2^H(G)=\mathcal C_G$};
-\draw[black!25] (4.7,1.8)--(4.7,-2.55);
+\node[font=\small,align=center] at (1.9,-1.7) {Double-stars\\[3pt]diameter $\le3$};
+\node[font=\small,inkgreen] at (1.9,-2.65) {$\mathcal I_2^H(G)=\mathcal C_G$};
+\draw[black!25] (4.7,1.9)--(4.7,-2.95);
 \node[font=\small\bfseries,inkrust] at (8.2,1.6) {Obstructions at every order};
 \foreach \i/\a in {0/90,1/18,2/-54,3/-126,4/162}{\node[observer,minimum size=3mm] (v\i) at ($(6.3,0.05)+(\a:.9)$) {};}
 \draw[network] (v0)--(v1)--(v2)--(v3)--(v4)--(v0);
-\node[font=\small] at (6.3,-1.5) {Induced cycle $C_m$};
+\node[font=\small,align=center] at (6.3,-1.7) {Induced cycle\\[3pt]$C_m$};
 \foreach \i in {0,...,4}{\node[observer,minimum size=3mm] (p\i) at (8.3+0.62*\i,0) {};}
 \draw[network] (p0)--(p1)--(p2)--(p3)--(p4);
-\node[font=\small] at (9.55,-1.5) {Induced path $P_5$};
-\node[font=\small,inkrust] at (8.2,-2.25) {$\mathcal C_G\subsetneq\mathcal I_t^H(G)\quad\text{for every }t$};
+\node[font=\small,align=center] at (9.55,-1.7) {Induced path\\[3pt]$P_5$};
+\node[font=\small,inkrust] at (8.2,-2.65) {$\mathcal C_G\subsetneq\mathcal I_t^H(G)\quad\text{for every }t$};
 \end{tikzpicture}
 \caption{The classification for binary pair-source scenarios. Vertices denote observers and edges independent pair sources. A graph terminates precisely when each component is a double-star. Every other component contains an induced cycle or $P_5$, from which an incompatible order-$t$ law extends to the whole graph. Here $H$ is NW, AI or exp.}\label{fig:classification}
 \end{figure}
@@ -154,22 +160,22 @@ A\sim\kappa_A(\cdot\mid X,Z),\qquad B\sim\kappa_B(\cdot\mid X,Y),\qquad C\sim\ka
 \]
 conditionally independently given the sources. Write $\Ctri$ for the set of joint laws of $(A,B,C)$ obtained this way for binary alphabets; the notation extends to any fixed finite alphabets. Assign each node an independent random seed and include that seed in one of its incident sources; the other node sharing that source ignores it. This preserves the triangle graph and shows that stochastic and deterministic responses generate the same set of observed laws \cite{WSF2019}; we use whichever description is convenient. By a theorem of Rosset, Gisin and Wolfe \cite{RGW2018}, latent alphabets may be taken finite of bounded size, so $\Ctri$ is compact and semialgebraic; we use compactness in Section~\ref{sec:distance} and semialgebraicity in Section~\ref{sec:bits}.
 
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 \centering
 \begin{tikzpicture}[x=1cm,y=1cm]
 \foreach \off/\suffix in {0/a,6/b}{
 \node[source] (X\suffix) at (\off,1.2) {\ifnum\off=0 $X$\else $X_i$\fi};
 \node[source] (Z\suffix) at (\off+1.8,1.2) {\ifnum\off=0 $Z$\else $Z_j$\fi};
 \node[source] (Y\suffix) at (\off+3.6,1.2) {\ifnum\off=0 $Y$\else $Y_k$\fi};
-\node[observer] (A\suffix) at (\off+0.3,-.5) {\ifnum\off=0 $A$\else $A^{ij}$\fi};
-\node[observer] (B\suffix) at (\off+1.8,-.5) {\ifnum\off=0 $B$\else $B^{ik}$\fi};
-\node[observer] (C\suffix) at (\off+3.3,-.5) {\ifnum\off=0 $C$\else $C^{jk}$\fi};
+\node[observer,minimum size=8mm] (A\suffix) at (\off+0.3,-.5) {\ifnum\off=0 $A$\else $A^{ij}$\fi};
+\node[observer,minimum size=8mm] (B\suffix) at (\off+1.8,-.5) {\ifnum\off=0 $B$\else $B^{ik}$\fi};
+\node[observer,minimum size=8mm] (C\suffix) at (\off+3.3,-.5) {\ifnum\off=0 $C$\else $C^{jk}$\fi};
 \draw[causal] (X\suffix)--(A\suffix); \draw[causal] (X\suffix)--(B\suffix);
 \draw[causal] (Z\suffix)--(A\suffix); \draw[causal] (Z\suffix)--(C\suffix);
 \draw[causal] (Y\suffix)--(B\suffix); \draw[causal] (Y\suffix)--(C\suffix);
 }
-\node[font=\small] at (1.8,-1.2) {Original scenario};
-\node[font=\small] at (8.3,-1.2) {One copied triangle $\Delta_{ijk}$};
+\node[font=\small] at (1.8,-1.45) {Original scenario};
+\node[font=\small] at (7.8,-1.45) {One copied triangle $\Delta_{ijk}$};
 \draw[-{Latex},black!50] (4.3,.4)--node[above,font=\small] {copy}(5.8,.4);
 \end{tikzpicture}
 \caption{Sources (squares) and observations (circles) in the triangle. Each copied observation carries the indices of its two source parents. Diagonal triangles $\Delta_{\ell\ell\ell}$ use disjoint source copies; the NW test requires their joint law to be $P^{\otimes t}$. The full order-$t$ table includes all $3t^2$ copied observations.}\label{fig:triangle}
@@ -747,23 +753,23 @@ As illustrated in Figure~\ref{fig:cycle-reduction}, partition $\{0,\dots,m-1\}$ 
 Let $R\in\Ccyc$ and $\delta=d_{\TV}(P_{m,q},R)$. Total variation does not increase under $\varphi$, so $Q=\varphi_*R\in\Ctri$ satisfies $d_{\TV}(\Pi(-q,-q,-q),Q)\le\delta$. Since $|\E_Pf-\E_Qf|\le2d_{\TV}(P,Q)$ for $|f|\le1$, the parity $W=\E_Q[V_1V_2V_3]$ satisfies $1-W\le2\delta$ and each mean $\E_QV_r$ is at most $-q+2\delta$. Lemma~\ref{lem:quantrigidity} gives $-q+2\delta\ge-4(1-W)\ge-8\delta$, that is $\delta\ge q/10$.
 \end{proof}
 
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 \centering
 \begin{tikzpicture}[x=1cm,y=1cm]
-\foreach \i/\a in {0/120,1/60,2/0,3/-60,4/-120,5/180}{\node[observer,minimum size=5mm] (o\i) at (\a:1.5) {$O_\i$};}
+\foreach \i/\a in {0/120,1/60,2/0,3/-60,4/-120,5/180}{\node[observer,minimum size=7mm] (o\i) at (\a:1.5) {$O_\i$};}
 \draw[network,inkblue,line width=2pt] (o0)--(o1);
 \draw[network,inkrust,line width=2pt] (o2)--(o3);
 \draw[network,inkgreen,line width=2pt] (o4)--(o5);
-\draw[network] (o1)--node[right,font=\scriptsize] {$S_1$}(o2);
-\draw[network] (o3)--node[below,font=\scriptsize] {$S_3$}(o4);
-\draw[network] (o5)--node[left,font=\scriptsize] {$S_5$}(o0);
+\draw[network] (o1)--node[right=2pt,font=\small] {$S_1$}(o2);
+\draw[network] (o3)--node[below=2pt,font=\small] {$S_3$}(o4);
+\draw[network] (o5)--node[left=2pt,font=\small] {$S_5$}(o0);
 \draw[-{Latex}] (2.5,0)--node[above,align=center,font=\small] {multiply within\\each arc}(5,0);
 \node[observer,draw=inkblue] (v1) at (7,1.2) {$V_1$};
 \node[observer,draw=inkrust] (v2) at (8.3,-1) {$V_2$};
 \node[observer,draw=inkgreen] (v3) at (5.7,-1) {$V_3$};
-\draw[network] (v1)--node[right,font=\scriptsize] {$S_1$}(v2)--node[below,font=\scriptsize] {$S_3$}(v3)--node[left,font=\scriptsize] {$S_5$}(v1);
-\node[font=\small] at (0,-2.2) {Example: three arcs of $C_6$};
-\node[font=\small] at (7,-2.2) {$V_r=\prod_{v\in\Lambda_r}O_v$};
+\draw[network] (v1)--node[right=2pt,font=\small] {$S_1$}(v2)--node[below=2pt,font=\small] {$S_3$}(v3)--node[left=2pt,font=\small] {$S_5$}(v1);
+\node[font=\small] at (0,-2.45) {Example: three arcs of $C_6$};
+\node[font=\small] at (7,-2.45) {$V_r=\prod_{v\in\Lambda_r}O_v$};
 \end{tikzpicture}
 \caption{Reducing cycle incompatibility to triangle parity rigidity. Partition any cycle into three nonempty contiguous arcs and multiply the observations within each arc. The three boundary sources form a triangle; internal sources become private randomness. The target reduces to $\Pi(-q,-q,-q)$, and total variation cannot increase under this map.}\label{fig:cycle-reduction}
 \end{figure}
@@ -804,19 +810,20 @@ with $X,L,R,Z$ mutually independent (Figure~\ref{fig:path}). We write $\Cpath$ f
 A^a,\qquad B^{ai},\qquad C^{ij},\qquad D^{je},\qquad E^e .
 \]
 
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 \centering
 \begin{tikzpicture}[x=1cm,y=1cm]
 \foreach \v/\x in {A/0,B/2.4,C/4.8,D/7.2,E/9.6}{\node[observer] (\v) at (\x,0) {$\v$};}
 \foreach \s/\x/\a/\b in {X/1.2/A/B,L/3.6/B/C,R/6/C/D,Z/8.4/D/E}{
-\node[source] (\s) at (\x,1.2) {$\s$};
+\node[source] (\s) at (\x,1.25) {$\s$};
 \draw[causal] (\s)--(\a);\draw[causal] (\s)--(\b);
 }
-\node[font=\small,below=3mm of A] {$x\in\{0,1\}$};
-\node[font=\small,below=3mm of E] {$z\in\{0,1\}$};
-\node[font=\small,align=center] at (4.8,-1.25) {Condition on the endpoint outcomes $x,z$:\\$f_{xz}=\mathbb E_{L,R}[b_x(L)c(L,R)d_z(R)]$};
-\draw[inkblue,line width=1pt] (2.1,-.6)--(7.5,-.6);
-\node[font=\small,align=center] at (4.8,-2.25) {Compatibility: $\sqrt{|I|}+\sqrt{|J|}\le1$\qquad Target: $I=J=(1+h)/4$};
+\node[font=\small,below=4mm of A] {$x\in\{0,1\}$};
+\node[font=\small,below=4mm of E] {$z\in\{0,1\}$};
+\draw[inkblue,line width=.8pt] (2.1,-.6)--(2.1,-.75)--(7.5,-.75)--(7.5,-.6);
+\node[font=\small,align=center] at (4.8,-1.5) {Condition on the endpoint outcomes $x,z$\\[4pt]$f_{xz}=\mathbb E_{L,R}[b_x(L)c(L,R)d_z(R)]$};
+\node[font=\small,align=center] at (2.2,-2.65) {Compatibility\\[4pt]$\sqrt{|I|}+\sqrt{|J|}\le1$};
+\node[font=\small,align=center] at (7.4,-2.65) {Target\\[4pt]$I=J=(1+h)/4$};
 \end{tikzpicture}
 \caption{The five-observer path. Conditioning on $A=x$ and $E=z$ changes only the outer sources $X,Z$; the inner sources $L,R$ remain independent. This gives the bilocal inequality. The target violates it by $\sqrt{1+h}-1$ while retaining full support.}\label{fig:path}
 \end{figure}
@@ -831,6 +838,7 @@ P_h(x,b,c,d,z)=\frac1{32}\Bigl[1+bcd\,\frac{1+h}4\bigl(1+(-1)^{x+z}\bigr)\Bigr],
 \qquad x,z\in\{0,1\},\ b,c,d\in\{-1,1\}.
 \end{equation}
 \end{definition}
+\FloatBarrier
 
 \begin{lemma}[Properties of $P_h$]\label{lem:pathtarget}
 $P_h$ is a probability law, every atom is at least $(1-h)/64$, the pair $(A,E)$ consists of independent fair bits, every proper nonempty moment of $(B,C,D)$ conditional on $(A,E)$ vanishes, and
@@ -1166,15 +1174,15 @@ d_{\TV}(P,\Cscen{G})\le\tfrac12\|P-q_\omega\|_1\le\frac{\sqrt K}2\|P-q_\omega\|_
 using $\|P\|_2^2\ge1/K$. Total variation never exceeds $1$.
 \end{proof}
 
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 \centering
-\begin{tikzpicture}[box/.style={draw,rounded corners=1mm,align=center,font=\small,inner sep=7pt}]
-\node[box] (table) at (0,0) {Draw a table\\$\omega\sim\Gamma$};
-\node[box] (emp) at (7,1.05) {Permute each source's indices\\read $n$ rows: $\widehat P$\\$\widehat P\overset{d}{=}\widehat P_n$};
-\node[box] (comp) at (7,-1.05) {Sample source indices independently\\compatible law $q_\omega\in\mathcal C_G$};
-\draw[-{Latex}] (table.east)--(emp.west);
-\draw[-{Latex}] (table.east)--(comp.west);
-\draw[-{Latex},inkblue] (emp.south)--node[right,font=\small] {$\mathbb E[\widehat P\mid\omega]=q_\omega$}(comp.north);
+\begin{tikzpicture}[box/.style={draw,rounded corners=1mm,align=center,font=\small,inner sep=8pt,text width=5.8cm}]
+\node[box,text width=2.2cm] (table) at (0,0) {Draw a table\\[3pt]$\omega\sim\Gamma$};
+\node[box] (emp) at (6.7,1.45) {Permute each source's indices\\read $n$ rows: $\widehat P$\\[3pt]$\widehat P\overset{d}{=}\widehat P_n$};
+\node[box] (comp) at (6.7,-1.45) {Sample source indices independently\\[3pt]compatible law $q_\omega\in\mathcal C_G$};
+\draw[-{Latex}] (table.north east)--(emp.west);
+\draw[-{Latex}] (table.south east)--(comp.west);
+\draw[-{Latex},inkblue] (emp.south)--node[right=5pt,font=\small,fill=white,inner sep=3pt] {$\mathbb E[\widehat P\mid\omega]=q_\omega$}(comp.north);
 \end{tikzpicture}
 \caption{The conditional expectation behind the convex-order bound. The same table yields an empirical distribution through permuted diagonal rows and a compatible law through independent source indices. Conditional Jensen compares their convex functionals. Squared Euclidean distance then gives the source-count-independent bound.}\label{fig:convex-order}
 \end{figure}
@@ -1182,6 +1190,7 @@ using $\|P\|_2^2\ge1/K$. Total variation never exceeds $1$.
 
 The sampling mechanism is that of the finite de Finetti estimate of \cite[Section 4.2 and eq.~(A7)]{NW2020}, which bounds the same quantity by $L(1-\|P\|_2^2)/n$ for $L$ sources through the collision probability of two index samples. Using the full diagonal law through a conditional expectation, rather than its first two degrees, removes the factor $L$. Section~\ref{sec:general} draws the rejecting-order consequence.
 
+\FloatBarrier
 \begin{corollary}[Brackets for the square and the triangle]\label{cor:brackets}
 For every $t\ge1$,
 \[
@@ -1285,9 +1294,11 @@ Consequently $\INW_3(\square)\subsetneq\IAI_2(\square)=\Iexp_2(\square)\subsetne
 \begin{table}
 \centering
 \small
+\renewcommand{\arraystretch}{1.15}
 \begin{tabular}{r@{\quad}ll@{\qquad}ll}
 \toprule
 & \multicolumn{2}{c}{square} & \multicolumn{2}{c}{triangle}\\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
 $t$ & $q^{\mathrm{AI}}_t$ & $q^{\mathrm{NW}}_t$ & $q^{\mathrm{AI}}_t$ & $q^{\mathrm{NW}}_t$\\
 \midrule
 1 & $3-2\sqrt2$ & $3-2\sqrt2$ & $1/3$ & $1/3$\\
@@ -1383,24 +1394,33 @@ For rational $\eps$, these entries are rational. Here $F_t$ is the map \eqref{eq
 
 $\Gamma_t$ does not come from running an inflated triangle model; it is a probability law on the copied observations, which is what a finite inflation test asks for.
 
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
+\centering
+\begin{minipage}[c]{.48\linewidth}
 \centering
 \begin{tikzpicture}[x={(1cm,0cm)},y={(.48cm,.32cm)},z={(0cm,1cm)}]
-\foreach \x in {0,...,3}{\foreach \y in {0,...,3}{\draw[black!12,thin] (\x,\y,0)--(\x,\y,3);}}
-\foreach \x in {0,...,3}{\foreach \z in {0,...,3}{\draw[black!12,thin] (\x,0,\z)--(\x,3,\z);}}
-\foreach \y in {0,...,3}{\foreach \z in {0,...,3}{\draw[black!12,thin] (0,\y,\z)--(3,\y,\z);}}
-\draw[inkblue,line width=1.5pt] (1,1,0)--(1,1,3) node[above,font=\small] {$A^{ij}$: vary $k$};
-\draw[inkrust,line width=1.5pt,dashed] (1,0,1)--(1,3,1) node[right,font=\small] {$B^{ik}$: vary $j$};
-\draw[inkgreen,line width=1.5pt,densely dotted] (0,1,1)--(3,1,1) node[right,font=\small] {$C^{jk}$: vary $i$};
+\foreach \x in {0,...,3}{\foreach \y in {0,...,3}{\draw[black!16,thin] (\x,\y,0)--(\x,\y,3);}}
+\foreach \x in {0,...,3}{\foreach \z in {0,...,3}{\draw[black!16,thin] (\x,0,\z)--(\x,3,\z);}}
+\foreach \y in {0,...,3}{\foreach \z in {0,...,3}{\draw[black!16,thin] (0,\y,\z)--(3,\y,\z);}}
+\draw[inkblue,line width=1.5pt] (1,1,0)--(1,1,3);
+\draw[inkrust,line width=1.5pt,dashed] (1,0,1)--(1,3,1);
+\draw[inkgreen,line width=1.5pt,densely dotted] (0,1,1)--(3,1,1);
 \fill (1,1,1) circle (2.5pt);
-\node[fill=white,inner sep=2pt,anchor=east,font=\small] (d) at (-.8,.4,1.7) {$D_{ijk}$};
-\draw[-{Latex}] (d.east)--(1,1,1);
+\node[anchor=east,font=\small] (d) at (-.25,0,1.9) {$D_{ijk}$};
+\draw[-{Latex},shorten >=3pt] (d.east)--(1,1,1);
 \end{tikzpicture}
-\hspace{5mm}
-\begin{minipage}[b]{.35\linewidth}\small
-The three lines share one cell.\\[5pt]
-$D_{ijk}=1$: all three outputs are zero.\\[5pt]
-$D_{ijk}=0$: the remaining inputs are disjoint, giving three independent $\Bern(r)$ outputs.\\[5pt]
+\end{minipage}\hfill
+\begin{minipage}[c]{.47\linewidth}
+\small\raggedright
+\begin{tabular}{@{}ll@{}}
+\textcolor{inkblue}{\rule[2pt]{16pt}{1pt}} & $A^{ij}$: vary $k$ (solid)\\[4pt]
+\textcolor{inkrust}{\tikz\draw[dashed,line width=1pt] (0,0)--(.56,0);} & $B^{ik}$: vary $j$ (dashed)\\[4pt]
+\textcolor{inkgreen}{\tikz\draw[densely dotted,line width=1pt] (0,0)--(.56,0);} & $C^{jk}$: vary $i$ (dotted)
+\end{tabular}
+\par\medskip
+The three lines share one cell.\par\smallskip
+$D_{ijk}=1$: all three outputs are zero.\par\smallskip
+$D_{ijk}=0$: the remaining inputs are disjoint, giving three independent $\Bern(r)$ outputs.\par\smallskip
 $\Law(\Delta_{ijk})=Q(\eps,r)$.
 \end{minipage}
 \caption{The defect-cube construction, shown for four indices per axis. A copied observation outputs one precisely when all defects on its line and its private bit are zero. The shared cell supplies the $\eps\delta_{000}$ component; disjoint residual lines supply the product component. These defects construct an inflation witness, not independent pair sources for the target.}\label{fig:defect-cube}
@@ -1517,16 +1537,19 @@ and the same bound holds for $\tmin^{\mathrm{AI}}$ and $\tmin^{\mathrm{exp}}$.
 
 This gives an explicit rejecting order in terms of four probabilities. Relabelling the local outcomes gives the corresponding bound for a Finner violation at any atom.
 
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 \centering
 \begin{tikzpicture}[x=1cm,y=1cm]
-\node[observer,draw=inkblue] (a) at (4,2.2) {$A^{11}$};
-\foreach \k/\x in {1/0,2/2.5,3/5,4/7.5}{
-\node[observer] (b\k) at (\x,0) {$B^{1\k}$};
-\node[observer] (c\k) at (\x+1,0) {$C^{1\k}$};
-\draw[network,black!45] (a)--(b\k)--(c\k)--(a);
+\node[observer,draw=inkblue,minimum size=8mm] (a) at (4.7,2.5) {$A^{11}$};
+\foreach \k/\x in {1/0,2/2.8,3/5.6,4/8.4}{
+\node[observer,minimum size=8mm] (b\k) at (\x,0) {$B^{1\k}$};
+\node[observer,minimum size=8mm] (c\k) at (\x+1,0) {$C^{1\k}$};
 }
-\draw[inkrust,dashed,line width=1pt] (b1.south) to[bend right=20] node[below,font=\small] {different $Y$ indices: $\mathbb E[\mathsf B_1\mathsf C_3]=bc$} (c3.south);
+\begin{scope}[on background layer]
+\foreach \k in {1,...,4}{\draw[network,black!45] (b\k)--(a)--(c\k) (b\k)--(c\k);}
+\end{scope}
+\draw[inkrust,dashed,line width=1pt] (b1.south) .. controls (0,-1.2) and (6.6,-1.2) .. (c3.south);
+\node[font=\small,inkrust,align=center] at (4.7,-1.8) {Different $Y$ indices: disjoint ancestors\\[4pt]$\mathbb E[\mathsf B_1\mathsf C_3]=bc$};
 \end{tikzpicture}
 \caption{A fan with four copied triangles sharing $A^{11}$. Solid edges indicate shared ancestry within each triangle; the drawing is an incidence schematic. The cross pair $B^{1k},C^{1\ell}$ has disjoint ancestors for $k\ne\ell$ and can be placed in distinct diagonal rows. These cross moments yield both inequalities in Theorem~\ref{thm:fan}.}\label{fig:fan}
 \end{figure}
@@ -1760,7 +1783,8 @@ Table~\ref{tab:verification} summarizes the finite checks. All certificate check
 
 \begin{table}[htbp]
 \centering\small
-\begin{tabular}{@{}p{.21\linewidth}p{.20\linewidth}p{.51\linewidth}@{}}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{.21\linewidth}>{\raggedright\arraybackslash}p{.23\linewidth}>{\raggedright\arraybackslash}p{.48\linewidth}@{}}
 \toprule
 Certificate set & Range & Checked properties\\
 \midrule
@@ -1964,6 +1988,9 @@ The manuscript sources, figure-generation script, exact certificates and Lean de
 \section*{Acknowledgments}
 The author used AI systems in preparing the manuscript and verification code and takes responsibility for the content. Section~\ref{sec:repro} distinguishes the analytic proofs, finite certificate checks and Lean formalization.
 
+\begingroup
+\raggedright
 \bibliographystyle{plainurl}
 \bibliography{references}
+\endgroup
 \end{document}

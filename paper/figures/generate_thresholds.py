@@ -17,10 +17,11 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 plt.rcParams.update({
     "font.family": "serif", "font.size": 10, "axes.labelsize": 11,
-    "axes.titlesize": 12, "pdf.fonttype": 42, "ps.fonttype": 42,
+    "axes.titlesize": 11, "pdf.fonttype": 42, "ps.fonttype": 42,
     "axes.spines.top": False, "axes.spines.right": False,
 })
-fig, axes = plt.subplots(1, 2, figsize=(6.25, 2.85), layout="constrained")
+fig, axes = plt.subplots(1, 2, figsize=(6.25, 2.95), layout="constrained")
+fig.get_layout_engine().set(w_pad=0.06, h_pad=0.06, wspace=0.12)
 provenance = {"quantity": "t times the certified parity threshold", "sources": {}}
 for ax, name, ceiling in zip(axes, ("square", "triangle"), (.46, 1.0)):
     path = ROOT / "artifact/certificates/exponent/certificates" / f"{name}.json"

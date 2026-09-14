@@ -1,4 +1,4 @@
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 \centering
 \begin{tikzpicture}[x=1cm,y=1cm]
 \node[font=\small\bfseries,inkgreen] at (1.9,1.6) {Finite termination};
@@ -6,17 +6,17 @@
 \draw[network,inkgreen,line width=1.4pt] (b)--(c);
 \foreach \i/\x/\y in {1/0/0.85,2/0/-0.85,3/3.8/0.85,4/3.8/-0.85}{\node[observer,minimum size=3mm] (l\i) at (\x,\y) {};}
 \draw[network] (l1)--(b)--(l2) (l3)--(c)--(l4);
-\node[font=\small,align=center] at (1.9,-1.5) {Double-stars\\diameter $\le3$};
-\node[font=\small,inkgreen] at (1.9,-2.25) {$\mathcal I_2^H(G)=\mathcal C_G$};
-\draw[black!25] (4.7,1.8)--(4.7,-2.55);
+\node[font=\small,align=center] at (1.9,-1.7) {Double-stars\\[3pt]diameter $\le3$};
+\node[font=\small,inkgreen] at (1.9,-2.65) {$\mathcal I_2^H(G)=\mathcal C_G$};
+\draw[black!25] (4.7,1.9)--(4.7,-2.95);
 \node[font=\small\bfseries,inkrust] at (8.2,1.6) {Obstructions at every order};
 \foreach \i/\a in {0/90,1/18,2/-54,3/-126,4/162}{\node[observer,minimum size=3mm] (v\i) at ($(6.3,0.05)+(\a:.9)$) {};}
 \draw[network] (v0)--(v1)--(v2)--(v3)--(v4)--(v0);
-\node[font=\small] at (6.3,-1.5) {Induced cycle $C_m$};
+\node[font=\small,align=center] at (6.3,-1.7) {Induced cycle\\[3pt]$C_m$};
 \foreach \i in {0,...,4}{\node[observer,minimum size=3mm] (p\i) at (8.3+0.62*\i,0) {};}
 \draw[network] (p0)--(p1)--(p2)--(p3)--(p4);
-\node[font=\small] at (9.55,-1.5) {Induced path $P_5$};
-\node[font=\small,inkrust] at (8.2,-2.25) {$\mathcal C_G\subsetneq\mathcal I_t^H(G)\quad\text{for every }t$};
+\node[font=\small,align=center] at (9.55,-1.7) {Induced path\\[3pt]$P_5$};
+\node[font=\small,inkrust] at (8.2,-2.65) {$\mathcal C_G\subsetneq\mathcal I_t^H(G)\quad\text{for every }t$};
 \end{tikzpicture}
 \caption{The classification for binary pair-source scenarios. Vertices denote observers and edges independent pair sources. A graph terminates precisely when each component is a double-star. Every other component contains an induced cycle or $P_5$, from which an incompatible order-$t$ law extends to the whole graph. Here $H$ is NW, AI or exp.}\label{fig:classification}
 \end{figure}

@@ -11,8 +11,16 @@
   "latex_overfull_boxes": 0,
   "latex_unresolved_references": 0,
   "outputs_sha256": {
-    "paper/main.pdf": "683a84636ab4c024bbc95add0a9dadff9915b84bb735169959b934584b407584",
-    "paper/release/arxiv-src.tar.gz": "6a780ceeacf3e30ce21129d43764dfff0b87e00d4eca341fcac769412684ee3e",
+    "paper/main.pdf": "be2fb47cdb0a1c977e46fa1fa6a71368be5af032a0a3a7b7fb83fe147fe00706",
+    "paper/release/arxiv-src.tar.gz": "389a8b84895cc291def7ce87c9fd786a6c18cbc9edb4cfd751255c35d4dc3a2c",
     "paper/review/deferred-supporting-original.tex": "85640195b10d84867e42fb995490f577a86ae8b470e843e736b105727aa8ef09"
+  },
+  "layout_review": {
+    "base_commit": "802d4ab1948f214afa4910296dca41624cb6df9f",
+    "pages_visually_reviewed": 53,
+    "figures_reviewed": 8,
+    "numbered_tables_reviewed": 2,
+    "latex_underfull_boxes": 0,
+    "proof_and_certificate_checks_rerun": false
   }
 }

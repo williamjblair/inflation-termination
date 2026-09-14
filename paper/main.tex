@@ -2,9 +2,10 @@
 \usepackage[margin=1.1in]{geometry}
 \usepackage{amsmath,amssymb,amsthm,mathtools}
 \usepackage{microtype}
+\usepackage{xurl}
 \usepackage[hidelinks]{hyperref}
 \hypersetup{pdftitle={Inflation for Classical Pair-Source Networks: Termination and Quantitative Obstructions},pdfauthor={William Blair}}
-\usepackage{booktabs}
+\usepackage{booktabs,array}
 \usepackage{enumitem}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
@@ -12,6 +13,11 @@
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta,positioning,calc,backgrounds}
 \usepackage[font=small,labelfont=bf]{caption}
+\captionsetup[figure]{skip=10pt}
+\captionsetup[table]{skip=8pt}
+\setlength{\textfloatsep}{16pt plus 2pt minus 2pt}
+\setlength{\intextsep}{16pt plus 2pt minus 2pt}
+\setlength{\floatsep}{14pt plus 2pt minus 2pt}
 \usepackage[section]{placeins}
 \definecolor{inkblue}{HTML}{245577}
 \definecolor{inkrust}{HTML}{A54F2A}
@@ -97,6 +103,9 @@ The manuscript sources, figure-generation script, exact certificates and Lean de
 \section*{Acknowledgments}
 The author used AI systems in preparing the manuscript and verification code and takes responsibility for the content. Section~\ref{sec:repro} distinguishes the analytic proofs, finite certificate checks and Lean formalization.
 
+\begingroup
+\raggedright
 \bibliographystyle{plainurl}
 \bibliography{references}
+\endgroup
 \end{document}

@@ -1,10 +1,10 @@
-# Current local editorial revision — 14 September 2026
+# Current editorial revision — 14 September 2026
 
 This paragraph supersedes the snapshot below for the working manuscript. The revised paper has 53 pages and eight vector figures. The classification proof occupies Sections 4–7; quantitative refinements are in Section 8; the defect-family results are in Sections 9–14; reproducibility and formal verification are in Section 17. The headline classification remains Theorem 4.2.
 
 The complete review and corrections are in `paper/review/EDITORIAL_REVIEW.md`. Finite parity thresholds are certified brackets, without unsupported exact-threshold or asymptotic claims. Deferred supporting material is preserved outside the compiled manuscript. Lean and exact certificate checks pass. The standalone package builds with `bash paper/release/build_arxiv.sh` and is at `paper/release/arxiv-src.tar.gz`.
 
-This revision has not been pushed, uploaded to arXiv, or attached to a Palomar record. Version 1 and the author's reported pending version 2 refer to their earlier snapshots. The historical notes below retain their original section numbers and status claims.
+The editorial revision was pushed as `802d4ab`. A subsequent figure and spacing review is documented in `paper/review/EDITORIAL_REVIEW.md`. The revised manuscript has not been uploaded to arXiv or attached to a Palomar record. Version 1 and the author's reported pending version 2 refer to their earlier snapshots. The historical notes below retain their original section numbers and status claims.
 
 ---
 
