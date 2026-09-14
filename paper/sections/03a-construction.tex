@@ -22,9 +22,9 @@ So $A^{ij}$ reads the line of cells $\Lambda(A^{ij})=\{(i,j,k):k\in[t]\}$, $B^{i
 \begin{equation}\label{eq:table}
 \Gamma_t(w)=\sum_{d\in\{0,1\}^{[t]^3}:\,F_t(d)=w}\eps^{|d|}(1-\eps)^{t^3-|d|},
 \end{equation}
-For rational $\eps$, these entries are rational. Here $F_t$ is the map \eqref{eq:outputs} from defect configurations to observed assignments; they are nonnegative and sum to $(\eps+1-\eps)^{t^3}=1$.
+For rational $\eps$, these entries are rational. Here $F_t$ is the map \eqref{eq:outputs} from defect configurations to observed assignments. The entries are nonnegative and sum to $(\eps+1-\eps)^{t^3}=1$.
 
-The defect cube is not a triangle model, and $\Gamma_t$ does not come from running an inflated triangle model; it is a probability law on the copied observations, which is what a finite inflation test asks for.
+$\Gamma_t$ does not come from running an inflated triangle model; it is a probability law on the copied observations, which is what a finite inflation test asks for.
 
 \begin{lemma}[Disjoint ancestry gives disjoint inputs]\label{lem:disjoint}
 If two sets of copied observations have disjoint copied latent ancestry in the order-$t$ inflation, then their defect lines and their private bits are disjoint, and the two sets of outputs are independent under $\Gamma_t$.

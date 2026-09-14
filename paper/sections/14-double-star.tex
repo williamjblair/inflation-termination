@@ -7,7 +7,6 @@ Fix a double-star $G$ in the sense of Definition~\ref{def:doublestar}: two centr
 \[
 T=\max\bigl(\{2\}\cup\{|\mathcal O_{\ell_s}|\}_{s\le p}\cup\{|\mathcal O_{r_j}|\}_{j\le q}\bigr),
 \]
-the largest leaf alphabet size, or $2$ if all leaf alphabets are smaller.
 
 In the order-$T$ inflation the leaves have one index each, and the centres have one index per incident edge. Write
 \[
@@ -64,7 +63,7 @@ where $x^{\mathbf i}=(x_s^{\,i_s})_s$ and $z^{\mathbf k}=(z_j^{\,k_j})_j$. Divid
 \Gamma\bigl(B^{\,\mathbf i,1}=\beta,\ C^{\,1,\mathbf k}=\gamma\mid E\bigr)
 =P\bigl(O_b=\beta,\ O_c=\gamma\ \bigm|\ O_{\ell_s}=x_s^{\,i_s}\ \forall s,\ O_{r_j}=z_j^{\,k_j}\ \forall j\bigr),
 \end{equation}
-the conditioning event on the right having positive probability whenever every $x_s^{\,i_s}$ and $z_j^{\,k_j}$ is supported. This identity is the finite-order step: it is a statement about the witness, derived from symmetry and the diagonal law alone.
+the conditioning event on the right having positive probability whenever every $x_s^{\,i_s}$ and $z_j^{\,k_j}$ is supported. This identity is the finite-order step, a statement about the witness derived from symmetry and the diagonal law alone.
 
 \medskip
 \emph{(iv) Two response tables and fresh sources.}
@@ -90,7 +89,7 @@ Each response reads only the sources of its incident edges: $b$ reads $X_1^*,\do
 Unsupported leaf values are never sampled, so the arbitrary choices there do not matter. Hence $P\in\Cscen{G}$.
 \end{proof}
 
-The construction samples new independent sources; it does not assume that conditioning on $E$ preserves any independence among the latent variables of a hypothetical model behind $\Gamma$. The only fact used about $\Gamma$ is the identity \eqref{eq:condmarg}. A central source with
+The construction samples new independent sources; it does not assume that conditioning on $E$ preserves any independence among the latent variables of a hypothetical model behind $\Gamma$. The only fact used about $\Gamma$ is \eqref{eq:condmarg}. A central source with
 \(
 \prod_s|\mathcal O_b|^{|\supp P_{\ell_s}|}\cdot\prod_j|\mathcal O_c|^{|\supp P_{r_j}|}
 \)
@@ -121,4 +120,4 @@ Let $G$ be a disjoint union of double-stars $G_1,\dots,G_n$ with orders $T_1,\do
 Let $P\in\INW_T(G)$ with witness $\Gamma$. Distinct components are source-disjoint, so Lemma~\ref{lem:sourcedisjoint}, iterated, gives $P=\bigotimes_aP_{V(G_a)}$. The restriction of $\Gamma$ to the copied observations at the vertices of $G_a$ is a table for the order-$T$ inflation of $G_a$: it is invariant under permutations of the copy indices of the edges of $G_a$, and its diagonal law is the corresponding marginal of $P^{\otimes T}$, namely $\bigl(P_{V(G_a)}\bigr)^{\otimes T}$. Hence $P_{V(G_a)}\in\INW_T(G_a)\subseteq\INW_{T_a}(G_a)$, the inclusion because discarding the copy indices outside $[T_a]$ leaves a witness at order $T_a$. Theorem~\ref{thm:doublestar} now gives $P_{V(G_a)}\in\Cscen{G_a}$. Realize each component by its own model on its own independent source family; the joint observed law is the product, which is $P$.
 \end{proof}
 
-A star is the case $q=0$, with $c$ one of its leaves. There the bound of Theorem~\ref{thm:doublestar} is not the best available: order two suffices with arbitrary finite alphabets \cite[Section 4.1]{NW2020}, by taking independent sources equal to the leaf values and letting the centre respond with its conditional law given them. Theorem~\ref{thm:doublestar} adds the central edge, where the two centres share a source and the leaf values on the two sides must be assembled into one pair of response tables.
+A star is the case $q=0$, with $c$ one of its leaves. There the bound of Theorem~\ref{thm:doublestar} is not sharp: order two suffices with arbitrary finite alphabets \cite[Section 4.1]{NW2020}, by taking independent sources equal to the leaf values and letting the centre respond with its conditional law given them. Theorem~\ref{thm:doublestar} adds the central edge, where the two centres share a source and the leaf values on the two sides must be assembled into one pair of response tables.

@@ -1,33 +1,21 @@
-\section{General distance-promised rejecting-order bounds}\label{sec:general}
+\section{Distance-promised rejecting orders}\label{sec:general}
 
-Theorem~\ref{thm:main} says that the order needed cannot be fixed in advance for the scenario. Whether it can be bounded in advance for the instance is a different question. Proposition~\ref{prop:promised} bounds it under a distance promise, and Proposition~\ref{prop:bits} bounds it in the input size.
+Theorem~\ref{thm:main} says that the order needed cannot be fixed in advance for the scenario. For a single instance, Theorem~\ref{thm:convexorder} bounds it under a distance promise and Proposition~\ref{prop:bits} bounds it in the input size.
 
-\begin{proposition}[Distance-promised rejecting order]\label{prop:promised}
-Let $G$ be a correlation scenario with $L$ independent source types (private response randomness may be absorbed into incident sources), in which every observed node has a latent parent, with joint observed alphabet of size $K$, and let $\delta_2=d_2(P,\mathcal C_G)$ and $\delta=d_{\TV}(P,\mathcal C_G)$. If $P\in\INW_n(G)$ then
+\begin{corollary}[Distance-promised rejecting order]\label{prop:promised}
+Let $G$ be a correlation scenario with $K$ joint outcomes and let $\delta_2=d_2(P,\mathcal C_G)$ and $\delta=d_{\TV}(P,\mathcal C_G)$. If $P\in\INW_n(G)$ then
 \begin{equation}\label{eq:nw-rate}
-\delta_2^2\ \le\ \Bigl[1-\Bigl(1-\frac1n\Bigr)^{L}\Bigr]\bigl(1-\|P\|_2^2\bigr)\ \le\ \frac{L(1-\|P\|_2^2)}{n}.
+\delta_2^2\ \le\ \frac{1-\|P\|_2^2}{n},
 \end{equation}
-Consequently, for incompatible $P$,
+so for incompatible $P$
 \[
-\tmin^{\mathrm{NW}}(P)\ \le\ \Bigl\lfloor\frac{L(1-\|P\|_2^2)}{\delta_2^2}\Bigr\rfloor+1\ \le\ \Bigl\lfloor\frac{LK}{4\delta^2}\Bigr\rfloor+1 ;
+\tmin^{\mathrm{NW}}(P)\ \le\ \Bigl\lfloor\frac{1-\|P\|_2^2}{\delta_2^2}\Bigr\rfloor+1\ \le\ \Bigl\lfloor\frac{K-1}{4\delta^2}\Bigr\rfloor+1 ;
 \]
-for the binary triangle, $\tmin^{\mathrm{NW}}(P)\le\lfloor6/\delta^2\rfloor+1$.
-\end{proposition}
+for the binary triangle, $\tmin^{\mathrm{NW}}(P)\le\lfloor7/(4\delta^2)\rfloor+1$.
+\end{corollary}
 
-The proof follows the finite-sampling argument of \cite{NW2020}, retaining the collision probability and the factor $1-\|P\|_2^2$. A source-free stochastic node can be given its own independent source, included in $L$.
-
-
-\begin{proof}[Proof of Proposition~\ref{prop:promised}]
-Let $\Gamma$ be an order-$n$ feasible law for $P$. Assume first that $n\ge2$. For a deterministic assignment $\omega$ of all copied observations, sample one index uniformly and independently for each source type and read off the observed tuple; this is a genuine model of $G$ with the sampled indices as sources and the entries of $\omega$ as deterministic responses, so its output law $q_\omega$ is compatible. Averaging over $\omega\sim\Gamma$ gives $\E q_\omega=P$, by symmetry and the degree-one diagonal condition. Two independent samples of the index tuples collide in no source type with probability $\alpha=(1-1/n)^L$, and conditionally on no collision the pair is, by symmetry and the degree-two diagonal condition, distributed as $P\otimes P$; so $\E q_\omega^{\otimes2}=\alpha P^{\otimes2}+(1-\alpha)R$ for some law $R$. Since $\E q_\omega=P$,
-\[
-\E\|q_\omega-P\|_2^2=\E\Bigl[\sum_xq_\omega(x)^2\Bigr]-\|P\|_2^2=(1-\alpha)\bigl(R\{x=y\}-\|P\|_2^2\bigr)\le(1-\alpha)\bigl(1-\|P\|_2^2\bigr).
-\]
-For $n=1$, the law $q_\omega$ is a point mass and $\E\|q_\omega-P\|_2^2=1-\|P\|_2^2$, which gives the same bound. Some $\omega$ attains at most the mean, and $q_\omega$ is compatible, which proves \eqref{eq:nw-rate}; the last inequality there is $1-(1-1/n)^L\le L/n$. For incompatible $P$, feasibility at order $n$ forces $n\le L(1-\|P\|_2^2)/\delta_2^2$, and $\|P-Q\|_2^2\ge\|P-Q\|_1^2/K=4d_{\TV}(P,Q)^2/K$ gives the second form; the triangle has $L=3$ and $K=8$. This is the argument of \cite[Section 4.2 and eq.\ (A7)]{NW2020} with the collision probability kept exact and a single compatible component extracted from the mixture in place of a convex combination; no convexity of $\mathcal C_G$ is used. Deterministic responses suffice because the sampled tables are deterministic, so $L$ counts the sources of the scenario without private response roots.
+\begin{proof}
+The first inequality is \eqref{eq:convexl2}, since some $\omega$ attains at most the mean and $q_\omega$ is compatible. Feasibility at order $n$ then forces $n\le(1-\|P\|_2^2)/\delta_2^2$, and $\|P-Q\|_2^2\ge\|P-Q\|_1^2/K=4d_{\TV}(P,Q)^2/K$ with $\|P\|_2^2\ge1/K$ gives the second form. The triangle has $K=8$.
 \end{proof}
 
-
-For the binary triangle, the worst-case distance
-\[
-H_n=\sup_{P\in\INW_n}d_{\TV}(P,\Ctri)
-\]
-satisfies $H_n=\Omega(n^{-3})$ by Proposition~\ref{prop:family} and Theorem~\ref{thm:distance}, taking $\eps=[2(n-1)]^{-3}$ for large $n$, and $H_n=O(n^{-1/2})$ by \eqref{eq:nw-rate}. The sharp rate remains open.
+The proof uses no convexity of $\mathcal C_G$: we extract one compatible law from the witness. The bound gives a rejecting order under a promise rather than a decision procedure, since $\delta$ is not directly evaluable.

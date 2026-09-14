@@ -3,7 +3,7 @@
 
 \section{The five-observer path}\label{sec:fivepath}
 
-A path is a tree, and trees carry no parity obstruction of the kind used in Section~\ref{sec:cycles}. The five-observer path nonetheless admits, at every order, a strictly positive law that the strongest of the three tests accepts and that no model produces. The scenario, in the language of Section~\ref{sec:pairsource}, is
+A path is a tree, and trees carry no parity obstruction of the kind used in Section~\ref{sec:cycles}. The scenario, in the language of Section~\ref{sec:pairsource}, is
 \[
 A(X),\qquad B(X,L),\qquad C(L,R),\qquad D(R,Z),\qquad E(Z),
 \]
@@ -139,7 +139,6 @@ Each copied observation is a function of the data attached to its copied parents
 \begin{equation}\label{eq:realpart}
 \E_{\Gamma_t}[F]=\Real\,\E_\ast[F]\qquad\text{for every real-valued }F .
 \end{equation}
-The complex weights are a device for computing marginals; the witness is the real law $\Gamma_t$.
 
 \emph{Every copied path has law $P_h$.} Fix $(a,i,j,e)$ and condition on $X_a=x$, $Z_e=z$, which are fair and independent and reproduce the $(A,E)$ marginal of $P_h$. The masks $r_i$ and $s_j$ are fair signs independent of everything else and each occurs in exactly one of $B^{ai}$, $D^{je}$ and in $C^{ij}$, so every product of a proper nonempty subset of $\{B^{ai},C^{ij},D^{je}\}$ carries $r_i$ or $s_j$ to an odd power and has formal expectation zero. In the triple product the masks cancel:
 \[
@@ -155,7 +154,7 @@ which is real. Every character of the copied path is thus one of: a character of
 \]
 and $\E_\ast[G]$ is real for every function $G$ of a copied path.
 
-\emph{Injectable marginals.} An injectable set of the path contains at most one copied observation over each of $A,B,C,D,E$ and its copy indices agree on shared sources, so it is contained in a copied path $(a,i,j,e)$ with consistent indices, completing unused indices arbitrarily. Its marginal is therefore the corresponding marginal of $P_h$, and $\E_\ast[G]$ is real for every function $G$ of it.
+\emph{Injectable marginals.} An injectable set of the path contains at most one copied observation over each of $A,B,C,D,E$ and its copy indices agree on shared sources, so it lies in a copied path $(a,i,j,e)$ with consistent indices, after completing unused indices arbitrarily. Its marginal is therefore the corresponding marginal of $P_h$, and $\E_\ast[G]$ is real for every function $G$ of it.
 
 \emph{Ancestral products and the diagonal law.} Let $F_1,\dots,F_r$ be pairwise ancestrally independent injectable sets. Distinct copied sources carry distinct auxiliary coordinates and distinct masks, and distinct copied observations carry distinct private signs, so the $F_k$ depend on disjoint coordinate families and $\E_\ast\bigl[\prod_k G_k\bigr]=\prod_k\E_\ast[G_k]$ for functions $G_k$ of $F_k$. Each factor is real by the previous paragraph, hence so is the product, and \eqref{eq:realpart} gives
 \[
@@ -173,4 +172,4 @@ Along this family the first rejecting order grows without bound while the target
 \[
 P_{h_t}(x,b,c,d,z)\ \ge\ \frac{1-h_t}{64}\ \ge\ \frac{15}{1024}
 \]
-for every $t$ and every atom. The obstruction is therefore not carried by vanishing probabilities. The distance to $\Cpath$ shrinks at rate $t^{-2}$, faster than the rate $t^{-1/2}$ that Theorem~\ref{thm:convexorder} forces; whether the path carries survivors at distance of order $t^{-1}$, as the square and the triangle do, is not settled here.
+for every $t$ and every atom. The obstruction therefore does not come from vanishing probabilities. The distance to $\Cpath$ shrinks at rate $t^{-2}$, faster than the rate $t^{-1/2}$ that Theorem~\ref{thm:convexorder} forces; whether the path carries survivors at distance of order $t^{-1}$, as the square and the triangle do, is not settled here.

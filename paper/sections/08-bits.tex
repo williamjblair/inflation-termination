@@ -14,7 +14,7 @@ Encode each of the eight rational atoms by its reduced numerator and positive de
 \[
 \Bigl|\sum_{i=1}^d a_i u^i\Bigr|\le H\sum_{i=1}^d u^i<\frac{Hu}{1-u}<1\le|a_0|,
 \]
-so $g(u)\ne0$. Hence $u(P)\ge2^{-O(B)}$ when $P$ is incompatible, and Proposition~\ref{prop:promised} gives $\tmin^{\mathrm{NW}}(P)\le3(1-\|P\|_2^2)/u(P)+1=2^{O(B)}$; the two smaller feasible sets reject no later.
+so $g(u)\ne0$. Hence $u(P)\ge2^{-O(B)}$ when $P$ is incompatible, and Corollary~\ref{prop:promised} gives $\tmin^{\mathrm{NW}}(P)\le(1-\|P\|_2^2)/u(P)+1=2^{O(B)}$; the two smaller feasible sets reject no later.
 \end{proof}
 
-For the fixed binary triangle, a quantifier-free membership formula contains a fixed number of fixed-degree integer polynomials. Evaluating their signs at a rational input takes time polynomial in $B$. Quantifier elimination supplies such a formula in principle \cite{BasuPollackRoy2006}, although deriving and storing it may be impractical. Thus the exponential inflation-order bound coexists with a polynomial-time decision procedure for this fixed scenario. For an incompatible rational input, one can also compute the first rejecting order by enumerating exact rational feasibility problems.
+With the binary triangle held fixed, a quantifier-free membership formula contains a bounded number of integer polynomials of bounded degree. Evaluating their signs at a rational input takes time polynomial in $B$. Quantifier elimination supplies such a formula in principle \cite{BasuPollackRoy2006}, although deriving and storing it may be impractical. Thus the exponential inflation-order bound coexists with a polynomial-time decision procedure for this fixed scenario. For an incompatible rational input, one can also compute the first rejecting order by enumerating exact rational feasibility problems.

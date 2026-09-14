@@ -3,7 +3,7 @@
 \providecommand{\Cscen}[1]{\mathcal C_{#1}}
 \providecommand{\supp}{\operatorname{supp}}
 
-The triangle is one member of a family of scenarios indexed by finite graphs. This section fixes that family, writes the three finite tests of Section~\ref{sec:setup} for it, and proves the three lemmas used in Section~\ref{sec:classification}: the two stronger tests coincide, blocks of observers with disjoint sources are independent from order two on, and witnesses transport along induced subgraphs.
+The triangle is one member of a family of scenarios indexed by finite graphs. We fix that family, write the three finite tests of Section~\ref{sec:setup} for it, and prove the three lemmas used in Section~\ref{sec:classification}: the two stronger tests coincide, blocks of observers with disjoint sources are independent from order two on, and witnesses transport along induced subgraphs.
 
 \subsection{Scenarios}
 
@@ -15,11 +15,11 @@ O_v\sim\kappa_v\bigl(\cdot\mid(S_e)_{e\ni v}\bigr),
 conditionally independently across $v$ given the sources. Write $\Cscen{G}$ for the set of joint laws of $(O_v)_{v\in V}$ obtained in this way. Unless stated otherwise every $\mathcal O_v$ is $\{0,1\}$, and we call these the binary observations.
 \end{definition}
 
-Each edge carries its own source, and each source is read by exactly the two endpoints of its edge. The triangle of Section~\ref{sec:setup} is the scenario of the $3$-cycle, $\Ctri=\Cscen{C_3}$; the graph $P_n$ is the path on $n$ vertices.
+Each source is read by exactly the two endpoints of its edge. The triangle of Section~\ref{sec:setup} is the scenario of the $3$-cycle, $\Ctri=\Cscen{C_3}$; the graph $P_n$ is the path on $n$ vertices.
 
-This is a pair-source setting and nothing wider. A single source shared by three observers is a different scenario, not the scenario of the triangle, and scenarios in which a latent variable has latent parents are outside the definition as well. Everything in Sections~\ref{sec:pairsource} and \ref{sec:classification} is a statement about pair-source scenarios; Remark~\ref{rem:hypergraph} shows that the observed adjacency graph alone decides nothing once one source may be shared by three observers.
+Sources shared by three or more observers, and latent variables with latent parents, are outside this definition; see Remark~\ref{rem:hypergraph}.
 
-Assign each vertex $v$ an independent random seed and append it to the source of one edge at $v$, to be ignored by the other endpoint. The graph is unchanged and the seed makes the response at $v$ deterministic, so stochastic and deterministic responses generate the same set $\Cscen{G}$ \cite{WSF2019}. This is where the exclusion of isolated vertices is used: every vertex has an edge on which to hide its seed.
+Assign each vertex $v$ an independent random seed and append it to the source of one edge at $v$, to be ignored by the other endpoint. The graph is unchanged and the seed makes the response at $v$ deterministic, so stochastic and deterministic responses generate the same set $\Cscen{G}$ \cite{WSF2019}. The seed needs an edge to hide on, which is why the definition excludes isolated vertices.
 
 \subsection{Inflation at order \texorpdfstring{$t$}{t}}
 
@@ -33,7 +33,7 @@ all conditionally independent given the source copies. Writing $r$ also for the 
 
 A vertex of degree $d$ has $t^d$ copies, so the inflation carries $\sum_v t^{\deg v}$ observed variables. The group $\prod_{e\in E}S_t$ acts on the copy labels: $\sigma=(\sigma_e)_{e\in E}$ sends the label $i$ to $\sigma(i)$ with $\sigma(i)_e=\sigma_e(i_e)$, and hence sends $O_v^{\,i}$ to $O_v^{\,\sigma(i)}$. Each $\sigma$ maps rows to rows when all its components are equal, and otherwise mixes them.
 
-Call a probability law on $\prod_{v\in V}\bigl(\mathcal O_v\bigr)^{[t]^{E(v)}}$ a \emph{table} of order $t$. The tests below ask for a table with prescribed marginals.
+Call a probability law on $\prod_{v\in V}\bigl(\mathcal O_v\bigr)^{[t]^{E(v)}}$ a \emph{table} of order $t$. Each of the three tests asks for a table with prescribed marginals.
 
 \begin{definition}[Navascués--Wolfe feasible set]\label{def:gNW}
 $P\in\INW_t(G)$ if there is a table $\Gamma_t$ of order $t$ that is invariant under $\prod_{e\in E}S_t$ and whose diagonal law is a tensor power,
@@ -50,7 +50,7 @@ S=\bigl\{O_v^{\,\iota|_{E(v)}}\ :\ v\in W\bigr\},
 in which case $\pi(S)=W$. Two sets of copied observations are \emph{ancestrally independent} if the sets of source copies they read are disjoint. $P\in\IAI_t(G)$ if $P\in\INW_t(G)$ with a witness $\Gamma_t$ under which every injectable set $S$ has marginal $P_{\pi(S)}$ and every union of pairwise ancestrally independent injectable sets has the product of the corresponding marginals.
 \end{definition}
 
-The equivalence in Definition~\ref{def:gAI} is immediate: given $S$ injectable, let $W=\pi(S)$ and let $\iota(e)$ be the common index carried on $e$ by the members of $S$ at the endpoints of $e$ that lie in $W$, which is well defined by the agreement requirement; conversely every set of the displayed form is injectable. For the triangle this reproduces the description in Appendix~\ref{app:injectable}: the injectable sets are the subsets of the copied triangles.
+For the equivalence in Definition~\ref{def:gAI}, given $S$ injectable, let $W=\pi(S)$ and let $\iota(e)$ be the common index carried on $e$ by the members of $S$ at the endpoints of $e$ that lie in $W$, which is well defined by the agreement requirement; conversely every set of the displayed form is injectable. For the triangle this reproduces the description in Appendix~\ref{app:injectable}: the injectable sets are the subsets of the copied triangles.
 
 \begin{definition}[Recursively expressible feasible set]\label{def:gexp}
 Expressible sets of copied observations are generated from injectable sets by the two rules of \cite[Definition~7]{WSF2019}, read in the inflated causal graph of Definition~\ref{def:ginflation}: if $X$ and $Y$ are $d$-separated by $Z$ and the laws on $X\cup Z$ and on $Y\cup Z$ are prescribed, then
@@ -68,12 +68,12 @@ For every pair-source scenario $G$ and every $t\ge1$,
 \end{proposition}
 
 \begin{proof}
-The two inclusions on the right hold because each test adds prescriptions to the previous one. For the first, realize $P$ by a model, run the model on the inflated source family of Definition~\ref{def:ginflation}, and let $\Gamma_t$ be the law of the copied observations. Permuting the copies of one source permutes independent identically distributed variables, so $\Gamma_t$ is invariant. Distinct rows read disjoint source copies and each row has law $P$, so the diagonal law is $P^{\otimes t}$. An injectable set $S$ reads, for each $v\in\pi(S)$, the copies indexed by a single global assignment $\iota$, so the joint law of $S$ is that of $(O_v)_{v\in\pi(S)}$ in the original model, namely $P_{\pi(S)}$. Ancestrally independent sets read disjoint source copies, hence are independent. Finally, the inflated model is a causal model for the inflated graph, so all conditional independences read off that graph hold, and the expressible prescriptions follow by induction on their generation.
+The two inclusions on the right hold because each test adds prescriptions to the previous one. For the first, realize $P$ by a model, run the model on the inflated source family of Definition~\ref{def:ginflation}, and let $\Gamma_t$ be the law of the copied observations. Permuting the copies of one source permutes independent identically distributed variables, so $\Gamma_t$ is invariant. Distinct rows read disjoint source copies and each row has law $P$, so the diagonal law is $P^{\otimes t}$. An injectable set $S$ reads, for each $v\in\pi(S)$, the copies indexed by a single global assignment $\iota$, so the joint law of $S$ is that of $(O_v)_{v\in\pi(S)}$ in the original model, namely $P_{\pi(S)}$. Ancestrally independent sets read disjoint source copies, hence are independent. The inflated model is a causal model for the inflated graph, so all conditional independences read off that graph hold, and the expressible prescriptions follow by induction on their generation.
 \end{proof}
 
 \subsection{The two stronger tests coincide}
 
-In the inflated graph every source copy is a root and every copied observation is a sink. This makes $d$-separation explicit.
+In the inflated graph every source copy is a root and every copied observation is a sink, which makes $d$-separation explicit.
 
 \begin{lemma}[Trail criterion]\label{lem:trail}
 Let $X,Y,Z$ be disjoint sets of copied observations in the order-$t$ inflation of a pair-source scenario. Every trail between a member of $X$ and a member of $Y$ alternates copied observations and source copies, each source copy on it being a fork and each internal copied observation a collider. Such a trail is active given $Z$ if and only if all its internal copied observations lie in $Z$. Consequently $X\perp_dY\mid Z$ if and only if no trail from $X$ to $Y$ has all its internal copied observations in $Z$.
@@ -105,7 +105,7 @@ In particular $\Iexp_t(G)=\IAI_t(G)$ for every $t$.
 
 Sufficiency: let $\Gamma$ satisfy the prescriptions of Definition~\ref{def:gAI}. We prove by induction on the generation of the expressible family that every generated set $W$ is an AI set and that the law prescribed for it agrees with the marginal $\Gamma_W$. By (i) and the AI prescriptions, the marginal of an AI set is the product of $P_{\pi(K)}$ over the components $K$ of its shared-parent graph.
 
-For an injectable set the claim is the first AI prescription. For a marginal, note that the components of the shared-parent graph on a subset $W'\subseteq W$ are contained in those on $W$, hence injectable, so $W'$ is again an AI set, and the marginal of the prescription is the prescription of the marginal.
+For an injectable set the claim is the first AI prescription. For a marginal, the components of the shared-parent graph on a subset $W'\subseteq W$ are contained in those on $W$, hence injectable, so $W'$ is again an AI set, and the marginal of the prescription is the prescription of the marginal.
 
 Consider the join rule with $X\perp_dY\mid Z$, where $X\cup Z$ and $Y\cup Z$ are already generated. Let $K$ be a connected component of the shared-parent graph on $X\cup Y\cup Z$ and suppose $K$ meets both $X$ and $Y$. Among all paths inside $K$ from a member of $X$ to a member of $Y$ choose one of minimal length. No internal vertex of it lies in $X$, since the subpath from that vertex to the $Y$-end would be shorter, and for the same reason none lies in $Y$; so every internal vertex lies in $Z$. Inserting between consecutive vertices a source copy they share turns this path into a trail from $X$ to $Y$ whose internal copied observations all lie in $Z$, which is active by Lemma~\ref{lem:trail} and contradicts $X\perp_dY\mid Z$. Hence every component of the shared-parent graph on $X\cup Y\cup Z$ lies in $X\cup Z$ or in $Y\cup Z$. Such a component is also a component of the shared-parent graph on the smaller set, since it is connected there and no member of the smaller set outside it is adjacent to it. As $X\cup Z$ and $Y\cup Z$ are AI sets, all these components are injectable, so $X\cup Y\cup Z$ is an AI set by (i).
 
@@ -119,10 +119,10 @@ the last because the components of the shared-parent graph on $Z$ are those of $
 \[
 \frac{\Gamma_{X\cup Z}\,\Gamma_{Y\cup Z}}{\Gamma_{Z}}=\alpha\,\beta\,\mu=\Gamma_{X\cup Y\cup Z},
 \]
-which is the prescribed value. Where $\Gamma_Z=0$ the rule prescribes $0$, and $\Gamma_{X\cup Y\cup Z}\le\Gamma_Z=0$ there, so the two agree on zero fibres as well. This completes the induction, and with it the proof.
+which is the prescribed value. Where $\Gamma_Z=0$ the rule prescribes $0$, and $\Gamma_{X\cup Y\cup Z}\le\Gamma_Z=0$ there, so the two agree on zero fibres as well. This completes the induction.
 \end{proof}
 
-Lemma~\ref{lem:rootsink} identifies the two stronger tests but says nothing about the Navascués--Wolfe test, and it imposes no causal model on the table as a whole.
+Lemma~\ref{lem:rootsink} identifies the two stronger tests but says nothing about the Navascués--Wolfe test, and imposes no causal model on the table as a whole.
 
 \subsection{Blocks with disjoint sources}
 

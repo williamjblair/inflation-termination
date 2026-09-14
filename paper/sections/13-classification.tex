@@ -2,7 +2,6 @@
 
 \providecommand{\Cscen}[1]{\mathcal C_{#1}}
 
-For binary observations the pair-source scenarios that admit a finite characterizing order are exactly the ones whose components have diameter at most three, and those stop at order two.
 
 \begin{definition}[Double-star]\label{def:doublestar}
 A \emph{double-star} is a graph with a distinguished edge $\{b,c\}$, the \emph{central edge}, such that every other vertex is adjacent to exactly one of $b$ and $c$ and to nothing else. Equivalently, a double-star is a tree of diameter at most three. Single edges and stars are double-stars.
@@ -26,7 +25,7 @@ P\in\Iexp_t(G)\setminus\Cscen{G}\subseteq\IAI_t(G)\setminus\Cscen{G}\subseteq\IN
 \]
 \end{theorem}
 
-The graph and the alphabets stay fixed as $t$ grows; only the law $P$ varies. The two halves of the proof are Theorem~\ref{thm:doublestar} on one side and Theorems~\ref{thm:cycle} and \ref{thm:fivepath} on the other, joined by the following exhaustion.
+The graph and the alphabets stay fixed as $t$ grows; only the law $P$ varies. The proof combines Theorem~\ref{thm:doublestar} with Theorems~\ref{thm:cycle} and \ref{thm:fivepath} through the exhaustion lemma below.
 
 \begin{lemma}[Exhaustion]\label{lem:exhaustion}
 Let $K$ be a finite connected graph that has at least one edge and is not a double-star. Then $K$ has an induced subgraph isomorphic to a cycle $C_m$ with $m\ge3$ or to the path $P_5$.
@@ -67,8 +66,8 @@ the leaves being taken with respect to a choice of central edge in each componen
 \end{remark}
 
 \begin{remark}[Scenarios that are not pair-source]\label{rem:hypergraph}
-Theorem~\ref{thm:classification} classifies pair-source scenarios and does not classify scenarios with sources shared by more than two observers. Let three observers read one common source. That source can carry a sample of the whole observed triple, so every law on the three outcomes is compatible and the order-one test already characterizes the compatible set, while the observed adjacency graph of this scenario is the triangle, which does not terminate at any order. The adjacency graph alone therefore carries no classification once source hyperedges are allowed.
+Let three observers read one common source. That source can carry a sample of the whole observed triple, so every law on the three outcomes is compatible and the order-one test already characterizes the compatible set, while the observed adjacency graph of this scenario is the triangle, which does not terminate at any order. The adjacency graph alone therefore carries no classification once source hyperedges are allowed.
 \end{remark}
 
 \paragraph{Scope.}
-Theorem~\ref{thm:classification} decides which binary pair-source scenarios admit a finite characterizing order, and for the terminating ones it gives the order. It does not decide the worst-case distance $\sup\{d_{\TV}(P,\Cscen{G}):P\in\INW_t(G)\}$ for a nonterminating $G$, which is Question~\ref{q:hausdorff} for the triangle. Nontermination together with the convergence $\INW_t(G)\downarrow\Cscen{G}$ of \cite{NW2020} gives infinitely many strict inclusions $\INW_{t+1}(G)\subsetneq\INW_t(G)$, but not strictness at every order. The theorem also says nothing about sources shared by three or more observers, about latent variables with latent parents, or about quantum and no-signalling resources.
+Theorem~\ref{thm:classification} decides which binary pair-source scenarios admit a finite characterizing order, and for the terminating ones it gives the order. It does not decide the worst-case distance $\sup\{d_{\TV}(P,\Cscen{G}):P\in\INW_t(G)\}$ for a nonterminating $G$, which is Question~\ref{q:hausdorff} for the triangle. Nontermination together with the convergence $\INW_t(G)\downarrow\Cscen{G}$ of \cite{NW2020} gives infinitely many strict inclusions $\INW_{t+1}(G)\subsetneq\INW_t(G)$, but not strictness at every order. It says nothing about quantum or no-signalling resources.

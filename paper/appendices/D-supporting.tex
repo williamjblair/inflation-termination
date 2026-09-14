@@ -5,7 +5,7 @@
 
 \section{Further quantitative results}\label{app:supporting}
 
-This appendix records four quantitative advances that accompany the results of the main text without entering their proofs. Nothing in the body of the paper depends on them. They are collected here because each fixes a constant, an exact order, or a ceiling that would otherwise be guessed, and because each carries a different verification status, stated at the end of the item.
+This appendix records four quantitative results that accompany the main text. Nothing in the body of the paper depends on them. Each fixes a constant, an exact order, or a ceiling that would otherwise be guessed, and each carries its own verification status, stated at the end of the item.
 
 Conventions are those of Section~\ref{sec:setup}. Total variation is half the $\ell^1$ distance. The first and the last part of this appendix use sign outputs $A,B,C\in\{-1,+1\}$; for reals $x,y,z$ with $|x|+|y|+|z|\le1$ let
 \[
@@ -19,7 +19,7 @@ the parity-even three-bit law with observed means $x,y,z$. The middle two parts 
 
 \subsection*{An orthogonal witness with quadratic decay}
 
-The family below is a triangle law that passes the full symmetric test at order $n$ while remaining at distance $\Omega(n^{-2})$ from $\Ctri$. It improves the $\Omega(n^{-3})$ rate recorded for $H_n$ in Section~\ref{sec:general} along the family of Section~\ref{sec:main}. Its distance bound uses the parity rigidity of compatible laws rather than a Finner violation; every atomic Finner inequality holds for it.
+The family below improves the $\Omega(n^{-3})$ rate recorded for $H_n$ in Section~\ref{sec:general} along the family of Section~\ref{sec:main}. Its distance bound uses the parity rigidity of compatible laws rather than a Finner violation; every atomic Finner inequality holds for it.
 
 \begin{proposition}[Quadratic lower bound from an orthogonal density]\label{prop:orthwitness}
 Let $n\ge2$, $\tau=1/(5n^2)$ and $R_\tau=\Par\tau\tau{-\tau}$. Then
@@ -70,7 +70,7 @@ These are the corresponding moments of $n$ independent triples of law $R_\tau$. 
 \emph{Distance.} Flipping the signs of $A$ and $B$ preserves compatibility and the parity $ABC$, and sends $R_\tau$ to a law with all three means equal to $-\tau$ and parity $+1$. Let $R\in\Ctri$ with $\delta=d_{\TV}(R_\tau,R)$ and let $R'$ be its flipped version, which is compatible with $d_{\TV}(R'_\tau,R')=\delta$. Since $|\E_Pf-\E_Qf|\le2d_{\TV}(P,Q)$ for $|f|\le1$, the means of $R'$ are at most $-\tau+2\delta$ and its parity $W$ satisfies $1-W\le2\delta$. Lemma~\ref{lem:quantrigidity} gives $-\tau+2\delta\ge-4(1-W)\ge-8\delta$. Thus $\delta\ge\tau/10$ for every compatible $R$.
 \end{proof}
 
-Two limitations are worth stating. First, the witness is for the symmetric test only. The truncation $r+s+t\le n$ in \eqref{eq:orthdensity} is exactly what the diagonal conditions need, since a diagonal character occupies $r+s+t$ distinct sites, but it is not enough for the ancestral-independence prescriptions, which involve copied triangles spread over more indices. At $n=2$ the family $\{A^{11},B^{21},C^{22}\}$ has pairwise disjoint parent sets, so Definition~\ref{def:AI} prescribes the product of the three means, $\tau^2(-\tau)=-1/8000$ at $\tau=1/20$; the corresponding moment of $\Gamma$ is the coefficient of $H_{111}$, which \eqref{eq:orthdensity} omits because $1+1+1>2$, so the witness returns $0$. This is a statement about this witness, not a proof that $R_\tau$ lies outside $\IAI_2$. Second, the bound is not the best available: Section~\ref{sec:cycles} gives $H_n^{\mathrm{AI}}(\triangle)=\Omega(1/n)$ by a different construction, which supersedes Proposition~\ref{prop:orthwitness} in strength while using a witness of a different kind.
+The witness has two limitations. First, it applies to the symmetric test only. The truncation $r+s+t\le n$ in \eqref{eq:orthdensity} is exactly what the diagonal conditions need, since a diagonal character occupies $r+s+t$ distinct sites, but it is not enough for the ancestral-independence prescriptions, which involve copied triangles spread over more indices. At $n=2$ the family $\{A^{11},B^{21},C^{22}\}$ has pairwise disjoint parent sets, so Definition~\ref{def:AI} prescribes the product of the three means, $\tau^2(-\tau)=-1/8000$ at $\tau=1/20$; the corresponding moment of $\Gamma$ is the coefficient of $H_{111}$, which \eqref{eq:orthdensity} omits because $1+1+1>2$, so the witness returns $0$. This is a statement about this witness, not a proof that $R_\tau$ lies outside $\IAI_2$. Second, the bound is not the best available: Section~\ref{sec:cycles} gives $H_n^{\mathrm{AI}}(\triangle)=\Omega(1/n)$ by a witness of a different kind, superseding Proposition~\ref{prop:orthwitness}.
 
 Recorded from the research notes of 13 September 2026 archived with the repository (\texttt{research-\allowbreak handoffs/\allowbreak 2026-09-13}). Status: analytic proof in the source, re-derived here; the order-two table was reconstructed by the packet's independent checker, which verified positivity with minimum density $7/16$, the $96$ symmetry equations, the complete $64$-equation diagonal law over the $4096$-point domain, and rejection of a wrong-diagonal control, and which recorded the order-two ancestral-independence failure quoted above; not formalized.
 
@@ -105,7 +105,7 @@ Q_{AC}(11)=Q_{BC}(11)=\frac{p^2}h,\quad
 Q(111)=\frac{kp}h .
 \]
 
-The witness that carries this target past order $t$ replaces the independent cell roots by a rare selector supported on partial matchings. Its positivity is an instance of Shearer's measure on the line graph of a bipartite graph \cite{Shearer1985}, with the occupied-bit convention reversed; the construction is not new here, and only the elementary bound needed for this application is recorded.
+The witness that carries this target past order $t$ replaces the independent cell roots by a rare selector supported on partial matchings. Its positivity is an instance of Shearer's measure on the line graph of a bipartite graph \cite{Shearer1985}, with the occupied-bit convention reversed; the construction is not new here, and we record only the bound this application needs.
 
 \begin{lemma}[Shearer's measure, positivity bound]\label{lem:shearer}
 Give the edges of a finite bipartite graph nonnegative weights $\lambda_e$ with $\sigma=\sum_e\lambda_e<1$. For a partial matching $M$ set
@@ -143,7 +143,7 @@ then draw $\mathcal D$ from Lemma~\ref{lem:shearer} on the complete bipartite gr
 \]
 using $N-n\ge t-1\ge1$. The whole construction is therefore a finite rational probability space, and its pushforward is a nonnegative normalized table on all $4n^2$ copied bits.
 
-The witness is controlled by one identity. For a matching $M$ let $W_M$ retain the base variables but replace each selected $C$-row, that is each $k$ with $(k,l)\in M$, by $C^{jk}=V^C_{jk}\prod_iT_{ijl}$ with private $V^C_{jk}\sim\Bern(h^{N-n})$. Distinct selected edges carry distinct $k$-indices, so $\prod_{(k,l)\in M}L_{kl}$ is a normalized likelihood ratio even with $T$ fixed, and Lemma~\ref{lem:shearer} gives, for every function $f$ of the copied $ABC$ observations,
+One identity controls the witness. For a matching $M$ let $W_M$ retain the base variables but replace each selected $C$-row, that is each $k$ with $(k,l)\in M$, by $C^{jk}=V^C_{jk}\prod_iT_{ijl}$ with private $V^C_{jk}\sim\Bern(h^{N-n})$. Distinct selected edges carry distinct $k$-indices, so $\prod_{(k,l)\in M}L_{kl}$ is a normalized likelihood ratio even with $T$ fixed, and Lemma~\ref{lem:shearer} gives, for every function $f$ of the copied $ABC$ observations,
 \begin{equation}\label{eq:matchingidentity}
 \E_\Gamma\Bigl[f\prod_{(k,l)\in M}D^{kl}\Bigr]=q^{|M|}\,\E_{W_M}f ,
 \end{equation}
@@ -173,7 +173,7 @@ n(n-1)bc\ \ge\ \frac2n\bigl(n(n-2)z+nd+ng-na\bigr),
 which rearranges to \eqref{eq:pairfan}.
 \end{proof}
 
-Since $d\ge z$ and $g\ge z$, \eqref{eq:pairfan} implies the first inequality of \eqref{eq:fan}. It is applied to the square through a conditioning that costs no order.
+Since $d\ge z$ and $g\ge z$, \eqref{eq:pairfan} implies the first inequality of \eqref{eq:fan}. We apply it to the square through a conditioning that costs no order.
 
 \begin{lemma}[Same-order transfer]\label{lem:sqtri}
 Let $P\in\INW_n(\square)$. Then $P_{ABC\mid D=1}\in\INW_n(\triangle)$ whenever $P_D(1)>0$, and in every case
@@ -213,7 +213,7 @@ Recorded from the research notes of 13 September 2026 archived with the reposito
 
 \subsection*{Ceilings for two restricted construction classes}
 
-The two results below are limitations of ansatz families, not upper bounds on $H_n$. They say that the defect family of Section~\ref{sec:main} and the wider class of independent-cell constructions cannot produce a better exponent than $n^{-3}$, whatever their parameters. Neither restricts arbitrary feasible tables, and Proposition~\ref{prop:orthwitness} already exceeds the $n^{-3}$ scale by a construction of a different kind.
+The two results below are limitations of ansatz families, not upper bounds on $H_n$. They say that the defect family of Section~\ref{sec:main} and the wider class of independent-cell constructions cannot produce a better exponent than $n^{-3}$, whatever their parameters. Neither restricts arbitrary feasible tables.
 
 \begin{lemma}[Compatible comparison curve]\label{lem:comparisoncurve}
 For $0\le t\le1$, the law $Q\bigl(t^3/(1+t^3),\,1-t^2\bigr)$ of \eqref{eq:Q} is compatible.
@@ -304,7 +304,7 @@ Recorded from the research notes of 13 September 2026 archived with the reposito
 
 \subsection*{Parity extraction from a witness}
 
-The convergence bound \eqref{eq:nw-rate} extracts a compatible law from a feasible table by sampling source indices independently. It is natural to ask how much is lost by requiring the extracted law to come from a table in the support of the given witness. On the parity face the answer is nothing, from order six on. The results below record that, and the exact obstruction at order two.
+The convergence bound of Theorem~\ref{thm:convexorder} extracts a compatible law from a feasible table by sampling source indices independently. Requiring the extracted law to come from a table in the support of the given witness loses nothing on the parity face, from order six on. At order two there is an exact obstruction.
 
 For a deterministic table $\omega$ on the copied observations and index distributions $u,v,w$ on $[n]$ let
 \[

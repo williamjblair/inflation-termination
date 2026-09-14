@@ -6,7 +6,7 @@
 
 \section{Cycles}\label{sec:cycles}
 
-Section~\ref{sec:pairsource} writes the three finite tests for an arbitrary pair-source scenario. This section constructs, for every cycle and every order, a strictly positive law that the strongest of them accepts and that no model produces, and then measures how far the accepted laws can sit from compatibility.
+Section~\ref{sec:pairsource} writes the three finite tests for an arbitrary pair-source scenario. For every cycle and every order we construct a strictly positive law that the strongest of them accepts and that no model produces, then measure how far the accepted laws can sit from compatibility.
 
 Throughout, the $m$-cycle $C_m$, $m\ge3$, has observed variables $O_0,\dots,O_{m-1}$ and sources $S_0,\dots,S_{m-1}$, indices read modulo $m$, with $O_v$ a child of $S_{v-1}$ and $S_v$; the copied observations of Definition~\ref{def:ginflation} are written $O_v^{ij}$, children of $S_{v-1,i}$ and $S_{v,j}$. The triangle is $C_3$, with $\Ctri=\Cscen{C_3}$, read as $A=O_0$, $B=O_1$, $C=O_2$ and $X=S_0$, $Y=S_1$, $Z=S_2$; the square is $C_4$, written $\square$, read as $A(X,W)$, $B(X,Y)$, $C(Y,Z)$, $D(Z,W)$ with $X=S_0$, $Y=S_1$, $Z=S_2$, $W=S_3$.
 
@@ -98,7 +98,7 @@ Let $R\in\Ctri$ with $ABC=1$ almost surely. Then there are $\sigma,\tau,\upsilon
 Absorb the response seeds into incident sources, so that $A=A(X,Z)$, $B=B(X,Y)$, $C=C(Z,Y)$ are deterministic signs. For $\mu_Y$-almost every $y$ the identity $A(X,Z)B(X,y)C(Z,y)=1$ holds for $\mu_X\otimes\mu_Z$-almost every $(X,Z)$; fix such a $y_0$ and put $S(X)=B(X,y_0)$, $T(Z)=C(Z,y_0)$, so that $A=ST$ almost surely. Substituting in $ABC=1$ gives $\bigl(S(X)B(X,Y)\bigr)\bigl(T(Z)C(Z,Y)\bigr)=1$ almost surely. Write $B'=SB$ and $C'=TC$. Conditionally on $Y$ these are independent signs, and they agree almost surely, so each equals a function $U(Y)$ almost surely. Hence $A=ST$, $B=SU$, $C=TU$ almost surely, and independence of the three sources gives the means with $\sigma=\E S$, $\tau=\E T$, $\upsilon=\E U$. Their product is $(\sigma\tau\upsilon)^2$.
 \end{proof}
 
-Rigidity of the parity-perfect (parity token-counting) triangle correlations is established prior work: the exact statement is due to Boreiri, Girardin, Ulu, Lipka-Bartosik, Brunner and Sekatski \cite{BoreiriEtAl2023}, and Boreiri, Ulu, Brunner and Sekatski \cite{BoreiriEtAl2025} give a noise-robust form (a compatible law with parity error $\epsilon$ is within $3\epsilon$ of a parity-perfect compatible law); Lemma~\ref{lem:quantrigidity} is a moment form of that robustness. Renou and Beigi \cite{RenouBeigi2022PRA,RenouBeigi2022PRL} prove rigidity of token-counting distributions on every ring scenario with bipartite sources; their statements concern integer token counts rather than parity, so they do not contain the lemma below, but they are the prior rigidity results on cycles. The two proofs here are included because the statements are needed for arbitrary latent alphabets and stochastic responses, and because the constant of Lemma~\ref{lem:quantrigidity} enters the distance bounds below.
+Rigidity of the parity-perfect (parity token-counting) triangle correlations is prior work: the exact statement is due to Boreiri, Girardin, Ulu, Lipka-Bartosik, Brunner and Sekatski \cite{BoreiriEtAl2023}, and Boreiri, Ulu, Brunner and Sekatski \cite{BoreiriEtAl2025} give a noise-robust form (a compatible law with parity error $\epsilon$ is within $3\epsilon$ of a parity-perfect compatible law); Lemma~\ref{lem:quantrigidity} is a moment form of that robustness. Renou and Beigi \cite{RenouBeigi2022PRA,RenouBeigi2022PRL} prove rigidity of token-counting distributions on every ring scenario with bipartite sources; their statements concern integer token counts rather than parity, so they do not contain the lemma below, but they are the prior rigidity results on cycles. We give the two proofs because we need the statements for arbitrary latent alphabets and stochastic responses, and because the constant of Lemma~\ref{lem:quantrigidity} enters the distance bounds below.
 
 \begin{lemma}[Quantitative parity rigidity]\label{lem:quantrigidity}
 Let $R\in\Ctri$ and $W=\E_R[ABC]$. Then
@@ -108,7 +108,7 @@ Let $R\in\Ctri$ and $W=\E_R[ABC]$. Then
 \end{lemma}
 
 \begin{proof}
-Let $a(x,z)$, $b(x,y)$, $c(z,y)$ be the conditional means of $A$, $B$, $C$ given the sources; they take values in $[-1,1]$, and since the three responses use independent private randomness, $W=\E[abc]$ and $\E_RA=\E[a]$, with the expectations over the independent sources $X,Y,Z$. Two elementary inequalities are used: for $p,r\in[-1,1]$,
+Let $a(x,z)$, $b(x,y)$, $c(z,y)$ be the conditional means of $A$, $B$, $C$ given the sources; they take values in $[-1,1]$, and since the three responses use independent private randomness, $W=\E[abc]$ and $\E_RA=\E[a]$, with the expectations over the independent sources $X,Y,Z$. We use two inequalities: for $p,r\in[-1,1]$,
 \begin{equation}\label{eq:pr}
 |p-r|\le1-pr,
 \end{equation}
@@ -133,7 +133,7 @@ where $\E_Y[uw]=\E[S(X)T(Z)b(X,Y)c(Z,Y)]$ by independence of the sources and $\E
 \]
 and likewise $|\E[c]-\E[T]\,\E[\upsilon]|\le4(1-W)$. Write $\sigma=\E[S]$, $\tau=\E[T]$, $\nu=\E[\upsilon]$. If all three means were below $-4(1-W)$, then $\sigma\tau\le\E[a]+(1-W)<0$, $\sigma\nu<0$ and $\tau\nu<0$, whose product $(\sigma\tau\nu)^2$ is nonnegative, a contradiction.
 \end{proof}
-For $W=1$ the lemma says that some mean is nonnegative, which is Lemma~\ref{lem:parityrigidity} again. A compatible law at total-variation distance $\delta$ from a parity-perfect law has $1-W\le2\delta$, so the lemma also replaces the repair step of \cite{BoreiriEtAl2025}: no repaired model is constructed, and the bound holds for arbitrary latent alphabets and stochastic responses.
+For $W=1$ the lemma says that some mean is nonnegative, which is Lemma~\ref{lem:parityrigidity} again. A compatible law at total-variation distance $\delta$ from a parity-perfect law has $1-W\le2\delta$, so the lemma also replaces the repair step of \cite{BoreiriEtAl2025}: we construct no repaired model, and the bound holds for arbitrary latent alphabets and stochastic responses.
 
 \begin{lemma}[Distance of the cycle family]\label{lem:cycledistance}
 Let $m\ge3$ and let $q>0$ be such that $P_{m,q}$ is a probability law. Then $d_{\TV}(P_{m,q},\Ccyc)\ge q/10$; in particular $P_{m,q}\notin\Ccyc$.
@@ -167,11 +167,11 @@ Apply $T_\eta$ independently to every copied observation of the witness of Lemma
 For the distance, $d_{\TV}(\widetilde P_{m,q},P_{m,q})\le m\eta=q/32$ by a union bound over the flipped coordinates, and Lemma~\ref{lem:cycledistance} gives $d_{\TV}(\widetilde P_{m,q},\Ccyc)\ge q/10-q/32=11q/160$. Since $t$ was arbitrary and $\widetilde P_{m,q}\notin\Ccyc$, the feasible set at order $t$ is strictly larger than $\Ccyc$ for every $t$.
 \end{proof}
 
-For $m=3$ this gives a worst-case distance of order $t^{-2}$ for the triangle, in place of the order $t^{-3}$ that the family of Section~\ref{sec:main} supplies for Question~\ref{q:hausdorff}. The next subsection replaces $t^{-2}$ by $t^{-1}$ for the triangle and for the square.
+For $m=3$ this gives a worst-case distance of order $t^{-2}$ for the triangle, in place of the order $t^{-3}$ that the family of Section~\ref{sec:main} supplies for Question~\ref{q:hausdorff}.
 
 \subsection{A corrected density and a linear lower bound}\label{sec:corrected}
 
-The density \eqref{eq:Hdensity} fixes every auxiliary character, including characters that no prescription refers to. Changing those characters restores positivity at a much larger $q$.
+The density \eqref{eq:Hdensity} fixes every auxiliary character, including characters that no prescription refers to. Changing those characters restores positivity at a larger $q$.
 
 \begin{lemma}[Phase telescoping]\label{lem:telescope}
 For real $\theta_1,\dots,\theta_m$,
@@ -316,7 +316,7 @@ The distance bound is Lemma~\ref{lem:cycledistance} for $m=3$, whose proof uses 
 \subsection{A convex-order upper bound}\label{sec:convexorder}
 
 \begin{theorem}[Convex order along the diagonal]\label{thm:convexorder}
-Let $G$ be a pair-source scenario with finite observed alphabets and $K$ joint outcomes, and let $P\in\INW_n(G)$ with witness $\Gamma$. For a deterministic table $\omega$ of copied observations let $q_\omega$ be the observed law obtained by sampling one copy index uniformly and independently for each source and reading $\omega$ at those indices. Then $q_\omega\in\Cscen{G}$ for every $\omega$, and for every convex $\Phi$ on the observed simplex
+Let $G$ be a correlation scenario, that is, finitely many independent latent sources and observed variables with finite alphabets, each a stochastic function of the sources it reads, with $K$ joint outcomes; the order-$n$ inflation and the set $\INW_n(G)$ are defined as in Section~\ref{sec:pairsource} with sources in place of edges. Let $P\in\INW_n(G)$ with witness $\Gamma$. For a deterministic table $\omega$ of copied observations let $q_\omega$ be the observed law obtained by sampling one copy index uniformly and independently for each source and reading $\omega$ at those indices. Then $q_\omega\in\Cscen{G}$ for every $\omega$, and for every convex $\Phi$ on the observed simplex
 \begin{equation}\label{eq:convexorder}
 \E_\Gamma\,\Phi(q_\omega)\ \le\ \E\,\Phi(\widehat P_n),
 \end{equation}
@@ -329,9 +329,9 @@ H^{\mathrm{NW}}_n(G)\ \le\ \min\Bigl\{1,\ \frac{\sqrt{K-1}}{2\sqrt n}\Bigr\}.
 \end{theorem}
 
 \begin{proof}
-Fix $\omega$. Sampling an index $I_e\in[n]$ uniformly and independently for each edge $e$ and letting each vertex $v$ output $\omega_v\bigl((I_e)_{e\ni v}\bigr)$ is a model of $G$ with independent sources $I_e$ and deterministic responses, so $q_\omega\in\Cscen{G}$.
+Fix $\omega$. Sampling an index $I_e\in[n]$ uniformly and independently for each source $e$ and letting each observed variable $v$ output $\omega_v\bigl((I_e)_{e\ni v}\bigr)$, where $e\ni v$ ranges over the sources $v$ reads, is a model of $G$ with independent sources $I_e$ and deterministic responses, so $q_\omega\in\Cscen{G}$.
 
-Draw one uniform permutation $\pi_e$ of $[n]$ for each edge, independently of each other and of $\omega\sim\Gamma$, and set
+Draw one uniform permutation $\pi_e$ of $[n]$ for each source, independently of each other and of $\omega\sim\Gamma$, and set
 \[
 T_\ell=\Bigl(\omega_v\bigl((\pi_e(\ell))_{e\ni v}\bigr)\Bigr)_{v},\qquad \ell\in[n],
 \qquad \widehat P=\frac1n\sum_{\ell=1}^n\delta_{T_\ell}.
@@ -345,7 +345,7 @@ d_{\TV}(P,\Cscen{G})\le\tfrac12\|P-q_\omega\|_1\le\frac{\sqrt K}2\|P-q_\omega\|_
 using $\|P\|_2^2\ge1/K$. Total variation never exceeds $1$.
 \end{proof}
 
-Theorem~\ref{thm:convexorder} sharpens Proposition~\ref{prop:promised}: the collision estimate there loses a factor equal to the number of sources, and \eqref{eq:convexl2} removes it, replacing the rejecting-order bound $\lfloor LK/(4\delta^2)\rfloor+1$ by $\lfloor(K-1)/(4\delta^2)\rfloor+1$. The proof is the same sampling mechanism, with the full diagonal law used through a conditional expectation rather than through the first two degrees.
+The sampling mechanism is that of the finite de Finetti estimate of \cite[Section 4.2 and eq.~(A7)]{NW2020}, which bounds the same quantity by $L(1-\|P\|_2^2)/n$ for $L$ sources through the collision probability of two index samples. Using the full diagonal law through a conditional expectation, rather than its first two degrees, removes the factor $L$. Section~\ref{sec:general} draws the rejecting-order consequence.
 
 \begin{corollary}[Brackets for the square and the triangle]\label{cor:brackets}
 For every $t\ge1$,
@@ -384,11 +384,11 @@ Choose a source type of residual degree $\Delta$, say $X$, together with its two
 Assign each component to the diagonal row of its colour. Components sharing a row use disjoint source types, and distinct components use distinct copies within each family, so independent permutations of the copy indices of the four sources place all components on their assigned rows simultaneously. Under $\Gamma$ the rows are independent with law $P$. Within one row the components have disjoint original source types, so Lemma~\ref{lem:sourcedisjoint}, available because $n\ge2$, makes $P$ factor across them. Hence the joint law of the placed components is the product of their $P$-marginals. Undoing the permutations, the AI set of $\Gamma'$ has exactly the prescribed product.
 \end{proof}
 
-The factor $3/2$ is the cost of placing all components on diagonal rows at once; ancestrally disjoint collections of $\lfloor3t/2\rfloor$ injectable components whose source-type conflict graph is complete show that this particular method cannot do better. A consequence is $H^{\mathrm{NW}}_{\lfloor3t/2\rfloor}(\square)\le H^{\mathrm{AI}}_t(\square)\le H^{\mathrm{NW}}_t(\square)$, so the two hierarchies have the same polynomial decay exponent if either has one.
+The factor $3/2$ is the cost of placing all components on diagonal rows at once; ancestrally disjoint collections of $\lfloor3t/2\rfloor$ injectable components whose source-type conflict graph is complete show that this method cannot do better. Hence $H^{\mathrm{NW}}_{\lfloor3t/2\rfloor}(\square)\le H^{\mathrm{AI}}_t(\square)\le H^{\mathrm{NW}}_t(\square)$, so the two hierarchies have the same polynomial decay exponent if either has one.
 
 \subsection{Low-order thresholds}\label{sec:lowthresholds}
 
-On the parity family the first ten orders can be settled exactly. The reduction below turns feasibility for a parity-perfect target into a finite linear program in the numbers of negative auxiliary signs; we state it for the square, where it also covers the Navascu\'es--Wolfe test, and note the triangle form afterwards.
+On the parity family we settle the first ten orders exactly. The reduction below turns feasibility for a parity-perfect target into a finite linear program in the numbers of negative auxiliary signs; we state it for the square, where it also covers the Navascu\'es--Wolfe test.
 
 \begin{lemma}[Count-moment reduction]\label{lem:countmoment}
 Let $0\le q\le3-2\sqrt2$ and $t\ge1$. Then $P_q\in\IAI_t(\square)$ if and only if there are $w_a\ge0$, $a=(a_X,a_Y,a_Z,a_W)\in\{0,\dots,t\}^4$, with $\sum_aw_a=1$ and
@@ -425,10 +425,10 @@ Let $H\in\{\mathrm{NW},\mathrm{AI},\mathrm{exp}\}$, $G\in\{\triangle,\square\}$,
 \end{lemma}
 
 \begin{proof}
-By Lemmas~\ref{lem:countmoment} and~\ref{lem:countmomentNW} a witness may be taken to be a law on sign potentials. Multiply every potential sign by an independent $\pm1$ variable of mean $\rho=\sqrt{q'/q}$. A character whose boundary has $S$ elements is multiplied by $\rho^S$, so its value $(-q)^{S/2}$ becomes $(-q')^{S/2}$, while symmetry and the block structure of every prescription are unchanged. Lemma~\ref{lem:rootsink} covers the recursively expressible test.
+By Lemmas~\ref{lem:countmoment} and~\ref{lem:countmomentNW} we may take a witness to be a law on sign potentials. Multiply every potential sign by an independent $\pm1$ variable of mean $\rho=\sqrt{q'/q}$. A character whose boundary has $S$ elements is multiplied by $\rho^S$, so its value $(-q)^{S/2}$ becomes $(-q')^{S/2}$, while symmetry and the block structure of every prescription are unchanged. Lemma~\ref{lem:rootsink} covers the recursively expressible test.
 \end{proof}
 
-By Lemma~\ref{lem:paritymonotone} the set of parameters accepted at a given order is an interval $[0,q^H_t]$, and $q^H_t$ can be bracketed by a rational primal witness of Lemmas~\ref{lem:countmoment} and~\ref{lem:countmomentNW} at a point below it and rational dual certificates above it.
+By Lemma~\ref{lem:paritymonotone} the set of parameters accepted at a given order is an interval $[0,q^H_t]$, and we bracket $q^H_t$ by a rational primal witness of Lemmas~\ref{lem:countmoment} and~\ref{lem:countmomentNW} at a point below it and rational dual certificates above it.
 
 \begin{proposition}[The parity thresholds at orders up to ten]\label{prop:paritythresholds}
 For the square and the triangle, the thresholds $q^{\mathrm{AI}}_t=q^{\mathrm{exp}}_t$ and $q^{\mathrm{NW}}_t$ satisfy the bounds of Table~\ref{tab:thresholds} for $1\le t\le10$, each lower bound being a rational witness and each upper bound a dual certificate valid on the whole interval up to the endpoint of the family. In particular:
