@@ -120,7 +120,7 @@ sources:
       Quoted, not formalized. It is what would justify reading the graph development's
       finite-latent compatible set as the general one; see fidelity.divergences.
   - title: "Towards a minimal example of quantum nonlocality without inputs"
-    authors: ["Sadra Boreiri", "Antoine Girardin", "Bo Yang", "Nicolas Brunner", "Pavel Sekatski"]
+    authors: ["Sadra Boreiri", "Antoine Girardin", "Bora Ulu", "Patryk Lipka-Bartosik", "Nicolas Brunner", "Pavel Sekatski"]
     id: "https://doi.org/10.1103/PhysRevA.107.062413"
     type: "paper"
     location: "exact parity rigidity for classical models of perfect-correlation targets on cycles"
@@ -134,7 +134,7 @@ sources:
 related_formalizations: []
 
 classification:
-  arxiv: ["quant-ph", "math.ST", "cs.LO"]
+  arxiv: ["quant-ph", "math.ST"]
   msc2020: ["81P13", "62A09", "68Q17", "60E15", "05C90"]
 
 status:
@@ -291,7 +291,9 @@ alignment:
       status: "proved"
       note: >-
         Answer: exactly the scenarios whose every connected component is a double-star, and
-        then order two suffices. Proof via TriangleInflation.Graph.classification_NW_lib in
+        then order two suffices; the compared statement carries both the existence of a
+        characterizing order and the order-two characterization on double-star forests.
+        Proof via TriangleInflation.Graph.classification_NW_lib and doubleStar_terminates in
         TriangleInflation/Graph/ClassificationTheorem.lean, from doubleStar_terminates (the
         order-two reconstruction) and nontermination_of_not_doubleStar (exhaustion into an
         induced cycle or five-path, the cycle and five-path witnesses, induced transport and

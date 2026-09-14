@@ -28,8 +28,10 @@ require them.
 
 ```lean
 theorem TriangleInflation.Graph.classification_NW (Γ : PairGraph) :
-    (∃ t : ℕ, 1 ≤ t ∧ ∀ P : GTarget Γ, IsLaw P → (GNWFeasible Γ t P ↔ GCompatible Γ P))
-      ↔ IsDoubleStarForest Γ.G
+    ((∃ t : ℕ, 1 ≤ t ∧ ∀ P : GTarget Γ, IsLaw P → (GNWFeasible Γ t P ↔ GCompatible Γ P))
+      ↔ IsDoubleStarForest Γ.G) ∧
+    (IsDoubleStarForest Γ.G →
+      ∀ P : GTarget Γ, IsLaw P → (GNWFeasible Γ 2 P ↔ GCompatible Γ P))
 ```
 
 A `PairGraph` is a finite simple graph without isolated vertices: one binary observed

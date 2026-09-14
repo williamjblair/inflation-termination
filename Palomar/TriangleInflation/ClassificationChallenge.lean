@@ -539,12 +539,16 @@ Some finite order of the Navascués–Wolfe hierarchy characterizes compatibilit
 pair-source scenario `Γ` exactly when every connected component of its graph is a double
 star, that is, a tree of diameter at most three.
 
-Left to right this is the nontermination half: a graph with any other component carries, at
-every order `t ≥ 1`, a law that passes the order-`t` test and has no model. Right to left it
-is the reconstruction half, and the proof gives the explicit order `t = 2`.
+The first conjunct, left to right, is the nontermination half: a graph with any other
+component carries, at every order `t ≥ 1`, a law that passes the order-`t` test and has no
+model. Right to left it is the reconstruction half. The second conjunct is the order stated
+in the paper: on a double-star forest the order-two test already characterizes
+compatibility.
 
 Paper Theorem 4.2. -/
 theorem TriangleInflation.Graph.classification_NW (Γ : PairGraph) :
-    (∃ t : ℕ, 1 ≤ t ∧ ∀ P : GTarget Γ, IsLaw P → (GNWFeasible Γ t P ↔ GCompatible Γ P))
-      ↔ IsDoubleStarForest Γ.G := by
+    ((∃ t : ℕ, 1 ≤ t ∧ ∀ P : GTarget Γ, IsLaw P → (GNWFeasible Γ t P ↔ GCompatible Γ P))
+      ↔ IsDoubleStarForest Γ.G) ∧
+    (IsDoubleStarForest Γ.G →
+      ∀ P : GTarget Γ, IsLaw P → (GNWFeasible Γ 2 P ↔ GCompatible Γ P)) := by
   sorry
