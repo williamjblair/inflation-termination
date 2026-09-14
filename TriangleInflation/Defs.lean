@@ -27,11 +27,12 @@ only; the statements live in `Finner.lean`, `Defect.lean`, `Main.lean`, `Fan.lea
   measurable latent spaces. Restricting to finite latent alphabets is a formalization
   boundary; it is justified by the theorem of Rosset, Gisin and Wolfe (2018) that latent
   alphabets of bounded finite size suffice for the triangle. That theorem is **not**
-  formalized here. Consequently `TriangleCompatible` is, as stated, a priori a subset of the
-  paper's `C_tri`; the Finner lemma (Lemma 3.7) is proved in the paper for arbitrary
-  measurable latent spaces and stochastic responses, so the finite-latent statement
-  formalized in `Finner.lean` is a weakening in the direction that the incompatibility
-  arguments use.
+  formalized here. Consequently `TriangleCompatible` is a subset of the paper's `C_tri`, and
+  a theorem `¬ TriangleCompatible P` is the WEAKER statement: nonmembership in the
+  finite-latent set does not by itself give nonmembership in the arbitrary-latent set. The
+  arbitrary-latent statement needs either the Rosset–Gisin–Wolfe reduction (quoted, not
+  formalized) or a direct measure-theoretic proof of Lemma 3.7; see `FinnerMeasure.lean`
+  for the latter where it exists.
 
 * **The recursively expressible set is not formalized.** Definition 2.3 of the paper
   (`def:exp`, the `I^exp_t` hierarchy) needs `d`-separation in the inflated causal graph and

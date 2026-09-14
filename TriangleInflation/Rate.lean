@@ -106,7 +106,7 @@ private theorem sum_mul_comp {α β : Type*} [Fintype α] [Fintype β] [Decidabl
   simp [Finset.sum_ite_eq, ite_mul]
 
 /-- Two indicators of a common value multiply to the indicator of agreement. -/
-private theorem sum_ind_eq (a b : ThreeBit) :
+theorem sum_ind_eq (a b : ThreeBit) :
     (∑ c : ThreeBit, (if a = c then (1:ℝ) else 0) * (if b = c then (1:ℝ) else 0))
       = if a = b then (1:ℝ) else 0 := by
   rcases eq_or_ne a b with rfl | hne
@@ -144,7 +144,7 @@ private theorem sum_relabel (π : Equiv.Perm (Fin t) × Equiv.Perm (Fin t) × Eq
     ⟨relabel (permInv π), relabel_permInv π, relabel_permInv' π⟩
 
 /-- The defining invariance of a symmetric law, applied inside an expectation. -/
-private theorem sym_sum {Γ : Assign t → ℝ} (hsym : SymmetricLaw t Γ)
+theorem sym_sum {Γ : Assign t → ℝ} (hsym : SymmetricLaw t Γ)
     (π : Equiv.Perm (Fin t) × Equiv.Perm (Fin t) × Equiv.Perm (Fin t)) (F : Assign t → ℝ) :
     ∑ ω : Assign t, Γ ω * F (relabel π ω) = ∑ ω : Assign t, Γ ω * F ω := by
   calc ∑ ω : Assign t, Γ ω * F (relabel π ω)
@@ -203,7 +203,7 @@ private theorem marg_one {n : ℕ} (hn : 1 ≤ n) {P : ThreeBit → ℝ} (hP : I
 
 /-- Two copied triangles sharing no copy index have the joint law `P ⊗ P`, so they agree
 with probability `‖P‖₂²`. -/
-private theorem marg_two {n : ℕ} {P : ThreeBit → ℝ} (hP : IsLaw P)
+theorem marg_two {n : ℕ} {P : ThreeBit → ℝ} (hP : IsLaw P)
     {Γ : Assign n → ℝ} (hsym : SymmetricLaw n Γ)
     (hdiag : pushforward Γ readDiagonal = tensorPow n P)
     {i j k i' j' k' : Fin n} (hi : i ≠ i') (hj : j ≠ j') (hk : k ≠ k') :
@@ -250,14 +250,14 @@ private theorem marg_two {n : ℕ} {P : ThreeBit → ℝ} (hP : IsLaw P)
 /-! ### The empirical law of a random copied triangle -/
 
 /-- The number of copied triangles that a deterministic assignment reads as `w`. -/
-private def triCount {n : ℕ} (ω : Assign n) (w : ThreeBit) : ℝ :=
+def triCount {n : ℕ} (ω : Assign n) (w : ThreeBit) : ℝ :=
   ∑ c : Cell n, if readTriangle c.1 c.2.1 c.2.2 ω = w then (1:ℝ) else 0
 
 /-- The empirical law of the `n³` copied triangles of a deterministic assignment: sample the
 three copy indices uniformly and independently, and output the three bits that the
 assignment gives to the corresponding copied triangle. This is the law `q_ω` of the proof of
 paper Proposition 7.1. -/
-private def qLaw (n : ℕ) (ω : Assign n) : ThreeBit → ℝ := fun w => triCount ω w / (n : ℝ) ^ 3
+def qLaw (n : ℕ) (ω : Assign n) : ThreeBit → ℝ := fun w => triCount ω w / (n : ℝ) ^ 3
 
 private theorem triCount_nonneg {n : ℕ} (ω : Assign n) (w : ThreeBit) : 0 ≤ triCount ω w :=
   Finset.sum_nonneg fun c _ => by positivity
@@ -310,7 +310,7 @@ private theorem sum_triCount_sq {n : ℕ} (ω : Assign n) :
           if readTriangle p.1.1 p.1.2.1 p.1.2.2 ω = readTriangle p.2.1 p.2.2.1 p.2.2.2 ω
             then (1:ℝ) else 0)).symm
 
-private theorem qLaw_isLaw {n : ℕ} (hn : 1 ≤ n) (ω : Assign n) : IsLaw (qLaw n ω) := by
+theorem qLaw_isLaw {n : ℕ} (hn : 1 ≤ n) (ω : Assign n) : IsLaw (qLaw n ω) := by
   have hn0 : (0:ℝ) < (n:ℝ) ^ 3 := by
     have : (0:ℝ) < (n:ℝ) := by exact_mod_cast hn
     positivity
@@ -385,14 +385,14 @@ private theorem detModel_law {n : ℕ} (ω : Assign n) : (detModel n ω).law = q
     _ = qLaw n ω (w1, w2, w3) := by
         simp only [qLaw, triCount, Finset.sum_div, Fintype.sum_prod_type]
 
-private theorem qLaw_compatible {n : ℕ} (hn : 1 ≤ n) (ω : Assign n) :
+theorem qLaw_compatible {n : ℕ} (hn : 1 ≤ n) (ω : Assign n) :
     TriangleCompatible (qLaw n ω) :=
   ⟨detModel n ω, detModel_valid hn ω, detModel_law ω⟩
 
 /-! ### Counting the pairs of copied triangles -/
 
 /-- The number of ordered pairs of distinct copy indices. -/
-private theorem sum_ne_pair (n : ℕ) :
+theorem sum_ne_pair (n : ℕ) :
     ∑ x : Fin n × Fin n, (if x.1 ≠ x.2 then (1:ℝ) else 0) = (n:ℝ) ^ 2 - (n:ℝ) := by
   rw [Fintype.sum_prod_type]
   have hinner : ∀ a : Fin n, (∑ b : Fin n, if a ≠ b then (1:ℝ) else 0) = (n:ℝ) - 1 := by
@@ -461,7 +461,7 @@ private theorem sum_pairs_const (n : ℕ) :
 
 /-- Fact (1) of the proof of paper Proposition 7.1: the empirical law of a random copied
 triangle has mean `P`. -/
-private theorem expect_qLaw {n : ℕ} (hn : 1 ≤ n) {P : ThreeBit → ℝ} (hP : IsLaw P)
+theorem expect_qLaw {n : ℕ} (hn : 1 ≤ n) {P : ThreeBit → ℝ} (hP : IsLaw P)
     {Γ : Assign n → ℝ} (hsym : SymmetricLaw n Γ)
     (hdiag : pushforward Γ readDiagonal = tensorPow n P) (w : ThreeBit) :
     ∑ ω : Assign n, Γ ω * qLaw n ω w = P w := by
@@ -559,7 +559,7 @@ private theorem expect_sq_le {n : ℕ} (hn : 1 ≤ n) {P : ThreeBit → ℝ} (hP
   exact h5
 
 /-- A weighted average is at least the minimum over the support. -/
-private theorem exists_le_of_weighted {α : Type*} [Fintype α] {Γ : α → ℝ}
+theorem exists_le_of_weighted {α : Type*} [Fintype α] {Γ : α → ℝ}
     (h0 : ∀ a, 0 ≤ Γ a) (h1 : ∑ a, Γ a = 1) (v : α → ℝ) (c : ℝ)
     (hle : ∑ a, Γ a * v a ≤ c) : ∃ a, v a ≤ c := by
   by_contra hcon
