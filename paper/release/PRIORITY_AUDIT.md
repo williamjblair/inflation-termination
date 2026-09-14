@@ -56,3 +56,55 @@ qualitative faithfulness biconditional is NW's completeness restated as a
 gauge and must be framed as a quantitative refinement; the strong converse must
 define its class of block laws against Weilenmann–Budroni–Navascués; NW's `D`
 is ℓ¹ and any imported modulus must track the factor two.
+
+## Addendum 2026-09-13 (evening): the pair-source packet
+
+No literature sweep has been run for the packet results. The rows below record
+what must be checked before any release, and the known predecessors that the
+manuscript already cites. Status for every row: TARGETED_REVIEW_REQUIRED.
+
+| result | known ingredients (cited, not claimed) | what a targeted sweep must look for |
+|---|---|---|
+| pair-source termination classification (Thm 4.2) | NW 2020 star termination at order two; WSF 2019 definitions; Rosset–Gisin–Wolfe closedness | any published statement that a scenario class terminates or fails to terminate at a finite inflation order; "double-star", "caterpillar of diameter three", "bilocal"/"path" nontermination |
+| root-sink lemma (`exp = AI` on pair-source scenarios) | WSF 2019 Def. 7 (expressible sets); d-separation in the inflation DAG | whether WSF or later work already observes that the recursive closure adds nothing on scenarios without observed parents |
+| double-star reconstruction (Thm 5.1) | NW 2020 §4.1 (stars) | any order-two reconstruction argument for trees |
+| five-path witness and bilocal inequality (Thm 7.5, Lemma 7.3) | Branciard–Rosset–Gisin–Pironio 2012 (bilocal inequalities); Tavakoli et al. 2022 review | inflation nontermination statements for the bilocal or `n`-local chain scenarios; explicit `√|I|+√|J| ≤ 1` forms with settings given by observers |
+| cycle parity witnesses (Thm 6.8) and rigidity (Lemmas 6.5–6.6) | Boreiri–Ulu–Brunner–Sekatski 2025 (rigidity of parity-perfect correlations); parity/GHZ-type triangle distributions | parity-based inflation witnesses at all orders; Fourier-density constructions of symmetric inflation tables |
+| corrected density and `Θ(1/t)` rates (Lemma 6.10, Thms 6.11–6.12) | none located | quantitative lower bounds on the distance of accepted laws to the compatible set |
+| convex-order bound (Thm 6.16) | NW 2020 Thm 1/(A7); Diaconis–Freedman 1980; Gitton 2025 thesis Thm 5.4 (`O(1/z)` squared-`ℓ²` error) | a source-independent `√(K−1)/(2√n)` bound or a convex-order statement for inflation diagonals (Gitton's rate may already be source-independent: check the constant) |
+| order conversion on the square (Thm 6.18) | none located | comparisons of NW and AI orders |
+| low-order thresholds (Prop. 6.20) | Pozas-Kerstjens et al. 2023 (inflation software with symmetry reduction) | published order-two or order-three square parity thresholds |
+| supporting results (Appendix C) | Shearer 1985; MacWilliams–Sloane 1977 | rare-selector or matching-based inflation witnesses; defect-ceiling asymptotics |
+
+`PRIORITY_STATUS` for the packet results: NOT_SWEPT. The overall status line
+above applies only to the former manuscript (Sections 8–13).
+
+## Addendum 2026-09-14: targeted sweep for Sections 3–7 (pair-source classification, brackets, witnesses)
+
+Full table with verbatim quotations and verified bibliographic data:
+`research/2026-09-14/priority/PRIORITY_SWEEP_SECTIONS_3-7.md` (22 primary full texts plus the
+arXiv abstract corpora for "causal compatibility" and "inflation technique", 2023–2026).
+
+| result | verdict | strongest predecessor | action taken in the manuscript |
+|---|---|---|---|
+| Theorem 4.2 (termination classification), Theorem 5.1 | PARTIALLY_OVERLAPPING | Navascués–Wolfe 2020 §4.1: "This example can be generalized to prove convergence at order n=2 of any star-shaped correlation scenario" (the diameter-≤2 case) | cited; the four-on-line scenario of NW Fig. 8, which they leave open, is named at Corollary 5.3; Henson–Lal–Pusey 2014 cited as the prior classification enterprise (different criterion, parts from ours at diameter 3) |
+| Lemma 3.9 (exp = AI on root-sink scenarios) | NO_MATCH | WSF 2019 "leave the investigation of more general expressible sets to future work"; their strict-gap example lies outside the root-sink class | recorded in Section 14 |
+| Theorems 6.8, 7.5 (all-order cycle and path witnesses), Lemma 6.10 | NO_MATCH | — | — |
+| Theorem 6.16 (convex-order bound, source-free constant) | PARTIALLY_OVERLAPPING (shape n^{-1/2} is NW Thm 1; Gitton 2022 Thm 8 constant carries S_c(S_c − 1/2); Fraser 2020 rate carries LC) — the 2026-09-13 open check "is Gitton's rate source-independent?" is resolved: NO | Gitton 2022 Thm 8, Fraser 2020, Hoeffding 1963 Thm 4 cited in Section 14 |
+| Theorem 6.18 (order conversion), Proposition 6.20 (second-order separations) | NO_MATCH | — | — |
+| Lemma 6.5 (exact parity rigidity) | CLEARLY_PRECEDED | Boreiri, Girardin, Ulu, Lipka-Bartosik, Brunner, Sekatski, PRA 107, 062413 (2023) — previously mis-attributed to the 2025 Quantum paper | attribution corrected in Sections 6 and 14 |
+| Lemma 6.6 (parity repair) | SUBSTANTIALLY_PRECEDED | Boreiri–Ulu–Brunner–Sekatski, Quantum 9, 1830 (2025), Result 2, with the tighter constant 3ε | the manuscript now says so; the difference is generality (arbitrary latent alphabets, stochastic responses) |
+| rigidity on cycles | PARTIALLY_OVERLAPPING | Renou–Beigi, PRA 105, 022408 (2022) §IV (token counting on all ring scenarios; integer counts, not parity) | cited in Sections 6 and 14 |
+| Lemma 7.3 (bilocal inequality) | CLEARLY_PRECEDED | Branciard–Rosset–Gisin–Pironio 2012 | already cited |
+
+Not accessed: Gitton 2025 ETH thesis (Research Collection HTTP 500 on 2026-09-14; its arXiv
+predecessor 2202.04103 swept in full instead); theses of Wolfe and Pozas-Kerstjens. arXiv API
+rate-limited; the 2023–2026 sweep used the HTML search (titles and abstracts).
+
+`PRIORITY_STATUS (Sections 3–7) = PRIORITY_NOT_KILLED; no predecessor for the classification
+beyond stars, the root-sink collapse, the all-order witnesses, the Θ(1/t) lower bounds, the
+source-free convex-order constant, the order conversion or the second-order separations;
+preceded and now cited: star termination (NW), parity rigidity (Boreiri et al. 2023) and its
+noise-robust form (Boreiri et al. 2025, tighter constant), ring token-counting rigidity
+(Renou–Beigi 2022), the n^{-1/2} rate family (NW, Gitton, Fraser), Hoeffding's convex-order
+domination, HLP's classification. Firstness not certified.`

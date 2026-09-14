@@ -1,0 +1,360 @@
+\providecommand{\Csq}{\mathcal C_{\square}}
+\providecommand{\Cpar}{\mathcal C_{\mathrm{par}}}
+\providecommand{\Par}[3]{\Pi(#1,#2,#3)}
+\providecommand{\tminsq}[1]{t_{\min}^{#1,\square}}
+
+\section{Further quantitative results}\label{app:supporting}
+
+This appendix records four quantitative advances that accompany the results of the main text without entering their proofs. Nothing in the body of the paper depends on them. They are collected here because each fixes a constant, an exact order, or a ceiling that would otherwise be guessed, and because each carries a different verification status, stated at the end of the item.
+
+Conventions are those of Section~\ref{sec:setup}. Total variation is half the $\ell^1$ distance. The first and the last part of this appendix use sign outputs $A,B,C\in\{-1,+1\}$; for reals $x,y,z$ with $|x|+|y|+|z|\le1$ let
+\[
+\Par xyz(\alpha,\beta,\gamma)=
+\begin{cases}
+\tfrac14(1+x\alpha+y\beta+z\gamma), & \alpha\beta\gamma=1,\\
+0,&\alpha\beta\gamma=-1,
+\end{cases}
+\]
+the parity-even three-bit law with observed means $x,y,z$. The middle two parts use zero-one outputs, as in the rest of the paper. In the second part the scenario is the four-cycle $\square$ with observations $A(X,W)$, $B(X,Y)$, $C(Y,Z)$, $D(Z,W)$, independent sources, arbitrary latent alphabets and stochastic responses; its order-$n$ inflation has the $4n^2$ copied bits $A^{il},B^{ij},C^{jk},D^{kl}$, and $\Csq$ denotes its compatible set; $\tminsq H(P)=\min\{n:P\notin\mathcal I^H_n(\square)\}$ is the first rejecting order there.
+
+\subsection*{An orthogonal witness with quadratic decay}
+
+The family below is a triangle law that passes the full symmetric test at order $n$ while remaining at distance $\Omega(n^{-2})$ from $\Ctri$. It improves the $\Omega(n^{-3})$ rate recorded for $H_n$ in Section~\ref{sec:general} along the family of Section~\ref{sec:main}. Its distance bound uses the parity rigidity of compatible laws rather than a Finner violation; every atomic Finner inequality holds for it.
+
+\begin{proposition}[Quadratic lower bound from an orthogonal density]\label{prop:orthwitness}
+Let $n\ge2$, $\tau=1/(5n^2)$ and $R_\tau=\Par\tau\tau{-\tau}$. Then
+\[
+R_\tau\in\INW_n,\qquad d_{\TV}(R_\tau,\Ctri)\ \ge\ \frac\tau{10},
+\]
+and consequently $H_n^{\mathrm{NW}}(\triangle)=H_n\ge 1/(60n^2)$.
+\end{proposition}
+
+\begin{proof}
+For a sign vector $S\in\{-1,+1\}^n$ and $0\le k\le n$ put
+\[
+h_k(S)=\binom nk^{-1}\sum_{|I|=k}\ \prod_{i\in I}S_i,\qquad h_0=1 ,
+\]
+the normalized elementary symmetric sign polynomial; on the weight classes of the cube these are the Krawtchouk polynomials \cite{MacWilliamsSloane1977}. Under the uniform law on $\{-1,+1\}^n$, character orthogonality gives
+\begin{equation}\label{eq:orth}
+\E\bigl[h_k(S)h_\ell(S)\bigr]=\frac{\one[k=\ell]}{\binom nk}.
+\end{equation}
+Take three independent uniform sign vectors $S,T,U\in\{-1,+1\}^n$ as reference measure, indexed by the three source families $X$, $Z$, $Y$ of Section~\ref{sec:setup}. For $r,s,t\ge0$ with $r+s+t\le n$ set
+\[
+H_{rst}=h_{r+s}(S)\,h_{r+t}(T)\,h_{s+t}(U),\qquad
+B_{rst}=\binom n{r+s}\binom n{r+t}\binom n{s+t},
+\]
+and change the reference density to
+\begin{equation}\label{eq:orthdensity}
+W_\tau=\sum_{r+s+t\le n}(-1)^t\,\tau^{\,r+s+t}B_{rst}H_{rst}.
+\end{equation}
+Define every copied observation by
+\begin{equation}\label{eq:orthoutputs}
+A^{ij}=S_iT_j,\qquad B^{ik}=S_iU_k,\qquad C^{jk}=T_jU_k ,
+\end{equation}
+and let $\Gamma$ be the law of the resulting $3n^2$ signs under the reference measure reweighted by $W_\tau$.
+
+\emph{Normalization and positivity.} Only the term $(r,s,t)=(0,0,0)$ has nonzero reference mean, so $\E W_\tau=1$. Since $|H_{rst}|\le1$ and $B_{rst}\le n^{2(r+s+t)}$,
+\[
+|W_\tau-1|\le\sum_{d\ge1}\binom{d+2}2(n^2\tau)^d=(1-\tfrac15)^{-3}-1=\frac{61}{64},
+\]
+whence $W_\tau\ge3/64>0$ pointwise. All weights are rational, so $\Gamma$ is a rational probability table.
+
+\emph{Symmetry.} Independent permutations of the three index families permute the coordinates of $S$, $T$, $U$ separately, leave each $H_{rst}$ invariant, and transform \eqref{eq:orthoutputs} accordingly. Hence $\Gamma$ is invariant under the group of Definition~\ref{def:NW}.
+
+\emph{Diagonal law.} Each copied triangle has $A^{ij}B^{ik}C^{jk}=1$, so every site is parity-even and $1,A,B,C$ span the functions on its four outcomes. A basis character on the $n$ diagonal sites uses $A$ on $r$ sites, $B$ on $s$ sites and $C$ on $t$ sites, with the three site sets disjoint, so $r+s+t\le n$; by \eqref{eq:orthoutputs} its monomial uses exactly $r+s$ distinct $S$-indices, $r+t$ distinct $T$-indices and $s+t$ distinct $U$-indices. Averaging over independent index permutations replaces the monomial by $H_{rst}$. The map $(r,s,t)\mapsto(r+s,r+t,s+t)$ is injective, so by \eqref{eq:orth} the $H_{rst}$ are orthogonal with squared norms $1/B_{rst}$, and \eqref{eq:orthdensity} gives
+\begin{equation}\label{eq:orthmoments}
+\E_{W_\tau}H_{rst}=(-1)^t\tau^{\,r+s+t}.
+\end{equation}
+These are the corresponding moments of $n$ independent triples of law $R_\tau$. All $4^n$ basis characters agree, so the complete diagonal law is $R_\tau^{\otimes n}$ and $R_\tau\in\INW_n$.
+
+\emph{Distance.} Flipping the signs of $A$ and $B$ preserves compatibility and the parity $ABC$, and sends $R_\tau$ to a law with all three means equal to $-\tau$ and parity $+1$. Let $R\in\Ctri$ with $\delta=d_{\TV}(R_\tau,R)$ and let $R'$ be its flipped version, which is compatible with $d_{\TV}(R'_\tau,R')=\delta$. Since $|\E_Pf-\E_Qf|\le2d_{\TV}(P,Q)$ for $|f|\le1$, the means of $R'$ are at most $-\tau+2\delta$ and its parity $W$ satisfies $1-W\le2\delta$. Lemma~\ref{lem:quantrigidity} gives $-\tau+2\delta\ge-4(1-W)\ge-8\delta$. Thus $\delta\ge\tau/10$ for every compatible $R$.
+\end{proof}
+
+Two limitations are worth stating. First, the witness is for the symmetric test only. The truncation $r+s+t\le n$ in \eqref{eq:orthdensity} is exactly what the diagonal conditions need, since a diagonal character occupies $r+s+t$ distinct sites, but it is not enough for the ancestral-independence prescriptions, which involve copied triangles spread over more indices. At $n=2$ the family $\{A^{11},B^{21},C^{22}\}$ has pairwise disjoint parent sets, so Definition~\ref{def:AI} prescribes the product of the three means, $\tau^2(-\tau)=-1/8000$ at $\tau=1/20$; the corresponding moment of $\Gamma$ is the coefficient of $H_{111}$, which \eqref{eq:orthdensity} omits because $1+1+1>2$, so the witness returns $0$. This is a statement about this witness, not a proof that $R_\tau$ lies outside $\IAI_2$. Second, the bound is not the best available: Section~\ref{sec:cycles} gives $H_n^{\mathrm{AI}}(\triangle)=\Omega(1/n)$ by a different construction, which supersedes Proposition~\ref{prop:orthwitness} in strength while using a witness of a different kind.
+
+Recorded from the research notes of 13 September 2026 archived with the repository (\texttt{research-\allowbreak handoffs/\allowbreak 2026-09-13}). Status: analytic proof in the source, re-derived here; the order-two table was reconstructed by the packet's independent checker, which verified positivity with minimum density $7/16$, the $96$ symmetry equations, the complete $64$-equation diagonal law over the $4096$-point domain, and rejection of a wrong-diagonal control, and which recorded the order-two ancestral-independence failure quoted above; not formalized.
+
+\subsection*{A square family with quadratic rejection depth}
+
+The next item fixes the exact first rejecting order of a family in the four-cycle. It is the square counterpart of Proposition~\ref{prop:family}: there the rejecting order grows as a power of the distance along one direction, here it grows quadratically in a parameter of the target while the target itself stays at a fixed combinatorial complexity.
+
+Fix $t\ge2$, rational $0<\eps\le1/(2t^6)$, and write $h=1-\eps$. The seed $R_\eps$ is the law on $ABCD\in\{0,1\}^4$ with
+\[
+R_\eps(0001)=\eps^2,\quad
+R_\eps(0010)=R_\eps(1100)=R_\eps(1111)=\eps h,\quad
+R_\eps(1110)=h(1-2\eps),
+\]
+and zero elsewhere. Its one-variable marginals are $R_A(1)=R_B(1)=R_C(1)=h$ and $R_D(1)=\eps$; every pair except $AB$ is independent, so the two opposite-pair independences required of a square law hold exactly, while
+\[
+R_\eps(ABC\mid D=1)=\eps\,\delta_{000}+h\,\delta_{111}
+\]
+is a three-way common-defect law. The target is $P_{t,\eps}=F_t(R_\eps)$, where $F_t$ samples $U_q\sim R_\eps$ independently over $q\in[t]^4$ and takes the coordinatewise conjunction of the $t^2$ roots on each line, $A=\prod_{j,k}U^A_{1jk1}$ and its three analogues. With
+\[
+N=t^2,\qquad p=h^N,\qquad q=\eps^N,\qquad k=h^{2N-t},
+\]
+the target has the compact description
+\begin{equation}\label{eq:rareselector}
+P_{t,\eps}(abc,1)=q\,Q(abc),\qquad
+P_{t,\eps}(abc,0)=S(abc)-q\,Q(abc),
+\end{equation}
+where $S=P_{ABC}=K_{AB}\otimes\Bern(p)$ with $K_{11}=k$, $K_{01}=K_{10}=p-k$, $K_{00}=1-2p+k$, and where $Q=P_{ABC\mid D=1}$ is determined by binary moment inversion from
+\[
+Q_A(1)=Q_B(1)=Q_C(1)=p,\quad
+Q_{AB}(11)=k,\quad
+Q_{AC}(11)=Q_{BC}(11)=\frac{p^2}h,\quad
+Q(111)=\frac{kp}h .
+\]
+
+The witness that carries this target past order $t$ replaces the independent cell roots by a rare selector supported on partial matchings. Its positivity is an instance of Shearer's measure on the line graph of a bipartite graph \cite{Shearer1985}, with the occupied-bit convention reversed; the construction is not new here, and only the elementary bound needed for this application is recorded.
+
+\begin{lemma}[Shearer's measure, positivity bound]\label{lem:shearer}
+Give the edges of a finite bipartite graph nonnegative weights $\lambda_e$ with $\sigma=\sum_e\lambda_e<1$. For a partial matching $M$ set
+\[
+\pi(M)=\sum_{\substack{L\supseteq M\\ L\text{ a matching}}}(-1)^{|L|-|M|}\prod_{e\in L}\lambda_e .
+\]
+Then $\pi(M)\ge(1-\sigma)\prod_{e\in M}\lambda_e\ge0$, $\sum_M\pi(M)=1$, and the random matching $\mathcal D$ with law $\pi$ satisfies $\Pr[M\subseteq\mathcal D]=\prod_{e\in M}\lambda_e$, while any non-matching set has containment probability zero.
+\end{lemma}
+
+\begin{proof}
+Factor $\prod_{e\in M}\lambda_e$ out of the sum. Among the edges compatible with $M$, let $a_r$ be the total weight of the $r$-edge matchings, so $a_0=1$. Counting each $(r+1)$-edge matching through each of its $r+1$ edges gives $(r+1)a_{r+1}\le\sigma a_r$, so $(a_r)$ is nonincreasing and nonnegative. Pairing successive terms of the finite alternating sum gives $\sum_r(-1)^ra_r\ge1-a_1\ge1-\sigma>0$, which is the stated bound. Normalization and the containment identity follow by exchanging the finite sums and using $\sum_{J\subseteq L}(-1)^{|L|-|J|}=\one[L=\varnothing]$, including when some weights vanish.
+\end{proof}
+
+\begin{proposition}[Matching-selector witness]\label{prop:rareselector}
+For $t\ge2$, rational $0<\eps\le1/(2t^6)$ and every $n\le t^2-t+1$,
+\[
+P_{t,\eps}\in\Iexp_n(\square)\subseteq\IAI_n(\square)\subseteq\INW_n(\square).
+\]
+\end{proposition}
+
+\begin{proof}[Proof sketch]
+Put $b=N-n-t+1\ge0$ and sample independently $G_i\sim\Bern(h^{t-1})$, $T_{ijl}\sim\Bern(h)$, $U^A_{il},U^B_{ij}\sim\Bern(h^b)$ and $C^{jk}\sim\Bern(p)$. Set
+\[
+A^{il}=G_iU^A_{il}\prod_jT_{ijl},\qquad
+B^{ij}=G_iU^B_{ij}\prod_lT_{ijl}.
+\]
+Each such bit succeeds with probability $p$, and a pair $A^{il},B^{ij}$ shares $G_i$ and exactly one $T$-bit, so it succeeds jointly with probability $h^{2N-t}=k$; hence every copied $ABC$ triple has law $S$. For the selectors put $\kappa_{jl}(1\mid T)=h^{N-n}\prod_iT_{ijl}$, and with $b_p(c)=p^c(1-p)^{1-c}$,
+\[
+L_{kl}(T,C)=\prod_{j=1}^n\frac{\kappa_{jl}(C^{jk}\mid T)}{b_p(C^{jk})},\qquad
+\lambda_{kl}=q\,L_{kl},
+\]
+then draw $\mathcal D$ from Lemma~\ref{lem:shearer} on the complete bipartite graph between the $k$- and $l$-indices, conditionally on $(T,C)$, and set $D^{kl}=\one[(k,l)\in\mathcal D]$. Positivity is uniform: writing $\alpha=1-p$, one has $p\ge1-N\eps>1/2$ and $\alpha\ge\eps$, so every ratio is at most $1/\alpha$ and, for every assignment of $(T,C)$,
+\[
+\sum_{k,l}\lambda_{kl}\le n^2q\alpha^{-n}\le n^2\eps^{\,N-n}\le N^2\eps\le\frac1{2t^2}<1,
+\]
+using $N-n\ge t-1\ge1$. The whole construction is therefore a finite rational probability space, and its pushforward is a nonnegative normalized table on all $4n^2$ copied bits.
+
+The witness is controlled by one identity. For a matching $M$ let $W_M$ retain the base variables but replace each selected $C$-row, that is each $k$ with $(k,l)\in M$, by $C^{jk}=V^C_{jk}\prod_iT_{ijl}$ with private $V^C_{jk}\sim\Bern(h^{N-n})$. Distinct selected edges carry distinct $k$-indices, so $\prod_{(k,l)\in M}L_{kl}$ is a normalized likelihood ratio even with $T$ fixed, and Lemma~\ref{lem:shearer} gives, for every function $f$ of the copied $ABC$ observations,
+\begin{equation}\label{eq:matchingidentity}
+\E_\Gamma\Bigl[f\prod_{(k,l)\in M}D^{kl}\Bigr]=q^{|M|}\,\E_{W_M}f ,
+\end{equation}
+while non-matching $D$-moments vanish. Independent permutations of the four index families permute the base variables, transform the likelihoods covariantly and permute the matchings, so the table is $S_n^4$-invariant; \eqref{eq:matchingidentity} applied to one copied square reproduces \eqref{eq:rareselector}, applied to the $n$ diagonal squares gives the joint law $P_{t,\eps}^{\otimes n}$, and applied to ancestrally disjoint injectable blocks gives the prescribed products of Definitions~\ref{def:AI} and \ref{def:exp}.
+\end{proof}
+
+Rejection uses a strengthening of the first fan inequality of Theorem~\ref{thm:fan} that keeps two pair probabilities instead of discarding them.
+
+\begin{proposition}[Pair-retaining fan inequality]\label{prop:pairfan}
+Let $n\ge2$ and let $P$ be a law on three bits with $a=P_A(0)$, $b=P_B(0)$, $c=P_C(0)$, $d=P_{AB}(00)$, $g=P_{AC}(00)$ and $z=P(000)$. If $P\in\INW_n$ then
+\begin{equation}\label{eq:pairfan}
+d+g+(n-2)z\ \le\ a+\binom n2bc .
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+For bits $b_1,\dots,b_n,c_1,\dots,c_n$ put $U=\sum_kb_k$, $V=\sum_kc_k$, $W=\sum_kb_kc_k$. The pointwise inequality is
+\begin{equation}\label{eq:pairfan-pointwise}
+UV-W\ \ge\ \frac2n\bigl((n-2)W+U+V-n\bigr).
+\end{equation}
+To see it, multiply by $n$ and collect terms on one side as $R=nUV-(3n-4)W-2U-2V+2n$. Since $W\le\min(U,V)$ and its coefficient is negative, it suffices to treat $W=\min(U,V)$; assume $U\le V$, so $R$ becomes $nUV-(3n-2)U-2V+2n$. For $U=0$ this is $2(n-V)\ge0$; for $U=1$ it is $(n-2)(V-1)\ge0$; for $U\ge2$ it increases in $V$, so its minimum is at $V=U$, where it equals $n(U-1)(U-2)\ge0$.
+
+Now take the fan of the proof of Theorem~\ref{thm:fan}: $\mathsf A=\one[A^{11}=0]$, $\mathsf B_k=\one[B^{1k}=0]$, $\mathsf C_k=\one[C^{1k}=0]$, and set $b_k=\mathsf B_k$, $c_k=\mathsf C_k$ in \eqref{eq:pairfan-pointwise}. Definition~\ref{def:NW} gives $\E\mathsf A=a$, $\E[\mathsf A\mathsf B_k]=d$, $\E[\mathsf A\mathsf C_k]=g$ and $\E[\mathsf A\mathsf B_k\mathsf C_k]=z$, since a permutation of the $Y$-indices carries each of these sets into the diagonal triangle $\Delta_{111}$, and $\E[\mathsf B_k\mathsf C_\ell]=bc$ for $k\ne\ell$ by \eqref{eq:fan-cross}. Hence $\E(UV-W)=n(n-1)bc$. Multiplying \eqref{eq:pairfan-pointwise} by $\mathsf A$ and using $UV-W\ge0$ gives
+\[
+n(n-1)bc\ \ge\ \frac2n\bigl(n(n-2)z+nd+ng-na\bigr),
+\]
+which rearranges to \eqref{eq:pairfan}.
+\end{proof}
+
+Since $d\ge z$ and $g\ge z$, \eqref{eq:pairfan} implies the first inequality of \eqref{eq:fan}. It is applied to the square through a conditioning that costs no order.
+
+\begin{lemma}[Same-order transfer]\label{lem:sqtri}
+Let $P\in\INW_n(\square)$. Then $P_{ABC\mid D=1}\in\INW_n(\triangle)$ whenever $P_D(1)>0$, and in every case
+\begin{equation}\label{eq:sqtri}
+P_{ABD}(001)+P_{ACD}(001)+(n-2)P(0001)\ \le\ P_{AD}(01)+\binom n2P_B(0)P_{CD}(01).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Condition an order-$n$ square witness on $D^{11}=\dots=D^{nn}=1$, an event of probability $P_D(1)^n>0$, and retain the complete $A,B,C$ arrays. Independent permutations of the $X$- and $Y$-indices, together with the simultaneous permutation of the $Z$- and $W$-indices, realize the three source symmetries of the triangle, and the conditional diagonal law is $(P_{ABC\mid D=1})^{\otimes n}$. Applying \eqref{eq:pairfan} to the conditional law, using the independence of $B$ and $D$ forced at order $n\ge2$, and clearing the positive denominator gives \eqref{eq:sqtri}. If $P_D(1)=0$ every term of \eqref{eq:sqtri} containing $D=1$ vanishes and the inequality is trivial.
+\end{proof}
+
+\begin{theorem}[Exact first rejection]\label{thm:rarefirstrejection}
+For every $t\ge2$ and rational $0<\eps\le t^{-8}$,
+\[
+\tminsq H\bigl(P_{t,\eps}\bigr)=t^2-t+2,\qquad H\in\{\mathrm{NW},\mathrm{AI},\mathrm{exp}\},
+\]
+the first rejection being witnessed by \eqref{eq:sqtri} with margin at least $\tfrac12\eps^{\,t^2+1}$.
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+Write $\alpha=1-p$, $\beta=1-2p+k$, $\gamma=1-2p+p^2/h$, so that the conditional law $Q$ has $Q_A(0)=Q_B(0)=Q_C(0)=\alpha$, $Q_{AB}(00)=\beta$, $Q_{AC}(00)=Q_{BC}(00)=\gamma$, and moment inversion gives $z:=Q(000)=\eps+(\beta-\eps)(1-h^{N-1})$. Bernoulli's inequality gives $\alpha\le N\eps$; the $AB$ pair has a representation with a shared $\Bern(h^t)$ gate and independent private gates, so $\beta\ge1-h^t\ge t\eps-\binom t2\eps^2$, whence $\beta\ge\eps$ and then $z\ge\eps$; and $\gamma\ge z$ because the triple event is contained in the pair event. Let
+\[
+\Delta_{t,\eps}(n)=\beta+\gamma+(n-2)z-\alpha-\binom n2\alpha^2
+\]
+be the violation of \eqref{eq:pairfan} by $Q$, so that $q\,\Delta_{t,\eps}(n)$ is exactly the violation of \eqref{eq:sqtri} by $P_{t,\eps}$. With $n_0=N-t+2$ and $K_t=\binom t2+\binom{n_0}2N^2$, the three bounds give $\Delta_{t,\eps}(n_0)\ge\eps(1-K_t\eps)$. Since $n_0\le N$ one has $K_t\le N^4/2$, so $\eps\le N^{-4}=t^{-8}$ forces $K_t\eps\le1/2$ and $\Delta_{t,\eps}(n_0)\ge\eps/2$. Order $n_0-1=t^2-t+1$ is passed by Proposition~\ref{prop:rareselector} and order $n_0$ is rejected by Lemma~\ref{lem:sqtri}; the inclusions \eqref{eq:nested} place the first rejection of all three hierarchies at the same integer.
+\end{proof}
+
+For the original parameter $\eps_t=1/(2t^6)$ the same estimates give the bracket
+\begin{equation}\label{eq:rarebracket}
+t^2-t+2\ \le\ \tminsq H(P_{t,\eps_t})\ \le\ U_t,\qquad
+U_t=\Bigl\lfloor\frac{4t^2+1-\sqrt{16t^3-8t^2+1}}2\Bigr\rfloor+1 ,
+\end{equation}
+whose two sides agree at $t=2$: there $N=4$, $\eps=1/128$, $n_0=4$ and $K_2=97$, so $K_2\eps=97/128<1$ and $\tminsq H(P_{2,1/128})=4$ exactly, with conditional margin $\Delta_{2,1/128}(4)\ge31/16384$. Exact rational evaluation of $\Delta_{t,\eps_t}$ improves \eqref{eq:rarebracket} at small $t$, leaving $\tminsq H(P_{3,\eps_3})\in\{8,9\}$. The asymptotics of $\tminsq H(P_{t,\eps_t})/t^2$ are pinned only between $1$ and $2$, and no limit is claimed.
+
+Recorded from the research notes of 13 September 2026 archived with the repository (\texttt{research-\allowbreak handoffs/\allowbreak 2026-09-13}). Status: analytic proofs in the sources, with the matching-selector positivity and the ancestral-independence factorization read but not re-derived line by line here; exact finite checks passed (the pointwise inequality \eqref{eq:pairfan-pointwise} on $814{,}380$ count triples, and $18$ exact small-$\eps$ rejection cases covering $t\le10$ at two values of $\eps$ each); not formalized.
+
+\subsection*{Ceilings for two restricted construction classes}
+
+The two results below are limitations of ansatz families, not upper bounds on $H_n$. They say that the defect family of Section~\ref{sec:main} and the wider class of independent-cell constructions cannot produce a better exponent than $n^{-3}$, whatever their parameters. Neither restricts arbitrary feasible tables, and Proposition~\ref{prop:orthwitness} already exceeds the $n^{-3}$ scale by a construction of a different kind.
+
+\begin{lemma}[Compatible comparison curve]\label{lem:comparisoncurve}
+For $0\le t\le1$, the law $Q\bigl(t^3/(1+t^3),\,1-t^2\bigr)$ of \eqref{eq:Q} is compatible.
+\end{lemma}
+
+\begin{proof}
+Put $h=1-t+t^2$ and $p=t/h$. Both are valid probabilities, since $0<h\le1$ and $h-t=(1-t)^2\ge0$. Let each of the three sources carry an independent $\Bern(p)$ bit, and let each node output $0$ with probability $h$ when both of its incident source bits are $1$, and output $1$ otherwise, with independent response coins. For the zero indicators $Z_A,Z_B,Z_C$ this model has
+\[
+\E Z_A=hp^2=\frac{t^2}h,\qquad
+\E Z_AZ_B=h^2p^3=\frac{t^3}h,\qquad
+\E Z_AZ_BZ_C=h^3p^3=t^3,
+\]
+together with the corresponding coordinate permutations. Since $1+t^3=(1+t)h$, these are exactly the seven nonempty binary moments of $Q\bigl(t^3/(1+t^3),1-t^2\bigr)$, and binary moments determine all eight atoms by inclusion and exclusion.
+\end{proof}
+
+\begin{proposition}[Ceiling for the defect family]\label{prop:defectceiling}
+Let
+\[
+M_n=\sup\Bigl\{d_{\TV}\bigl(Q(\eps,r),\Ctri\bigr):0<\eps<1,\ 0\le r\le(1-\eps)^{n-1}\Bigr\},
+\]
+the supremum of the distance over the whole parameter range for which Theorem~\ref{thm:membership} supplies an order-$n$ witness. Then
+\[
+M_n=\frac4{27n^3}+O(n^{-4}),
+\]
+an asymptotically optimal sequence being $\eps_n=4/(9n^3)$ with $r_n=(1-\eps_n)^{n-1}$, whose distance to $\Ctri$ exceeds $1/(10n^3)$ for every $n\ge2$.
+\end{proposition}
+
+\begin{proof}[Proof sketch]
+Write $q=1-r$, $m=\eps+(1-\eps)q$ and $z=\eps+(1-\eps)q^3$ for the common zero marginal and the atom at $000$, and put $\eps_c(q)=q^{3/2}/(1+q^{3/2})$. Thinning the ones by a product of local channels maps $Q(\eps,\eps_c(q))$ to $Q(\eps,r)$ for $\eps\le\eps_c(q)$, so Lemma~\ref{lem:comparisoncurve} with $t=(\eps/(1-\eps))^{1/3}$ shows $Q(\eps,r)\in\Ctri$ in that range, and comparison at fixed $r$ gives
+\[
+d_{\TV}(Q(\eps,r),\Ctri)\le\bigl[\eps-\eps_c(q)\bigr]_+(1-q^3).
+\]
+In the other direction, Finner \cite{Finner1992} in the form $S(000)\le\sqrt{S_A(0)S_B(0)S_C(0)}$ for compatible $S$, which is the classical specialization of the network inequality \cite{Renou2019}, applied to a nearest compatible law at distance $\delta$ gives $z-\delta\le(m+\delta)^{3/2}$ and hence
+\[
+d_{\TV}(Q(\eps,r),\Ctri)\ge\frac{[z-m^{3/2}]_+}{1+\tfrac32\sqrt{m+\eps}} .
+\]
+Local channels also reduce the two-parameter supremum exactly to $r=(1-\eps)^{n-1}$. At the critical scale $\eps=x/n^3$ with $x$ in a fixed bounded range one has $q=xn^{-2}+O(n^{-3})$, $m=xn^{-2}+O(n^{-4})$, $z=xn^{-3}+O(n^{-6})$ and $\eps_c(q)=x^{3/2}n^{-3}+O(n^{-4})$, so both estimates give
+\[
+d_{\TV}\bigl(Q(x/n^3,(1-x/n^3)^{n-1}),\Ctri\bigr)=\frac{[x-x^{3/2}]_+}{n^3}+O(n^{-4}),
+\]
+maximized at $x=4/9$ with value $4/27$. Scales outside this window are handled separately: for $\eps\ge1/8$ the comparison with $\delta_{000}$ gives an exponentially small bound, and for smaller $\eps$ the two displayed estimates close the gap.
+\end{proof}
+
+Independent asymmetric private filtering of the three outputs and exclusive-or aggregation along the defect lines both reduce to local stochastic channels applied to the same family, so neither improves the exponent.
+
+The second class fixes independent cell roots and symmetric line responses. Let $U_{ijk}$, $(i,j,k)\in[n]^3$, be independent with a common law $\mu$ on a finite alphabet, let each observed type $V\in\{A,B,C\}$ carry a permutation-invariant kernel $g_V$ giving its probability of output one from the $n$ roots on its line, and let the responses be independently randomized across copied observations. The resulting table is a full order-$n$ witness, and with the profiles $f_V(s)=\E[g_V(s,U_2,\dots,U_n)]$ and $m_V=\sum_s\mu_sf_V(s)$ the target is $\sum_s\mu_s\bigotimes_V\Bern(f_V(s))$. Write $\mathcal L_n^{(\kappa)}$ for the laws obtained this way from a root alphabet of size $\kappa$.
+
+\begin{lemma}[Profile variance]\label{lem:cellvar}
+For every admissible line kernel, $\operatorname{Var}_\mu(f_V)\le m_V(1-m_V)/n$.
+\end{lemma}
+
+\begin{proof}
+Write $f=f_V$, $m=m_V$, $h=f-m$, $v=\E h(U)^2$ and $T=\sum_{i=1}^nh(U_i)$, and let $g=g_V(U_1,\dots,U_n)$. Independence gives $\E T^2=nv$, and symmetry of the kernel gives $\E[(g-m)T]=n\E[h(U_1)(g-m)]=nv$. Cauchy and Schwarz then give $(nv)^2\le\operatorname{Var}(g)\,nv$. For $v>0$ divide by $nv$ and use $0\le g\le1$ to get $nv\le\operatorname{Var}(g)\le m(1-m)$; the case $v=0$ is immediate.
+\end{proof}
+
+\begin{proposition}[Independent-cell ceilings]\label{prop:cellceiling}
+Let $P\in\mathcal L_n^{(\kappa)}$ for some finite $\kappa$. Then
+\[
+d_{\TV}(P,\Ctri)\le\frac1{2n},
+\]
+and if $P$ violates the Finner inequality $P(abc)^2\le P_A(a)P_B(b)P_C(c)$ at some atom, then
+\[
+d_{\TV}(P,\Ctri)\le\frac2{n(n-1)^2}\le\frac8{n^3}.
+\]
+\end{proposition}
+
+\begin{proof}[Proof sketch]
+For any three-bit law, replacing the pair $(B,C)$ by an independent pair and keeping the conditional law of $A$ produces a compatible law, so
+\[
+d_{\TV}(P,\Ctri)\le2\min\bigl\{|\operatorname{Cov}(A,B)|,\,|\operatorname{Cov}(A,C)|,\,|\operatorname{Cov}(B,C)|\bigr\},
+\]
+the factor being the exact four-cell identity for a binary pair. Under the independent-cell hypothesis $\operatorname{Cov}(V,W)=\E_\mu[(f_V-m_V)(f_W-m_W)]$, so Lemma~\ref{lem:cellvar} and Cauchy and Schwarz give $|\operatorname{Cov}(V,W)|\le\sqrt{m_V(1-m_V)m_W(1-m_W)}/n\le1/(4n)$, which is the first bound. For the second, relabel the violating atom's events as ones and order the marginals $a\le b\le c$, and write $t_n(x)=x+(1-x)/n$ and $z$ for the atom probability. Lemma~\ref{lem:cellvar} gives $\E f_V^2\le m_Vt_n(m_V)$, so
+\[
+z\le\E f_Af_B\le\sqrt{ab\,t_n(a)t_n(b)}\le\sqrt{ab}\,t_n(c),
+\]
+and $t_n(c)\le\sqrt c$ whenever $c\ge(n-1)^{-2}$, since with $y=\sqrt c$ one has $ny-1-(n-1)y^2=(1-y)((n-1)y-1)\ge0$. Hence $z^2>abc$ forces $\max(a,b,c)<(n-1)^{-2}$, and applying Lemma~\ref{lem:cellvar} to the event indicators gives $|\operatorname{Cov}(V,W)|\le\sqrt{m_Vm_W}/n<1/(n(n-1)^2)$.
+\end{proof}
+
+For binary roots the exponent is exactly cubic, and the same holds for ternary roots with a large but finite constant:
+\[
+\sup_{P\in\mathcal L_n^{(2)}}d_{\TV}(P,\Ctri)=\Theta(n^{-3}),
+\qquad
+\frac1{10n^3}<D_n^{(3)}:=\sup_{P\in\mathcal L_n^{(3)}}d_{\TV}(P,\Ctri)\le\frac{10^{38}}{n^3}.
+\]
+The lower bounds come from the family of Proposition~\ref{prop:defectceiling}, which lies in both classes. The ternary upper bound needs two constructions rather than one estimate. When the product of the two rare root probabilities is small, two independent compatible binary resources approximate the categorical selector, and a count-overlap inequality makes their local response kernels valid up to a uniformly controlled clipping error. When that product is larger, a nested compatible resource reproduces the target exactly with signed local kernels, and clipping them gives a genuine model; the error must be weighted by the probability of the source configuration on which it occurs, since discarding that weight loses the cubic rate. The displayed constant is asymptotic bookkeeping and is not a useful numerical ceiling.
+
+Recorded from the research notes of 13 September 2026 archived with the repository (\texttt{research-\allowbreak handoffs/\allowbreak 2026-09-13}). Status: long analytic proofs in the sources, with Lemmas~\ref{lem:comparisoncurve} and \ref{lem:cellvar} re-derived here and the remaining estimates read but not re-derived; exact finite checks passed (the nested-resource algebraic identity on $24$ parameter profiles, $192$ exact moment equalities over $64$ edge configurations each, and the fan substitutions of the defect family at $n=2,3,4,8$); not formalized; the all-parameter tail bounds behind the ternary constant are not covered by any finite check.
+
+\subsection*{Parity extraction from a witness}
+
+The convergence bound \eqref{eq:nw-rate} extracts a compatible law from a feasible table by sampling source indices independently. It is natural to ask how much is lost by requiring the extracted law to come from a table in the support of the given witness. On the parity face the answer is nothing, from order six on. The results below record that, and the exact obstruction at order two.
+
+For a deterministic table $\omega$ on the copied observations and index distributions $u,v,w$ on $[n]$ let
+\[
+q_\omega(u,v,w)(a,b,c)=\sum_{i,j,k}u_iv_jw_k\,\one\bigl[(A^{ij},B^{ik},C^{jk})=(a,b,c)\bigr],
+\]
+let $\mathcal R(\Gamma)$ be the set of all $q_\omega(u,v,w)$ with $\omega\in\operatorname{supp}\Gamma$, and let $e_\Gamma(P)=\min_{Q\in\mathcal R(\Gamma)}d_{\TV}(P,Q)$. Write $\Cpar=\{\Par{st}{su}{tu}:s,t,u\in[-1,1]\}$ for the parity-perfect part of $\Ctri$; the parametrization is the parity rigidity used in Proposition~\ref{prop:orthwitness} and is established prior work \cite{BoreiriEtAl2025}.
+
+\begin{proposition}[Finite catalogue]\label{prop:compression}
+Every law attainable by reweighting a given binary-triangle table is attainable using at most eight existing indices from each source, with no table entry changed. Consequently $\mathcal R(\Gamma)$ is a union of model images drawn from a catalogue of deterministic subtables whose size does not depend on $n$, crudely bounded by $\sum_{r,s,t\le8}2^{rs+rt+st}\le2^{201}$.
+\end{proposition}
+
+\begin{proof}
+Fix two of the three index distributions. The output law is the convex combination $q=\sum_iu_iq_i$ of points of the seven-dimensional simplex of eight outcomes. If more than eight weights are positive, an affine dependence moves them without changing $q$ until one weight vanishes; repeat, then compress the second and third source in turn.
+\end{proof}
+
+\begin{theorem}[Identity transfer]\label{thm:identitytransfer}
+Let $f$ be a polynomial of degree $d\le n$ in the eight atom probabilities, and let $\Gamma$ be an order-$n$ symmetric witness for $P$. If $f(q_\omega(u,v,w))=0$ for every $\omega\in\operatorname{supp}\Gamma$ and all $u,v,w$, then $f(P)=0$.
+\end{theorem}
+
+\begin{proof}
+Homogenize $f$ to degree $d$ using $\sum_xp_x=1$ and let $F_f$ be its symmetric multilinear polarization, so $F_f(p,\dots,p)=f(p)$. For a fixed table the function $G_\omega(u,v,w)=F_f(q_\omega,\dots,q_\omega)$ is homogeneous of degree $d$ in each of the three weight blocks and vanishes on the product of simplexes, hence, by homogeneity after normalizing positive weight vectors, on the product of positive cones; so it is the zero polynomial. Select $d$ distinct indices in each source family and read off the coefficient of the corresponding square-free monomial: it is a sum of terms $F_f(\delta_{\Delta_1(\omega)},\dots,\delta_{\Delta_d(\omega)})$ over copied triangles with pairwise distinct indices in every family, and it vanishes. Average over all ordered injections $[d]\hookrightarrow[n]$ in each family and then over $\omega\sim\Gamma$. By the symmetry and the degree-$d$ diagonal condition of Definition~\ref{def:NW} the selected triangles are jointly distributed as $P^{\otimes d}$, so multilinearity gives
+\[
+0=\E F_f(\delta_{\Delta_1},\dots,\delta_{\Delta_d})=F_f(P,\dots,P)=f(P). \qedhere
+\]
+\end{proof}
+
+\begin{theorem}[Extraction on the parity face]\label{thm:parityextraction}
+For every parity-perfect target $P$, every order-$n$ symmetric witness $\Gamma$ for $P$ and every $n\ge6$,
+\[
+e_\Gamma(P)=d_{\TV}(P,\Cpar).
+\]
+More precisely, at least one of the following holds: a single supported table realizes every law of $\Cpar$ by independent reweighting, or a single supported table realizes $P$ exactly. At most two existing indices per source are needed, and no positivity of atoms or marginals is assumed.
+\end{theorem}
+
+Compatibility of the target alone does not give exact extraction at low order.
+
+\begin{proposition}[Order-two obstruction]\label{prop:lowextraction}
+Every parity-even three-bit law passes the order-two symmetric test. For the uniform parity law $U$, which is compatible, there is an order-two witness $\Gamma$ with $e_\Gamma(U)=1/2$.
+\end{proposition}
+
+\begin{proof}
+Draw an ordered pair $(x,y)\sim P^{\otimes2}$ of parity-even triples. If $x=y$, let $\omega_{xy}$ be the constant table with that value everywhere. If $x\ne y$, the two triples differ at exactly two observed nodes, and those two nodes share a source; activate only that source, letting its index $1$ produce the entries of $x$ and its index $2$ those of $y$ at the two differing nodes, with the third node constant and all other source indices ignored. This defines the whole twelve-bit table. Its diagonal is $(x,y)$; swapping the active source's two indices exchanges $\omega_{xy}$ with $\omega_{yx}$, whose weights $P(x)P(y)$ agree; swapping inactive indices changes nothing. So the mixture is a normalized, nonnegative, symmetric table with diagonal law $P^{\otimes2}$, which proves the first claim.
+
+For $U$ the four constant tables and the twelve oriented two-outcome tables each carry probability $1/16$. Every reweighting of a supported table is supported on at most two of the four parity-even outcomes, so for its support $D$ one has $d_{\TV}(U,Q)\ge U(D^c)\ge1/2$, with equality for a nonconstant table whose active source is fair. Meanwhile $U=\Par000\in\Cpar$.
+\end{proof}
+
+Theorem~\ref{thm:identitytransfer} does not extend from identities to inequalities, and the failure is visible at degree two. Let $n$ be even and take the table $A^{ij}=b_i$ with half the $b_i$ equal to zero and half to one, and $B,C$ constant. The polynomial $f(q)=(q_A(1)-\tfrac12)^2$ is nonnegative on every reweighting, while its degree-two polarization on distinct source indices is
+\[
+\frac1{n(n-1)}\sum_{i\ne j}\Bigl(b_i-\frac12\Bigr)\Bigl(b_j-\frac12\Bigr)=-\frac1{4(n-1)}<0,
+\]
+because the centered sum vanishes while its sum of squares is $n/4$. Nonnegativity on all reweighted models therefore does not imply nonnegativity of the distinct-index expression that finite inflation tests. This identifies the loss in one route to a $C/n$ distance bound; it is not a counterexample to such a bound. Proposition~\ref{prop:lowextraction} does show that any universal constant $C$ with $e_\Gamma(P)\le C/n$ for all $n$, $P$ and $\Gamma$ must satisfy $C\ge1$.
+
+Recorded from the research notes of 13 September 2026 archived with the repository (\texttt{research-\allowbreak handoffs/\allowbreak 2026-09-13}). Status: analytic proofs in the source, with Theorem~\ref{thm:identitytransfer} and Proposition~\ref{prop:lowextraction} checked by hand here and Theorem~\ref{thm:parityextraction} read but not re-derived; exact finite checks passed (the order-two witness over all $4096$ assignments, $12{,}288$ symmetry equations, the $64$ diagonal equations, the classification of all $32$ parity tables, $184$ support-annihilator substitutions, the distinct-index polarization over $32$ source assignments, and rejection of a normalized symmetric table with the wrong diagonal); not formalized. The order-$n\ge6$ statement rests on the analytic proof alone.

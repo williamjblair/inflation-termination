@@ -1,0 +1,74 @@
+\section{The termination classification}\label{sec:classification}
+
+\providecommand{\Cscen}[1]{\mathcal C_{#1}}
+
+For binary observations the pair-source scenarios that admit a finite characterizing order are exactly the ones whose components have diameter at most three, and those stop at order two.
+
+\begin{definition}[Double-star]\label{def:doublestar}
+A \emph{double-star} is a graph with a distinguished edge $\{b,c\}$, the \emph{central edge}, such that every other vertex is adjacent to exactly one of $b$ and $c$ and to nothing else. Equivalently, a double-star is a tree of diameter at most three. Single edges and stars are double-stars.
+\end{definition}
+
+\begin{theorem}[Termination classification]\label{thm:classification}
+Let $G$ be a finite simple graph without isolated vertices, with binary observations. The following are equivalent.
+\begin{enumerate}[label=(\alph*),nosep]
+\item $\INW_t(G)=\Cscen{G}$ for some finite $t$.
+\item $\IAI_t(G)=\Cscen{G}$ for some finite $t$.
+\item $\Iexp_t(G)=\Cscen{G}$ for some finite $t$.
+\item Every connected component of $G$ is a double-star.
+\end{enumerate}
+When they hold,
+\[
+\INW_2(G)=\IAI_2(G)=\Iexp_2(G)=\Cscen{G}.
+\]
+When they fail, for every $t\ge1$ there is a strictly positive rational law
+\[
+P\in\Iexp_t(G)\setminus\Cscen{G}\subseteq\IAI_t(G)\setminus\Cscen{G}\subseteq\INW_t(G)\setminus\Cscen{G}.
+\]
+\end{theorem}
+
+The graph and the alphabets stay fixed as $t$ grows; only the law $P$ varies. The two halves of the proof are Theorem~\ref{thm:doublestar} on one side and Theorems~\ref{thm:cycle} and \ref{thm:fivepath} on the other, joined by the following exhaustion.
+
+\begin{lemma}[Exhaustion]\label{lem:exhaustion}
+Let $K$ be a finite connected graph that has at least one edge and is not a double-star. Then $K$ has an induced subgraph isomorphic to a cycle $C_m$ with $m\ge3$ or to the path $P_5$.
+\end{lemma}
+
+\begin{proof}
+Suppose first that $K$ contains a cycle, and let $C$ be one of minimum length. A chord of $C$ would split it into two shorter cycles, so $C$ has no chords and is induced. Its length is at least $3$.
+
+Suppose next that $K$ is a tree. We claim that a tree of diameter at most three is a double-star. If the diameter is $1$ then $K$ is a single edge. If it is $2$ then $K$ is a star. Let the diameter be $3$ and fix a geodesic $u_0u_1u_2u_3$. Let $w$ be a vertex other than $u_1$ and $u_2$, and consider the unique path from $w$ to $u_1$. If it avoids $u_2$, then it also avoids $u_3$, since the path from $u_3$ to $u_1$ passes through $u_2$; so concatenating with $u_1u_2u_3$ gives a path and $d(w,u_3)=d(w,u_1)+2\le3$, whence $d(w,u_1)=1$. If it contains $u_2$, then the path from $w$ to $u_2$ avoids $u_1$ and hence $u_0$, and the same argument with $u_0$ gives $d(w,u_2)=1$. Every vertex is therefore adjacent to $u_1$ or $u_2$, and $K$ is a double-star with central edge $u_1u_2$.
+
+So a tree that is not a double-star has diameter at least $4$. Take a geodesic of length at least $4$ and let $v_0,\dots,v_4$ be five consecutive vertices on it. Any edge of $K$ among them other than the four geodesic edges would create a cycle in a tree, so the induced subgraph on $\{v_0,\dots,v_4\}$ is $P_5$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:classification}]
+Assume (d). Each component is a double-star with binary observations, so Theorem~\ref{thm:doublestar} and Corollary~\ref{cor:disjointunions} give $\INW_2(G)=\Cscen{G}$. With Proposition~\ref{prop:gsound},
+\[
+\Cscen{G}\subseteq\Iexp_2(G)\subseteq\IAI_2(G)\subseteq\INW_2(G)=\Cscen{G},
+\]
+so all four sets coincide and (a), (b), (c) hold at $t=2$.
+
+Assume (d) fails, and fix $t\ge1$. Some component $K$ of $G$ is not a double-star, and $K$ has an edge because $G$ has no isolated vertices. By Lemma~\ref{lem:exhaustion}, $K$ has an induced subgraph $H$ isomorphic to $C_m$ for some $m\ge3$ or to $P_5$; since $K$ is induced in $G$, so is $H$, and $H$ has no isolated vertices. Theorem~\ref{thm:cycle} in the first case and Theorem~\ref{thm:fivepath} in the second supply a strictly positive rational law
+\[
+P_H\in\Iexp_t(H)\setminus\Cscen{H}.
+\]
+Let $P=P_H\otimes\Bern(1/2)^{\otimes(V\setminus V(H))}$. By Lemma~\ref{lem:transport}(ii), $P\in\Iexp_t(G)$, and by Lemma~\ref{lem:transport}(iii), $P\notin\Cscen{G}$. It is strictly positive and rational because $P_H$ is. By Proposition~\ref{prop:gsound} the same law lies in $\IAI_t(G)$ and in $\INW_t(G)$, so none of the three tests equals $\Cscen{G}$ at order $t$. As $t$ was arbitrary, (a), (b) and (c) all fail.
+
+The two paragraphs give (d) $\Rightarrow$ (a), (b), (c) and the negation of (d) $\Rightarrow$ the negation of each of (a), (b), (c), which is the stated equivalence, together with the two displayed conclusions.
+\end{proof}
+
+For $m=3$ the witness of Theorem~\ref{thm:cycle} is a second nonterminating family for the triangle, alongside the defect construction of Theorem~\ref{thm:main}.
+
+\begin{remark}[Larger observed alphabets]\label{rem:alphabets}
+Fix finite alphabets $\mathcal O_v$ with $|\mathcal O_v|\ge2$. The classification is unchanged, with a different order in the terminating case. If some component is not a double-star, regard the binary law $P$ of Theorem~\ref{thm:classification} as a law on $\prod_v\mathcal O_v$ supported on $\{0,1\}^V$. A compatible realization of such a law has responses that leave $\{0,1\}$ with probability zero, hence is a binary realization, so the law remains incompatible; and its witness, read in the larger alphabets, satisfies the same prescriptions. The transferred law is supported on the binary sub-alphabet, so the strict positivity in Theorem~\ref{thm:classification} is a statement about binary observations. If every component is a double-star, Theorem~\ref{thm:doublestar} gives termination at
+\[
+T=\max\bigl(\{2\}\cup\{|\mathcal O_v|:v\text{ a leaf}\}\bigr),
+\]
+the leaves being taken with respect to a choice of central edge in each component; the bound does not involve the alphabets at the central vertices.
+\end{remark}
+
+\begin{remark}[Scenarios that are not pair-source]\label{rem:hypergraph}
+Theorem~\ref{thm:classification} classifies pair-source scenarios and does not classify scenarios with sources shared by more than two observers. Let three observers read one common source. That source can carry a sample of the whole observed triple, so every law on the three outcomes is compatible and the order-one test already characterizes the compatible set, while the observed adjacency graph of this scenario is the triangle, which does not terminate at any order. The adjacency graph alone therefore carries no classification once source hyperedges are allowed.
+\end{remark}
+
+\paragraph{Scope.}
+Theorem~\ref{thm:classification} decides which binary pair-source scenarios admit a finite characterizing order, and for the terminating ones it gives the order. It does not decide the worst-case distance $\sup\{d_{\TV}(P,\Cscen{G}):P\in\INW_t(G)\}$ for a nonterminating $G$, which is Question~\ref{q:hausdorff} for the triangle. Nontermination together with the convergence $\INW_t(G)\downarrow\Cscen{G}$ of \cite{NW2020} gives infinitely many strict inclusions $\INW_{t+1}(G)\subsetneq\INW_t(G)$, but not strictness at every order. The theorem also says nothing about sources shared by three or more observers, about latent variables with latent parents, or about quantum and no-signalling resources.

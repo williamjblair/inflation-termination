@@ -1,27 +1,31 @@
 \section{Open problems}\label{sec:open}
 
-The construction and the fan inequality explain the exponent $1/3$ through the same scales. Along $P_\eps$, the all-zero atom has probability of order $\eps$, while each zero marginal has order $\eps^{2/3}$. In the defect cube, the $t-1$ other cells on each line contribute at most $(t-1)\eps$ to that marginal. The construction therefore passes when $t$ is of order $\eps^{-1/3}$. In a fan of that size, both $tz$ and $m+\binom t2m^2$ have order $\eps^{2/3}$. Their leading coefficients give the upper constant $4-2\sqrt3$.
+\begin{question}[Worst-case convergence exponent]\label{q:hausdorff}
+For the square and the triangle, Corollary~\ref{cor:brackets} gives $\Omega(1/t)\le H_t^H\le O(t^{-1/2})$ for each hierarchy $H$. Which exponent in $[1/2,1]$ is sharp, and does it depend on the hierarchy?
+\end{question}
+The lower bound uses one parity direction with the worst-case profile of Lemma~\ref{lem:maxmoment}; the upper bound bounds the convex-order distance of a witness by that of an empirical law. Along the parity direction itself the exponent is one for both hierarchies: the certified thresholds of Proposition~\ref{prop:paritythresholds} give $tq_t$ increasing towards about $0.42$ on the square and $0.93$ on the triangle through order ten, so any law accepted by the Navascu\'es--Wolfe test at distance of order $t^{-1/2}$ from the compatible set, if one exists, lies in another direction. The same question is open for longer cycles, where Theorem~\ref{thm:cycle} gives only $\Omega(m^{-2}t^{-2})$, and for the five-vertex path, where Theorem~\ref{thm:fivepath} gives $\Omega(t^{-2})$.
 
-\begin{question}[Exact leading constant]\label{q:constant}
+\begin{question}[Exact leading constant along the defect family]\label{q:constant}
 Does $\eps^{1/3}\tmin^H(P_\eps)$ converge? If so, what is its limit, and do the three hierarchies share it?
 \end{question}
 The current bounds give the interval $[\tfrac12,4-2\sqrt3]$. The finite certificates determine the first rejecting order at $\eps=k^{-3}$ for $k\in\{4,6,8,10,16\}$; the passing and fan bounds differ at the larger tested values.
 
-\begin{question}[Worst-case convergence exponent]\label{q:hausdorff}
-For $H_n=\sup_{P\in\INW_n}d_{\TV}(P,\Ctri)$, which rate between the bounds $\Omega(n^{-3})$ and $O(n^{-1/2})$ is sharp?
+\begin{question}[Separation of the hierarchies]\label{q:separation}
+Theorem~\ref{thm:orderconversion} shows that on the square the Navascués--Wolfe and ancestral-independence hierarchies differ by at most a factor $3/2$ in the order. Is the factor sharp, and does a bounded conversion hold on every pair-source scenario?
 \end{question}
+Along the parity direction the certified thresholds of Proposition~\ref{prop:paritythresholds} separate the two hierarchies at every even order up to ten and make them coincide at every odd order up to nine, on both the square and the triangle; we do not know whether the inclusion $\IAI_t\subseteq\INW_t$ is strict at every order on any scenario, nor why the parity direction alternates.
+
+\begin{question}[Beyond pair-source scenarios]\label{q:hypergraph}
+Which scenarios with a source shared by three or more observed variables admit a finite characterizing order?
+\end{question}
+The reconstruction of Theorem~\ref{thm:doublestar} uses that every source has two endpoints, and the exhaustion of Lemma~\ref{lem:exhaustion} is a statement about graphs. Both would need replacements for hypergraphs. The nontermination side transfers to any scenario that contains a non-double-star pair-source scenario as an induced substructure in the sense of Lemma~\ref{lem:transport}.
 
 \begin{question}[Explicit rejecting orders beyond Finner]\label{q:effective}
 Can one bound the rejecting order in directly evaluable quantities of an incompatible input law that satisfies every Finner inequality?
 \end{question}
-Theorem~\ref{thm:fan} covers Finner violations. The distance and bit-length bounds apply more broadly, but computing the distance or extracting the constants from quantifier elimination need not be practical.
-
-\begin{question}[Finite stabilization]\label{q:classification}
-Which correlation scenarios and observed alphabet sizes admit a finite characterizing order?
-\end{question}
-The star scenarios of \cite{NW2020} terminate at order two. The binary triangle, and hence every triangle with at least two outcomes at each node, does not. The defect construction uses the fact that each pair of observed nodes shares a source; extending it to other graphs requires a corresponding construction of the copied marginals.
+Theorem~\ref{thm:fan} covers Finner violations on the triangle and Lemma~\ref{lem:maxmoment} covers parity violations on the square. The distance and bit-length bounds apply more broadly, but computing the distance or extracting the constants from quantifier elimination need not be practical.
 
 \begin{question}[Quantum and no-signalling analogues]\label{q:quantum}
 For which quantum or no-signalling inflation hierarchies can one construct incompatible laws with an unbounded first rejecting order and determine its growth?
 \end{question}
-This question requires specifying both the hierarchy and the compatible resource model; the classical proof here does not decide it.
+This question requires specifying both the hierarchy and the compatible resource model; the classical proofs here do not decide it.

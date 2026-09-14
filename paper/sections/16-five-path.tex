@@ -1,0 +1,176 @@
+\providecommand{\Cpath}{\mathcal C_{P_5}}
+\providecommand{\Real}{\operatorname{Re}}
+
+\section{The five-observer path}\label{sec:fivepath}
+
+A path is a tree, and trees carry no parity obstruction of the kind used in Section~\ref{sec:cycles}. The five-observer path nonetheless admits, at every order, a strictly positive law that the strongest of the three tests accepts and that no model produces. The scenario, in the language of Section~\ref{sec:pairsource}, is
+\[
+A(X),\qquad B(X,L),\qquad C(L,R),\qquad D(R,Z),\qquad E(Z),
+\]
+with $X,L,R,Z$ mutually independent. We write $\Cpath$ for its compatible set, record the endpoint observations $A,E$ as bits $x,z$ and the middle observations $B,C,D$ as signs. The order-$t$ inflation of Definition~\ref{def:ginflation} has copies $X_a,L_i,R_j,Z_e$, $a,i,j,e\in[t]$, and the $3t^2+2t$ copied observations
+\[
+A^a,\qquad B^{ai},\qquad C^{ij},\qquad D^{je},\qquad E^e .
+\]
+
+\subsection{The target}\label{sec:pathtarget}
+
+\begin{definition}[Path target]\label{def:pathtarget}
+For $0<h<1$ let
+\begin{equation}\label{eq:pathtarget}
+P_h(x,b,c,d,z)=\frac1{32}\Bigl[1+bcd\,\frac{1+h}4\bigl(1+(-1)^{x+z}\bigr)\Bigr],
+\qquad x,z\in\{0,1\},\ b,c,d\in\{-1,1\}.
+\end{equation}
+\end{definition}
+
+\begin{lemma}[Properties of $P_h$]\label{lem:pathtarget}
+$P_h$ is a probability law, every atom is at least $(1-h)/64$, the pair $(A,E)$ consists of independent fair bits, every proper nonempty moment of $(B,C,D)$ conditional on $(A,E)$ vanishes, and
+\begin{equation}\label{eq:fxz}
+f_{xz}:=\E\bigl[BCD\mid A=x,E=z\bigr]=\frac{1+h}4\bigl(1+(-1)^{x+z}\bigr)
+=\begin{cases}(1+h)/2,&x=z,\\0,&x\ne z.\end{cases}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The bracket in \eqref{eq:pathtarget} lies between $1-(1+h)/2=(1-h)/2$ and $1+(1+h)/2$, so every atom lies in $[(1-h)/64,\,(3+h)/64]$ and in particular is positive. Summing $bcd$ over $\{-1,1\}^3$ gives zero, so the atoms sum to $32\cdot\frac1{32}=1$ and the $(A,E)$ marginal is uniform on four cells. Given $(x,z)$, the conditional density of $(b,c,d)$ is $\frac18\bigl[1+bcd\,f_{xz}\bigr]$, whose only nonvanishing nontrivial character is $bcd$, with value $f_{xz}$; that is \eqref{eq:fxz} and the vanishing of the proper moments.
+\end{proof}
+
+\subsection{A bilocal obstruction}\label{sec:bilocal}
+
+\begin{lemma}[Bilocal inequality on the path]\label{lem:bilocal}
+Let $R\in\Cpath$ with $R(A=x,E=z)>0$ for all four $(x,z)$, put $f_{xz}=\E_R[BCD\mid A=x,E=z]$ and
+\[
+I=\frac14\sum_{x,z}f_{xz},\qquad J=\frac14\sum_{x,z}(-1)^{x+z}f_{xz}.
+\]
+Then $\sqrt{|I|}+\sqrt{|J|}\le1$.
+\end{lemma}
+
+\begin{proof}
+Absorb the response seeds into incident sources. Conditioning on $\{A=x\}$ reweights the law of $X$ alone, and conditioning on $\{E=z\}$ reweights the law of $Z$ alone, so under the conditional law $X,L,R,Z$ are still mutually independent, and $L,R$ keep their original laws. Writing
+\[
+b_x(\ell)=\E\bigl[B\mid L=\ell,\ A=x\bigr],\qquad
+d_z(\rho)=\E\bigl[D\mid R=\rho,\ E=z\bigr],
+\]
+\[
+c(\ell,\rho)=\E\bigl[C\mid L=\ell,\ R=\rho\bigr],
+\]
+all with values in $[-1,1]$, conditional independence of the three responses given the sources gives
+\[
+f_{xz}=\E_{L,R}\bigl[b_x(L)\,c(L,R)\,d_z(R)\bigr].
+\]
+Put $\beta_\pm=\tfrac12(b_0\pm b_1)$ and $\delta_\pm=\tfrac12(d_0\pm d_1)$. Then
+\[
+I=\E_{L,R}\bigl[\beta_+(L)\,c(L,R)\,\delta_+(R)\bigr],\qquad
+J=\E_{L,R}\bigl[\beta_-(L)\,c(L,R)\,\delta_-(R)\bigr],
+\]
+so, using $|c|\le1$ and the independence of $L$ and $R$,
+\[
+|I|\le p_+r_+,\qquad |J|\le p_-r_-,\qquad
+p_\pm=\E_L|\beta_\pm|,\quad r_\pm=\E_R|\delta_\pm| .
+\]
+For real $u,v$ with $|u|,|v|\le1$,
+$\bigl|\tfrac{u+v}2\bigr|+\bigl|\tfrac{u-v}2\bigr|=\max(|u|,|v|)\le1$,
+so $p_++p_-\le1$ and $r_++r_-\le1$. Cauchy--Schwarz gives
+\[
+\sqrt{|I|}+\sqrt{|J|}\le\sqrt{p_+r_+}+\sqrt{p_-r_-}\le\sqrt{p_++p_-}\,\sqrt{r_++r_-}\le1 . \qedhere
+\]
+\end{proof}
+
+Inequalities of this shape originate with Branciard, Rosset, Gisin and Pironio \cite{BranciardRossetGisinPironio2012} for the bilocal scenario with measurement inputs; Lemma~\ref{lem:bilocal} is the specialization to a single fixed setting, one binary central output and two binary endpoint observations, proved here for arbitrary latent alphabets and stochastic responses.
+
+\begin{corollary}[Quantitative incompatibility]\label{cor:pathdistance}
+For every $0<h<1$,
+\[
+P_h\notin\Cpath\qquad\text{and}\qquad d_{\TV}(P_h,\Cpath)\ \ge\ \frac h{96}.
+\]
+\end{corollary}
+
+\begin{proof}
+By \eqref{eq:fxz}, $I=J=(1+h)/4$ for $P_h$, so $\sqrt I+\sqrt J=\sqrt{1+h}>1$ and Lemma~\ref{lem:bilocal} rules out compatibility.
+
+Let $R\in\Cpath$ and $d=d_{\TV}(P_h,R)$. If $d\ge1/8$ then $d>1/96>h/96$, so assume $d<1/8$. Each endpoint cell satisfies $|R(x,z)-\tfrac14|\le d$, hence $R(x,z)\ge\tfrac14-d>\tfrac18>0$ and Lemma~\ref{lem:bilocal} applies to $R$. Write $N_R(x,z)=\E_R\bigl[BCD\,\one\{A=x,E=z\}\bigr]$ and $N_P$ for the same quantity under $P_h$, so $f^R_{xz}=N_R(x,z)/R(x,z)$ and likewise for $P_h$. The eight atoms of one endpoint cell contribute at most $2d$ to $\sum|R-P_h|$, so $|N_R-N_P|\le2d$, while $|R(x,z)-P_h(x,z)|\le d$. Since $|N_P|\le P_h(x,z)=\tfrac14$,
+\[
+\bigl|f^R_{xz}-f^P_{xz}\bigr|
+\le\frac{|N_R-N_P|}{R(x,z)}+\frac{|N_P|\,\bigl|P_h(x,z)-R(x,z)\bigr|}{R(x,z)P_h(x,z)}
+\le\frac{2d+d}{R(x,z)}\le24d .
+\]
+Averaging, $|I_R-I_P|\le24d$ and $|J_R-J_P|\le24d$. If $24d<h/4$ then
+$I_R,J_R>\tfrac{1+h}4-\tfrac h4=\tfrac14$, so $\sqrt{|I_R|}+\sqrt{|J_R|}>1$, contradicting Lemma~\ref{lem:bilocal}. Hence $24d\ge h/4$.
+\end{proof}
+
+\subsection{The witness at every order}\label{sec:pathwitness}
+
+\begin{theorem}[The path at every order]\label{thm:fivepath}
+For every $t\ge1$ put $\gamma=1/(4t)$ and $h_t=\gamma^2=1/(16t^2)$. Then
+\[
+P_{h_t}\in\Iexp_t(P_5)=\IAI_t(P_5),\qquad P_{h_t}\notin\Cpath ,
+\]
+with a strictly positive rational witness. Consequently $\tmin^H(P_{h_t})>t$ for $H\in\{\mathrm{NW},\mathrm{AI},\mathrm{exp}\}$, no finite order of any of the three hierarchies characterizes $\Cpath$, and
+\[
+d_{\TV}(P_{h_t},\Cpath)\ \ge\ \frac1{1536\,t^2}.
+\]
+\end{theorem}
+
+\begin{proof}
+\emph{The auxiliary law.} On signs $u=(u_1,\dots,u_t)$ and $v=(v_1,\dots,v_t)$ set
+\begin{equation}\label{eq:Ht}
+H_t(u,v)=2^{-2t}\,\Real\Bigl[\prod_{i=1}^t(1+i\gamma u_i)\prod_{j=1}^t(1-i\gamma v_j)\Bigr].
+\end{equation}
+Writing $\sigma=(u_1,\dots,u_t,-v_1,\dots,-v_t)\in\{-1,1\}^{2t}$, the bracket is $\prod_{k=1}^{2t}(1+i\gamma\sigma_k)$, whose real part keeps the even characters with coefficient $(i\gamma)^{|S|}=(-h_t)^{|S|/2}$, so
+\[
+H_t=2^{-2t}\sum_{\substack{S\subseteq[2t]\\|S|\text{ even}}}(-h_t)^{|S|/2}\prod_{k\in S}\sigma_k .
+\]
+This is $H_{2t,h_t}$ of Lemma~\ref{lem:parityaux} read in the coordinates $\sigma$, and $(2t)^2h_t=1/4$, so $H_t$ is a probability law with
+\begin{equation}\label{eq:Htpos}
+H_t(u,v)\ \ge\ \tfrac23\,2^{-2t}\ >\ 0 .
+\end{equation}
+All its values are rational.
+
+\emph{The witness.} Draw $(u,v)\sim H_t$; independently draw fair bits $X_a$ and $Z_e$, fair signs $r_i$ and $s_j$, and fair signs $\nu_{ij}$, all mutually independent, $a,i,j,e\in[t]$. With $u^0=1$ and $u^1=u$, define every copied observation by
+\begin{equation}\label{eq:pathwitness}
+A^a=X_a,\qquad
+B^{ai}=r_i\,u_i^{X_a},\qquad
+C^{ij}=\begin{cases}r_is_j,&u_i=v_j,\\ r_is_j\nu_{ij},&u_i\ne v_j,\end{cases}\qquad
+D^{je}=s_j\,v_j^{Z_e},\qquad
+E^e=Z_e .
+\end{equation}
+Each copied observation is a function of the data attached to its copied parents together with its own private sign: $r_i$ and $u_i$ belong to $L_i$, and $s_j$ and $v_j$ to $R_j$. Call the resulting law $\Gamma_t$; by \eqref{eq:Htpos} it is strictly positive and rational. As in Section~\ref{sec:construction}, $\Gamma_t$ is a law on the copied observations and not the output of an inflated model: under $H_t$ the families $u$ and $v$ are correlated.
+
+\emph{Formal weights.} Give each $u_i$ the complex weight $(1+i\gamma u_i)/2$ and each $v_j$ the weight $(1-i\gamma v_j)/2$, and keep the actual probabilities of $X,Z,r,s,\nu$. Write $\E_\ast$ for the resulting formal expectation, a product functional in which all $2t+2t+t^2+2t$ coordinate families are independent, with $\E_\ast u_i=i\gamma$ and $\E_\ast v_j=-i\gamma$. Since the weights of the auxiliary coordinates multiply to a complex number whose real part is $H_t$, and the other coordinates carry real weights,
+\begin{equation}\label{eq:realpart}
+\E_{\Gamma_t}[F]=\Real\,\E_\ast[F]\qquad\text{for every real-valued }F .
+\end{equation}
+The complex weights are a device for computing marginals; the witness is the real law $\Gamma_t$.
+
+\emph{Every copied path has law $P_h$.} Fix $(a,i,j,e)$ and condition on $X_a=x$, $Z_e=z$, which are fair and independent and reproduce the $(A,E)$ marginal of $P_h$. The masks $r_i$ and $s_j$ are fair signs independent of everything else and each occurs in exactly one of $B^{ai}$, $D^{je}$ and in $C^{ij}$, so every product of a proper nonempty subset of $\{B^{ai},C^{ij},D^{je}\}$ carries $r_i$ or $s_j$ to an odd power and has formal expectation zero. In the triple product the masks cancel:
+\[
+B^{ai}C^{ij}D^{je}=u_i^{\,x}\,v_j^{\,z}\cdot\bigl(\one\{u_i=v_j\}+\nu_{ij}\one\{u_i\ne v_j\}\bigr),
+\]
+and $\E_\ast\nu_{ij}=0$, so $\E_\ast\bigl[B^{ai}C^{ij}D^{je}\bigr]=\E_\ast\bigl[u_i^{\,x}v_j^{\,z}\one\{u_i=v_j\}\bigr]$. The formal weight of $(u_i,v_j)=(+1,+1)$ is $\frac{1+i\gamma}2\cdot\frac{1-i\gamma}2=\frac{1+h}4$, and the weight of $(-1,-1)$ is the same real number, so
+\[
+\E_\ast\bigl[u_i^{\,x}v_j^{\,z}\one\{u_i=v_j\}\bigr]=\frac{1+h}4\bigl(1+(-1)^{x+z}\bigr)=f_{xz},
+\]
+which is real. Every character of the copied path is thus one of: a character of the fair bits $X_a,Z_e$ alone; a character carrying a proper nonempty subset of $\{B^{ai},C^{ij},D^{je}\}$, with formal expectation zero; or a character carrying all three, with formal expectation $\frac14\sum_{x,z}\chi(x,z)f_{xz}$. All of these are real and all agree with the corresponding characters of $P_h$ in Lemma~\ref{lem:pathtarget}, so by \eqref{eq:realpart}
+\[
+\Law_{\Gamma_t}\bigl(A^a,B^{ai},C^{ij},D^{je},E^e\bigr)=P_h,
+\]
+and $\E_\ast[G]$ is real for every function $G$ of a copied path.
+
+\emph{Injectable marginals.} An injectable set of the path contains at most one copied observation over each of $A,B,C,D,E$ and its copy indices agree on shared sources, so it is contained in a copied path $(a,i,j,e)$ with consistent indices, completing unused indices arbitrarily. Its marginal is therefore the corresponding marginal of $P_h$, and $\E_\ast[G]$ is real for every function $G$ of it.
+
+\emph{Ancestral products and the diagonal law.} Let $F_1,\dots,F_r$ be pairwise ancestrally independent injectable sets. Distinct copied sources carry distinct auxiliary coordinates and distinct masks, and distinct copied observations carry distinct private signs, so the $F_k$ depend on disjoint coordinate families and $\E_\ast\bigl[\prod_k G_k\bigr]=\prod_k\E_\ast[G_k]$ for functions $G_k$ of $F_k$. Each factor is real by the previous paragraph, hence so is the product, and \eqref{eq:realpart} gives
+\[
+\E_{\Gamma_t}\Bigl[\prod_kG_k\Bigr]=\prod_k\E_\ast[G_k]=\prod_k\E_{\Gamma_t}[G_k].
+\]
+Taking the $G_k$ to be indicators of atoms shows the blocks are independent with the prescribed marginals. The diagonal rows $(A^\ell,B^{\ell\ell},C^{\ell\ell},D^{\ell\ell},E^\ell)$, $\ell\in[t]$, are pairwise ancestrally independent injectable copied paths, so the diagonal law is $P_h^{\otimes t}$.
+
+\emph{Symmetry.} The density \eqref{eq:Ht} is symmetric in $u_1,\dots,u_t$ and in $v_1,\dots,v_t$ separately, the families $(X_a)$, $(Z_e)$, $(r_i)$, $(s_j)$ and $(\nu_{ij})$ are i.i.d., and \eqref{eq:pathwitness} is equivariant, so $\Gamma_t$ is invariant under independent permutations of the four copy-index families. Together with the previous two paragraphs this places $P_{h_t}$ in $\IAI_t(P_5)$, and Lemma~\ref{lem:rootsink} gives $\Iexp_t(P_5)=\IAI_t(P_5)$.
+
+\emph{Conclusion.} Corollary~\ref{cor:pathdistance} gives $P_{h_t}\notin\Cpath$ and
+$d_{\TV}(P_{h_t},\Cpath)\ge h_t/96=1/(1536t^2)$. Membership at order $t$ forces $\tmin^H(P_{h_t})>t$ for each of the three hierarchies, by Proposition~\ref{prop:gsound}.
+\end{proof}
+
+Along this family the first rejecting order grows without bound while the target stays uniformly inside the simplex: since $h_t\le1/16$, Lemma~\ref{lem:pathtarget} gives
+\[
+P_{h_t}(x,b,c,d,z)\ \ge\ \frac{1-h_t}{64}\ \ge\ \frac{15}{1024}
+\]
+for every $t$ and every atom. The obstruction is therefore not carried by vanishing probabilities. The distance to $\Cpath$ shrinks at rate $t^{-2}$, faster than the rate $t^{-1/2}$ that Theorem~\ref{thm:convexorder} forces; whether the path carries survivors at distance of order $t^{-1}$, as the square and the triangle do, is not settled here.
