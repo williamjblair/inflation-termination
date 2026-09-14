@@ -1,0 +1,15 @@
+pointwise fan inequality (9): exhaustively verified for t<=7
+k=    4 eps=k^-3: passes t<=3, fan rejects at t=4; eps^(1/3)*t=1.0000
+k=    6 eps=k^-3: passes t<=4, fan rejects at t=5; eps^(1/3)*t=0.8333
+k=    8 eps=k^-3: passes t<=5, fan rejects at t=6; eps^(1/3)*t=0.7500
+k=   10 eps=k^-3: passes t<=6, fan rejects at t=7; eps^(1/3)*t=0.7000
+k=   16 eps=k^-3: passes t<=9, fan rejects at t=10; eps^(1/3)*t=0.6250
+k=   32 eps=k^-3: passes t<=17, fan rejects at t=19; eps^(1/3)*t=0.5938
+k=  128 eps=k^-3: passes t<=65, fan rejects at t=70; eps^(1/3)*t=0.5469
+k= 1024 eps=k^-3: passes t<=513, fan rejects at t=551; eps^(1/3)*t=0.5381
+v_4 at eps=1/64 = 6969/2097152 (claimed 6969/2097152) True
+R_p fan at t=2: 2/3 <= 4/9 ? False
+eps=1e-3: TV/eps=0.596814 (d0=0.646447), l2/eps=0.639416 (sqrt(8/7)d0=0.691080), residual/eps^(4/3)=-0.496
+eps=1e-4: TV/eps=0.623978 (d0=0.646447), l2/eps=0.667361 (sqrt(8/7)d0=0.691080), residual/eps^(4/3)=-0.484
+eps=1e-5: TV/eps=0.636145 (d0=0.646447), l2/eps=0.680133 (sqrt(8/7)d0=0.691080), residual/eps^(4/3)=-0.478
+eps=1e-6: TV/eps=0.641693 (d0=0.646447), l2/eps=0.686013 (sqrt(8/7)d0=0.691080), residual/eps^(4/3)=-0.475

@@ -1,0 +1,15 @@
+OK  control                      rc=0 claims_pass=True
+OK  empty-proof                  rc=1 claims_pass=False
+OK  truncated-certificate        rc=1 claims_pass=False
+OK  corrupt-atom                 rc=1 claims_pass=False
+OK  wrong-rejecting-order        rc=1 claims_pass=False
+OK  wrong-passing-order          rc=1 claims_pass=False
+OK  missing-last-record-weaker-certificate rc=0 claims_pass=True
+OK  wrong-sign-gap               rc=1 claims_pass=False
+OK  wrong-parameters             rc=1 claims_pass=False
+OK  python-O-control             rc=0 claims_pass=True
+OK  python-O-corrupt-atom        rc=1 claims_pass=False
+OK  python-OO-corrupt-atom       rc=1 claims_pass=False
+OK  python-O-empty-proof         rc=1 claims_pass=False
+NOTE: removing a whole record yields a weaker but valid certificate (each record is checked independently; the record count is reported, not enforced)
+MUTATION_TESTS_FAN=PASS (fails closed on every corruption, also under -O/-OO)

@@ -1,0 +1,118 @@
+{
+  "claimed_diagonal_equations": 64,
+  "claimed_symmetry_generators": 3,
+  "order": 2,
+  "outputs": [
+    {
+      "name": "A11",
+      "value_one_iff_all_zero": [
+        "D111",
+        "D112"
+      ]
+    },
+    {
+      "name": "A12",
+      "value_one_iff_all_zero": [
+        "D121",
+        "D122"
+      ]
+    },
+    {
+      "name": "A21",
+      "value_one_iff_all_zero": [
+        "D211",
+        "D212"
+      ]
+    },
+    {
+      "name": "A22",
+      "value_one_iff_all_zero": [
+        "D221",
+        "D222"
+      ]
+    },
+    {
+      "name": "B11",
+      "value_one_iff_all_zero": [
+        "D111",
+        "D121"
+      ]
+    },
+    {
+      "name": "B12",
+      "value_one_iff_all_zero": [
+        "D112",
+        "D122"
+      ]
+    },
+    {
+      "name": "B21",
+      "value_one_iff_all_zero": [
+        "D211",
+        "D221"
+      ]
+    },
+    {
+      "name": "B22",
+      "value_one_iff_all_zero": [
+        "D212",
+        "D222"
+      ]
+    },
+    {
+      "name": "C11",
+      "value_one_iff_all_zero": [
+        "D111",
+        "D211"
+      ]
+    },
+    {
+      "name": "C12",
+      "value_one_iff_all_zero": [
+        "D112",
+        "D212"
+      ]
+    },
+    {
+      "name": "C21",
+      "value_one_iff_all_zero": [
+        "D121",
+        "D221"
+      ]
+    },
+    {
+      "name": "C22",
+      "value_one_iff_all_zero": [
+        "D122",
+        "D222"
+      ]
+    }
+  ],
+  "r": "15/16",
+  "root_law": {
+    "kind": "iid-bernoulli",
+    "p_one": "1/16",
+    "p_zero": "15/16"
+  },
+  "roots": [
+    "D111",
+    "D112",
+    "D121",
+    "D122",
+    "D211",
+    "D212",
+    "D221",
+    "D222"
+  ],
+  "schema": "inflation-defect-certificate-v1",
+  "target_atoms": {
+    "000": "4111/65536",
+    "001": "225/65536",
+    "010": "225/65536",
+    "011": "3375/65536",
+    "100": "225/65536",
+    "101": "3375/65536",
+    "110": "3375/65536",
+    "111": "50625/65536"
+  }
+}

@@ -1,0 +1,186 @@
+[
+ {
+  "scenario": "frozen:control",
+  "rc": 0,
+  "claims_pass": true,
+  "expected": "ok",
+  "outcome_ok": true
+ },
+ {
+  "scenario": "frozen:truncated-certificate",
+  "rc": 1,
+  "claims_pass": false,
+  "expected": "fail",
+  "outcome_ok": true
+ },
+ {
+  "scenario": "frozen:empty-proof",
+  "rc": 1,
+  "claims_pass": false,
+  "expected": "fail",
+  "outcome_ok": true
+ },
+ {
+  "scenario": "frozen:corrupt-witness-atom",
+  "rc": 1,
+  "claims_pass": false,
+  "expected": "fail",
+  "outcome_ok": true
+ },
+ {
+  "scenario": "frozen:wrong-order",
+  "rc": 1,
+  "claims_pass": false,
+  "expected": "fail",
+  "outcome_ok": true
+ },
+ {
+  "scenario": "frozen:missing-branch",
+  "rc": 1,
+  "claims_pass": false,
+  "expected": "fail",
+  "outcome_ok": true
+ },
+ {
+  "scenario": "frozen:wrong-sign-normalized-corruption",
+  "rc": 1,
+  "claims_pass": false,
+  "expected": "fail",
+  "outcome_ok": true
+ },
+ {
+  "scenario": "frozen:negative-entry",
+  "rc": 1,
+  "claims_pass": false,
+  "expected": "fail",
+  "outcome_ok": true
+ },
+ {
+  "scenario": "frozen:wrong-root-law",
+  "rc": 1,
+  "claims_pass": false,
+  "expected": "fail",
+  "outcome_ok": true
+ },
+ {
+  "scenario": "frozen:bad-support",
+  "rc": 1,
+  "claims_pass": false,
+  "expected": "fail",
+  "outcome_ok": true
+ },
+ {
+  "scenario": "frozen:negative-control-not-rejected",
+  "rc": 1,
+  "claims_pass": false,
+  "expected": "fail",
+  "outcome_ok": true
+ },
+ {
+  "scenario": "frozen:python-O-corrupt-witness",
+  "rc": 0,
+  "claims_pass": true,
+  "expected": "known-defect: frozen bare asserts are stripped under -O",
+  "fails_open": true,
+  "outcome_ok": true
+ },
+ {
+  "scenario": "frozen:python-OO-corrupt-witness",
+  "rc": 0,
+  "claims_pass": true,
+  "expected": "known-defect: frozen bare asserts are stripped under -O",
+  "fails_open": true,
+  "outcome_ok": true
+ },
+ {
+  "scenario": "hardened:control",
+  "rc": 0,
+  "claims_pass": true,
+  "expected": "ok",
+  "outcome_ok": true
+ },
+ {
+  "scenario": "hardened:truncated-certificate",
+  "rc": 1,
+  "claims_pass": false,
+  "expected": "fail",
+  "outcome_ok": true
+ },
+ {
+  "scenario": "hardened:empty-proof",
+  "rc": 1,
+  "claims_pass": false,
+  "expected": "fail",
+  "outcome_ok": true
+ },
+ {
+  "scenario": "hardened:corrupt-witness-atom",
+  "rc": 1,
+  "claims_pass": false,
+  "expected": "fail",
+  "outcome_ok": true
+ },
+ {
+  "scenario": "hardened:wrong-order",
+  "rc": 1,
+  "claims_pass": false,
+  "expected": "fail",
+  "outcome_ok": true
+ },
+ {
+  "scenario": "hardened:missing-branch",
+  "rc": 1,
+  "claims_pass": false,
+  "expected": "fail",
+  "outcome_ok": true
+ },
+ {
+  "scenario": "hardened:wrong-sign-normalized-corruption",
+  "rc": 1,
+  "claims_pass": false,
+  "expected": "fail",
+  "outcome_ok": true
+ },
+ {
+  "scenario": "hardened:negative-entry",
+  "rc": 1,
+  "claims_pass": false,
+  "expected": "fail",
+  "outcome_ok": true
+ },
+ {
+  "scenario": "hardened:wrong-root-law",
+  "rc": 1,
+  "claims_pass": false,
+  "expected": "fail",
+  "outcome_ok": true
+ },
+ {
+  "scenario": "hardened:bad-support",
+  "rc": 1,
+  "claims_pass": false,
+  "expected": "fail",
+  "outcome_ok": true
+ },
+ {
+  "scenario": "hardened:negative-control-not-rejected",
+  "rc": 1,
+  "claims_pass": false,
+  "expected": "fail",
+  "outcome_ok": true
+ },
+ {
+  "scenario": "hardened:python-O-corrupt-witness",
+  "rc": 1,
+  "claims_pass": false,
+  "expected": "fail",
+  "outcome_ok": true
+ },
+ {
+  "scenario": "hardened:python-OO-corrupt-witness",
+  "rc": 1,
+  "claims_pass": false,
+  "expected": "fail",
+  "outcome_ok": true
+ }
+]

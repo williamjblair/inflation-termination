@@ -1,5 +1,7 @@
 \section{Certificate formats}\label{app:certificates}
 
+The files described here are under \texttt{artifact/certificates/} in the repository \repo, with the checkers under \texttt{artifact/verifiers/} and the manifest of SHA-256 identities at \texttt{artifact/MANIFEST.json}.
+
 \paragraph{Structural certificate at order $t$.}
 A JSON object with the root law (kind, $\eps_t=1/(2t^3)$ and $1-\eps_t$ as exact fractions), the value $r_t$, the list of $t^3$ roots $D_{ijk}$, for each of the $3t^2$ outputs the list of roots on its line, the eight target atoms of $P_t$ as exact fractions, and the claimed counts of diagonal equations ($8^t$) and symmetry generators ($3(t-1)$). The checker recomputes every claimed quantity from the definitions and compares exactly. The checker computes the copied-triangle marginals by enumerating the $2^{3t-2}$ assignments of the roots on the three lines through a cell, which makes $t=3$ (with $2^7$ assignments per triangle and $8^3=512$ diagonal equations) immediate.
 

@@ -1,0 +1,271 @@
+{
+ "certificate": "cycle witnesses, B4 sections 3-6 / B5 section 4",
+ "density": "H_{N,q}(s) = 2^{-N} sum_{|S| even} (-q)^{|S|/2} prod_S s, N = m t, q = 1/(4 m^2 t^2)",
+ "outputs": "O_v^{ij} = s_{v-1,i} s_{v,j}",
+ "records": [
+  {
+   "ai_families_checked": 8,
+   "ai_families_failing": 0,
+   "ai_sets": 8,
+   "copied_observations": 3,
+   "diagonal_cells_checked": 8,
+   "first_failing_ai_family": null,
+   "full_support": false,
+   "global_atoms": 8,
+   "incompatibility": {
+    "E[V1 V2 V3]": "1",
+    "P(V1 V2 V3 = -1)": "0",
+    "arc_means": [
+     "-1/36",
+     "-1/36",
+     "-1/36"
+    ],
+    "arcs": [
+     [
+      0
+     ],
+     [
+      1
+     ],
+     [
+      2
+     ]
+    ],
+    "parity_rigidity": "a parity-perfect compatible triangle law has a nonnegative product of the three means; here it is -q^3 < 0",
+    "product_of_arc_means": "-1/46656"
+   },
+   "injectable_set_characters": 7,
+   "injectable_sets": 7,
+   "label": "C3 order 1",
+   "m": 3,
+   "minimum_atom": "0",
+   "minimum_positive_atom": "11/48",
+   "order": 1,
+   "positive_atoms": 4,
+   "q": "1/36",
+   "symmetry_generators_checked": 0,
+   "witness_denominator": "144"
+  },
+  {
+   "ai_families_checked": 18,
+   "ai_families_failing": 0,
+   "ai_sets": 16,
+   "copied_observations": 4,
+   "diagonal_cells_checked": 16,
+   "first_failing_ai_family": null,
+   "full_support": false,
+   "global_atoms": 16,
+   "incompatibility": {
+    "E[V1 V2 V3]": "1",
+    "P(V1 V2 V3 = -1)": "0",
+    "arc_means": [
+     "-1/64",
+     "-1/64",
+     "-1/64"
+    ],
+    "arcs": [
+     [
+      0
+     ],
+     [
+      1
+     ],
+     [
+      2,
+      3
+     ]
+    ],
+    "parity_rigidity": "a parity-perfect compatible triangle law has a nonnegative product of the three means; here it is -q^3 < 0",
+    "product_of_arc_means": "-1/262144"
+   },
+   "injectable_set_characters": 15,
+   "injectable_sets": 15,
+   "label": "C4 order 1",
+   "m": 4,
+   "minimum_atom": "0",
+   "minimum_positive_atom": "3713/32768",
+   "order": 1,
+   "positive_atoms": 8,
+   "q": "1/64",
+   "symmetry_generators_checked": 0,
+   "witness_denominator": "32768"
+  },
+  {
+   "ai_families_checked": 42,
+   "ai_families_failing": 0,
+   "ai_sets": 32,
+   "copied_observations": 5,
+   "diagonal_cells_checked": 32,
+   "first_failing_ai_family": null,
+   "full_support": false,
+   "global_atoms": 32,
+   "incompatibility": {
+    "E[V1 V2 V3]": "1",
+    "P(V1 V2 V3 = -1)": "0",
+    "arc_means": [
+     "-1/100",
+     "-1/100",
+     "-1/100"
+    ],
+    "arcs": [
+     [
+      0
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      3,
+      4
+     ]
+    ],
+    "parity_rigidity": "a parity-perfect compatible triangle law has a nonnegative product of the three means; here it is -q^3 < 0",
+    "product_of_arc_means": "-1/1000000"
+   },
+   "injectable_set_characters": 31,
+   "injectable_sets": 31,
+   "label": "C5 order 1",
+   "m": 5,
+   "minimum_atom": "0",
+   "minimum_positive_atom": "1801/32000",
+   "order": 1,
+   "positive_atoms": 16,
+   "q": "1/100",
+   "symmetry_generators_checked": 0,
+   "witness_denominator": "160000"
+  },
+  {
+   "ai_families_checked": 243,
+   "ai_families_failing": 0,
+   "ai_sets": 243,
+   "copied_observations": 12,
+   "diagonal_cells_checked": 64,
+   "first_failing_ai_family": null,
+   "full_support": false,
+   "global_atoms": 4096,
+   "incompatibility": {
+    "E[V1 V2 V3]": "1",
+    "P(V1 V2 V3 = -1)": "0",
+    "arc_means": [
+     "-1/144",
+     "-1/144",
+     "-1/144"
+    ],
+    "arcs": [
+     [
+      0
+     ],
+     [
+      1
+     ],
+     [
+      2
+     ]
+    ],
+    "parity_rigidity": "a parity-perfect compatible triangle law has a nonnegative product of the three means; here it is -q^3 < 0",
+    "product_of_arc_means": "-1/2985984"
+   },
+   "injectable_set_characters": 44,
+   "injectable_sets": 44,
+   "label": "C3 order 2",
+   "m": 3,
+   "minimum_atom": "0",
+   "minimum_positive_atom": "2677103/95551488",
+   "order": 2,
+   "positive_atoms": 32,
+   "q": "1/144",
+   "symmetry_generators_checked": 3,
+   "witness_denominator": "95551488"
+  },
+  {
+   "ai_families_checked": 2425,
+   "ai_families_failing": 0,
+   "ai_sets": 1881,
+   "copied_observations": 16,
+   "diagonal_cells_checked": 256,
+   "first_failing_ai_family": null,
+   "full_support": false,
+   "global_atoms": 65536,
+   "incompatibility": {
+    "E[V1 V2 V3]": "1",
+    "P(V1 V2 V3 = -1)": "0",
+    "arc_means": [
+     "-1/256",
+     "-1/256",
+     "-1/256"
+    ],
+    "arcs": [
+     [
+      0
+     ],
+     [
+      1
+     ],
+     [
+      2,
+      3
+     ]
+    ],
+    "parity_rigidity": "a parity-perfect compatible triangle law has a nonnegative product of the three means; here it is -q^3 < 0",
+    "product_of_arc_means": "-1/16777216"
+   },
+   "injectable_set_characters": 160,
+   "injectable_sets": 160,
+   "label": "C4 order 2",
+   "m": 4,
+   "minimum_atom": "0",
+   "minimum_positive_atom": "3829785601/549755813888",
+   "order": 2,
+   "positive_atoms": 128,
+   "q": "1/256",
+   "symmetry_generators_checked": 4,
+   "witness_denominator": "549755813888"
+  },
+  {
+   "ai_families_checked": 26671,
+   "ai_families_failing": 0,
+   "ai_sets": 14231,
+   "copied_observations": 20,
+   "diagonal_cells_checked": 1024,
+   "first_failing_ai_family": null,
+   "full_support": false,
+   "global_atoms": 1048576,
+   "incompatibility": {
+    "E[V1 V2 V3]": "1",
+    "P(V1 V2 V3 = -1)": "0",
+    "arc_means": [
+     "-1/400",
+     "-1/400",
+     "-1/400"
+    ],
+    "arcs": [
+     [
+      0
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      3,
+      4
+     ]
+    ],
+    "parity_rigidity": "a parity-perfect compatible triangle law has a nonnegative product of the three means; here it is -q^3 < 0",
+    "product_of_arc_means": "-1/64000000"
+   },
+   "injectable_set_characters": 572,
+   "injectable_sets": 572,
+   "label": "C5 order 2",
+   "m": 5,
+   "minimum_atom": "0",
+   "minimum_positive_atom": "9101406417999/5242880000000000",
+   "order": 2,
+   "positive_atoms": 512,
+   "q": "1/400",
+   "symmetry_generators_checked": 5,
+   "witness_denominator": "5242880000000000"
+  }
+ ]
+}

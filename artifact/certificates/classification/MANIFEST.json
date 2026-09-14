@@ -1,0 +1,39 @@
+{
+ "arithmetic": "exact integers and fractions.Fraction; floating point only for LP discovery inside build_classification.py",
+ "certificate_directory": "classification",
+ "files": {
+  "REPORT.md": {
+   "sha256": "7a060dea8021808822182fccadcde5a984ca8ae11c5581d8589ae9f3ef04a2d2",
+   "size": 28620
+  },
+  "build_classification.py": {
+   "sha256": "d320dc108cee62a893dfbae117fb74009d1e740a2ddf6a8f8b1e2c3f807fc030",
+   "size": 51421
+  },
+  "cycles.json": {
+   "sha256": "cfaaade6f45722b304e013efd8add1fcbd70816bae69b077d0c2386983a83f2e",
+   "size": 6008
+  },
+  "five_path.json": {
+   "sha256": "f43ff7a71ba772cd8ad186f6f13b617854be1b65a8a1ff7d0c548e5785aa69b1",
+   "size": 2202
+  },
+  "low_order_square.json": {
+   "sha256": "cfd75355e49adb5878f2ce999fa2fee7d149683adcda8c641299cc19945a8709",
+   "size": 26508
+  },
+  "square.json": {
+   "sha256": "9106b5d1a4d20239b8cb1361b860c6c4bcd910ac661a7669b47c741e49129e36",
+   "size": 6558
+  },
+  "triangle.json": {
+   "sha256": "6b1025885aee323c5147ca65d12a8c26a947e2a38f91e4526706335d146f0f44",
+   "size": 8705
+  },
+  "verify_classification.py": {
+   "sha256": "c529ef3c6d3e2a857f6a6105037ceeec141446c99e7e9072c1d75abb58ef7439",
+   "size": 59839
+  }
+ },
+ "generated_utc": "2026-09-14T01:30:00Z"
+}

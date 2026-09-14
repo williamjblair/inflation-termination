@@ -1,0 +1,21 @@
+{
+  "schema": "effective-inflation-order2-farkas-v1",
+  "scenario": "binary classical triangle",
+  "inflation_order": 2,
+  "variable_order": [
+    "A11", "A12", "A21", "A22",
+    "B11", "B12", "B21", "B22",
+    "C11", "C12", "C21", "C22"
+  ],
+  "diagonal_order": ["A11", "B11", "C11", "A22", "B22", "C22"],
+  "target": {"000": "1/2", "111": "1/2"},
+  "regularized_kl_promise": "1/4",
+  "certified_entropy_lower_bound": "1/2",
+  "dual_coefficients": {
+    "rule": "-1 on 000111 and 111000; 0 on 000000 and 111111; +1 otherwise"
+  },
+  "claimed_target_dual_value": "-1/2",
+  "claimed_minimum_orbit_sum": 0,
+  "claimed_full_assignments_checked": 4096,
+  "claimed_group_elements": 8
+}

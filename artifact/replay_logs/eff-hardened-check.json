@@ -1,0 +1,30 @@
+{
+  "name": "eff-hardened-check",
+  "command": [
+    "/opt/homebrew/Caskroom/miniconda/base/bin/python3",
+    "-B",
+    "check_effective_hardened.py"
+  ],
+  "cwd": "<fresh temporary directory>",
+  "inputs_sha256": {
+    "check.py": "51184b140e74287650ee800ef00d6d5a1a5efde3cb4abb3baf3243e89bb57c07",
+    "check_effective_hardened.py": "afebff74e0c53fad62cdec9275c9b05eeae7390cea5a4e5066589b89191bdf7c",
+    "farkas.json": "bb82fdef7e0411d08efbe2e54fe4bb9b1e177f80a434a253d49111e404c3593e"
+  },
+  "return_code": 0,
+  "wall_seconds": 0.169,
+  "stdout_sha256": "182e925b49c067e36a5e49628e3b4cf486360f367f640de2e5faf2158d569a44",
+  "stdout_tail": "{\n  \"calibration_order\": 2,\n  \"closed_bound_numerator\": 685464,\n  \"dyadic_bound_k\": 7,\n  \"farkas_separation_margin\": \"1/2\",\n  \"full_assignments_checked\": 4096,\n  \"group_actions_per_assignment\": 8,\n  \"orbit_sum_histogram\": {\n    \"0\": 50,\n    \"4\": 452,\n    \"6\": 432,\n    \"8\": 3162\n  },\n  \"promise\": \"1/4\",\n  \"regularized_kl_lower_bound\": \"1/2\",\n  \"status\": \"PASS\",\n  \"target_dual_value\": \"-1/2\",\n  \"theoretical_dyadic_order_not_materialized\": 393216\n}\n",
+  "stderr_tail": "",
+  "outputs_sha256": {},
+  "environment": {
+    "os": "macOS-27.0-arm64-arm-64bit-Mach-O",
+    "architecture": "arm64",
+    "python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:11:29) [Clang 20.1.8 ]",
+    "python_flags": {
+      "optimize": 0
+    },
+    "dependencies": "Python standard library only (fractions, json, itertools, re, pathlib)"
+  },
+  "timestamp_utc": "2026-09-14T17:54:03Z"
+}

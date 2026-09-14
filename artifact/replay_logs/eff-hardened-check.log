@@ -1,0 +1,19 @@
+{
+  "calibration_order": 2,
+  "closed_bound_numerator": 685464,
+  "dyadic_bound_k": 7,
+  "farkas_separation_margin": "1/2",
+  "full_assignments_checked": 4096,
+  "group_actions_per_assignment": 8,
+  "orbit_sum_histogram": {
+    "0": 50,
+    "4": 452,
+    "6": 432,
+    "8": 3162
+  },
+  "promise": "1/4",
+  "regularized_kl_lower_bound": "1/2",
+  "status": "PASS",
+  "target_dual_value": "-1/2",
+  "theoretical_dyadic_order_not_materialized": 393216
+}

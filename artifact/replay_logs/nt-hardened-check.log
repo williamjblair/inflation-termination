@@ -1,0 +1,49 @@
+{
+  "negative_control": {
+    "first_error": "diagonal 000000",
+    "nonnegativity_preserved": true,
+    "normalization_preserved": true,
+    "rejected": true
+  },
+  "status": "PASS",
+  "structural_certificates": [
+    {
+      "copied_triangle_equations": 8,
+      "diagonal_equations": 8,
+      "finner_gap": "1/8",
+      "observed_count": 3,
+      "order": 1,
+      "root_count": 1,
+      "symmetry_generators": 0,
+      "uniform_lower_bound": "1/8"
+    },
+    {
+      "copied_triangle_equations": 64,
+      "diagonal_equations": 64,
+      "finner_gap": "9273825/4294967296",
+      "observed_count": 12,
+      "order": 2,
+      "root_count": 8,
+      "symmetry_generators": 3,
+      "uniform_lower_bound": "1/512"
+    },
+    {
+      "copied_triangle_equations": 216,
+      "diagonal_equations": 512,
+      "finner_gap": "327279338388988503553/1792720717930698493280256",
+      "observed_count": 27,
+      "order": 3,
+      "root_count": 27,
+      "symmetry_generators": 6,
+      "uniform_lower_bound": "1/5832"
+    }
+  ],
+  "t2_full_lp": {
+    "denominator": 4294967296,
+    "diagonal_equations": 64,
+    "nonnegative": true,
+    "nonzero_coordinates": 166,
+    "normalization_numerator": 4294967296,
+    "symmetry_equations": 12288
+  }
+}

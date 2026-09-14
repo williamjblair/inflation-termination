@@ -1,0 +1,254 @@
+{
+ "P_q_validity": {
+  "cases": [
+   {
+    "(3-q)^2-8": "49/400",
+    "8*P(0000) = 1-6q+q^2": "49/400",
+    "is_probability_law": true,
+    "q": "3/20",
+    "q_le_3_minus_2sqrt2": true
+   },
+   {
+    "(3-q)^2-8": "41/100",
+    "8*P(0000) = 1-6q+q^2": "41/100",
+    "is_probability_law": true,
+    "q": "1/10",
+    "q_le_3_minus_2sqrt2": true
+   },
+   {
+    "(3-q)^2-8": "833/1024",
+    "8*P(0000) = 1-6q+q^2": "833/1024",
+    "is_probability_law": true,
+    "q": "1/32",
+    "q_le_3_minus_2sqrt2": true
+   },
+   {
+    "(3-q)^2-8": "1/36",
+    "8*P(0000) = 1-6q+q^2": "1/36",
+    "is_probability_law": true,
+    "q": "1/6",
+    "q_le_3_minus_2sqrt2": true
+   },
+   {
+    "(3-q)^2-8": "89/10000",
+    "8*P(0000) = 1-6q+q^2": "89/10000",
+    "is_probability_law": true,
+    "q": "17/100",
+    "q_le_3_minus_2sqrt2": true
+   },
+   {
+    "(3-q)^2-8": "1649/4000000",
+    "8*P(0000) = 1-6q+q^2": "1649/4000000",
+    "is_probability_law": true,
+    "q": "343/2000",
+    "q_le_3_minus_2sqrt2": true
+   },
+   {
+    "(3-q)^2-8": "-959/6250000",
+    "8*P(0000) = 1-6q+q^2": "-959/6250000",
+    "is_probability_law": false,
+    "q": "429/2500",
+    "q_le_3_minus_2sqrt2": false
+   },
+   {
+    "(3-q)^2-8": "-119/2500",
+    "8*P(0000) = 1-6q+q^2": "-119/2500",
+    "is_probability_law": false,
+    "q": "9/50",
+    "q_le_3_minus_2sqrt2": false
+   },
+   {
+    "(3-q)^2-8": "-4/25",
+    "8*P(0000) = 1-6q+q^2": "-4/25",
+    "is_probability_law": false,
+    "q": "1/5",
+    "q_le_3_minus_2sqrt2": false
+   },
+   {
+    "(3-q)^2-8": "-7/16",
+    "8*P(0000) = 1-6q+q^2": "-7/16",
+    "is_probability_law": false,
+    "q": "1/4",
+    "q_le_3_minus_2sqrt2": false
+   }
+  ],
+  "threshold": "q <= 3 - 2 sqrt 2, tested as (3-q)^2 >= 8, equivalently 1 - 6q + q^2 >= 0"
+ },
+ "certificate": "corrected square density, B6 sections 1-2 and 3",
+ "density": "W = Re prod_{g=1}^{4} f_g + 5 sum_g (1 - Re f_g), f_g = prod_i (1 + i sqrt(q) s_{g,i}), q = 1/(16 t)",
+ "expansion_cross_check": [
+  {
+   "characters": 16,
+   "mismatches": 0,
+   "t": 1
+  },
+  {
+   "characters": 256,
+   "mismatches": 0,
+   "t": 2
+  },
+  {
+   "characters": 4096,
+   "mismatches": 0,
+   "t": 3
+  }
+ ],
+ "outputs": "A^{il} = x_i w_l, B^{ij} = x_i y_j, C^{jk} = y_j z_k, D^{kl} = z_k w_l",
+ "positivity_scan": [
+  {
+   "assignments": 16,
+   "at_least_1/3": true,
+   "minimum_W": "161/256",
+   "q": "1/16",
+   "t": 1
+  },
+  {
+   "assignments": 256,
+   "at_least_1/3": true,
+   "minimum_W": "530561/1048576",
+   "q": "1/32",
+   "t": 2
+  },
+  {
+   "assignments": 4096,
+   "at_least_1/3": true,
+   "minimum_W": "6531524257/12230590464",
+   "q": "1/48",
+   "t": 3
+  },
+  {
+   "assignments": 65536,
+   "at_least_1/3": true,
+   "minimum_W": "141348562911745/281474976710656",
+   "q": "1/64",
+   "t": 4
+  },
+  {
+   "assignments": 1048576,
+   "at_least_1/3": true,
+   "minimum_W": "5569468986191750561/10737418240000000000",
+   "q": "1/80",
+   "t": 5
+  }
+ ],
+ "tables": [
+  {
+   "flipped": {
+    "ai_families_checked": 18,
+    "ai_families_failing": 0,
+    "ai_sets": 16,
+    "copied_observations": 4,
+    "diagonal_cells_checked": 16,
+    "eta": "1/1024",
+    "first_failing_ai_family": null,
+    "full_support": true,
+    "global_atoms": 16,
+    "incompatibility": {
+     "EA": "-511/8192",
+     "EB": "-511/8192",
+     "E[ABCD]": "68184176641/68719476736",
+     "E[AB]": "-261121/4194304",
+     "P(ABCD=-1)": "535300095/137438953472",
+     "inequality": "max{EA, EB, E[AB]} + 4 P(ABCD = -1) >= 0 for every genuine square law (B6 section 3)",
+     "negative": true,
+     "value": "-1603803137/34359738368"
+    },
+    "injectable_set_characters": 15,
+    "injectable_sets": 15,
+    "label": "square order 1 with flips",
+    "minimum_atom": "501843903/1099511627776",
+    "minimum_positive_atom": "501843903/1099511627776",
+    "order": 1,
+    "positive_atoms": 16,
+    "symmetry_generators_checked": 0,
+    "witness_denominator": "1099511627776"
+   },
+   "plain": {
+    "ai_families_checked": 18,
+    "ai_families_failing": 0,
+    "ai_sets": 16,
+    "copied_observations": 4,
+    "diagonal_cells_checked": 16,
+    "first_failing_ai_family": null,
+    "full_support": false,
+    "global_atoms": 16,
+    "injectable_set_characters": 15,
+    "injectable_sets": 15,
+    "label": "square order 1",
+    "minimum_atom": "0",
+    "minimum_positive_atom": "161/2048",
+    "order": 1,
+    "positive_atoms": 8,
+    "q": "1/16",
+    "symmetry_generators_checked": 0,
+    "witness_denominator": "2048"
+   }
+  },
+  {
+   "flipped": {
+    "ai_families_checked": 2425,
+    "ai_families_failing": 0,
+    "ai_sets": 1881,
+    "copied_observations": 16,
+    "diagonal_cells_checked": 256,
+    "eta": "1/2048",
+    "first_failing_ai_family": null,
+    "full_support": true,
+    "global_atoms": 65536,
+    "incompatibility": {
+     "EA": "-1023/32768",
+     "EB": "-1023/32768",
+     "E[ABCD]": "1095222947841/1099511627776",
+     "E[AB]": "-1046529/33554432",
+     "P(ABCD=-1)": "4288679935/2199023255552",
+     "inequality": "max{EA, EB, E[AB]} + 4 P(ABCD = -1) >= 0 for every genuine square law (B6 section 3)",
+     "negative": true,
+     "value": "-12857651201/549755813888"
+    },
+    "injectable_set_characters": 160,
+    "injectable_sets": 160,
+    "label": "square order 2 with flips",
+    "minimum_atom": "151617551341606424188627556557199778049/95780971304118053647396689196894323976171195136475136",
+    "minimum_positive_atom": "151617551341606424188627556557199778049/95780971304118053647396689196894323976171195136475136",
+    "order": 2,
+    "positive_atoms": 65536,
+    "symmetry_generators_checked": 4,
+    "witness_denominator": "95780971304118053647396689196894323976171195136475136"
+   },
+   "plain": {
+    "ai_families_checked": 2425,
+    "ai_families_failing": 0,
+    "ai_sets": 1881,
+    "copied_observations": 16,
+    "diagonal_cells_checked": 256,
+    "first_failing_ai_family": null,
+    "full_support": false,
+    "global_atoms": 65536,
+    "injectable_set_characters": 160,
+    "injectable_sets": 160,
+    "label": "square order 2",
+    "minimum_atom": "0",
+    "minimum_positive_atom": "530561/134217728",
+    "order": 2,
+    "positive_atoms": 128,
+    "q": "1/32",
+    "symmetry_generators_checked": 4,
+    "witness_denominator": "134217728"
+   }
+  }
+ ],
+ "uncorrected_density_at_all_plus": [
+  {
+   "corrected_W_at_all_plus": "13228382881/12230590464",
+   "q": "1/48",
+   "t": 3,
+   "uncorrected_W_at_all_plus": "-2059855199/12230590464"
+  },
+  {
+   "corrected_W_at_all_plus": "396785341276673/281474976710656",
+   "q": "1/64",
+   "t": 4,
+   "uncorrected_W_at_all_plus": "-129605850521087/281474976710656"
+  }
+ ]
+}

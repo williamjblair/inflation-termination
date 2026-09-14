@@ -1,0 +1,39 @@
+{
+  "name": "fan-independent-check",
+  "command": [
+    "/opt/homebrew/Caskroom/miniconda/base/bin/python3",
+    "-B",
+    "fan_independent_check.py"
+  ],
+  "cwd": "<fresh temporary directory>",
+  "inputs_sha256": {
+    "AUDIT.md": "bec9de1422634200e5ede5ef6bb41ddcf572abb69ff87145b24ba9f28db8f3f8",
+    "README.md": "9ba62fc9053cd4adfc61ecda21b05e93902b257021bdcfe3736a81d573f4ed02",
+    "REPORT.md": "1cfd4657fc15fd438bce9193b98fc310f1fabc708a8e18746530a4226dd4cfbb",
+    "SHA256SUMS": "025a942e4f6ff83bf8f430f490e0973c2680aa1ad2de8e295771799e7d74553d",
+    "certificates.json": "c7b79c82e93eb184c347b4ec07ac709ef56bfba9b3c82a8cb5f3accfcfadf66b",
+    "check-optimized.log": "3b848336f28e99492d345649ef530100d8804a6633f9115eaa6b3a3b0cb0dc7e",
+    "check-standard.log": "3b848336f28e99492d345649ef530100d8804a6633f9115eaa6b3a3b0cb0dc7e",
+    "fan_independent_check.py": "963f781dc073ba34c31ba44a0de033fdcee4414fe02feb39cb6dcf9c54fc8e81",
+    "generate_certificates.py": "ccddf9db2c71765feb14c7444f9ffaa628b771399a06ca137a48973117a5bc8f",
+    "inflation_complexity_packet.zip": "a658650b0d6328a3ce200a3fd5ac606de05df1228a0a6bb8f9afebc3ffd679b7",
+    "verification.json": "3b848336f28e99492d345649ef530100d8804a6633f9115eaa6b3a3b0cb0dc7e",
+    "verify_certificates.py": "0647f8751c7bd5439e330a21ecd8beec57adc780f3ca90a7d061c75529dc852e"
+  },
+  "return_code": 0,
+  "wall_seconds": 0.213,
+  "stdout_sha256": "475c4aca8a4953c2aad2eaaca3f681953c1ec57a3666f150a6b4d194bed21e8e",
+  "stdout_tail": "pointwise fan inequality (9): exhaustively verified for t<=7\nk=    4 eps=k^-3: passes t<=3, fan rejects at t=4; eps^(1/3)*t=1.0000\nk=    6 eps=k^-3: passes t<=4, fan rejects at t=5; eps^(1/3)*t=0.8333\nk=    8 eps=k^-3: passes t<=5, fan rejects at t=6; eps^(1/3)*t=0.7500\nk=   10 eps=k^-3: passes t<=6, fan rejects at t=7; eps^(1/3)*t=0.7000\nk=   16 eps=k^-3: passes t<=9, fan rejects at t=10; eps^(1/3)*t=0.6250\nk=   32 eps=k^-3: passes t<=17, fan rejects at t=19; eps^(1/3)*t=0.5938\nk=  128 eps=k^-3: passes t<=65, fan rejects at t=70; eps^(1/3)*t=0.5469\nk= 1024 eps=k^-3: passes t<=513, fan rejects at t=551; eps^(1/3)*t=0.5381\nv_4 at eps=1/64 = 6969/2097152 (claimed 6969/2097152) True\nR_p fan at t=2: 2/3 <= 4/9 ? False\neps=1e-3: TV/eps=0.596814 (d0=0.646447), l2/eps=0.639416 (sqrt(8/7)d0=0.691080), residual/eps^(4/3)=-0.496\neps=1e-4: TV/eps=0.623978 (d0=0.646447), l2/eps=0.667361 (sqrt(8/7)d0=0.691080), residual/eps^(4/3)=-0.484\neps=1e-5: TV/eps=0.636145 (d0=0.646447), l2/eps=0.680133 (sqrt(8/7)d0=0.691080), residual/eps^(4/3)=-0.478\neps=1e-6: TV/eps=0.641693 (d0=0.646447), l2/eps=0.686013 (sqrt(8/7)d0=0.691080), residual/eps^(4/3)=-0.475\n",
+  "stderr_tail": "",
+  "outputs_sha256": {},
+  "environment": {
+    "os": "macOS-27.0-arm64-arm-64bit-Mach-O",
+    "architecture": "arm64",
+    "python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:11:29) [Clang 20.1.8 ]",
+    "python_flags": {
+      "optimize": 0
+    },
+    "dependencies": "Python standard library only (fractions, json, itertools, re, pathlib)"
+  },
+  "timestamp_utc": "2026-09-14T17:54:03Z"
+}

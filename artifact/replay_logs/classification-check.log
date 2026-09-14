@@ -1,0 +1,969 @@
+{
+ "cycles": [
+  {
+   "ai_families_checked": 8,
+   "ai_prescriptions_checked": 8,
+   "ai_sets": 8,
+   "arc_means": [
+    "-1/36",
+    "-1/36",
+    "-1/36"
+   ],
+   "copied_observations": 3,
+   "full_support": false,
+   "global_atoms": 8,
+   "injectable_set_characters": 7,
+   "label": "C3 order 1",
+   "minimum_atom": "0",
+   "minimum_positive_atom": "11/48",
+   "negative_control": {
+    "diagonal_cells_rejected": 2,
+    "first_rejected_cell": 0,
+    "mass_moved": "1/144",
+    "normalization_preserved": true,
+    "symmetry_preserved": true
+   },
+   "positive_atoms": 4,
+   "product_of_arc_means": "-1/46656"
+  },
+  {
+   "ai_families_checked": 18,
+   "ai_prescriptions_checked": 18,
+   "ai_sets": 16,
+   "arc_means": [
+    "-1/64",
+    "-1/64",
+    "-1/64"
+   ],
+   "copied_observations": 4,
+   "full_support": false,
+   "global_atoms": 16,
+   "injectable_set_characters": 15,
+   "label": "C4 order 1",
+   "minimum_atom": "0",
+   "minimum_positive_atom": "3713/32768",
+   "negative_control": {
+    "diagonal_cells_rejected": 2,
+    "first_rejected_cell": 0,
+    "mass_moved": "1/32768",
+    "normalization_preserved": true,
+    "symmetry_preserved": true
+   },
+   "positive_atoms": 8,
+   "product_of_arc_means": "-1/262144"
+  },
+  {
+   "ai_families_checked": 42,
+   "ai_prescriptions_checked": 42,
+   "ai_sets": 32,
+   "arc_means": [
+    "-1/100",
+    "-1/100",
+    "-1/100"
+   ],
+   "copied_observations": 5,
+   "full_support": false,
+   "global_atoms": 32,
+   "injectable_set_characters": 31,
+   "label": "C5 order 1",
+   "minimum_atom": "0",
+   "minimum_positive_atom": "1801/32000",
+   "negative_control": {
+    "diagonal_cells_rejected": 2,
+    "first_rejected_cell": 0,
+    "mass_moved": "1/160000",
+    "normalization_preserved": true,
+    "symmetry_preserved": true
+   },
+   "positive_atoms": 16,
+   "product_of_arc_means": "-1/1000000"
+  },
+  {
+   "ai_families_checked": 243,
+   "ai_prescriptions_checked": 243,
+   "ai_sets": 243,
+   "arc_means": [
+    "-1/144",
+    "-1/144",
+    "-1/144"
+   ],
+   "copied_observations": 12,
+   "full_support": false,
+   "global_atoms": 4096,
+   "injectable_set_characters": 44,
+   "label": "C3 order 2",
+   "minimum_atom": "0",
+   "minimum_positive_atom": "2677103/95551488",
+   "negative_control": {
+    "diagonal_cells_rejected": 2,
+    "first_rejected_cell": 0,
+    "mass_moved": "1/95551488",
+    "normalization_preserved": true,
+    "symmetry_preserved": true
+   },
+   "positive_atoms": 32,
+   "product_of_arc_means": "-1/2985984"
+  },
+  {
+   "ai_families_checked": 2425,
+   "ai_prescriptions_checked": 2425,
+   "ai_sets": 1881,
+   "arc_means": [
+    "-1/256",
+    "-1/256",
+    "-1/256"
+   ],
+   "copied_observations": 16,
+   "full_support": false,
+   "global_atoms": 65536,
+   "injectable_set_characters": 160,
+   "label": "C4 order 2",
+   "minimum_atom": "0",
+   "minimum_positive_atom": "3829785601/549755813888",
+   "negative_control": {
+    "diagonal_cells_rejected": 2,
+    "first_rejected_cell": 0,
+    "mass_moved": "1/549755813888",
+    "normalization_preserved": true,
+    "symmetry_preserved": true
+   },
+   "positive_atoms": 128,
+   "product_of_arc_means": "-1/16777216"
+  },
+  {
+   "ai_families_checked": 26671,
+   "ai_prescriptions_checked": 26671,
+   "ai_sets": 14231,
+   "arc_means": [
+    "-1/400",
+    "-1/400",
+    "-1/400"
+   ],
+   "copied_observations": 20,
+   "full_support": false,
+   "global_atoms": 1048576,
+   "injectable_set_characters": 572,
+   "label": "C5 order 2",
+   "minimum_atom": "0",
+   "minimum_positive_atom": "9101406417999/5242880000000000",
+   "negative_control": {
+    "diagonal_cells_rejected": 2,
+    "first_rejected_cell": 0,
+    "mass_moved": "1/5242880000000000",
+    "normalization_preserved": true,
+    "symmetry_preserved": true
+   },
+   "positive_atoms": 512,
+   "product_of_arc_means": "-1/64000000"
+  }
+ ],
+ "five_path": [
+  {
+   "ai_families_checked": 51,
+   "ai_prescriptions_checked": 51,
+   "ai_sets": 32,
+   "bilocal": {
+    "(1-I-J)^2": "225/1024",
+    "(sqrt(I)+sqrt(J))^2": "17/16",
+    "1+h": "17/16",
+    "4IJ": "289/1024",
+    "I": "17/64",
+    "J": "17/64",
+    "strictly_violated": true
+   },
+   "copied_observations": 5,
+   "full_support": true,
+   "global_atoms": 32,
+   "injectable_set_characters": 31,
+   "label": "five-path order 1",
+   "minimum_atom": "15/1024",
+   "minimum_positive_atom": "15/1024",
+   "negative_control": {
+    "diagonal_cells_rejected": 2,
+    "first_rejected_cell": 0,
+    "mass_moved": "1/1024",
+    "normalization_preserved": true,
+    "symmetry_preserved": true
+   },
+   "positive_atoms": 32
+  },
+  {
+   "ai_families_checked": 18054,
+   "ai_prescriptions_checked": 18054,
+   "ai_sets": 5488,
+   "bilocal": {
+    "(1-I-J)^2": "3969/16384",
+    "(sqrt(I)+sqrt(J))^2": "65/64",
+    "1+h": "65/64",
+    "4IJ": "4225/16384",
+    "I": "65/256",
+    "J": "65/256",
+    "strictly_violated": true
+   },
+   "copied_observations": 16,
+   "full_support": false,
+   "global_atoms": 65536,
+   "injectable_set_characters": 316,
+   "label": "five-path order 2",
+   "minimum_atom": "0",
+   "minimum_positive_atom": "3713/268435456",
+   "negative_control": {
+    "diagonal_cells_rejected": 2,
+    "first_rejected_cell": 0,
+    "mass_moved": "1/268435456",
+    "normalization_preserved": true,
+    "symmetry_preserved": true
+   },
+   "positive_atoms": 12672
+  }
+ ],
+ "inputs_sha256": {
+  "cycles.json": "cfaaade6f45722b304e013efd8add1fcbd70816bae69b077d0c2386983a83f2e",
+  "five_path.json": "f43ff7a71ba772cd8ad186f6f13b617854be1b65a8a1ff7d0c548e5785aa69b1",
+  "low_order_square.json": "cfd75355e49adb5878f2ce999fa2fee7d149683adcda8c641299cc19945a8709",
+  "square.json": "9106b5d1a4d20239b8cb1361b860c6c4bcd910ac661a7669b47c741e49129e36",
+  "triangle.json": "6b1025885aee323c5147ca65d12a8c26a947e2a38f91e4526706335d146f0f44"
+ },
+ "low_order_square": {
+  "ai2_dual_full_table": {
+   "ai_sets": 1881,
+   "atoms_checked": 65536,
+   "expectation": "57201/490000",
+   "infeasible": true,
+   "maximum_functional_value": "0"
+  },
+  "b6_equation_16": {
+   "all_nonpositive": true,
+   "configurations": 81,
+   "expectation_polynomial_coefficients": [
+    "-3",
+    "24",
+    "-6",
+    "-32",
+    "1"
+   ],
+   "expectations": {
+    "1/10": "-6919/10000",
+    "3/20": "57201/160000"
+   },
+   "identity_(1+q)(q^3-33q^2+27q-3)": true,
+   "maximum": "0",
+   "orbits": {
+    "0,0,0,0": [
+     "0"
+    ],
+    "0,0,0,1": [
+     "-32"
+    ],
+    "0,0,0,2": [
+     "0"
+    ],
+    "0,0,1,1": [
+     "0"
+    ],
+    "0,0,1,2": [
+     "0"
+    ],
+    "0,0,2,2": [
+     "0"
+    ],
+    "0,1,1,1": [
+     "0"
+    ],
+    "0,1,1,2": [
+     "0"
+    ],
+    "1,1,1,1": [
+     "-16"
+    ]
+   }
+  },
+  "count_form_duals": {
+   "ai2_dual_count_form": {
+    "configurations": 81,
+    "denominator": 1080,
+    "expectation": "19067/1280000",
+    "infeasible": true,
+    "maximum_value": "0"
+   },
+   "nw3_dual_count_form": {
+    "configurations": 256,
+    "denominator": 540,
+    "expectation": "634237/540000000",
+    "infeasible": true,
+    "maximum_value": "0"
+   }
+  },
+  "count_primal": [
+   {
+    "ai_families_failing": 64,
+    "diagonal_cells_checked": 256,
+    "feasible": true,
+    "first_failing_ai_family": [
+     [
+      [
+       0
+      ],
+      [
+       6
+      ],
+      [
+       10,
+       13
+      ]
+     ],
+     "-36959/640000",
+     "-27/8000"
+    ],
+    "hierarchy": "NW_2",
+    "minimum_positive_atom": "2401/10240000",
+    "nonzero_count_tuples": 66,
+    "positive_atoms": 82,
+    "q": "3/20"
+   },
+   {
+    "feasible": false,
+    "hierarchy": "AI_2",
+    "q": "3/20"
+   },
+   {
+    "ai_families_failing": 64,
+    "diagonal_cells_checked": 256,
+    "feasible": true,
+    "first_failing_ai_family": [
+     [
+      [
+       0
+      ],
+      [
+       6
+      ],
+      [
+       10,
+       13
+      ]
+     ],
+     "1841/40000",
+     "-1/1000"
+    ],
+    "hierarchy": "NW_2",
+    "minimum_positive_atom": "1681/640000",
+    "nonzero_count_tuples": 66,
+    "positive_atoms": 82,
+    "q": "1/10"
+   },
+   {
+    "ai_families_failing": 0,
+    "diagonal_cells_checked": 256,
+    "feasible": true,
+    "first_failing_ai_family": null,
+    "hierarchy": "AI_2",
+    "minimum_positive_atom": "451/320000",
+    "nonzero_count_tuples": 74,
+    "positive_atoms": 106,
+    "q": "1/10"
+   }
+  ],
+  "degree_systems": {
+   "2": {
+    "ai": 37,
+    "ai_minus_nw": [
+     [
+      0,
+      2,
+      2,
+      2
+     ],
+     [
+      2,
+      0,
+      2,
+      2
+     ],
+     [
+      2,
+      2,
+      0,
+      2
+     ],
+     [
+      2,
+      2,
+      2,
+      0
+     ]
+    ],
+    "nw": 33
+   },
+   "3": {
+    "ai": 112,
+    "ai_minus_nw": [
+     [
+      0,
+      2,
+      3,
+      3
+     ],
+     [
+      0,
+      3,
+      2,
+      3
+     ],
+     [
+      0,
+      3,
+      3,
+      2
+     ],
+     [
+      1,
+      3,
+      3,
+      3
+     ],
+     [
+      2,
+      0,
+      3,
+      3
+     ],
+     [
+      2,
+      3,
+      0,
+      3
+     ],
+     [
+      2,
+      3,
+      3,
+      0
+     ],
+     [
+      3,
+      0,
+      2,
+      3
+     ],
+     [
+      3,
+      0,
+      3,
+      2
+     ],
+     [
+      3,
+      1,
+      3,
+      3
+     ],
+     [
+      3,
+      2,
+      0,
+      3
+     ],
+     [
+      3,
+      2,
+      3,
+      0
+     ],
+     [
+      3,
+      3,
+      0,
+      2
+     ],
+     [
+      3,
+      3,
+      1,
+      3
+     ],
+     [
+      3,
+      3,
+      2,
+      0
+     ],
+     [
+      3,
+      3,
+      3,
+      1
+     ]
+    ],
+    "nw": 96
+   }
+  },
+  "g_root_bracket": {
+   "lower": "-575495517199593/1000000000000000000000",
+   "sign_change": true,
+   "upper": "2452028532857/1953125000000000000"
+  }
+ },
+ "manifest": {
+  "all_match": true,
+  "files_hashed": 8
+ },
+ "scope": "exact rational verification of the classification certificates; no floating point anywhere in this file",
+ "square": {
+  "P_q_validity": {
+   "cases": [
+    {
+     "1-6q+q^2": "49/400",
+     "probability_law": true,
+     "q": "3/20"
+    },
+    {
+     "1-6q+q^2": "41/100",
+     "probability_law": true,
+     "q": "1/10"
+    },
+    {
+     "1-6q+q^2": "833/1024",
+     "probability_law": true,
+     "q": "1/32"
+    },
+    {
+     "1-6q+q^2": "1/36",
+     "probability_law": true,
+     "q": "1/6"
+    },
+    {
+     "1-6q+q^2": "89/10000",
+     "probability_law": true,
+     "q": "17/100"
+    },
+    {
+     "1-6q+q^2": "1649/4000000",
+     "probability_law": true,
+     "q": "343/2000"
+    },
+    {
+     "1-6q+q^2": "-959/6250000",
+     "probability_law": false,
+     "q": "429/2500"
+    },
+    {
+     "1-6q+q^2": "-119/2500",
+     "probability_law": false,
+     "q": "9/50"
+    },
+    {
+     "1-6q+q^2": "-4/25",
+     "probability_law": false,
+     "q": "1/5"
+    },
+    {
+     "1-6q+q^2": "-7/16",
+     "probability_law": false,
+     "q": "1/4"
+    }
+   ],
+   "threshold": "q <= 3 - 2 sqrt 2 tested exactly as (3-q)^2 >= 8"
+  },
+  "expansion_cross_check": [
+   {
+    "characters": 16,
+    "mismatches": 0,
+    "t": 1
+   },
+   {
+    "characters": 256,
+    "mismatches": 0,
+    "t": 2
+   },
+   {
+    "characters": 4096,
+    "mismatches": 0,
+    "t": 3
+   }
+  ],
+  "positivity_scan": [
+   {
+    "assignments": 16,
+    "at_least_1/3": true,
+    "minimum_W": "161/256",
+    "q": "1/16",
+    "t": 1
+   },
+   {
+    "assignments": 256,
+    "at_least_1/3": true,
+    "minimum_W": "530561/1048576",
+    "q": "1/32",
+    "t": 2
+   },
+   {
+    "assignments": 4096,
+    "at_least_1/3": true,
+    "minimum_W": "6531524257/12230590464",
+    "q": "1/48",
+    "t": 3
+   },
+   {
+    "assignments": 65536,
+    "at_least_1/3": true,
+    "minimum_W": "141348562911745/281474976710656",
+    "q": "1/64",
+    "t": 4
+   },
+   {
+    "assignments": 1048576,
+    "at_least_1/3": true,
+    "minimum_W": "5569468986191750561/10737418240000000000",
+    "q": "1/80",
+    "t": 5
+   }
+  ],
+  "tables": [
+   {
+    "flipped": {
+     "ai_families_checked": 18,
+     "ai_prescriptions_checked": 18,
+     "ai_sets": 16,
+     "copied_observations": 4,
+     "full_support": true,
+     "global_atoms": 16,
+     "incompatibility_value": "-1603803137/34359738368",
+     "injectable_set_characters": 15,
+     "label": "square order 1 with flips",
+     "minimum_atom": "501843903/1099511627776",
+     "minimum_positive_atom": "501843903/1099511627776",
+     "negative_control": {
+      "diagonal_cells_rejected": 2,
+      "first_rejected_cell": 0,
+      "mass_moved": "1/1099511627776",
+      "normalization_preserved": true,
+      "symmetry_preserved": true
+     },
+     "positive_atoms": 16
+    },
+    "plain": {
+     "ai_families_checked": 18,
+     "ai_prescriptions_checked": 18,
+     "ai_sets": 16,
+     "copied_observations": 4,
+     "full_support": false,
+     "global_atoms": 16,
+     "injectable_set_characters": 15,
+     "label": "square order 1",
+     "minimum_atom": "0",
+     "minimum_positive_atom": "161/2048",
+     "negative_control": {
+      "diagonal_cells_rejected": 2,
+      "first_rejected_cell": 0,
+      "mass_moved": "1/2048",
+      "normalization_preserved": true,
+      "symmetry_preserved": true
+     },
+     "positive_atoms": 8
+    }
+   },
+   {
+    "flipped": {
+     "ai_families_checked": 2425,
+     "ai_prescriptions_checked": 2425,
+     "ai_sets": 1881,
+     "copied_observations": 16,
+     "full_support": true,
+     "global_atoms": 65536,
+     "incompatibility_value": "-12857651201/549755813888",
+     "injectable_set_characters": 160,
+     "label": "square order 2 with flips",
+     "minimum_atom": "151617551341606424188627556557199778049/95780971304118053647396689196894323976171195136475136",
+     "minimum_positive_atom": "151617551341606424188627556557199778049/95780971304118053647396689196894323976171195136475136",
+     "negative_control": {
+      "diagonal_cells_rejected": 2,
+      "first_rejected_cell": 0,
+      "mass_moved": "1/95780971304118053647396689196894323976171195136475136",
+      "normalization_preserved": true,
+      "symmetry_preserved": true
+     },
+     "positive_atoms": 65536
+    },
+    "plain": {
+     "ai_families_checked": 2425,
+     "ai_prescriptions_checked": 2425,
+     "ai_sets": 1881,
+     "copied_observations": 16,
+     "full_support": false,
+     "global_atoms": 65536,
+     "injectable_set_characters": 160,
+     "label": "square order 2",
+     "minimum_atom": "0",
+     "minimum_positive_atom": "530561/134217728",
+     "negative_control": {
+      "diagonal_cells_rejected": 2,
+      "first_rejected_cell": 0,
+      "mass_moved": "1/134217728",
+      "normalization_preserved": true,
+      "symmetry_preserved": true
+     },
+     "positive_atoms": 128
+    }
+   }
+  ],
+  "uncorrected_density_at_all_plus": [
+   {
+    "corrected": "13228382881/12230590464",
+    "corrected_positive": true,
+    "t": 3,
+    "uncorrected": "-2059855199/12230590464",
+    "uncorrected_negative": true
+   },
+   {
+    "corrected": "396785341276673/281474976710656",
+    "corrected_positive": true,
+    "t": 4,
+    "uncorrected": "-129605850521087/281474976710656",
+    "uncorrected_negative": true
+   }
+  ]
+ },
+ "status": "PASS",
+ "triangle": {
+  "positivity_scan": [
+   {
+    "assignments": 8,
+    "at_least_3/5": true,
+    "minimum_W": "13/16",
+    "q": "1/16",
+    "t": 1
+   },
+   {
+    "assignments": 64,
+    "at_least_3/5": true,
+    "minimum_W": "23649/32768",
+    "q": "1/32",
+    "t": 2
+   },
+   {
+    "assignments": 512,
+    "at_least_3/5": true,
+    "minimum_W": "440789/589824",
+    "q": "1/48",
+    "t": 3
+   },
+   {
+    "assignments": 4096,
+    "at_least_3/5": true,
+    "minimum_W": "49447760257/68719476736",
+    "q": "1/64",
+    "t": 4
+   },
+   {
+    "assignments": 32768,
+    "at_least_3/5": true,
+    "minimum_W": "15416296709037/20971520000000",
+    "q": "1/80",
+    "t": 5
+   },
+   {
+    "assignments": 262144,
+    "at_least_3/5": true,
+    "minimum_W": "497816206205719393/692533995824480256",
+    "q": "1/96",
+    "t": 6
+   }
+  ],
+  "records": [
+   {
+    "flipped": {
+     "ai_families_checked": 8,
+     "ai_prescriptions_checked": 8,
+     "ai_sets": 8,
+     "copied_observations": 3,
+     "full_support": true,
+     "global_atoms": 8,
+     "incompatibility": {
+      "certified_inequality": "B4 section 6 equation (20) with constant 8",
+      "max_plus_4P": "-106025519/1811939328",
+      "max_plus_4P_negative": true,
+      "max_plus_8P": "-49476119/905969664",
+      "max_plus_8P_negative": true,
+      "means": [
+       "-1535/24576",
+       "-1535/24576",
+       "-1535/24576"
+      ],
+      "parity_error_P(ABC=-1)": "7073281/7247757312",
+      "product_of_means": "-3616805375/14843406974976"
+     },
+     "injectable_set_characters": 7,
+     "label": "triangle order 1 with flips",
+     "minimum_atom": "6925921/28991029248",
+     "minimum_positive_atom": "6925921/28991029248",
+     "negative_control": {
+      "diagonal_cells_rejected": 2,
+      "first_rejected_cell": 0,
+      "mass_moved": "1/28991029248",
+      "normalization_preserved": true,
+      "symmetry_preserved": true
+     },
+     "positive_atoms": 8
+    },
+    "plain": {
+     "ai_families_checked": 8,
+     "ai_prescriptions_checked": 8,
+     "ai_sets": 8,
+     "copied_observations": 3,
+     "full_support": false,
+     "global_atoms": 8,
+     "injectable_set_characters": 7,
+     "label": "triangle order 1",
+     "minimum_atom": "0",
+     "minimum_positive_atom": "13/64",
+     "negative_control": {
+      "diagonal_cells_rejected": 2,
+      "first_rejected_cell": 0,
+      "mass_moved": "1/64",
+      "normalization_preserved": true,
+      "symmetry_preserved": true
+     },
+     "parity_rigidity": {
+      "E[ABC]": "1",
+      "compatible_requirement": "a parity-perfect compatible triangle law has means (st, su, tu) whose product is (stu)^2 >= 0",
+      "means": [
+       "-1/16",
+       "-1/16",
+       "-1/16"
+      ],
+      "product_of_means": "-1/4096",
+      "violated": true
+     },
+     "positive_atoms": 4
+    }
+   },
+   {
+    "flipped": {
+     "ai_families_checked": 243,
+     "ai_prescriptions_checked": 243,
+     "ai_sets": 243,
+     "copied_observations": 12,
+     "full_support": true,
+     "global_atoms": 4096,
+     "incompatibility": {
+      "certified_inequality": "B4 section 6 equation (20) with constant 8",
+      "max_plus_4P": "-424387631/14495514624",
+      "max_plus_4P_negative": true,
+      "max_plus_8P": "-198042647/7247757312",
+      "max_plus_8P_negative": true,
+      "means": [
+       "-3071/98304",
+       "-3071/98304",
+       "-3071/98304"
+      ],
+      "parity_error_P(ABC=-1)": "28302337/57982058496",
+      "product_of_means": "-28962726911/949978046398464"
+     },
+     "injectable_set_characters": 44,
+     "label": "triangle order 2 with flips",
+     "minimum_atom": "481407389952964653486399178753/2893440021741287327383028235970341281030209536",
+     "minimum_positive_atom": "481407389952964653486399178753/2893440021741287327383028235970341281030209536",
+     "negative_control": {
+      "diagonal_cells_rejected": 2,
+      "first_rejected_cell": 0,
+      "mass_moved": "1/2893440021741287327383028235970341281030209536",
+      "normalization_preserved": true,
+      "symmetry_preserved": true
+     },
+     "positive_atoms": 4096
+    },
+    "plain": {
+     "ai_families_checked": 243,
+     "ai_prescriptions_checked": 243,
+     "ai_sets": 243,
+     "copied_observations": 12,
+     "full_support": false,
+     "global_atoms": 4096,
+     "injectable_set_characters": 44,
+     "label": "triangle order 2",
+     "minimum_atom": "0",
+     "minimum_positive_atom": "23649/1048576",
+     "negative_control": {
+      "diagonal_cells_rejected": 2,
+      "first_rejected_cell": 0,
+      "mass_moved": "1/1048576",
+      "normalization_preserved": true,
+      "symmetry_preserved": true
+     },
+     "parity_rigidity": {
+      "E[ABC]": "1",
+      "compatible_requirement": "a parity-perfect compatible triangle law has means (st, su, tu) whose product is (stu)^2 >= 0",
+      "means": [
+       "-1/32",
+       "-1/32",
+       "-1/32"
+      ],
+      "product_of_means": "-1/32768",
+      "violated": true
+     },
+     "positive_atoms": 32
+    }
+   },
+   {
+    "flipped": {
+     "ai_families_checked": 15850,
+     "copied_observations": 27,
+     "diagonal_characters_checked": 512,
+     "incompatibility": {
+      "certified_inequality": "B4 section 6 equation (20) with constant 8",
+      "max_plus_4P": "-955086383/48922361856",
+      "max_plus_4P_negative": true,
+      "max_plus_8P": "-445699607/24461180928",
+      "max_plus_8P_negative": true,
+      "means": [
+       "-4607/221184",
+       "-4607/221184",
+       "-4607/221184"
+      ],
+      "parity_error_P(ABC=-1)": "63687169/195689447424",
+      "product_of_means": "-97781036543/10820843684757504"
+     },
+     "injectable_set_characters": 135,
+     "label": "triangle order 3 with flips",
+     "method": "exact Fourier characters (no stored table)"
+    },
+    "plain": {
+     "ai_families_checked": 15850,
+     "copied_observations": 27,
+     "diagonal_characters_checked": 512,
+     "injectable_set_characters": 135,
+     "label": "triangle order 3",
+     "method": "exact Fourier characters (no stored table)",
+     "parity_rigidity": {
+      "E[ABC]": "1",
+      "compatible_requirement": "a parity-perfect compatible triangle law has means (st, su, tu) whose product is (stu)^2 >= 0",
+      "means": [
+       "-1/48",
+       "-1/48",
+       "-1/48"
+      ],
+      "product_of_means": "-1/110592",
+      "violated": true
+     }
+    }
+   }
+  ],
+  "uncorrected_density_at_all_plus": [
+   {
+    "corrected": "207211/196608",
+    "corrected_positive": true,
+    "t": 3,
+    "uncorrected": "59755/196608",
+    "uncorrected_negative": false
+   },
+   {
+    "corrected": "83025125249/68719476736",
+    "corrected_positive": true,
+    "t": 4,
+    "uncorrected": "5917040513/68719476736",
+    "uncorrected_negative": false
+   }
+  ]
+ }
+}

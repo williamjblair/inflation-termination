@@ -1,0 +1,150 @@
+{
+  "status": "PASS",
+  "targets_verified": 14,
+  "all_t_nonnegative_polynomial_cases": {
+    "A=0, S=0": {
+      "0,1,1": 1
+    },
+    "A=0, S=1+r": {
+      "0,0,1": 1,
+      "0,1,0": 1,
+      "0,1,1": 1,
+      "1,0,0": 1,
+      "1,0,1": 1,
+      "1,1,0": 1,
+      "2,0,0": 1
+    },
+    "A=1, S=0": {
+      "0,0,0": 2,
+      "0,1,1": 1
+    },
+    "A=1, S=1": {
+      "0,0,1": 1,
+      "0,1,0": 1,
+      "0,1,1": 1
+    },
+    "A=1, S=2+r": {
+      "0,0,1": 2,
+      "0,1,0": 2,
+      "0,1,1": 1,
+      "1,0,0": 1,
+      "1,0,1": 1,
+      "1,1,0": 1,
+      "2,0,0": 1
+    }
+  },
+  "pointwise_assignments": 174760,
+  "count_orbits": 271500,
+  "NW_cross_pair_embeddings": 2660,
+  "negative_controls_rejected": [
+    "changed epsilon",
+    "changed atom",
+    "wrong rejection order",
+    "sign reversal",
+    "zero violation margin",
+    "overstated passing order",
+    "wrong root box",
+    "diagonal pair cannot be assigned bc"
+  ],
+  "scope": "Exact passing/rejecting certificates; no full-LP first-rejection claim",
+  "rows": [
+    {
+      "k": 4,
+      "passing_order": 3,
+      "t_min_lower_bound": 4,
+      "fan_rejecting_order": 4,
+      "second_moment_rejecting_order": 5
+    },
+    {
+      "k": 5,
+      "passing_order": 3,
+      "t_min_lower_bound": 4,
+      "fan_rejecting_order": 5,
+      "second_moment_rejecting_order": 5
+    },
+    {
+      "k": 6,
+      "passing_order": 4,
+      "t_min_lower_bound": 5,
+      "fan_rejecting_order": 5,
+      "second_moment_rejecting_order": 6
+    },
+    {
+      "k": 8,
+      "passing_order": 5,
+      "t_min_lower_bound": 6,
+      "fan_rejecting_order": 6,
+      "second_moment_rejecting_order": 7
+    },
+    {
+      "k": 10,
+      "passing_order": 6,
+      "t_min_lower_bound": 7,
+      "fan_rejecting_order": 7,
+      "second_moment_rejecting_order": 8
+    },
+    {
+      "k": 16,
+      "passing_order": 9,
+      "t_min_lower_bound": 10,
+      "fan_rejecting_order": 10,
+      "second_moment_rejecting_order": 11
+    },
+    {
+      "k": 32,
+      "passing_order": 17,
+      "t_min_lower_bound": 18,
+      "fan_rejecting_order": 19,
+      "second_moment_rejecting_order": 20
+    },
+    {
+      "k": 64,
+      "passing_order": 33,
+      "t_min_lower_bound": 34,
+      "fan_rejecting_order": 36,
+      "second_moment_rejecting_order": 39
+    },
+    {
+      "k": 128,
+      "passing_order": 65,
+      "t_min_lower_bound": 66,
+      "fan_rejecting_order": 70,
+      "second_moment_rejecting_order": 75
+    },
+    {
+      "k": 256,
+      "passing_order": 129,
+      "t_min_lower_bound": 130,
+      "fan_rejecting_order": 139,
+      "second_moment_rejecting_order": 148
+    },
+    {
+      "k": 512,
+      "passing_order": 257,
+      "t_min_lower_bound": 258,
+      "fan_rejecting_order": 276,
+      "second_moment_rejecting_order": 295
+    },
+    {
+      "k": 1024,
+      "passing_order": 513,
+      "t_min_lower_bound": 514,
+      "fan_rejecting_order": 551,
+      "second_moment_rejecting_order": 587
+    },
+    {
+      "k": 4096,
+      "passing_order": 2049,
+      "t_min_lower_bound": 2050,
+      "fan_rejecting_order": 2197,
+      "second_moment_rejecting_order": 2343
+    },
+    {
+      "k": 65536,
+      "passing_order": 32769,
+      "t_min_lower_bound": 32770,
+      "fan_rejecting_order": 35122,
+      "second_moment_rejecting_order": 37451
+    }
+  ]
+}

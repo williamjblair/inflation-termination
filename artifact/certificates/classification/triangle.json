@@ -1,0 +1,254 @@
+{
+ "certificate": "triangle analogue of the corrected density, AUDIT-NOTES B2(ii) (NOT in the packet)",
+ "density": "W = Re(f_x f_y f_z) + 4 sum_g (1 - Re f_g), q = 1/(16 t)",
+ "outputs": "A^{ij} = x_i z_j, B^{ik} = x_i y_k, C^{jk} = z_j y_k",
+ "positivity_scan": [
+  {
+   "assignments": 8,
+   "at_least_3/5": true,
+   "minimum_W": "13/16",
+   "q": "1/16",
+   "t": 1
+  },
+  {
+   "assignments": 64,
+   "at_least_3/5": true,
+   "minimum_W": "23649/32768",
+   "q": "1/32",
+   "t": 2
+  },
+  {
+   "assignments": 512,
+   "at_least_3/5": true,
+   "minimum_W": "440789/589824",
+   "q": "1/48",
+   "t": 3
+  },
+  {
+   "assignments": 4096,
+   "at_least_3/5": true,
+   "minimum_W": "49447760257/68719476736",
+   "q": "1/64",
+   "t": 4
+  },
+  {
+   "assignments": 32768,
+   "at_least_3/5": true,
+   "minimum_W": "15416296709037/20971520000000",
+   "q": "1/80",
+   "t": 5
+  },
+  {
+   "assignments": 262144,
+   "at_least_3/5": true,
+   "minimum_W": "497816206205719393/692533995824480256",
+   "q": "1/96",
+   "t": 6
+  }
+ ],
+ "records": [
+  {
+   "flipped": {
+    "ai_families_checked": 8,
+    "ai_families_failing": 0,
+    "ai_sets": 8,
+    "copied_observations": 3,
+    "diagonal_cells_checked": 8,
+    "eta": "1/3072",
+    "first_failing_ai_family": null,
+    "full_support": true,
+    "global_atoms": 8,
+    "incompatibility": {
+     "EA": "-1535/24576",
+     "EB": "-1535/24576",
+     "EC": "-1535/24576",
+     "E[ABC]": "3616805375/3623878656",
+     "E[AB]": "-2356225/37748736",
+     "P(ABC=-1)": "7073281/7247757312",
+     "certified_inequality": "B4 section 6 equation (20): for two adjacent observations A,B of a pair-source scenario and a selected collection V whose other members do not depend on the shared A,B source, every compatible law satisfies max{EA, EB, E[AB]} + 8 P(prod_V O = -1) >= 0.  The triangle with V = {A,B,C} satisfies the hypothesis: C carries sources z and y only.",
+     "max_plus_4P": "-106025519/1811939328",
+     "max_plus_4P_negative": true,
+     "max_plus_8P": "-49476119/905969664",
+     "max_plus_8P_negative": true,
+     "note": "the constant 4 version is the square inequality B6 (7); it is reported for comparison only, the certified triangle statement is the 8 version",
+     "parity_error_P(ABC=-1)": "7073281/7247757312",
+     "product_of_means": "-3616805375/14843406974976"
+    },
+    "injectable_set_characters": 7,
+    "injectable_sets": 7,
+    "label": "triangle order 1 with flips",
+    "minimum_atom": "6925921/28991029248",
+    "minimum_positive_atom": "6925921/28991029248",
+    "order": 1,
+    "positive_atoms": 8,
+    "q": "1/16",
+    "symmetry_generators_checked": 0,
+    "witness_denominator": "28991029248"
+   },
+   "plain": {
+    "ai_families_checked": 8,
+    "ai_families_failing": 0,
+    "ai_sets": 8,
+    "copied_observations": 3,
+    "diagonal_cells_checked": 8,
+    "first_failing_ai_family": null,
+    "full_support": false,
+    "global_atoms": 8,
+    "injectable_set_characters": 7,
+    "injectable_sets": 7,
+    "label": "triangle order 1",
+    "minimum_atom": "0",
+    "minimum_positive_atom": "13/64",
+    "order": 1,
+    "positive_atoms": 4,
+    "q": "1/16",
+    "symmetry_generators_checked": 0,
+    "target": {
+     "EA": "-1/16",
+     "EB": "-1/16",
+     "EC": "-1/16",
+     "E[ABC]": "1",
+     "E[AB]": "-1/16",
+     "parity_rigidity_obstruction": "compatible parity-perfect triangle laws have means (st,su,tu), whose product is a square times (stu)^2 >= 0; here it is -q^3 < 0",
+     "product_of_means": "-1/4096"
+    },
+    "witness_denominator": "64"
+   }
+  },
+  {
+   "flipped": {
+    "ai_families_checked": 243,
+    "ai_families_failing": 0,
+    "ai_sets": 243,
+    "copied_observations": 12,
+    "diagonal_cells_checked": 64,
+    "eta": "1/6144",
+    "first_failing_ai_family": null,
+    "full_support": true,
+    "global_atoms": 4096,
+    "incompatibility": {
+     "EA": "-3071/98304",
+     "EB": "-3071/98304",
+     "EC": "-3071/98304",
+     "E[ABC]": "28962726911/28991029248",
+     "E[AB]": "-9431041/301989888",
+     "P(ABC=-1)": "28302337/57982058496",
+     "certified_inequality": "B4 section 6 equation (20): for two adjacent observations A,B of a pair-source scenario and a selected collection V whose other members do not depend on the shared A,B source, every compatible law satisfies max{EA, EB, E[AB]} + 8 P(prod_V O = -1) >= 0.  The triangle with V = {A,B,C} satisfies the hypothesis: C carries sources z and y only.",
+     "max_plus_4P": "-424387631/14495514624",
+     "max_plus_4P_negative": true,
+     "max_plus_8P": "-198042647/7247757312",
+     "max_plus_8P_negative": true,
+     "note": "the constant 4 version is the square inequality B6 (7); it is reported for comparison only, the certified triangle statement is the 8 version",
+     "parity_error_P(ABC=-1)": "28302337/57982058496",
+     "product_of_means": "-28962726911/949978046398464"
+    },
+    "injectable_set_characters": 44,
+    "injectable_sets": 44,
+    "label": "triangle order 2 with flips",
+    "minimum_atom": "481407389952964653486399178753/2893440021741287327383028235970341281030209536",
+    "minimum_positive_atom": "481407389952964653486399178753/2893440021741287327383028235970341281030209536",
+    "order": 2,
+    "positive_atoms": 4096,
+    "q": "1/32",
+    "symmetry_generators_checked": 3,
+    "witness_denominator": "2893440021741287327383028235970341281030209536"
+   },
+   "plain": {
+    "ai_families_checked": 243,
+    "ai_families_failing": 0,
+    "ai_sets": 243,
+    "copied_observations": 12,
+    "diagonal_cells_checked": 64,
+    "first_failing_ai_family": null,
+    "full_support": false,
+    "global_atoms": 4096,
+    "injectable_set_characters": 44,
+    "injectable_sets": 44,
+    "label": "triangle order 2",
+    "minimum_atom": "0",
+    "minimum_positive_atom": "23649/1048576",
+    "order": 2,
+    "positive_atoms": 32,
+    "q": "1/32",
+    "symmetry_generators_checked": 3,
+    "target": {
+     "EA": "-1/32",
+     "EB": "-1/32",
+     "EC": "-1/32",
+     "E[ABC]": "1",
+     "E[AB]": "-1/32",
+     "parity_rigidity_obstruction": "compatible parity-perfect triangle laws have means (st,su,tu), whose product is a square times (stu)^2 >= 0; here it is -q^3 < 0",
+     "product_of_means": "-1/32768"
+    },
+    "witness_denominator": "1048576"
+   }
+  },
+  {
+   "flipped": {
+    "ai_families_checked": 15850,
+    "copied_observations": 27,
+    "diagonal_characters_checked": 512,
+    "eta": "1/9216",
+    "global_atoms": "2**27",
+    "incompatibility": {
+     "EA": "-4607/221184",
+     "EB": "-4607/221184",
+     "EC": "-4607/221184",
+     "E[ABC]": "97781036543/97844723712",
+     "E[AB]": "-21224449/1019215872",
+     "P(ABC=-1)": "63687169/195689447424",
+     "certified_inequality": "B4 section 6 equation (20): for two adjacent observations A,B of a pair-source scenario and a selected collection V whose other members do not depend on the shared A,B source, every compatible law satisfies max{EA, EB, E[AB]} + 8 P(prod_V O = -1) >= 0.  The triangle with V = {A,B,C} satisfies the hypothesis: C carries sources z and y only.",
+     "max_plus_4P": "-955086383/48922361856",
+     "max_plus_4P_negative": true,
+     "max_plus_8P": "-445699607/24461180928",
+     "max_plus_8P_negative": true,
+     "note": "the constant 4 version is the square inequality B6 (7); it is reported for comparison only, the certified triangle statement is the 8 version",
+     "parity_error_P(ABC=-1)": "63687169/195689447424",
+     "product_of_means": "-97781036543/10820843684757504"
+    },
+    "injectable_set_characters": 135,
+    "injectable_sets": 135,
+    "label": "triangle order 3 with flips",
+    "method": "exact Fourier characters (no stored table)",
+    "order": 3,
+    "q": "1/48"
+   },
+   "plain": {
+    "ai_families_checked": 15850,
+    "copied_observations": 27,
+    "diagonal_characters_checked": 512,
+    "global_atoms": "2**27",
+    "injectable_set_characters": 135,
+    "injectable_sets": 135,
+    "label": "triangle order 3",
+    "method": "exact Fourier characters (no stored table)",
+    "order": 3,
+    "q": "1/48",
+    "target": {
+     "EA": "-1/48",
+     "EB": "-1/48",
+     "EC": "-1/48",
+     "E[ABC]": "1",
+     "E[AB]": "-1/48",
+     "parity_rigidity_obstruction": "compatible parity-perfect triangle laws have means (st,su,tu), whose product is a square times (stu)^2 >= 0; here it is -q^3 < 0",
+     "product_of_means": "-1/110592"
+    }
+   }
+  }
+ ],
+ "target": "Pi(-q,-q,-q) on the parity face",
+ "uncorrected_density_at_all_plus": [
+  {
+   "corrected_W_at_all_plus": "207211/196608",
+   "q": "1/48",
+   "t": 3,
+   "uncorrected_W_at_all_plus": "59755/196608"
+  },
+  {
+   "corrected_W_at_all_plus": "83025125249/68719476736",
+   "q": "1/64",
+   "t": 4,
+   "uncorrected_W_at_all_plus": "5917040513/68719476736"
+  }
+ ]
+}

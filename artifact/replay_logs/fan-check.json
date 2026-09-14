@@ -1,0 +1,38 @@
+{
+  "name": "fan-check",
+  "command": [
+    "/opt/homebrew/Caskroom/miniconda/base/bin/python3",
+    "-B",
+    "verify_certificates.py"
+  ],
+  "cwd": "<fresh temporary directory>",
+  "inputs_sha256": {
+    "AUDIT.md": "bec9de1422634200e5ede5ef6bb41ddcf572abb69ff87145b24ba9f28db8f3f8",
+    "README.md": "9ba62fc9053cd4adfc61ecda21b05e93902b257021bdcfe3736a81d573f4ed02",
+    "REPORT.md": "1cfd4657fc15fd438bce9193b98fc310f1fabc708a8e18746530a4226dd4cfbb",
+    "SHA256SUMS": "025a942e4f6ff83bf8f430f490e0973c2680aa1ad2de8e295771799e7d74553d",
+    "certificates.json": "c7b79c82e93eb184c347b4ec07ac709ef56bfba9b3c82a8cb5f3accfcfadf66b",
+    "check-optimized.log": "3b848336f28e99492d345649ef530100d8804a6633f9115eaa6b3a3b0cb0dc7e",
+    "check-standard.log": "3b848336f28e99492d345649ef530100d8804a6633f9115eaa6b3a3b0cb0dc7e",
+    "generate_certificates.py": "ccddf9db2c71765feb14c7444f9ffaa628b771399a06ca137a48973117a5bc8f",
+    "inflation_complexity_packet.zip": "a658650b0d6328a3ce200a3fd5ac606de05df1228a0a6bb8f9afebc3ffd679b7",
+    "verification.json": "3b848336f28e99492d345649ef530100d8804a6633f9115eaa6b3a3b0cb0dc7e",
+    "verify_certificates.py": "0647f8751c7bd5439e330a21ecd8beec57adc780f3ca90a7d061c75529dc852e"
+  },
+  "return_code": 0,
+  "wall_seconds": 0.17,
+  "stdout_sha256": "3b848336f28e99492d345649ef530100d8804a6633f9115eaa6b3a3b0cb0dc7e",
+  "stdout_tail": " \"zero violation margin\",\n    \"overstated passing order\",\n    \"wrong root box\",\n    \"diagonal pair cannot be assigned bc\"\n  ],\n  \"scope\": \"Exact passing/rejecting certificates; no full-LP first-rejection claim\",\n  \"rows\": [\n    {\n      \"k\": 4,\n      \"passing_order\": 3,\n      \"t_min_lower_bound\": 4,\n      \"fan_rejecting_order\": 4,\n      \"second_moment_rejecting_order\": 5\n    },\n    {\n      \"k\": 5,\n      \"passing_order\": 3,\n      \"t_min_lower_bound\": 4,\n      \"fan_rejecting_order\": 5,\n      \"second_moment_rejecting_order\": 5\n    },\n    {\n      \"k\": 6,\n      \"passing_order\": 4,\n      \"t_min_lower_bound\": 5,\n      \"fan_rejecting_order\": 5,\n      \"second_moment_rejecting_order\": 6\n    },\n    {\n      \"k\": 8,\n      \"passing_order\": 5,\n      \"t_min_lower_bound\": 6,\n      \"fan_rejecting_order\": 6,\n      \"second_moment_rejecting_order\": 7\n    },\n    {\n      \"k\": 10,\n      \"passing_order\": 6,\n      \"t_min_lower_bound\": 7,\n      \"fan_rejecting_order\": 7,\n      \"second_moment_rejecting_order\": 8\n    },\n    {\n      \"k\": 16,\n      \"passing_order\": 9,\n      \"t_min_lower_bound\": 10,\n      \"fan_rejecting_order\": 10,\n      \"second_moment_rejecting_order\": 11\n    },\n    {\n      \"k\": 32,\n      \"passing_order\": 17,\n      \"t_min_lower_bound\": 18,\n      \"fan_rejecting_order\": 19,\n      \"second_moment_rejecting_order\": 20\n    },\n    {\n      \"k\": 64,\n      \"passing_order\": 33,\n      \"t_min_lower_bound\": 34,\n      \"fan_rejecting_order\": 36,\n      \"second_moment_rejecting_order\": 39\n    },\n    {\n      \"k\": 128,\n      \"passing_order\": 65,\n      \"t_min_lower_bound\": 66,\n      \"fan_rejecting_order\": 70,\n      \"second_moment_rejecting_order\": 75\n    },\n    {\n      \"k\": 256,\n      \"passing_order\": 129,\n      \"t_min_lower_bound\": 130,\n      \"fan_rejecting_order\": 139,\n      \"second_moment_rejecting_order\": 148\n    },\n    {\n      \"k\": 512,\n      \"passing_order\": 257,\n      \"t_min_lower_bound\": 258,\n      \"fan_rejecting_order\": 276,\n      \"second_moment_rejecting_order\": 295\n    },\n    {\n      \"k\": 1024,\n      \"passing_order\": 513,\n      \"t_min_lower_bound\": 514,\n      \"fan_rejecting_order\": 551,\n      \"second_moment_rejecting_order\": 587\n    },\n    {\n      \"k\": 4096,\n      \"passing_order\": 2049,\n      \"t_min_lower_bound\": 2050,\n      \"fan_rejecting_order\": 2197,\n      \"second_moment_rejecting_order\": 2343\n    },\n    {\n      \"k\": 65536,\n      \"passing_order\": 32769,\n      \"t_min_lower_bound\": 32770,\n      \"fan_rejecting_order\": 35122,\n      \"second_moment_rejecting_order\": 37451\n    }\n  ]\n}\n",
+  "stderr_tail": "",
+  "outputs_sha256": {},
+  "environment": {
+    "os": "macOS-27.0-arm64-arm-64bit-Mach-O",
+    "architecture": "arm64",
+    "python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:11:29) [Clang 20.1.8 ]",
+    "python_flags": {
+      "optimize": 0
+    },
+    "dependencies": "Python standard library only (fractions, json, itertools, re, pathlib)"
+  },
+  "timestamp_utc": "2026-09-14T17:54:03Z"
+}

@@ -54,8 +54,8 @@ by a finite rational certificate; "Lean" means formalized (scope in
 9. **Theorem 6.11 (square at `q = Θ(1/t)`).** `P_q ∈ I_t^AI(□) = I_t^exp(□)` for
    `0 < q ≤ 1/(16t)`. Analytic; exact certificate at small orders.
 10. **Theorem 6.12 (triangle at `q = Θ(1/t)`).** `Π(−q,−q,−q) ∈ I_t^AI(△)` for
-    `0 < q ≤ 1/(16t)`. Analytic; EXACT CERTIFICATE PENDING (the statement is
-    kept only if the checker confirms the small-order witnesses).
+    `0 < q ≤ 1/(16t)`. Analytic; exact certificates at orders 1 to 3 (plain and
+    flipped); Lean-proved for every `t ≥ 1` (`triangle_linear_witness`).
 11. **Lemma 6.13 (max-moment inequality).** Every square-compatible law obeys
     `max{EA, EB, EAB} + 4 P(ABCD = −1) ≥ 0`; hence `d_TV(P_q, C_□) ≥ q/6`.
     Analytic.
@@ -73,11 +73,15 @@ by a finite rational certificate; "Lean" means formalized (scope in
     in `[1/2, 1]` is not determined.
 15. **Theorem 6.18 (order conversion).**
     `I^NW_{⌊3t/2⌋}(□) ⊆ I_t^AI(□) = I_t^exp(□) ⊆ I_t^NW(□)` for `t ≥ 2`. Analytic.
-16. **Lemma 6.19, Proposition 6.20 (low-order thresholds).** Count-moment
-    (Krawtchouk) reduction of the square parity tests; `P_q ∈ I_2^NW(□)` for all
-    valid `q`, `P_q ∈ I_2^AI(□)` iff `q ≤ r ≈ 0.13247`, and
-    `I_3^NW(□) ⊊ I_2^AI(□) ⊊ I_2^NW(□)`. The proposition rests on exact
-    certificates: EXACT CERTIFICATE PENDING; deleted if not reproduced.
+16. **Lemmas 6.19 to 6.21, Proposition 6.22 (parity thresholds).** Count-moment
+    (Krawtchouk) reduction of the parity tests for AI and NW on the square and
+    the triangle, monotonicity along the parity direction, and certified brackets
+    for the thresholds `q^AI_t`, `q^NW_t` at orders 1 to 10 (Table 1): AI ⊊ NW at
+    even orders, coincidence at odd orders ≤ 9, exact values `2−√3`, `1/5`, `1/7`
+    and the root of `q³−33q²+27q−3`; `I_3^NW(□) ⊊ I_2^AI(□) ⊊ I_2^NW(□)`. The
+    reductions are proof sketches in the text; the thresholds are exact
+    certificates (artifact/certificates/exponent). Fitted constants are not
+    claimed.
 17. **Lemma 7.2, Lemma 7.3 (bilocal inequality), Corollary 7.4, Theorem 7.5
     (five-path).** Every `P_5`-compatible law with positive endpoint cells obeys
     `√|I| + √|J| ≤ 1`; `d_TV(P_h, C_{P_5}) ≥ h/96`; `P_{h_t} ∈ I_t^exp(P_5)` for
@@ -108,8 +112,10 @@ by a finite rational certificate; "Lean" means formalized (scope in
 24. **Theorem 11.1, Corollary 11.2 (distance asymptotics).**
     `d_TV(P_ε, C_△) = (1 − 2^{-3/2})ε + O(ε^{4/3})`; `t_min = Θ(d_TV^{-1/3})` along
     `P_ε` only. Analytic.
-25. **Proposition 12.1 (distance-promised order).** `t_min ≤ ⌊LK/(4δ²)⌋ + 1`;
-    credited to NW's quantitative convergence. Triangle case in Lean.
+25. **Corollary 12.1 (distance-promised order).** `t_min ≤ ⌊(1−‖P‖²)/δ_2²⌋ + 1
+    ≤ ⌊(K−1)/(4δ²)⌋ + 1` for every correlation scenario, from the convex-order
+    theorem (now stated in that generality); NW's `L`-dependent collision
+    estimate is superseded. Triangle case in Lean.
 26. **Proposition 13.1 (bit-length law).** Worst first rejecting order over
     `B`-bit rational three-bit laws is `2^{Θ(B)}`. Analytic.
 

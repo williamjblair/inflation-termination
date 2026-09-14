@@ -1,0 +1,83 @@
+{
+ "certificate": "five-path witness, B5 section 2.2 / AUDIT-NOTES A4",
+ "orders": [
+  {
+   "ai_families_checked": 51,
+   "ai_families_failing": 0,
+   "ai_sets": 32,
+   "bilocal": {
+    "(1-I-J)^2": "225/1024",
+    "(sqrt(I)+sqrt(J))^2_equals_1+h": "17/16 = 17/16",
+    "1-I-J": "15/32",
+    "4IJ": "289/1024",
+    "I": "17/64",
+    "J": "17/64",
+    "f_xz": {
+     "00": "17/32",
+     "01": "0",
+     "10": "0",
+     "11": "17/32"
+    },
+    "sqrt(I)+sqrt(J)_squared": "17/16",
+    "strictly_violates_sqrt(I)+sqrt(J)<=1": true
+   },
+   "copied_observations": 5,
+   "diagonal_cells_checked": 32,
+   "first_failing_ai_family": null,
+   "full_support": true,
+   "global_atoms": 32,
+   "h": "1/16",
+   "injectable_set_characters": 31,
+   "injectable_sets": 31,
+   "label": "five-path order 1",
+   "minimum_atom": "15/1024",
+   "minimum_positive_atom": "15/1024",
+   "order": 1,
+   "positive_atoms": 32,
+   "symmetry_generators_checked": 0,
+   "target_lower_bound_(1-h)/64": "15/1024",
+   "target_minimum_atom": "15/1024",
+   "witness_denominator": "1024"
+  },
+  {
+   "ai_families_checked": 18054,
+   "ai_families_failing": 0,
+   "ai_sets": 5488,
+   "bilocal": {
+    "(1-I-J)^2": "3969/16384",
+    "(sqrt(I)+sqrt(J))^2_equals_1+h": "65/64 = 65/64",
+    "1-I-J": "63/128",
+    "4IJ": "4225/16384",
+    "I": "65/256",
+    "J": "65/256",
+    "f_xz": {
+     "00": "65/128",
+     "01": "0",
+     "10": "0",
+     "11": "65/128"
+    },
+    "sqrt(I)+sqrt(J)_squared": "65/64",
+    "strictly_violates_sqrt(I)+sqrt(J)<=1": true
+   },
+   "copied_observations": 16,
+   "diagonal_cells_checked": 1024,
+   "first_failing_ai_family": null,
+   "full_support": false,
+   "global_atoms": 65536,
+   "h": "1/64",
+   "injectable_set_characters": 316,
+   "injectable_sets": 316,
+   "label": "five-path order 2",
+   "minimum_atom": "0",
+   "minimum_positive_atom": "3713/268435456",
+   "order": 2,
+   "positive_atoms": 12672,
+   "symmetry_generators_checked": 4,
+   "target_lower_bound_(1-h)/64": "63/4096",
+   "target_minimum_atom": "63/4096",
+   "witness_denominator": "268435456"
+  }
+ ],
+ "scenario": "A(X), B(X,L), C(L,R), D(R,Z), E(Z)",
+ "target": "P_h(x,b,c,d,z) = (1/32)[1 + bcd (1+h)/4 (1+(-1)^(x+z))], h = 1/(16 t^2)"
+}

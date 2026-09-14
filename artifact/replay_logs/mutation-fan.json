@@ -1,0 +1,93 @@
+[
+ {
+  "scenario": "control",
+  "rc": 0,
+  "claims_pass": true,
+  "expected": "success",
+  "outcome_ok": true
+ },
+ {
+  "scenario": "empty-proof",
+  "rc": 1,
+  "claims_pass": false,
+  "expected": "fail-closed",
+  "outcome_ok": true
+ },
+ {
+  "scenario": "truncated-certificate",
+  "rc": 1,
+  "claims_pass": false,
+  "expected": "fail-closed",
+  "outcome_ok": true
+ },
+ {
+  "scenario": "corrupt-atom",
+  "rc": 1,
+  "claims_pass": false,
+  "expected": "fail-closed",
+  "outcome_ok": true
+ },
+ {
+  "scenario": "wrong-rejecting-order",
+  "rc": 1,
+  "claims_pass": false,
+  "expected": "fail-closed",
+  "outcome_ok": true
+ },
+ {
+  "scenario": "wrong-passing-order",
+  "rc": 1,
+  "claims_pass": false,
+  "expected": "fail-closed",
+  "outcome_ok": true
+ },
+ {
+  "scenario": "missing-last-record-weaker-certificate",
+  "rc": 0,
+  "claims_pass": true,
+  "expected": "success",
+  "outcome_ok": true
+ },
+ {
+  "scenario": "wrong-sign-gap",
+  "rc": 1,
+  "claims_pass": false,
+  "expected": "fail-closed",
+  "outcome_ok": true
+ },
+ {
+  "scenario": "wrong-parameters",
+  "rc": 1,
+  "claims_pass": false,
+  "expected": "fail-closed",
+  "outcome_ok": true
+ },
+ {
+  "scenario": "python-O-control",
+  "rc": 0,
+  "claims_pass": true,
+  "expected": "success",
+  "outcome_ok": true
+ },
+ {
+  "scenario": "python-O-corrupt-atom",
+  "rc": 1,
+  "claims_pass": false,
+  "expected": "fail-closed",
+  "outcome_ok": true
+ },
+ {
+  "scenario": "python-OO-corrupt-atom",
+  "rc": 1,
+  "claims_pass": false,
+  "expected": "fail-closed",
+  "outcome_ok": true
+ },
+ {
+  "scenario": "python-O-empty-proof",
+  "rc": 1,
+  "claims_pass": false,
+  "expected": "fail-closed",
+  "outcome_ok": true
+ }
+]

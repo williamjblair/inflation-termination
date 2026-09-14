@@ -1,0 +1,269 @@
+{
+  "claimed_diagonal_equations": 512,
+  "claimed_symmetry_generators": 6,
+  "order": 3,
+  "outputs": [
+    {
+      "name": "A11",
+      "value_one_iff_all_zero": [
+        "D111",
+        "D112",
+        "D113"
+      ]
+    },
+    {
+      "name": "A12",
+      "value_one_iff_all_zero": [
+        "D121",
+        "D122",
+        "D123"
+      ]
+    },
+    {
+      "name": "A13",
+      "value_one_iff_all_zero": [
+        "D131",
+        "D132",
+        "D133"
+      ]
+    },
+    {
+      "name": "A21",
+      "value_one_iff_all_zero": [
+        "D211",
+        "D212",
+        "D213"
+      ]
+    },
+    {
+      "name": "A22",
+      "value_one_iff_all_zero": [
+        "D221",
+        "D222",
+        "D223"
+      ]
+    },
+    {
+      "name": "A23",
+      "value_one_iff_all_zero": [
+        "D231",
+        "D232",
+        "D233"
+      ]
+    },
+    {
+      "name": "A31",
+      "value_one_iff_all_zero": [
+        "D311",
+        "D312",
+        "D313"
+      ]
+    },
+    {
+      "name": "A32",
+      "value_one_iff_all_zero": [
+        "D321",
+        "D322",
+        "D323"
+      ]
+    },
+    {
+      "name": "A33",
+      "value_one_iff_all_zero": [
+        "D331",
+        "D332",
+        "D333"
+      ]
+    },
+    {
+      "name": "B11",
+      "value_one_iff_all_zero": [
+        "D111",
+        "D121",
+        "D131"
+      ]
+    },
+    {
+      "name": "B12",
+      "value_one_iff_all_zero": [
+        "D112",
+        "D122",
+        "D132"
+      ]
+    },
+    {
+      "name": "B13",
+      "value_one_iff_all_zero": [
+        "D113",
+        "D123",
+        "D133"
+      ]
+    },
+    {
+      "name": "B21",
+      "value_one_iff_all_zero": [
+        "D211",
+        "D221",
+        "D231"
+      ]
+    },
+    {
+      "name": "B22",
+      "value_one_iff_all_zero": [
+        "D212",
+        "D222",
+        "D232"
+      ]
+    },
+    {
+      "name": "B23",
+      "value_one_iff_all_zero": [
+        "D213",
+        "D223",
+        "D233"
+      ]
+    },
+    {
+      "name": "B31",
+      "value_one_iff_all_zero": [
+        "D311",
+        "D321",
+        "D331"
+      ]
+    },
+    {
+      "name": "B32",
+      "value_one_iff_all_zero": [
+        "D312",
+        "D322",
+        "D332"
+      ]
+    },
+    {
+      "name": "B33",
+      "value_one_iff_all_zero": [
+        "D313",
+        "D323",
+        "D333"
+      ]
+    },
+    {
+      "name": "C11",
+      "value_one_iff_all_zero": [
+        "D111",
+        "D211",
+        "D311"
+      ]
+    },
+    {
+      "name": "C12",
+      "value_one_iff_all_zero": [
+        "D112",
+        "D212",
+        "D312"
+      ]
+    },
+    {
+      "name": "C13",
+      "value_one_iff_all_zero": [
+        "D113",
+        "D213",
+        "D313"
+      ]
+    },
+    {
+      "name": "C21",
+      "value_one_iff_all_zero": [
+        "D121",
+        "D221",
+        "D321"
+      ]
+    },
+    {
+      "name": "C22",
+      "value_one_iff_all_zero": [
+        "D122",
+        "D222",
+        "D322"
+      ]
+    },
+    {
+      "name": "C23",
+      "value_one_iff_all_zero": [
+        "D123",
+        "D223",
+        "D323"
+      ]
+    },
+    {
+      "name": "C31",
+      "value_one_iff_all_zero": [
+        "D131",
+        "D231",
+        "D331"
+      ]
+    },
+    {
+      "name": "C32",
+      "value_one_iff_all_zero": [
+        "D132",
+        "D232",
+        "D332"
+      ]
+    },
+    {
+      "name": "C33",
+      "value_one_iff_all_zero": [
+        "D133",
+        "D233",
+        "D333"
+      ]
+    }
+  ],
+  "r": "2809/2916",
+  "root_law": {
+    "kind": "iid-bernoulli",
+    "p_one": "1/54",
+    "p_zero": "53/54"
+  },
+  "roots": [
+    "D111",
+    "D112",
+    "D113",
+    "D121",
+    "D122",
+    "D123",
+    "D131",
+    "D132",
+    "D133",
+    "D211",
+    "D212",
+    "D213",
+    "D221",
+    "D222",
+    "D223",
+    "D231",
+    "D232",
+    "D233",
+    "D311",
+    "D312",
+    "D313",
+    "D321",
+    "D322",
+    "D323",
+    "D331",
+    "D332",
+    "D333"
+  ],
+  "schema": "inflation-defect-certificate-v1",
+  "target_atoms": {
+    "000": "24859838575/1338925209984",
+    "001": "1704492773/1338925209984",
+    "010": "1704492773/1338925209984",
+    "011": "44746917751/1338925209984",
+    "100": "1704492773/1338925209984",
+    "101": "44746917751/1338925209984",
+    "110": "44746917751/1338925209984",
+    "111": "1174711139837/1338925209984"
+  }
+}

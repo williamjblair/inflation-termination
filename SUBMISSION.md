@@ -5,7 +5,7 @@ This file is the remaining checklist, for the author to work through by hand. Ev
 below is a deliberate act: creating a public repository, pushing it, and registering a
 record that other people will cite.
 
-Everything mechanical is already done. `lake build && bash scripts/check_axioms.sh` passes;
+The certificate artifact now lives at `artifact/` next to `paper/`, so the replay commands of Section 16 run from this repository's root. Everything mechanical is already done. `lake build && bash scripts/check_axioms.sh` passes;
 `formalization.yaml` validates against the live v0.4 schema; both Challenges regenerate
 byte-identically from the library definition files.
 
@@ -25,12 +25,12 @@ byte-identically from the library definition files.
 
 ## 1. Create the public repository
 
-- [ ] Create a public GitHub repository under `willblair0708`. The name
-      `triangle-inflation-nontermination` no longer describes the contents; the headline is
-      now the classification. `pair-source-inflation-termination` or
-      `inflation-termination-classification` fits better. Renaming now is free and renaming
-      after registration is not, because the record pins a repository URL.
-- [ ] `git remote add origin git@github.com:willblair0708/<name>.git`
+- [ ] Create the public GitHub repository `williamjblair/inflation-termination`. That is the
+      URL the manuscript already cites (the macro `\repourl` in `paper/main.tex`, one line
+      to change if you pick another name or account; the abstract, the introduction,
+      Section 16, Appendix B and the code-availability paragraph all use it). Renaming after
+      registration is not free, because the record pins a repository URL.
+- [ ] `git remote add origin git@github.com:williamjblair/inflation-termination.git`
 - [ ] `git push -u origin main`
 - [ ] Confirm that `paper/main.pdf` and the LaTeX sources are content you are willing to
       have public before the arXiv posting. This repository is meant to precede the

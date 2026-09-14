@@ -1,0 +1,37 @@
+{
+  "name": "nt-hardened-reconstruct-check",
+  "command": [
+    "/opt/homebrew/Caskroom/miniconda/base/bin/python3",
+    "-B",
+    "reconstruct_hardened.py",
+    "--check"
+  ],
+  "cwd": "<fresh temporary directory>",
+  "inputs_sha256": {
+    "README.md": "3e253d483c53d9577ca0f2f636149772fd2c3917a13b9cf067e2555a92ea51ae",
+    "check.py": "afe4f3be28350da842b739f4a25e41126fb6e2296a42e58bdf346d89713b68bd",
+    "reconstruct.py": "07043d2cc6cc74c2591c6626a5eaaba093c8487a0fc85cf67ffdb5640211d8e8",
+    "reconstruct_hardened.py": "e092c6a6d5ac1ecdbd5344c52e46ce9733058917d3aaec479e692207e7d1c3de",
+    "t1-defect.json": "f67b2cc37e516306e8cc056311df59b13b093fedad72f169ef5266ba6ea54b0a",
+    "t2-corrupted-negative-control.json": "1c9bd645248b5e6219bc934480c359543dc9aa252a7609feec028c33b3f055d7",
+    "t2-defect.json": "93f70a55d9b8dbd8f270eec819b0376372992d84f53d35c207b92abbad668383",
+    "t2-full-lp.json": "87ebf8d0aef7df5afd676e510285f48d1d3c96ab9544fe65cb51a69ba463d790",
+    "t3-defect.json": "a7f97a033cce805da1511b45178bff9eb57796b5d4732d0c5b94aa8aa0572259"
+  },
+  "return_code": 0,
+  "wall_seconds": 0.035,
+  "stdout_sha256": "c050820b2e8dcdd600b659fe48f8e40a7bdc181044a2985b3e949ce1dc4b10d0",
+  "stdout_tail": "{\"status\": \"PASS\", \"structural_orders\": [1, 2, 3], \"t2_nonzero_lp_coordinates\": 166}\n",
+  "stderr_tail": "",
+  "outputs_sha256": {},
+  "environment": {
+    "os": "macOS-27.0-arm64-arm-64bit-Mach-O",
+    "architecture": "arm64",
+    "python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:11:29) [Clang 20.1.8 ]",
+    "python_flags": {
+      "optimize": 0
+    },
+    "dependencies": "Python standard library only (fractions, json, itertools, re, pathlib)"
+  },
+  "timestamp_utc": "2026-09-14T17:54:02Z"
+}

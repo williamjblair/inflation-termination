@@ -1,0 +1,686 @@
+{
+  "denominator": 4294967296,
+  "entries": [
+    {
+      "assignment": "000000000000",
+      "numerator": 131971
+    },
+    {
+      "assignment": "000000000001",
+      "numerator": 6975
+    },
+    {
+      "assignment": "000000000010",
+      "numerator": 6975
+    },
+    {
+      "assignment": "000000000100",
+      "numerator": 6975
+    },
+    {
+      "assignment": "000000000110",
+      "numerator": 50625
+    },
+    {
+      "assignment": "000000001000",
+      "numerator": 6975
+    },
+    {
+      "assignment": "000000001001",
+      "numerator": 50625
+    },
+    {
+      "assignment": "000000010000",
+      "numerator": 6975
+    },
+    {
+      "assignment": "000000010001",
+      "numerator": 54000
+    },
+    {
+      "assignment": "000000010100",
+      "numerator": 54000
+    },
+    {
+      "assignment": "000000100000",
+      "numerator": 6975
+    },
+    {
+      "assignment": "000000100010",
+      "numerator": 54000
+    },
+    {
+      "assignment": "000000101000",
+      "numerator": 54000
+    },
+    {
+      "assignment": "000001000000",
+      "numerator": 6975
+    },
+    {
+      "assignment": "000001000001",
+      "numerator": 54000
+    },
+    {
+      "assignment": "000001000100",
+      "numerator": 54000
+    },
+    {
+      "assignment": "000001010101",
+      "numerator": 50625
+    },
+    {
+      "assignment": "000001100000",
+      "numerator": 50625
+    },
+    {
+      "assignment": "000010000000",
+      "numerator": 6975
+    },
+    {
+      "assignment": "000010000010",
+      "numerator": 54000
+    },
+    {
+      "assignment": "000010001000",
+      "numerator": 54000
+    },
+    {
+      "assignment": "000010010000",
+      "numerator": 50625
+    },
+    {
+      "assignment": "000010101010",
+      "numerator": 50625
+    },
+    {
+      "assignment": "000100000000",
+      "numerator": 6975
+    },
+    {
+      "assignment": "000100000001",
+      "numerator": 54000
+    },
+    {
+      "assignment": "000100000010",
+      "numerator": 54000
+    },
+    {
+      "assignment": "000100010000",
+      "numerator": 54000
+    },
+    {
+      "assignment": "000100010001",
+      "numerator": 810000
+    },
+    {
+      "assignment": "000100010010",
+      "numerator": 50625
+    },
+    {
+      "assignment": "000100010100",
+      "numerator": 50625
+    },
+    {
+      "assignment": "000100010110",
+      "numerator": 759375
+    },
+    {
+      "assignment": "000100100000",
+      "numerator": 54000
+    },
+    {
+      "assignment": "000100100001",
+      "numerator": 50625
+    },
+    {
+      "assignment": "000100100010",
+      "numerator": 810000
+    },
+    {
+      "assignment": "000100101000",
+      "numerator": 50625
+    },
+    {
+      "assignment": "000100101001",
+      "numerator": 759375
+    },
+    {
+      "assignment": "000101000001",
+      "numerator": 50625
+    },
+    {
+      "assignment": "000101010101",
+      "numerator": 759375
+    },
+    {
+      "assignment": "000101100001",
+      "numerator": 759375
+    },
+    {
+      "assignment": "000110000010",
+      "numerator": 50625
+    },
+    {
+      "assignment": "000110010010",
+      "numerator": 759375
+    },
+    {
+      "assignment": "000110101010",
+      "numerator": 759375
+    },
+    {
+      "assignment": "001000000000",
+      "numerator": 6975
+    },
+    {
+      "assignment": "001000000100",
+      "numerator": 54000
+    },
+    {
+      "assignment": "001000001000",
+      "numerator": 54000
+    },
+    {
+      "assignment": "001000010000",
+      "numerator": 54000
+    },
+    {
+      "assignment": "001000010001",
+      "numerator": 50625
+    },
+    {
+      "assignment": "001000010100",
+      "numerator": 810000
+    },
+    {
+      "assignment": "001000011000",
+      "numerator": 50625
+    },
+    {
+      "assignment": "001000011001",
+      "numerator": 759375
+    },
+    {
+      "assignment": "001000100000",
+      "numerator": 54000
+    },
+    {
+      "assignment": "001000100010",
+      "numerator": 50625
+    },
+    {
+      "assignment": "001000100100",
+      "numerator": 50625
+    },
+    {
+      "assignment": "001000100110",
+      "numerator": 759375
+    },
+    {
+      "assignment": "001000101000",
+      "numerator": 810000
+    },
+    {
+      "assignment": "001001000100",
+      "numerator": 50625
+    },
+    {
+      "assignment": "001001010101",
+      "numerator": 759375
+    },
+    {
+      "assignment": "001001100100",
+      "numerator": 759375
+    },
+    {
+      "assignment": "001010001000",
+      "numerator": 50625
+    },
+    {
+      "assignment": "001010011000",
+      "numerator": 759375
+    },
+    {
+      "assignment": "001010101010",
+      "numerator": 759375
+    },
+    {
+      "assignment": "001100110000",
+      "numerator": 50625
+    },
+    {
+      "assignment": "001100110001",
+      "numerator": 759375
+    },
+    {
+      "assignment": "001100110010",
+      "numerator": 759375
+    },
+    {
+      "assignment": "001100110100",
+      "numerator": 759375
+    },
+    {
+      "assignment": "001100110110",
+      "numerator": 11390625
+    },
+    {
+      "assignment": "001100111000",
+      "numerator": 759375
+    },
+    {
+      "assignment": "001100111001",
+      "numerator": 11390625
+    },
+    {
+      "assignment": "001101110101",
+      "numerator": 11390625
+    },
+    {
+      "assignment": "001110111010",
+      "numerator": 11390625
+    },
+    {
+      "assignment": "010000000000",
+      "numerator": 6975
+    },
+    {
+      "assignment": "010000000001",
+      "numerator": 54000
+    },
+    {
+      "assignment": "010000000010",
+      "numerator": 54000
+    },
+    {
+      "assignment": "010000010001",
+      "numerator": 50625
+    },
+    {
+      "assignment": "010000100010",
+      "numerator": 50625
+    },
+    {
+      "assignment": "010001000000",
+      "numerator": 54000
+    },
+    {
+      "assignment": "010001000001",
+      "numerator": 810000
+    },
+    {
+      "assignment": "010001000010",
+      "numerator": 50625
+    },
+    {
+      "assignment": "010001000100",
+      "numerator": 50625
+    },
+    {
+      "assignment": "010001000110",
+      "numerator": 759375
+    },
+    {
+      "assignment": "010001010101",
+      "numerator": 759375
+    },
+    {
+      "assignment": "010001100010",
+      "numerator": 759375
+    },
+    {
+      "assignment": "010010000000",
+      "numerator": 54000
+    },
+    {
+      "assignment": "010010000001",
+      "numerator": 50625
+    },
+    {
+      "assignment": "010010000010",
+      "numerator": 810000
+    },
+    {
+      "assignment": "010010001000",
+      "numerator": 50625
+    },
+    {
+      "assignment": "010010001001",
+      "numerator": 759375
+    },
+    {
+      "assignment": "010010010001",
+      "numerator": 759375
+    },
+    {
+      "assignment": "010010101010",
+      "numerator": 759375
+    },
+    {
+      "assignment": "010100000011",
+      "numerator": 50625
+    },
+    {
+      "assignment": "010100010011",
+      "numerator": 759375
+    },
+    {
+      "assignment": "010100100011",
+      "numerator": 759375
+    },
+    {
+      "assignment": "010101000011",
+      "numerator": 759375
+    },
+    {
+      "assignment": "010101010111",
+      "numerator": 11390625
+    },
+    {
+      "assignment": "010101100011",
+      "numerator": 11390625
+    },
+    {
+      "assignment": "010110000011",
+      "numerator": 759375
+    },
+    {
+      "assignment": "010110010011",
+      "numerator": 11390625
+    },
+    {
+      "assignment": "010110101011",
+      "numerator": 11390625
+    },
+    {
+      "assignment": "011000000000",
+      "numerator": 50625
+    },
+    {
+      "assignment": "011000010001",
+      "numerator": 759375
+    },
+    {
+      "assignment": "011000100010",
+      "numerator": 759375
+    },
+    {
+      "assignment": "011001000100",
+      "numerator": 759375
+    },
+    {
+      "assignment": "011001010101",
+      "numerator": 11390625
+    },
+    {
+      "assignment": "011001100110",
+      "numerator": 11390625
+    },
+    {
+      "assignment": "011010001000",
+      "numerator": 759375
+    },
+    {
+      "assignment": "011010011001",
+      "numerator": 11390625
+    },
+    {
+      "assignment": "011010101010",
+      "numerator": 11390625
+    },
+    {
+      "assignment": "011100110011",
+      "numerator": 11390625
+    },
+    {
+      "assignment": "011101110111",
+      "numerator": 170859375
+    },
+    {
+      "assignment": "011110111011",
+      "numerator": 170859375
+    },
+    {
+      "assignment": "100000000000",
+      "numerator": 6975
+    },
+    {
+      "assignment": "100000000100",
+      "numerator": 54000
+    },
+    {
+      "assignment": "100000001000",
+      "numerator": 54000
+    },
+    {
+      "assignment": "100000010100",
+      "numerator": 50625
+    },
+    {
+      "assignment": "100000101000",
+      "numerator": 50625
+    },
+    {
+      "assignment": "100001000000",
+      "numerator": 54000
+    },
+    {
+      "assignment": "100001000001",
+      "numerator": 50625
+    },
+    {
+      "assignment": "100001000100",
+      "numerator": 810000
+    },
+    {
+      "assignment": "100001001000",
+      "numerator": 50625
+    },
+    {
+      "assignment": "100001001001",
+      "numerator": 759375
+    },
+    {
+      "assignment": "100001010101",
+      "numerator": 759375
+    },
+    {
+      "assignment": "100001101000",
+      "numerator": 759375
+    },
+    {
+      "assignment": "100010000000",
+      "numerator": 54000
+    },
+    {
+      "assignment": "100010000010",
+      "numerator": 50625
+    },
+    {
+      "assignment": "100010000100",
+      "numerator": 50625
+    },
+    {
+      "assignment": "100010000110",
+      "numerator": 759375
+    },
+    {
+      "assignment": "100010001000",
+      "numerator": 810000
+    },
+    {
+      "assignment": "100010010100",
+      "numerator": 759375
+    },
+    {
+      "assignment": "100010101010",
+      "numerator": 759375
+    },
+    {
+      "assignment": "100100000000",
+      "numerator": 50625
+    },
+    {
+      "assignment": "100100010100",
+      "numerator": 759375
+    },
+    {
+      "assignment": "100100101000",
+      "numerator": 759375
+    },
+    {
+      "assignment": "100101000001",
+      "numerator": 759375
+    },
+    {
+      "assignment": "100101010101",
+      "numerator": 11390625
+    },
+    {
+      "assignment": "100101101001",
+      "numerator": 11390625
+    },
+    {
+      "assignment": "100110000010",
+      "numerator": 759375
+    },
+    {
+      "assignment": "100110010110",
+      "numerator": 11390625
+    },
+    {
+      "assignment": "100110101010",
+      "numerator": 11390625
+    },
+    {
+      "assignment": "101000001100",
+      "numerator": 50625
+    },
+    {
+      "assignment": "101000011100",
+      "numerator": 759375
+    },
+    {
+      "assignment": "101000101100",
+      "numerator": 759375
+    },
+    {
+      "assignment": "101001001100",
+      "numerator": 759375
+    },
+    {
+      "assignment": "101001011101",
+      "numerator": 11390625
+    },
+    {
+      "assignment": "101001101100",
+      "numerator": 11390625
+    },
+    {
+      "assignment": "101010001100",
+      "numerator": 759375
+    },
+    {
+      "assignment": "101010011100",
+      "numerator": 11390625
+    },
+    {
+      "assignment": "101010101110",
+      "numerator": 11390625
+    },
+    {
+      "assignment": "101100111100",
+      "numerator": 11390625
+    },
+    {
+      "assignment": "101101111101",
+      "numerator": 170859375
+    },
+    {
+      "assignment": "101110111110",
+      "numerator": 170859375
+    },
+    {
+      "assignment": "110011000000",
+      "numerator": 50625
+    },
+    {
+      "assignment": "110011000001",
+      "numerator": 759375
+    },
+    {
+      "assignment": "110011000010",
+      "numerator": 759375
+    },
+    {
+      "assignment": "110011000100",
+      "numerator": 759375
+    },
+    {
+      "assignment": "110011000110",
+      "numerator": 11390625
+    },
+    {
+      "assignment": "110011001000",
+      "numerator": 759375
+    },
+    {
+      "assignment": "110011001001",
+      "numerator": 11390625
+    },
+    {
+      "assignment": "110011010101",
+      "numerator": 11390625
+    },
+    {
+      "assignment": "110011101010",
+      "numerator": 11390625
+    },
+    {
+      "assignment": "110111000011",
+      "numerator": 11390625
+    },
+    {
+      "assignment": "110111010111",
+      "numerator": 170859375
+    },
+    {
+      "assignment": "110111101011",
+      "numerator": 170859375
+    },
+    {
+      "assignment": "111011001100",
+      "numerator": 11390625
+    },
+    {
+      "assignment": "111011011101",
+      "numerator": 170859375
+    },
+    {
+      "assignment": "111011101110",
+      "numerator": 170859375
+    },
+    {
+      "assignment": "111111111111",
+      "numerator": 2562890625
+    }
+  ],
+  "implicit_unlisted_numerator": 0,
+  "order": 2,
+  "ordering": [
+    "A11",
+    "A12",
+    "A21",
+    "A22",
+    "B11",
+    "B12",
+    "B21",
+    "B22",
+    "C11",
+    "C12",
+    "C21",
+    "C22"
+  ],
+  "schema": "nw-full-lp-certificate-v1"
+}

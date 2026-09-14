@@ -1,0 +1,36 @@
+{
+  "name": "classification-check",
+  "command": [
+    "/opt/homebrew/Caskroom/miniconda/base/bin/python3",
+    "-B",
+    "verify_classification.py"
+  ],
+  "cwd": "<fresh temporary directory>",
+  "inputs_sha256": {
+    "MANIFEST.json": "ac7b2b5fd604057cd39b2e97fef90da8360e4132458b2a475c23075a5aedbe3f",
+    "REPORT.md": "7a060dea8021808822182fccadcde5a984ca8ae11c5581d8589ae9f3ef04a2d2",
+    "build_classification.py": "d320dc108cee62a893dfbae117fb74009d1e740a2ddf6a8f8b1e2c3f807fc030",
+    "cycles.json": "cfaaade6f45722b304e013efd8add1fcbd70816bae69b077d0c2386983a83f2e",
+    "five_path.json": "f43ff7a71ba772cd8ad186f6f13b617854be1b65a8a1ff7d0c548e5785aa69b1",
+    "low_order_square.json": "cfd75355e49adb5878f2ce999fa2fee7d149683adcda8c641299cc19945a8709",
+    "square.json": "9106b5d1a4d20239b8cb1361b860c6c4bcd910ac661a7669b47c741e49129e36",
+    "triangle.json": "6b1025885aee323c5147ca65d12a8c26a947e2a38f91e4526706335d146f0f44",
+    "verify_classification.py": "c529ef3c6d3e2a857f6a6105037ceeec141446c99e7e9072c1d75abb58ef7439"
+  },
+  "return_code": 0,
+  "wall_seconds": 11.912,
+  "stdout_sha256": "5670dfe99be4eb0f4a3e47e7d146e9f106f85dd48bc415a7a38d075d5361f6c9",
+  "stdout_tail": "\"full_support\": false,\n     \"global_atoms\": 4096,\n     \"injectable_set_characters\": 44,\n     \"label\": \"triangle order 2\",\n     \"minimum_atom\": \"0\",\n     \"minimum_positive_atom\": \"23649/1048576\",\n     \"negative_control\": {\n      \"diagonal_cells_rejected\": 2,\n      \"first_rejected_cell\": 0,\n      \"mass_moved\": \"1/1048576\",\n      \"normalization_preserved\": true,\n      \"symmetry_preserved\": true\n     },\n     \"parity_rigidity\": {\n      \"E[ABC]\": \"1\",\n      \"compatible_requirement\": \"a parity-perfect compatible triangle law has means (st, su, tu) whose product is (stu)^2 >= 0\",\n      \"means\": [\n       \"-1/32\",\n       \"-1/32\",\n       \"-1/32\"\n      ],\n      \"product_of_means\": \"-1/32768\",\n      \"violated\": true\n     },\n     \"positive_atoms\": 32\n    }\n   },\n   {\n    \"flipped\": {\n     \"ai_families_checked\": 15850,\n     \"copied_observations\": 27,\n     \"diagonal_characters_checked\": 512,\n     \"incompatibility\": {\n      \"certified_inequality\": \"B4 section 6 equation (20) with constant 8\",\n      \"max_plus_4P\": \"-955086383/48922361856\",\n      \"max_plus_4P_negative\": true,\n      \"max_plus_8P\": \"-445699607/24461180928\",\n      \"max_plus_8P_negative\": true,\n      \"means\": [\n       \"-4607/221184\",\n       \"-4607/221184\",\n       \"-4607/221184\"\n      ],\n      \"parity_error_P(ABC=-1)\": \"63687169/195689447424\",\n      \"product_of_means\": \"-97781036543/10820843684757504\"\n     },\n     \"injectable_set_characters\": 135,\n     \"label\": \"triangle order 3 with flips\",\n     \"method\": \"exact Fourier characters (no stored table)\"\n    },\n    \"plain\": {\n     \"ai_families_checked\": 15850,\n     \"copied_observations\": 27,\n     \"diagonal_characters_checked\": 512,\n     \"injectable_set_characters\": 135,\n     \"label\": \"triangle order 3\",\n     \"method\": \"exact Fourier characters (no stored table)\",\n     \"parity_rigidity\": {\n      \"E[ABC]\": \"1\",\n      \"compatible_requirement\": \"a parity-perfect compatible triangle law has means (st, su, tu) whose product is (stu)^2 >= 0\",\n      \"means\": [\n       \"-1/48\",\n       \"-1/48\",\n       \"-1/48\"\n      ],\n      \"product_of_means\": \"-1/110592\",\n      \"violated\": true\n     }\n    }\n   }\n  ],\n  \"uncorrected_density_at_all_plus\": [\n   {\n    \"corrected\": \"207211/196608\",\n    \"corrected_positive\": true,\n    \"t\": 3,\n    \"uncorrected\": \"59755/196608\",\n    \"uncorrected_negative\": false\n   },\n   {\n    \"corrected\": \"83025125249/68719476736\",\n    \"corrected_positive\": true,\n    \"t\": 4,\n    \"uncorrected\": \"5917040513/68719476736\",\n    \"uncorrected_negative\": false\n   }\n  ]\n }\n}\n",
+  "stderr_tail": "",
+  "outputs_sha256": {},
+  "environment": {
+    "os": "macOS-27.0-arm64-arm-64bit-Mach-O",
+    "architecture": "arm64",
+    "python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:11:29) [Clang 20.1.8 ]",
+    "python_flags": {
+      "optimize": 0
+    },
+    "dependencies": "Python standard library only (fractions, json, itertools, re, pathlib)"
+  },
+  "timestamp_utc": "2026-09-14T17:54:15Z"
+}

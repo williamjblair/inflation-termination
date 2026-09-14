@@ -20,6 +20,10 @@ on `propext`, `Classical.choice` and `Quot.sound` and nothing else. The reposito
 exactly two unfinished proofs, one in each Challenge file, where Palomar's submission rules
 require them.
 
+## Layout
+
+`paper/` holds the manuscript with its release documents, `artifact/` the exact rational certificates with their checkers and replay records (run `python3 -B artifact/verifiers/run_replay.py` and the two `verify_*.py` scripts from this directory), `TriangleInflation/` the Lean development, `Palomar/` and `PalomarSolutions/` the two registry statements.
+
 ## The two theorems
 
 ```lean
