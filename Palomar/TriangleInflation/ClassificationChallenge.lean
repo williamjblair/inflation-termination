@@ -3,54 +3,66 @@ import Mathlib.Data.Fintype.BigOperators
 import Mathlib.Tactic.DeriveFintype
 import Mathlib.Analysis.SpecialFunctions.Pow.Real
 import Mathlib.Tactic
+import Mathlib.Combinatorics.SimpleGraph.Finite
+import Mathlib.Combinatorics.SimpleGraph.Acyclic
+import Mathlib.Combinatorics.SimpleGraph.Metric
+import Mathlib.Data.List.Chain
 
 /-!
-# Nontermination of the inflation hierarchy for the classical triangle
+# Which pair-source networks does inflation terminate on?
 
-*For every finite order `t` of the Navascués–Wolfe inflation hierarchy for the classical
-triangle scenario, there is a three-bit law that passes the order-`t` test, including the
-ancestral-independence prescriptions, and is nevertheless not triangle compatible.*
+*For a pair-source scenario with binary observed variables, some finite order of the
+Navascués–Wolfe inflation hierarchy characterizes compatibility if and only if every
+connected component of the observed graph is a double star, and when it does, order two
+already suffices.*
 
-Equivalently: no finite level of the hierarchy characterizes the triangle-compatible set
-`C_tri`, so the hierarchy does not terminate. The witnesses are the explicit family
-`P_t = Q(ε_t, r_t)` with `ε_t = 1/(2t³)` and `r_t = (1 - ε_t)^(t-1)`; membership comes from an
-explicit defect-cube inflation law, and incompatibility from the Finner inequality
-`P(000)² ≤ P_A(0) P_B(0) P_C(0)`, which `P_t` violates by at least `ε_t²/2`.
+A pair-source scenario is a finite simple graph `G` without isolated vertices: one binary
+observed variable per vertex, one independent latent source per edge, each source shared by
+the two endpoints of its edge. A double star is a tree of diameter at most three, so
+`IsDoubleStarForest G` says that `G` is acyclic and that any two reachable vertices are at
+distance at most three.
 
-This is Theorem 8.2 and its corollary in *Inflation for Classical Pair-Source Networks:
-Termination and Quantitative Obstructions* (William Blair, manuscript, 2026), included
-under `paper/`; the construction is Section 8.1, the incompatibility Section 8.2. The
-triangle is the smallest scenario the classification theorem
-(`Palomar/TriangleInflation/ClassificationChallenge.lean`) puts on the nonterminating side,
-and this theorem is the quantitative form of that case.
+The statement below is the "only if" and the "if" at once. Reading it left to right: if some
+order `t ≥ 1` of the hierarchy equals the compatible set, then every component is a double
+star. Reading it right to left: if every component is a double star, then some order does,
+and the proof supplies `t = 2`.
+
+This is Theorem 4.2 in *Inflation for Classical Pair-Source Networks: Termination and
+Quantitative Obstructions* (William Blair, manuscript, 2026), included under `paper/`
+(Section 4). The nonterminating half rests on explicit targets that pass the order-`t` test
+at every `t` and are incompatible: a parity target on every induced cycle (Section 6) and a
+bilocal target on the five-observer path (Section 7), moved to the ambient graph by
+induced-subgraph transport and made strictly positive by independent local flips. The
+terminating half reconstructs a model on a double star from its order-two inflation
+(Section 5). The triangle case, sharpened to an explicit family with a quantitative
+violation margin, is the companion registry statement
+`Palomar/TriangleInflation/Challenge.lean`.
 
 ## Recorded formalization boundaries
 
-* **Finite latent alphabets.** `TriangleCompatible` quantifies over `TriangleModel`s whose
-  three latent spaces are `Fintype`s, where the paper (Section 2) allows arbitrary
-  measurable latent spaces. The reduction to bounded finite alphabets for the triangle
-  (Rosset, Gisin and Wolfe, 2018) is quoted in the paper and is **not** formalized. The
-  formal `TriangleCompatible` is therefore a priori a subset of the paper's `C_tri`, which
-  is the safe direction here: `¬ TriangleCompatible P` is the weaker of the two readings,
-  and it is what the theorem asserts. The library also proves the arbitrary-latent-space
-  form of this theorem, in `TriangleInflation/FinnerMeasure.lean`; the registry statement
-  is deliberately the elementary one.
-* **The recursively expressible hierarchy is not formalized on the triangle.** The paper's
-  `I^exp_t` (Definition 2.3) needs `d`-separation in the inflated causal graph and the
-  Wolfe–Spekkens–Fritz recursion; that machinery lives in the graph development,
-  `TriangleInflation/Graph/`, not in the triangle module. Only `I^NW_t` (`NWFeasible`) and
-  `I^AI_t` (`AIFeasible`) are defined here. Since `I^exp_t ⊆ I^AI_t ⊆ I^NW_t`, the
-  membership assertions below are the weaker halves of the paper's claims.
-* Laws are bare real weight functions on finite types, not Mathlib `Measure`s or `PMF`s;
-  the further representational decisions are recorded in the header of
-  `TriangleInflation/Defs.lean`, which the definitions below reproduce verbatim.
+* **Binary observed variables.** Outcomes are `Bool`. The paper's Remark 4.4 extends the
+  classification to any fixed finite observed alphabets; that transfer is **not**
+  formalized.
+* **Finite latent alphabets.** `GCompatible` quantifies over a `GModel`, whose latent
+  alphabets are `Fintype`s, where the mathematics allows arbitrary measurable latent
+  spaces. The formal compatible set is therefore a priori a subset of the general one, so
+  in the nonterminating direction `¬ GCompatible Γ P` is the weaker reading. The
+  arbitrary-latent form is proved only for the triangle defect family, in
+  `TriangleInflation/FinnerMeasure.lean`.
+* Laws are bare real weight functions on finite types with the predicate `IsLaw`, not
+  Mathlib `Measure`s or `PMF`s; all inequalities are real-valued. The further
+  representational decisions are recorded in the headers of `TriangleInflation/Defs.lean`
+  and `TriangleInflation/Graph/Defs.lean`.
 
 ## How to read this file
 
-Everything between `namespace TriangleInflation` and `end TriangleInflation`, up to the
-theorem, is copied character for character from `TriangleInflation/Defs.lean` by
-`scripts/gen_challenge.py`, so that the constants of the statement are the same objects the
-Solution proves about. The single declaration to audit is the last one.
+Everything between `namespace TriangleInflation` and its `end` is copied character for
+character from `TriangleInflation/Defs.lean`. The declarations inside `namespace
+TriangleInflation.Graph` are copied character for character from
+`TriangleInflation/Graph/Defs.lean`: they are the ones the statement needs, in the order
+that file gives them. Both copies are made by `scripts/gen_challenge.py`, so that the
+constants of the statement are the same objects the Solution proves about. The single
+declaration to audit is the last one.
 -/
 
 namespace TriangleInflation
@@ -396,18 +408,143 @@ def tminAI (P : ThreeBit → ℝ) : ℕ := sInf {t : ℕ | 1 ≤ t ∧ ¬ AIFeas
 
 end
 
-/-- **Nontermination of the inflation hierarchy for the classical triangle.**
-
-For every order `t ≥ 1` there is a three-bit law `P` which is a probability law, which is
-ancestral-independence feasible at order `t` (`AIFeasible t P`, the stronger of the two
-formalized tests), which is Navascués–Wolfe feasible at order `t` (`NWFeasible t P`), and
-which is not triangle compatible (`¬ TriangleCompatible P`).
-
-So no finite order of the hierarchy characterizes the triangle-compatible set: whatever
-order `t` is chosen, the order-`t` test admits a law that no triangle model produces.
-Paper Theorem 8.2 and the corollary that follows it. -/
-theorem no_finite_characterizing_order (t : ℕ) (ht : 1 ≤ t) :
-    ∃ P : ThreeBit → ℝ, IsLaw P ∧ AIFeasible t P ∧ NWFeasible t P ∧ ¬ TriangleCompatible P := by
-  sorry
-
 end TriangleInflation
+
+namespace TriangleInflation.Graph
+
+open Finset TriangleInflation
+
+/-! ### Pair-source scenarios -/
+
+/-- A pair-source scenario (AUDIT-NOTES A1): a finite simple graph without isolated
+vertices. Each vertex carries one binary observed variable, each edge one independent latent
+source shared by its two endpoints. -/
+structure PairGraph where
+  /-- The observed vertices. -/
+  V : Type
+  fintypeV : Fintype V
+  decEqV : DecidableEq V
+  /-- The source graph; an edge is an independent latent source. -/
+  G : SimpleGraph V
+  decAdj : DecidableRel G.Adj
+  /-- No isolated vertices: an observation with no source has no copying convention. -/
+  no_isolated : ∀ v : V, ∃ w : V, G.Adj v w
+
+attribute [instance] PairGraph.fintypeV PairGraph.decEqV PairGraph.decAdj
+
+/-- The latent sources of a pair-source scenario: the edges of its graph. -/
+abbrev PairGraph.Edge (Γ : PairGraph) := {e : Sym2 Γ.V // e ∈ Γ.G.edgeFinset}
+
+/-- The sources incident to a vertex. -/
+def PairGraph.inc (Γ : PairGraph) (v : Γ.V) : Finset Γ.Edge :=
+  Finset.univ.filter (fun e => v ∈ (e.1 : Sym2 Γ.V))
+
+/-- A target law: a weight function on the binary observed vertices. -/
+abbrev GTarget (Γ : PairGraph) := (Γ.V → Bool) → ℝ
+
+/-! ### Order-`t` copied observations -/
+
+/-- The copied observations of the order-`t` inflation (AUDIT-NOTES A1): one observation for
+each vertex `v` and each choice of a copy index for every source incident to `v`. -/
+abbrev GObs (Γ : PairGraph) (t : ℕ) := Σ v : Γ.V, (Γ.inc v → Fin t)
+
+/-- A deterministic assignment of all copied observations. -/
+abbrev GAssign (Γ : PairGraph) (t : ℕ) := GObs Γ t → Bool
+
+variable {Γ : PairGraph} {t : ℕ}
+
+/-- The action of a per-source permutation of copy indices on copied observations. -/
+def gPerm (π : Γ.Edge → Equiv.Perm (Fin t)) (o : GObs Γ t) : GObs Γ t :=
+  ⟨o.1, fun e => π e.1 (o.2 e)⟩
+
+/-- The induced action on assignments. -/
+def gRelabel (π : Γ.Edge → Equiv.Perm (Fin t)) (ω : GAssign Γ t) : GAssign Γ t :=
+  fun o => ω (gPerm π o)
+
+/-- Symmetry of a witness under independent permutations of the copy indices of each source
+(AUDIT-NOTES A1; the pair-source form of `TriangleInflation.SymmetricLaw`). -/
+def GSymmetric (t : ℕ) (Δ : GAssign Γ t → ℝ) : Prop :=
+  ∀ (π : Γ.Edge → Equiv.Perm (Fin t)) (ω : GAssign Γ t), Δ (gRelabel π ω) = Δ ω
+
+/-! ### The copied original scenarios and the diagonal rows -/
+
+/-- The copied observation of the vertex `v` in the copy of the original scenario selected by
+the index vector `ι`. -/
+def copyObs (ι : Γ.Edge → Fin t) (v : Γ.V) : GObs Γ t := ⟨v, fun e => ι e.1⟩
+
+/-- The observed outcome that an assignment gives to the copied scenario selected by `ι`. -/
+def readCopy (ι : Γ.Edge → Fin t) (ω : GAssign Γ t) : Γ.V → Bool := fun v => ω (copyObs ι v)
+
+/-- The `t` diagonal rows: row `r` takes the copy index `r` on every source
+(AUDIT-NOTES A1). -/
+def readDiag (ω : GAssign Γ t) : Fin t → (Γ.V → Bool) := fun r => readCopy (fun _ => r) ω
+
+/-- The `t`-fold tensor power of a target law. -/
+def gTensorPow (t : ℕ) (P : GTarget Γ) : (Fin t → (Γ.V → Bool)) → ℝ :=
+  fun v => ∏ r : Fin t, P (v r)
+
+/-! ### The order-`t` Navascués–Wolfe test -/
+
+/-- The Navascués–Wolfe feasible set of a pair-source scenario (AUDIT-NOTES A1): a symmetric
+law on the copied observations whose diagonal law is the tensor power of the target. -/
+def GNWFeasible (Γ : PairGraph) (t : ℕ) (P : GTarget Γ) : Prop :=
+  ∃ Δ : GAssign Γ t → ℝ, IsLaw Δ ∧ GSymmetric t Δ ∧ pushforward Δ readDiag = gTensorPow t P
+
+/-! ### Compatibility -/
+
+/-- A model of a pair-source scenario with finite latent alphabets: one latent alphabet and
+source law per edge, and for each vertex the probability `resp v` of the outcome
+`false = 0` given the values of the sources incident to it. -/
+structure GModel (Γ : PairGraph) where
+  /-- The latent alphabet of each source. -/
+  L : Γ.Edge → Type
+  fintypeL : ∀ e, Fintype (L e)
+  /-- The law of each source. -/
+  μ : ∀ e, L e → ℝ
+  /-- `resp v c = Pr(outcome at v is 0 | incident sources take the values c)`. -/
+  resp : ∀ v : Γ.V, ((e : Γ.inc v) → L e.1) → ℝ
+
+attribute [instance] GModel.fintypeL
+
+/-- A model is valid when every source law is a law and every response probability lies in
+`[0,1]`. -/
+def GModel.Valid (M : GModel Γ) : Prop :=
+  (∀ e, IsLaw (M.μ e)) ∧ (∀ v c, 0 ≤ M.resp v c ∧ M.resp v c ≤ 1)
+
+/-- The observed law of a model: the sources are independent and the responses are
+conditionally independent given the sources. -/
+def GModel.law (M : GModel Γ) : GTarget Γ := fun w =>
+  ∑ x : (∀ e : Γ.Edge, M.L e),
+    (∏ e : Γ.Edge, M.μ e (x e)) * ∏ v : Γ.V, respMass (M.resp v (fun e => x e.1)) (w v)
+
+/-- The compatible set `C_G` of a pair-source scenario, with the finite-latent-alphabet
+boundary described in the file header (AUDIT-NOTES D1). -/
+def GCompatible (Γ : PairGraph) (P : GTarget Γ) : Prop :=
+  ∃ M : GModel Γ, M.Valid ∧ M.law = P
+
+/-! ### Double-star forests -/
+
+/-- A double-star forest: every connected component is a tree of diameter at most three
+(AUDIT-NOTES A3). Stated as acyclicity together with a diameter bound inside each
+component. -/
+def IsDoubleStarForest {V : Type} (G : SimpleGraph V) : Prop :=
+  G.IsAcyclic ∧ ∀ u v : V, G.Reachable u v → G.dist u v ≤ 3
+
+end TriangleInflation.Graph
+
+open TriangleInflation TriangleInflation.Graph in
+/-- **The termination classification for pair-source networks.**
+
+Some finite order of the Navascués–Wolfe hierarchy characterizes compatibility for the
+pair-source scenario `Γ` exactly when every connected component of its graph is a double
+star, that is, a tree of diameter at most three.
+
+Left to right this is the nontermination half: a graph with any other component carries, at
+every order `t ≥ 1`, a law that passes the order-`t` test and has no model. Right to left it
+is the reconstruction half, and the proof gives the explicit order `t = 2`.
+
+Paper Theorem 4.2. -/
+theorem TriangleInflation.Graph.classification_NW (Γ : PairGraph) :
+    (∃ t : ℕ, 1 ≤ t ∧ ∀ P : GTarget Γ, IsLaw P → (GNWFeasible Γ t P ↔ GCompatible Γ P))
+      ↔ IsDoubleStarForest Γ.G := by
+  sorry

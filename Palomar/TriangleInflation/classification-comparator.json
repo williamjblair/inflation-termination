@@ -1,0 +1,7 @@
+{
+  "challenge_module": "Palomar.TriangleInflation.ClassificationChallenge",
+  "solution_module": "PalomarSolutions.TriangleInflationClassification",
+  "theorem_names": ["TriangleInflation.Graph.classification_NW"],
+  "permitted_axioms": ["propext", "Quot.sound", "Classical.choice"],
+  "enable_nanoda": false
+}

@@ -15,7 +15,10 @@ name = "TriangleInflation"
 name = "Palomar"
 # One Challenge per registry entry, Mathlib-only by Palomar's rule. Each is
 # built on its own; there is no aggregating root module.
-roots = ["Palomar.TriangleInflation.Challenge"]
+roots = [
+  "Palomar.TriangleInflation.Challenge",
+  "Palomar.TriangleInflation.ClassificationChallenge",
+]
 
 [[lean_lib]]
 name = "PalomarSolutions"
@@ -24,4 +27,7 @@ name = "PalomarSolutions"
 # Palomar's verifier puts its recompiled Challenge first on LEAN_PATH, and Lean
 # resolves every module sharing that root directory there, so a Solution under
 # `Palomar.*` is never found (PalomarSubmission#108).
-roots = ["PalomarSolutions.TriangleInflation"]
+roots = [
+  "PalomarSolutions.TriangleInflation",
+  "PalomarSolutions.TriangleInflationClassification",
+]
