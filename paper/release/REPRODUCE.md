@@ -21,7 +21,7 @@ macOS 27.0 (Darwin, arm64), Python 3.13.9, standard library only.
 | classification certificates (`certificates/classification/verify_classification.py`) | `"status": "PASS"`; cycles C3/C4/C5 at orders 1–2, five-path at orders 1–2, square witness at orders 1–2 and triangle witness at orders 1–3 (plain and flipped: positivity, symmetry, diagonal law, every AI prescription, target incompatibility, negative control); corrected-density minimum scans to t=5 (square) and t=6 (triangle); low-order square: count-form primals at q=3/20 (NW_2) and q=1/10 (AI_2) expanded to 2^16 atoms, AI_2 dual with the identity E[D]=(1+q)(q³−33q²+27q−3) on 81 configurations, NW_3 dual on 256 configurations at q=1/10 | stdout JSON (input SHA-256s recorded in the output) |
 | mutation suite | hardened checker fails closed on truncated, empty, corrupted-atom, wrong-order, missing-branch, normalization-preserving sign corruption, negative entry, wrong root law, bad support, un-rejected negative control, `-O`, `-OO`; frozen checker fails OPEN under `-O`/`-OO` (documented defect: bare `assert`) | `replay_logs/mutation-nontermination.json` |
 
-arXiv package: `cd release && ./build_arxiv.sh` (flat `main.tex`, `main.bbl`,
+arXiv package from the repository root: `bash paper/release/build_arxiv.sh` (flat `main.tex`, `main.bbl`,
 compiles with `-no-shell-escape`, no absolute paths).
 
 Frozen originals (`artifact/certificates/*/check.py`, `reconstruct.py`) are
@@ -29,3 +29,5 @@ byte-identical to the maintained repository files at revision `768d404` and are
 never modified; release checkers are the `*_hardened.py` copies produced by
 `verifiers/harden.py` (an AST transform that rewrites every `assert` to an
 explicit exception and adds an `if not __debug__: raise` guard).
+
+The 14 September editorial revision adds `paper/figures/generate_thresholds.py` (Python + matplotlib) to regenerate the certificate-derived vector plot. TikZ diagrams compile directly in LaTeX. The arXiv archive includes the rendered plot and flattened diagram source, so upload compilation requires neither Python nor shell escape. Run `python3 -B artifact/certificates/exponent/verify_exponent.py` for all 20,004 parity-threshold checks.

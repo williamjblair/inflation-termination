@@ -1,0 +1,12 @@
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[box/.style={draw,rounded corners=1mm,align=center,font=\small,inner sep=7pt}]
+\node[box] (table) at (0,0) {Draw a table\\$\omega\sim\Gamma$};
+\node[box] (emp) at (7,1.05) {Permute each source's indices\\read $n$ rows: $\widehat P$\\$\widehat P\overset{d}{=}\widehat P_n$};
+\node[box] (comp) at (7,-1.05) {Sample source indices independently\\compatible law $q_\omega\in\mathcal C_G$};
+\draw[-{Latex}] (table.east)--(emp.west);
+\draw[-{Latex}] (table.east)--(comp.west);
+\draw[-{Latex},inkblue] (emp.south)--node[right,font=\small] {$\mathbb E[\widehat P\mid\omega]=q_\omega$}(comp.north);
+\end{tikzpicture}
+\caption{The conditional expectation behind the convex-order bound. The same table yields an empirical distribution through permuted diagonal rows and a compatible law through independent source indices. Conditional Jensen compares their convex functionals. Squared Euclidean distance then gives the source-count-independent bound.}\label{fig:convex-order}
+\end{figure}

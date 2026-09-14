@@ -18,6 +18,8 @@ and the same bound holds for $\tmin^{\mathrm{AI}}$ and $\tmin^{\mathrm{exp}}$.
 
 This gives an explicit rejecting order in terms of four probabilities. Relabelling the local outcomes gives the corresponding bound for a Finner violation at any atom.
 
+\input{figures/fan}
+
 \begin{proposition}[No uniformly divergent distance lower bound]\label{prop:Rp}
 For $0<p<1$ let $R_p=(1-p)\delta_{111}+p\,\delta_{000}$. Then $R_p\notin\Ctri$, $R_p\to\delta_{111}$ as $p\downarrow0$, and $\tmin^H(R_p)=2$ for all three hierarchies and all $p$. Hence no inequality $\tmin^H(P)\ge c\,d_{\TV}(P,\Ctri)^{-\alpha}$ with $c,\alpha>0$ holds for all incompatible $P$; the growth in Proposition~\ref{prop:family} is a property of the direction of approach to the boundary.
 \end{proposition}
@@ -25,7 +27,7 @@ For $0<p<1$ let $R_p=(1-p)\delta_{111}+p\,\delta_{000}$. Then $R_p\notin\Ctri$, 
 
 
 \begin{proof}[Proof of Theorem~\ref{thm:fan}]
-For $t=1$, the two inequalities reduce to $z\le a$ and $z^2\le az$, which hold since $0\le z\le a$. Now let $\Gamma$ be an order-$t$ feasible law for $P$, $t\ge2$, and consider the $2t+1$ copied observations $A^{11}$, $B^{1k}$, $C^{1k}$, $k\in[t]$: the fan of copied triangles $\Delta_{11k}=\{A^{11},B^{1k},C^{1k}\}$ sharing the vertex $A^{11}$. Define the indicators $\mathsf A=\one[A^{11}=0]$, $\mathsf B_k=\one[B^{1k}=0]$, $\mathsf C_k=\one[C^{1k}=0]$ and $T_k=\mathsf A\mathsf B_k\mathsf C_k$. Three identities follow from Definition~\ref{def:NW}: $\E\mathsf A=a$ and $\E T_k=z$, because a permutation of the $Y$-indices carries $\Delta_{11k}$ to the diagonal triangle $\Delta_{111}$, whose law is $P$; and for $k\ne\ell$,
+For $t=1$, the two inequalities reduce to $z\le a$ and $z^2\le az$, which hold since $0\le z\le a$. Now let $\Gamma$ be an order-$t$ feasible law for $P$, $t\ge2$, and consider the $2t+1$ copied observations $A^{11}$, $B^{1k}$, $C^{1k}$, $k\in[t]$: the fan (Figure~\ref{fig:fan}) of copied triangles $\Delta_{11k}=\{A^{11},B^{1k},C^{1k}\}$ sharing the vertex $A^{11}$. Define the indicators $\mathsf A=\one[A^{11}=0]$, $\mathsf B_k=\one[B^{1k}=0]$, $\mathsf C_k=\one[C^{1k}=0]$ and $T_k=\mathsf A\mathsf B_k\mathsf C_k$. Three identities follow from Definition~\ref{def:NW}: $\E\mathsf A=a$ and $\E T_k=z$, because a permutation of the $Y$-indices carries $\Delta_{11k}$ to the diagonal triangle $\Delta_{111}$, whose law is $P$; and for $k\ne\ell$,
 \begin{equation}\label{eq:fan-cross}
 \E[\mathsf B_k\mathsf C_\ell]=bc ,
 \end{equation}

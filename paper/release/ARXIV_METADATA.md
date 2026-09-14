@@ -20,7 +20,7 @@ Alternatives considered:
 **Primary category.** quant-ph (where the inflation literature lives: NW, WSF, Renou et al., Gitton).
 **Secondary categories.** math.ST (causal inference), cs.IT or math.PR.
 
-**Comments field.** "55 pages. Exact rational certificates for the defect-cube, fan, cycle, square, triangle and path witnesses at small orders, fail-closed checkers, and Lean 4 sources are provided as ancillary files." 
+**Comments field.** "53 pages, 8 figures. Lean sources and exact rational certificates are available in the linked repository."
 
 **MSC.** 62D20, 62H99, 60E15, 81P13.
 **Keywords.** causal compatibility; inflation technique; correlation scenarios; triangle scenario; network nonlocality; Finner inequality; bilocal inequality; hierarchy convergence; asymptotic completeness.
@@ -29,7 +29,7 @@ Alternatives considered:
 
 **Funding.** None. **Conflicts.** None.
 
-**Acknowledgments (as in the manuscript).** "The manuscript and the verification code were prepared with substantial assistance from AI systems. All mathematical claims were checked by exact certificates or by hand, and the author takes full responsibility for the content."
+**Acknowledgments.** Use the current text in `paper/main.tex`; the AI-assistance disclosure remains.
 
 **AI-assistance disclosure.** Stated in the acknowledgments of the manuscript (text above). No AI system is an author.
 

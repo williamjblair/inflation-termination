@@ -1,0 +1,196 @@
+\begin{thebibliography}{10}
+
+\bibitem{BasuPollackRoy2006}
+Saugata Basu, Richard Pollack, and Marie-Fran{\c c}oise Roy.
+\newblock {\em Algorithms in Real Algebraic Geometry}, volume~10 of {\em
+  Algorithms and Computation in Mathematics}.
+\newblock Springer, 2 edition, 2006.
+\newblock \href {https://doi.org/10.1007/3-540-33099-2}
+  {\path{doi:10.1007/3-540-33099-2}}.
+
+\bibitem{BoreiriEtAl2023}
+Sadra Boreiri, Antoine Girardin, Bora Ulu, Patryk Lipka-Bartosik, Nicolas
+  Brunner, and Pavel Sekatski.
+\newblock Towards a minimal example of quantum nonlocality without inputs.
+\newblock {\em Physical Review A}, 107:062413, 2023.
+\newblock \href {https://arxiv.org/abs/2207.08532} {\path{arXiv:2207.08532}},
+  \href {https://doi.org/10.1103/PhysRevA.107.062413}
+  {\path{doi:10.1103/PhysRevA.107.062413}}.
+
+\bibitem{BoreiriEtAl2025}
+Sadra Boreiri, Bora Ulu, Nicolas Brunner, and Pavel Sekatski.
+\newblock Noise-robust proofs of quantum network nonlocality.
+\newblock {\em Quantum}, 9:1830, 2025.
+\newblock URL: \url{https://arxiv.org/abs/2311.02182}, \href
+  {https://arxiv.org/abs/2311.02182} {\path{arXiv:2311.02182}}, \href
+  {https://doi.org/10.22331/q-2025-08-27-1830}
+  {\path{doi:10.22331/q-2025-08-27-1830}}.
+
+\bibitem{BranciardRossetGisinPironio2012}
+Cyril Branciard, Denis Rosset, Nicolas Gisin, and Stefano Pironio.
+\newblock Bilocal versus nonbilocal correlations in entanglement-swapping
+  experiments.
+\newblock {\em Physical Review A}, 85(3):032119, 2012.
+\newblock \href {https://arxiv.org/abs/1112.4502} {\path{arXiv:1112.4502}},
+  \href {https://doi.org/10.1103/PhysRevA.85.032119}
+  {\path{doi:10.1103/PhysRevA.85.032119}}.
+
+\bibitem{daSilvaPozasKerstjensParisio2025}
+Jos{\'e}~M{\'a}rio da~Silva, Alejandro Pozas-Kerstjens, and Fernando Parisio.
+\newblock Local models and {Bell} inequalities for the minimal triangle
+  network.
+\newblock {\em Physical Review A}, 112(3):L030403, 2025.
+\newblock URL: \url{https://arxiv.org/abs/2503.16654}, \href
+  {https://arxiv.org/abs/2503.16654} {\path{arXiv:2503.16654}}, \href
+  {https://doi.org/10.1103/cg9v-wv2t} {\path{doi:10.1103/cg9v-wv2t}}.
+
+\bibitem{Finner1992}
+Helmut Finner.
+\newblock A generalization of {H\"older}'s inequality and some probability
+  inequalities.
+\newblock {\em The Annals of Probability}, 20(4):1893--1901, 1992.
+\newblock URL:
+  \url{https://projecteuclid.org/journals/annals-of-probability/volume-20/issue-4/A-Generalization-of-Holders-Inequality-and-Some-Probability-Inequalities/10.1214/aop/1176989534.full},
+  \href {https://doi.org/10.1214/aop/1176989534}
+  {\path{doi:10.1214/aop/1176989534}}.
+
+\bibitem{Fraser2020}
+Thomas~C. Fraser.
+\newblock A combinatorial solution to causal compatibility.
+\newblock {\em Journal of Causal Inference}, 8(1):22--53, 2020.
+\newblock \href {https://arxiv.org/abs/1902.07091} {\path{arXiv:1902.07091}},
+  \href {https://doi.org/10.1515/jci-2019-0013}
+  {\path{doi:10.1515/jci-2019-0013}}.
+
+\bibitem{FraserWolfe2018}
+Thomas~C. Fraser and Elie Wolfe.
+\newblock Causal compatibility inequalities admitting quantum violations in the
+  triangle structure.
+\newblock {\em Physical Review A}, 98:022113, 2018.
+\newblock \href {https://arxiv.org/abs/1709.06242} {\path{arXiv:1709.06242}},
+  \href {https://doi.org/10.1103/PhysRevA.98.022113}
+  {\path{doi:10.1103/PhysRevA.98.022113}}.
+
+\bibitem{Fritz2012}
+Tobias Fritz.
+\newblock Beyond {Bell}'s theorem: correlation scenarios.
+\newblock {\em New Journal of Physics}, 14(10):103001, 2012.
+\newblock URL: \url{https://arxiv.org/abs/1206.5115}, \href
+  {https://arxiv.org/abs/1206.5115} {\path{arXiv:1206.5115}}, \href
+  {https://doi.org/10.1088/1367-2630/14/10/103001}
+  {\path{doi:10.1088/1367-2630/14/10/103001}}.
+
+\bibitem{Gitton2022}
+Victor Gitton.
+\newblock Outer approximations of classical multi-network correlations.
+\newblock {\em arXiv preprint}, 2022.
+\newblock \href {https://arxiv.org/abs/2202.04103} {\path{arXiv:2202.04103}}.
+
+\bibitem{HensonLalPusey2014}
+Joe Henson, Raymond Lal, and Matthew~F. Pusey.
+\newblock Theory-independent limits on correlations from generalized {B}ayesian
+  networks.
+\newblock {\em New Journal of Physics}, 16:113043, 2014.
+\newblock \href {https://arxiv.org/abs/1405.2572} {\path{arXiv:1405.2572}},
+  \href {https://doi.org/10.1088/1367-2630/16/11/113043}
+  {\path{doi:10.1088/1367-2630/16/11/113043}}.
+
+\bibitem{Hoeffding1963}
+Wassily Hoeffding.
+\newblock Probability inequalities for sums of bounded random variables.
+\newblock {\em Journal of the American Statistical Association},
+  58(301):13--30, 1963.
+\newblock \href {https://doi.org/10.1080/01621459.1963.10500830}
+  {\path{doi:10.1080/01621459.1963.10500830}}.
+
+\bibitem{LigthartGachechiladzeGross2023}
+Laurens~T. Ligthart, Mariami Gachechiladze, and David Gross.
+\newblock A convergent inflation hierarchy for quantum causal structures.
+\newblock {\em Communications in Mathematical Physics}, 401(3):2673--2714,
+  2023.
+\newblock URL: \url{https://arxiv.org/abs/2110.14659}, \href
+  {https://arxiv.org/abs/2110.14659} {\path{arXiv:2110.14659}}, \href
+  {https://doi.org/10.1007/s00220-023-04697-7}
+  {\path{doi:10.1007/s00220-023-04697-7}}.
+
+\bibitem{MacWilliamsSloane1977}
+Florence~Jessie MacWilliams and Neil James~Alexander Sloane.
+\newblock {\em The Theory of Error-Correcting Codes}, volume~16 of {\em
+  North-Holland Mathematical Library}.
+\newblock North-Holland, Amsterdam, 1977.
+
+\bibitem{NW2020}
+Miguel Navascu{\'e}s and Elie Wolfe.
+\newblock The inflation technique completely solves the causal compatibility
+  problem.
+\newblock {\em Journal of Causal Inference}, 8(1):70--91, 2020.
+\newblock URL: \url{https://arxiv.org/abs/1707.06476}, \href
+  {https://arxiv.org/abs/1707.06476} {\path{arXiv:1707.06476}}, \href
+  {https://doi.org/10.1515/jci-2018-0008} {\path{doi:10.1515/jci-2018-0008}}.
+
+\bibitem{PozasKerstjensGisinRenou2023}
+Alejandro Pozas-Kerstjens, Nicolas Gisin, and Marc-Olivier Renou.
+\newblock Proofs of network quantum nonlocality in continuous families of
+  distributions.
+\newblock {\em Physical Review Letters}, 130:090201, 2023.
+\newblock \href {https://arxiv.org/abs/2203.16543} {\path{arXiv:2203.16543}},
+  \href {https://doi.org/10.1103/PhysRevLett.130.090201}
+  {\path{doi:10.1103/PhysRevLett.130.090201}}.
+
+\bibitem{RenouBeigi2022PRA}
+Marc-Olivier Renou and Salman Beigi.
+\newblock Network nonlocality via rigidity of token counting and color
+  matching.
+\newblock {\em Physical Review A}, 105:022408, 2022.
+\newblock \href {https://arxiv.org/abs/2202.00905} {\path{arXiv:2202.00905}},
+  \href {https://doi.org/10.1103/PhysRevA.105.022408}
+  {\path{doi:10.1103/PhysRevA.105.022408}}.
+
+\bibitem{RenouBeigi2022PRL}
+Marc-Olivier Renou and Salman Beigi.
+\newblock Nonlocality for generic networks.
+\newblock {\em Physical Review Letters}, 128:060401, 2022.
+\newblock \href {https://arxiv.org/abs/2011.02769} {\path{arXiv:2011.02769}},
+  \href {https://doi.org/10.1103/PhysRevLett.128.060401}
+  {\path{doi:10.1103/PhysRevLett.128.060401}}.
+
+\bibitem{Renou2019}
+Marc-Olivier Renou, Yuyi Wang, Sadra Boreiri, Salman Beigi, Nicolas Gisin, and
+  Nicolas Brunner.
+\newblock Limits on correlations in networks for quantum and no-signaling
+  resources.
+\newblock {\em Physical Review Letters}, 123(7):070403, 2019.
+\newblock URL: \url{https://arxiv.org/abs/1901.08287}, \href
+  {https://arxiv.org/abs/1901.08287} {\path{arXiv:1901.08287}}, \href
+  {https://doi.org/10.1103/PhysRevLett.123.070403}
+  {\path{doi:10.1103/PhysRevLett.123.070403}}.
+
+\bibitem{RGW2018}
+Denis Rosset, Nicolas Gisin, and Elie Wolfe.
+\newblock Universal bound on the cardinality of local hidden variables in
+  networks.
+\newblock {\em Quantum Information and Computation}, 18(11--12):910--926, 2018.
+\newblock URL: \url{https://arxiv.org/abs/1709.00707}, \href
+  {https://arxiv.org/abs/1709.00707} {\path{arXiv:1709.00707}}, \href
+  {https://doi.org/10.26421/QIC18.11-12-2} {\path{doi:10.26421/QIC18.11-12-2}}.
+
+\bibitem{WolfeEtAl2021QuantumInflation}
+Elie Wolfe, Alejandro Pozas-Kerstjens, Matan Grinberg, Denis Rosset, Antonio
+  Ac{\'{\i}}n, and Miguel Navascu{\'e}s.
+\newblock Quantum inflation: A general approach to quantum causal
+  compatibility.
+\newblock {\em Physical Review X}, 11(2):021043, 2021.
+\newblock URL: \url{https://arxiv.org/abs/1909.10519}, \href
+  {https://arxiv.org/abs/1909.10519} {\path{arXiv:1909.10519}}, \href
+  {https://doi.org/10.1103/PhysRevX.11.021043}
+  {\path{doi:10.1103/PhysRevX.11.021043}}.
+
+\bibitem{WSF2019}
+Elie Wolfe, Robert~W. Spekkens, and Tobias Fritz.
+\newblock The inflation technique for causal inference with latent variables.
+\newblock {\em Journal of Causal Inference}, 7(2):20170020, 2019.
+\newblock URL: \url{https://arxiv.org/abs/1609.00672}, \href
+  {https://arxiv.org/abs/1609.00672} {\path{arXiv:1609.00672}}, \href
+  {https://doi.org/10.1515/jci-2017-0020} {\path{doi:10.1515/jci-2017-0020}}.
+
+\end{thebibliography}

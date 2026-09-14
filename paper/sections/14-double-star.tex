@@ -5,7 +5,7 @@
 
 Fix a double-star $G$ in the sense of Definition~\ref{def:doublestar}: two central vertices $b,c$ joined by the central edge $y=\{b,c\}$, left leaves $\ell_1,\dots,\ell_p$ joined to $b$ by edges $e_1,\dots,e_p$, and right leaves $r_1,\dots,r_q$ joined to $c$ by edges $f_1,\dots,f_q$. Observed alphabets $\mathcal O_v$ are finite and arbitrary. Put
 \[
-T=\max\bigl(\{2\}\cup\{|\mathcal O_{\ell_s}|\}_{s\le p}\cup\{|\mathcal O_{r_j}|\}_{j\le q}\bigr),
+T=\max\bigl(\{2\}\cup\{|\mathcal O_{\ell_s}|\}_{s\le p}\cup\{|\mathcal O_{r_j}|\}_{j\le q}\bigr).
 \]
 
 In the order-$T$ inflation the leaves have one index each, and the centres have one index per incident edge. Write
@@ -89,11 +89,11 @@ Each response reads only the sources of its incident edges: $b$ reads $X_1^*,\do
 Unsupported leaf values are never sampled, so the arbitrary choices there do not matter. Hence $P\in\Cscen{G}$.
 \end{proof}
 
-The construction samples new independent sources; it does not assume that conditioning on $E$ preserves any independence among the latent variables of a hypothetical model behind $\Gamma$. The only fact used about $\Gamma$ is \eqref{eq:condmarg}. A central source with
+The conditional law supplies the distribution of the central response tables. The model then samples this central source independently of fresh leaf sources, as required by the graph. A central source with
 \(
-\prod_s|\mathcal O_b|^{|\supp P_{\ell_s}|}\cdot\prod_j|\mathcal O_c|^{|\supp P_{r_j}|}
+|\mathcal O_b|^{\prod_s|\supp P_{\ell_s}|}\,|\mathcal O_c|^{\prod_j|\supp P_{r_j}|}
 \)
-values suffices, since that is the number of pairs of response tables.
+values suffices: a left response table is a map on the product of the left leaf supports, and likewise on the right. Empty products equal one.
 
 \begin{corollary}[Binary observations]\label{cor:doublestarbinary}
 For a double-star with binary observations, $\INW_2(G)=\Cscen{G}$.

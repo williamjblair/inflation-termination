@@ -1,3 +1,5 @@
+> Historical audit retained from before the editorial revision. For current section numbers, corrections, deferred results and validation, see `paper/review/EDITORIAL_REVIEW.md` and the opening update in `RELEASE_STATUS.md`.
+
 # Non-claims
 
 The manuscript does not claim, and the reader must not infer:

@@ -3,8 +3,22 @@
 \usepackage{amsmath,amssymb,amsthm,mathtools}
 \usepackage{microtype}
 \usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Inflation for Classical Pair-Source Networks: Termination and Quantitative Obstructions},pdfauthor={William Blair}}
 \usepackage{booktabs}
 \usepackage{enumitem}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,backgrounds}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage[section]{placeins}
+\definecolor{inkblue}{HTML}{245577}
+\definecolor{inkrust}{HTML}{A54F2A}
+\definecolor{inkgreen}{HTML}{35705B}
+\tikzset{observer/.style={circle,draw,fill=white,minimum size=6mm,inner sep=1pt,font=\small},source/.style={rectangle,draw,fill=black!7,minimum size=5mm,inner sep=2pt,font=\small},causal/.style={-{Latex[length=1.6mm]},thin},network/.style={line width=.8pt},every picture/.style={line cap=round}}
+\setlength{\emergencystretch}{1.5em}
+\setcounter{tocdepth}{1}
 
 \theoremstyle{plain}
 \newtheorem{theorem}{Theorem}[section]
@@ -39,10 +53,20 @@
 
 \begin{document}
 \maketitle
+\vspace{-1em}
 
 \begin{abstract}
-The inflation technique of Wolfe, Spekkens and Fritz tests whether an observed distribution is compatible with a causal structure that has latent common causes. Navascués and Wolfe proved that for correlation scenarios their hierarchy of finite inflation tests is asymptotically complete. They asked whether, for a fixed scenario with fixed observed alphabets, one finite order always suffices, and named the triangle as a possible case of asymptotic-only convergence. We answer the question for every pair-source scenario, in which each latent source is shared by exactly two binary observed variables, so that a scenario is a finite simple graph. A finite order characterizes compatibility if and only if every connected component of the graph is a double-star, a tree of diameter at most three; in that case order two suffices. The same classification holds for the ancestral-independence and recursively expressible strengthenings of the hierarchy, which coincide on every pair-source scenario. For every other graph and every order $t$ there is a strictly positive rational law that passes the strongest order-$t$ test and is incompatible. The obstructions are a parity witness at every order on every cycle and a witness at every order on the five-observer path whose incompatibility is a bilocal inequality; the terminating side is a reconstruction of a model from any order-two witness. For the triangle and the square we measure the failure: laws accepted at order $t$ can lie at total-variation distance of order $1/t$ from the compatible set, while a convex-order argument bounds the distance by a constant times $t^{-1/2}$, so the worst-case convergence exponent lies between $1/2$ and $1$. On the square the two hierarchies differ by at most a factor $3/2$ in the order. For the triangle we also give an explicit nontermination family with a sharp rejecting-order exponent along one direction of approach to the compatible set, the distance asymptotics of that family, an explicit rejecting order under a promised distance, and a $2^{\Theta(B)}$ law for the worst rejecting order over rational inputs of $B$ bits. The triangle nontermination theorem, its fan inequalities, the convex-order bound and the Finner inequality for arbitrary latent spaces are formalized in Lean. The manuscript sources, the exact certificates with their checkers and the Lean development are public at \repo.
+The classical inflation hierarchy converges to the set of distributions compatible with a correlation scenario, but convergence need not occur at a finite order. We classify finite termination for pair-source scenarios with binary observations: some finite order characterizes compatibility if and only if every connected component of the source graph is a tree of diameter at most three. In that case order two suffices. The classification holds for the Navascués--Wolfe hierarchy and its ancestral-independence and recursively expressible strengthenings; the latter two coincide on pair-source scenarios. The proof reconstructs a model on each double-star and constructs incompatible, strictly positive rational laws accepted at every prescribed order on cycles and the five-observer path. For the triangle and square, the largest total-variation distance of an accepted law from compatibility lies between $c/t$ and $C/\sqrt t$. The upper bound follows from a convex-order argument and depends only on the number of observed outcomes. A separate triangle construction gives a first rejecting order of $\Theta(d^{-1/3})$ along an explicit family at distance $d$ from compatibility, and yields a worst required order of $2^{\Theta(B)}$ for rational inputs of $B$ bits. Exact certificates accompany the finite computations. The classification for binary observations and finite latent alphabets, together with several triangle results, is formalized in Lean.
 \end{abstract}
+
+\begingroup
+\footnotesize
+\makeatletter
+\renewcommand\l@section{\@dottedtocline{1}{0em}{1.8em}}
+\makeatother
+\tableofcontents
+\endgroup
+\clearpage
 
 \input{sections/01-introduction}
 \input{sections/02-triangle-inflation}
@@ -51,6 +75,7 @@ The inflation technique of Wolfe, Spekkens and Fritz tests whether an observed d
 \input{sections/14-double-star}
 \input{sections/15-cycles}
 \input{sections/16-five-path}
+\input{sections/17-cycle-quantitative}
 \input{sections/03-nontermination}
 \input{sections/04-fan}
 \input{sections/05-exponent}
@@ -67,11 +92,11 @@ The inflation technique of Wolfe, Spekkens and Fritz tests whether an observed d
 \input{appendices/D-supporting}
 
 \section*{Code and data availability}
-Everything this paper relies on beyond its own text is in one public repository, \repo: the LaTeX sources (\texttt{paper/}), the exact rational certificates with their stdlib-only checkers and replay records (\texttt{artifact/}), the Lean development with its audit script (\texttt{TriangleInflation/}, \texttt{Audit.lean}, \texttt{scripts/check\_axioms.sh}), and the two registry-shaped statements compared by the Palomar Comparator (\texttt{Palomar/}, \texttt{PalomarSolutions/}); the classification theorem is registered as \texttt{PALOMAR-2026-09-14-000009} (version 1). Section~\ref{sec:repro} gives the replay commands and the exact scope of the formalization.
+The manuscript sources, figure-generation script, exact certificates and Lean development are available at \repo. Section~\ref{sec:repro} gives the verification commands and formalization boundaries. The binary, finite-latent classification is registered as \texttt{PALOMAR-2026-09-14-000009}, version~1.
 
 \section*{Acknowledgments}
-The manuscript and the verification code were prepared with substantial assistance from AI systems. All mathematical claims were checked by exact certificates or by hand, and the author takes full responsibility for the content.
+The author used AI systems in preparing the manuscript and verification code and takes responsibility for the content. Section~\ref{sec:repro} distinguishes the analytic proofs, finite certificate checks and Lean formalization.
 
-\bibliographystyle{plain}
+\bibliographystyle{plainurl}
 \bibliography{references}
 \end{document}

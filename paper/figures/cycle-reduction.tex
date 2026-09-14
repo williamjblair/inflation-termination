@@ -1,0 +1,20 @@
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm]
+\foreach \i/\a in {0/120,1/60,2/0,3/-60,4/-120,5/180}{\node[observer,minimum size=5mm] (o\i) at (\a:1.5) {$O_\i$};}
+\draw[network,inkblue,line width=2pt] (o0)--(o1);
+\draw[network,inkrust,line width=2pt] (o2)--(o3);
+\draw[network,inkgreen,line width=2pt] (o4)--(o5);
+\draw[network] (o1)--node[right,font=\scriptsize] {$S_1$}(o2);
+\draw[network] (o3)--node[below,font=\scriptsize] {$S_3$}(o4);
+\draw[network] (o5)--node[left,font=\scriptsize] {$S_5$}(o0);
+\draw[-{Latex}] (2.5,0)--node[above,align=center,font=\small] {multiply within\\each arc}(5,0);
+\node[observer,draw=inkblue] (v1) at (7,1.2) {$V_1$};
+\node[observer,draw=inkrust] (v2) at (8.3,-1) {$V_2$};
+\node[observer,draw=inkgreen] (v3) at (5.7,-1) {$V_3$};
+\draw[network] (v1)--node[right,font=\scriptsize] {$S_1$}(v2)--node[below,font=\scriptsize] {$S_3$}(v3)--node[left,font=\scriptsize] {$S_5$}(v1);
+\node[font=\small] at (0,-2.2) {Example: three arcs of $C_6$};
+\node[font=\small] at (7,-2.2) {$V_r=\prod_{v\in\Lambda_r}O_v$};
+\end{tikzpicture}
+\caption{Reducing cycle incompatibility to triangle parity rigidity. Partition any cycle into three nonempty contiguous arcs and multiply the observations within each arc. The three boundary sources form a triangle; internal sources become private randomness. The target reduces to $\Pi(-q,-q,-q)$, and total variation cannot increase under this map.}\label{fig:cycle-reduction}
+\end{figure}

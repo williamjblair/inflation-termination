@@ -1,0 +1,20 @@
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm]
+\foreach \off/\suffix in {0/a,6/b}{
+\node[source] (X\suffix) at (\off,1.2) {\ifnum\off=0 $X$\else $X_i$\fi};
+\node[source] (Z\suffix) at (\off+1.8,1.2) {\ifnum\off=0 $Z$\else $Z_j$\fi};
+\node[source] (Y\suffix) at (\off+3.6,1.2) {\ifnum\off=0 $Y$\else $Y_k$\fi};
+\node[observer] (A\suffix) at (\off+0.3,-.5) {\ifnum\off=0 $A$\else $A^{ij}$\fi};
+\node[observer] (B\suffix) at (\off+1.8,-.5) {\ifnum\off=0 $B$\else $B^{ik}$\fi};
+\node[observer] (C\suffix) at (\off+3.3,-.5) {\ifnum\off=0 $C$\else $C^{jk}$\fi};
+\draw[causal] (X\suffix)--(A\suffix); \draw[causal] (X\suffix)--(B\suffix);
+\draw[causal] (Z\suffix)--(A\suffix); \draw[causal] (Z\suffix)--(C\suffix);
+\draw[causal] (Y\suffix)--(B\suffix); \draw[causal] (Y\suffix)--(C\suffix);
+}
+\node[font=\small] at (1.8,-1.2) {Original scenario};
+\node[font=\small] at (8.3,-1.2) {One copied triangle $\Delta_{ijk}$};
+\draw[-{Latex},black!50] (4.3,.4)--node[above,font=\small] {copy}(5.8,.4);
+\end{tikzpicture}
+\caption{Sources (squares) and observations (circles) in the triangle. Each copied observation carries the indices of its two source parents. Diagonal triangles $\Delta_{\ell\ell\ell}$ use disjoint source copies; the NW test requires their joint law to be $P^{\otimes t}$. The full order-$t$ table includes all $3t^2$ copied observations.}\label{fig:triangle}
+\end{figure}

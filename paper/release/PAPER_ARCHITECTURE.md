@@ -1,3 +1,5 @@
+> Historical audit retained from before the editorial revision. For current section numbers, corrections, deferred results and validation, see `paper/review/EDITORIAL_REVIEW.md` and the opening update in `RELEASE_STATUS.md`.
+
 # Paper architecture
 
 chosen_structure: OPTION 2 — focused flagship now; faithfulness / strong

@@ -7,15 +7,17 @@ A path is a tree, and trees carry no parity obstruction of the kind used in Sect
 \[
 A(X),\qquad B(X,L),\qquad C(L,R),\qquad D(R,Z),\qquad E(Z),
 \]
-with $X,L,R,Z$ mutually independent. We write $\Cpath$ for its compatible set, record the endpoint observations $A,E$ as bits $x,z$ and the middle observations $B,C,D$ as signs. The order-$t$ inflation of Definition~\ref{def:ginflation} has copies $X_a,L_i,R_j,Z_e$, $a,i,j,e\in[t]$, and the $3t^2+2t$ copied observations
+with $X,L,R,Z$ mutually independent (Figure~\ref{fig:path}). We write $\Cpath$ for its compatible set, record the endpoint observations $A,E$ as bits $x,z$ and the middle observations $B,C,D$ as signs. The order-$t$ inflation of Definition~\ref{def:ginflation} has copies $X_a,L_i,R_j,Z_e$, $a,i,j,e\in[t]$, and the $3t^2+2t$ copied observations
 \[
 A^a,\qquad B^{ai},\qquad C^{ij},\qquad D^{je},\qquad E^e .
 \]
 
+\input{figures/path}
+
 \subsection{The target}\label{sec:pathtarget}
 
 \begin{definition}[Path target]\label{def:pathtarget}
-For $0<h<1$ let
+For $0<h<1$ define the law $P_h$ by
 \begin{equation}\label{eq:pathtarget}
 P_h(x,b,c,d,z)=\frac1{32}\Bigl[1+bcd\,\frac{1+h}4\bigl(1+(-1)^{x+z}\bigr)\Bigr],
 \qquad x,z\in\{0,1\},\ b,c,d\in\{-1,1\}.
@@ -104,7 +106,7 @@ For every $t\ge1$ put $\gamma=1/(4t)$ and $h_t=\gamma^2=1/(16t^2)$. Then
 \[
 P_{h_t}\in\Iexp_t(P_5)=\IAI_t(P_5),\qquad P_{h_t}\notin\Cpath ,
 \]
-with a strictly positive rational witness. Consequently $\tmin^H(P_{h_t})>t$ for $H\in\{\mathrm{NW},\mathrm{AI},\mathrm{exp}\}$, no finite order of any of the three hierarchies characterizes $\Cpath$, and
+with a strictly positive rational target and a rational witness. Consequently $\tmin^H(P_{h_t})>t$ for $H\in\{\mathrm{NW},\mathrm{AI},\mathrm{exp}\}$, no finite order of any of the three hierarchies characterizes $\Cpath$, and
 \[
 d_{\TV}(P_{h_t},\Cpath)\ \ge\ \frac1{1536\,t^2}.
 \]
@@ -133,9 +135,9 @@ C^{ij}=\begin{cases}r_is_j,&u_i=v_j,\\ r_is_j\nu_{ij},&u_i\ne v_j,\end{cases}\qq
 D^{je}=s_j\,v_j^{Z_e},\qquad
 E^e=Z_e .
 \end{equation}
-Each copied observation is a function of the data attached to its copied parents together with its own private sign: $r_i$ and $u_i$ belong to $L_i$, and $s_j$ and $v_j$ to $R_j$. Call the resulting law $\Gamma_t$; by \eqref{eq:Htpos} it is strictly positive and rational. As in Section~\ref{sec:construction}, $\Gamma_t$ is a law on the copied observations and not the output of an inflated model: under $H_t$ the families $u$ and $v$ are correlated.
+Each copied observation is a function of the data attached to its copied parents together with its own private sign: $r_i$ and $u_i$ belong to $L_i$, and $s_j$ and $v_j$ to $R_j$. Call the resulting law $\Gamma_t$. It is a nonnegative rational probability law; the auxiliary density is strictly positive, while the observed table can have zero entries. As in Section~\ref{sec:construction}, $\Gamma_t$ is a law on the copied observations and not the output of an inflated model: under $H_t$ the families $u$ and $v$ are correlated.
 
-\emph{Formal weights.} Give each $u_i$ the complex weight $(1+i\gamma u_i)/2$ and each $v_j$ the weight $(1-i\gamma v_j)/2$, and keep the actual probabilities of $X,Z,r,s,\nu$. Write $\E_\ast$ for the resulting formal expectation, a product functional in which all $2t+2t+t^2+2t$ coordinate families are independent, with $\E_\ast u_i=i\gamma$ and $\E_\ast v_j=-i\gamma$. Since the weights of the auxiliary coordinates multiply to a complex number whose real part is $H_t$, and the other coordinates carry real weights,
+\emph{Formal weights.} Give each $u_i$ the complex weight $(1+i\gamma u_i)/2$ and each $v_j$ the weight $(1-i\gamma v_j)/2$, and keep the actual probabilities of $X,Z,r,s,\nu$. Write $\E_\ast$ for the resulting formal expectation, a product functional on the $6t+t^2$ auxiliary coordinates, with $\E_\ast u_i=i\gamma$ and $\E_\ast v_j=-i\gamma$. Since the weights of the auxiliary coordinates multiply to a complex number whose real part is $H_t$, and the other coordinates carry real weights,
 \begin{equation}\label{eq:realpart}
 \E_{\Gamma_t}[F]=\Real\,\E_\ast[F]\qquad\text{for every real-valued }F .
 \end{equation}
@@ -172,4 +174,4 @@ Along this family the first rejecting order grows without bound while the target
 \[
 P_{h_t}(x,b,c,d,z)\ \ge\ \frac{1-h_t}{64}\ \ge\ \frac{15}{1024}
 \]
-for every $t$ and every atom. The obstruction therefore does not come from vanishing probabilities. The distance to $\Cpath$ shrinks at rate $t^{-2}$, faster than the rate $t^{-1/2}$ that Theorem~\ref{thm:convexorder} forces; whether the path carries survivors at distance of order $t^{-1}$, as the square and the triangle do, is not settled here.
+for every $t$ and every atom. The obstruction therefore does not come from vanishing probabilities. The theorem supplies a distance lower bound of order $t^{-2}$; it does not determine this family's distance asymptotics. The general upper bound is $O(t^{-1/2})$. Whether the path admits accepted laws at distance $\Omega(t^{-1})$, as the triangle and square do, remains open.

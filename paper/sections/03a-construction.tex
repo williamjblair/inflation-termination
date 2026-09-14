@@ -18,13 +18,15 @@ B^{ik}&=\one\bigl\{N_{B^{ik}}=0\text{ and }D_{ijk}=0\ \forall j\bigr\},\\
 C^{jk}&=\one\bigl\{N_{C^{jk}}=0\text{ and }D_{ijk}=0\ \forall i\bigr\}.
 \end{aligned}
 \end{equation}
-So $A^{ij}$ reads the line of cells $\Lambda(A^{ij})=\{(i,j,k):k\in[t]\}$, $B^{ik}$ the line $\Lambda(B^{ik})=\{(i,j,k):j\in[t]\}$, and $C^{jk}$ the line $\Lambda(C^{jk})=\{(i,j,k):i\in[t]\}$; each output equals $1$ exactly when its private bit and every defect on its line are $0$. Let $\Gamma_t$ be the joint law of the outputs. For $s=0$ its entries are
+Figure~\ref{fig:defect-cube} shows the line geometry: $A^{ij}$ reads the line of cells $\Lambda(A^{ij})=\{(i,j,k):k\in[t]\}$, $B^{ik}$ the line $\Lambda(B^{ik})=\{(i,j,k):j\in[t]\}$, and $C^{jk}$ the line $\Lambda(C^{jk})=\{(i,j,k):i\in[t]\}$; each output equals $1$ exactly when its private bit and every defect on its line are $0$. Let $\Gamma_t$ be the joint law of the outputs. For $s=0$ its entries are
 \begin{equation}\label{eq:table}
-\Gamma_t(w)=\sum_{d\in\{0,1\}^{[t]^3}:\,F_t(d)=w}\eps^{|d|}(1-\eps)^{t^3-|d|},
+\Gamma_t(w)=\sum_{d\in\{0,1\}^{[t]^3}:\,F_t(d)=w}\eps^{|d|}(1-\eps)^{t^3-|d|}.
 \end{equation}
 For rational $\eps$, these entries are rational. Here $F_t$ is the map \eqref{eq:outputs} from defect configurations to observed assignments. The entries are nonnegative and sum to $(\eps+1-\eps)^{t^3}=1$.
 
 $\Gamma_t$ does not come from running an inflated triangle model; it is a probability law on the copied observations, which is what a finite inflation test asks for.
+
+\input{figures/defect-cube}
 
 \begin{lemma}[Disjoint ancestry gives disjoint inputs]\label{lem:disjoint}
 If two sets of copied observations have disjoint copied latent ancestry in the order-$t$ inflation, then their defect lines and their private bits are disjoint, and the two sets of outputs are independent under $\Gamma_t$.

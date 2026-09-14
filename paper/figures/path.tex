@@ -1,0 +1,16 @@
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm]
+\foreach \v/\x in {A/0,B/2.4,C/4.8,D/7.2,E/9.6}{\node[observer] (\v) at (\x,0) {$\v$};}
+\foreach \s/\x/\a/\b in {X/1.2/A/B,L/3.6/B/C,R/6/C/D,Z/8.4/D/E}{
+\node[source] (\s) at (\x,1.2) {$\s$};
+\draw[causal] (\s)--(\a);\draw[causal] (\s)--(\b);
+}
+\node[font=\small,below=3mm of A] {$x\in\{0,1\}$};
+\node[font=\small,below=3mm of E] {$z\in\{0,1\}$};
+\node[font=\small,align=center] at (4.8,-1.25) {Condition on the endpoint outcomes $x,z$:\\$f_{xz}=\mathbb E_{L,R}[b_x(L)c(L,R)d_z(R)]$};
+\draw[inkblue,line width=1pt] (2.1,-.6)--(7.5,-.6);
+\node[font=\small,align=center] at (4.8,-2.25) {Compatibility: $\sqrt{|I|}+\sqrt{|J|}\le1$\qquad Target: $I=J=(1+h)/4$};
+\end{tikzpicture}
+\caption{The five-observer path. Conditioning on $A=x$ and $E=z$ changes only the outer sources $X,Z$; the inner sources $L,R$ remain independent. This gives the bilocal inequality. The target violates it by $\sqrt{1+h}-1$ while retaining full support.}\label{fig:path}
+\end{figure}

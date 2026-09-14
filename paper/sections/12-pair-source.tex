@@ -3,7 +3,7 @@
 \providecommand{\Cscen}[1]{\mathcal C_{#1}}
 \providecommand{\supp}{\operatorname{supp}}
 
-The triangle is one member of a family of scenarios indexed by finite graphs. We fix that family, write the three finite tests of Section~\ref{sec:setup} for it, and prove the three lemmas used in Section~\ref{sec:classification}: the two stronger tests coincide, blocks of observers with disjoint sources are independent from order two on, and witnesses transport along induced subgraphs.
+We extend the triangle definitions to pair-source graphs and prove the structural lemmas needed for the classification.
 
 \subsection{Scenarios}
 
@@ -19,7 +19,7 @@ Each source is read by exactly the two endpoints of its edge. The triangle of Se
 
 Sources shared by three or more observers, and latent variables with latent parents, are outside this definition; see Remark~\ref{rem:hypergraph}.
 
-Assign each vertex $v$ an independent random seed and append it to the source of one edge at $v$, to be ignored by the other endpoint. The graph is unchanged and the seed makes the response at $v$ deterministic, so stochastic and deterministic responses generate the same set $\Cscen{G}$ \cite{WSF2019}. The seed needs an edge to hide on, which is why the definition excludes isolated vertices.
+Assign each vertex $v$ an independent random seed and append it to the source of one edge at $v$, to be ignored by the other endpoint. The graph is unchanged and the seed makes the response at $v$ deterministic, so stochastic and deterministic responses generate the same set $\Cscen{G}$ \cite{WSF2019}. The assumption that no vertex is isolated ensures an incident edge is available.
 
 \subsection{Inflation at order \texorpdfstring{$t$}{t}}
 

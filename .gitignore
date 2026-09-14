@@ -6,3 +6,5 @@ __pycache__/
 *.py[cod]
 **/.lake/
 .DS_Store
+/tmp/
+/paper/release/arxiv-build.log
