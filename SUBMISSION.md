@@ -1,5 +1,14 @@
 # Submitting these statements to Palomar
 
+**Status 2026-09-14:** the classification statement is registered as
+`PALOMAR-2026-09-14-000009` version 1
+(https://palomar-registry.org/entry.html?id=PALOMAR-2026-09-14-000009&version=1) from commit
+`93cc53f1`, after two revision rounds (the compared statement now carries the order-two
+clause; the classification tags, the Boreiri 2023 author list and the Navascués–Wolfe source
+were corrected in `formalization.yaml`; the proof account was made accurate). The manuscript
+now cites the record, and a version 2 from the commit carrying the citation is filed with
+`existing_id`. The checklist below is kept as the record of the procedure.
+
 Nothing in this repository submits anything, and nothing in it has been pushed anywhere.
 This file is the remaining checklist, for the author to work through by hand. Every step
 below is a deliberate act: creating a public repository, pushing it, and registering a
