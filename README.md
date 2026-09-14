@@ -47,7 +47,7 @@ least `ε_t²/2 > 0`.
 
 ## Formalization boundaries
 
-Three, all in the safe direction for the theorem as stated. They are recorded in the header
+Three, all recorded as scope restrictions of the theorem as stated. They are recorded in the header
 of `TriangleInflation/Defs.lean`, restated in `Palomar/TriangleInflation/Challenge.lean`,
 and in `formalization.yaml` under `fidelity.divergences`.
 
@@ -56,7 +56,7 @@ and in `formalization.yaml` under `fidelity.divergences`.
    latent spaces. The reduction to bounded finite alphabets (Rosset, Gisin and Wolfe, 2018)
    is quoted in the paper and is *not* formalized. The formal compatible set is therefore a
    priori a subset of the paper's `C_△`, so the formalized `¬ TriangleCompatible P` is the
-   weaker of the two readings — and it is what the theorem asserts.
+   weaker of the two readings, and it is what the theorem asserts.
 2. **The recursively expressible hierarchy is not formalized.** The paper's `I^exp_t`
    (Definition 2.3) needs `d`-separation in the inflated causal graph and the
    Wolfe–Spekkens–Fritz recursion. Only `I^NW_t` and `I^AI_t` are defined here. Since
@@ -111,7 +111,7 @@ Comparator compares the two statements constant by constant, so every constant i
 statement has to be identical, by name and by definition body, in the two import closures.
 The statement mentions `ThreeBit`, `IsLaw`, `AIFeasible`, `NWFeasible` and
 `TriangleCompatible`, which are project definitions, and the Challenge may not import the
-project — so the Challenge carries them itself. `scripts/gen_challenge.py` writes
+project, so the Challenge carries them itself. `scripts/gen_challenge.py` writes
 `Challenge.lean` as the Mathlib imports of `TriangleInflation/Defs.lean`, a
 Challenge-specific header, the body of that file verbatim from `namespace
 TriangleInflation` to its close, and the theorem. `scripts/check_axioms.sh` runs the
@@ -158,7 +158,7 @@ canonical `master`. Mathlib is the only dependency.
 | Paper | Statement | Status | Lean |
 |---|---|---|---|
 | Def. 2.1, 2.2 | `I^NW_t`, injectable sets, ancestral independence, `I^AI_t` | proved | `nwFeasible_of_aiFeasible`, `injectable_iff_injectableRaw` |
-| Def. 2.3 | the recursively expressible set `I^exp_t` | unformalized | — |
+| Def. 2.3 | the recursively expressible set `I^exp_t` | unformalized | none |
 | §2.1 | the compatible set `C_△` | partial (finite latent alphabets) | `TriangleCompatible`, `finner_of_compatible` |
 | Lem. 3.3 | disjoint-ancestry independence | proved | `defect_independence`, `defect_independence_family`, `rootSupport_disjoint` |
 | Lem. 3.4 | the copied-triangle law and the parameter `s` | proved | `defect_copiedTriangle_law`, `sParam_mem_Icc` |
@@ -172,9 +172,9 @@ canonical `master`. Mathlib is the only dependency.
 | Thm. 4.1 | the order-`t` fan inequalities and the rejecting-order corollary | partial | `fan_first`, `fan_second`, `tminNW_le_of_finner_violation` |
 | Prop. 4.2 | `R_p` has rejecting order 2 at every distance | partial | `Rlaw_tminNW`, `Rlaw_tminAI` |
 | Prop. 5.1 | `t_min(P_ε) = Θ(ε^{-1/3})` | partial (finite parts) | `Peps_tminNW_bounds`, `Peps_tminAI_bounds` |
-| Thm. 6.1, Cor. 6.2 | distance asymptotics | unformalized | — |
+| Thm. 6.1, Cor. 6.2 | distance asymptotics | unformalized | none |
 | Prop. 7.1 | the distance-promised order bound | partial | `rate_triangle` |
-| Prop. 8.1 | the `2^{Θ(B)}` bit-length law | unformalized | — |
+| Prop. 8.1 | the `2^{Θ(B)}` bit-length law | unformalized | none |
 
 All declarations are in the namespace `TriangleInflation`.
 
