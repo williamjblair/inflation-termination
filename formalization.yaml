@@ -2,51 +2,71 @@
 version: "v0.4"
 
 project:
-  name: "Nontermination of the classical inflation hierarchy for the triangle scenario"
+  name: "Termination of the classical inflation hierarchy on pair-source networks"
   description: >-
-    A machine-checked Lean 4 proof that no finite order of the classical inflation
-    hierarchy characterizes compatibility in the binary triangle causal scenario. The
-    headline theorem, TriangleInflation.no_finite_characterizing_order, says that for
-    every order t ≥ 1 there is a three-bit law P that is a probability law, that is
-    feasible at order t for the ancestral-independence hierarchy I^AI_t and hence for the
-    Navascués–Wolfe hierarchy I^NW_t, and that is not triangle compatible. This answers,
+    Machine-checked Lean 4 proofs of two theorems about the classical inflation hierarchy.
+    The headline theorem, TriangleInflation.Graph.classification_NW, classifies the
+    scenarios on which the hierarchy terminates: for a pair-source scenario with binary
+    observations, some finite Navascués–Wolfe order characterizes compatibility iff every
+    connected component is a double-star, and then order two suffices. A pair-source
+    scenario is a finite simple graph without isolated vertices, one binary observed
+    variable per vertex and one independent latent source per edge; a double-star is a tree
+    of diameter at most three. The terminating half reconstructs a model on a double star
+    from its order-two inflation. The nonterminating half supplies, at every order, a
+    strictly positive law that passes the order-t test and has no model: a parity target on
+    an induced cycle or a bilocal target on an induced five-observer path, moved to the
+    ambient graph by induced-subgraph transport and made positive by independent local
+    flips. The same development proves the classification for the ancestral-independence
+    and recursively expressible hierarchies, and proves that the latter two coincide on
+    every pair-source scenario.
+    The second theorem, TriangleInflation.no_finite_characterizing_order, is the triangle
+    case made quantitative: for every order t ≥ 1 there is an explicit rational three-bit
+    law that is feasible at order t for the ancestral-independence hierarchy I^AI_t, hence
+    for the Navascués–Wolfe hierarchy I^NW_t, and is not triangle compatible. This answers,
     in the negative for the triangle, the question Navascués and Wolfe (2020, §4.1) raise
     about whether some finite order settles exact compatibility; their hierarchy is
-    asymptotically complete, so each incompatible law is rejected at some finite order,
-    but the rejecting order cannot be bounded uniformly. The witnesses are the explicit
-    rational family P_t = Q(ε_t, r_t) with ε_t = 1/(2t³) and r_t = (1 − ε_t)^(t−1), where
+    asymptotically complete, so each incompatible law is rejected at some finite order, but
+    the rejecting order cannot be bounded uniformly. The witnesses are
+    P_t = Q(ε_t, r_t) with ε_t = 1/(2t³) and r_t = (1 − ε_t)^(t−1), where
     Q(ε,r) = ε δ_000 + (1 − ε) Bern(r)^⊗3. Membership is proved by an explicit inflation
     law on the order-t copied observations: independent Bernoulli defect bits on the cube
-    [t]³ of source-copy indices together with independent private bits, with an
-    observation outputting 1 exactly when its private bit and every defect on its line
-    vanish. That law is S_t³-symmetric, has the tensor power P^⊗t as its diagonal law, and
-    satisfies the injectable-marginal and ancestral-independence prescriptions.
-    Incompatibility comes from the Finner inequality P(000)² ≤ P_A(0) P_B(0) P_C(0),
-    proved here for finite latent alphabets and stochastic responses, which P_t violates
-    by at least ε_t²/2 > 0. The library also formalizes the order-t fan inequalities and
-    their rejecting-order corollary, the family R_p with rejecting order 2 at every
-    distance, the Θ(ε^{-1/3}) bounds on the first rejecting order along P_ε, and the
-    order-t second-moment rate bound. The registry statement in
-    Palomar/TriangleInflation/Challenge.lean imports Mathlib alone and carries the
-    definitions verbatim from TriangleInflation/Defs.lean.
+    [t]³ of source-copy indices together with independent private bits, with an observation
+    outputting 1 exactly when its private bit and every defect on its line vanish. That law
+    is S_t³-symmetric, has the tensor power P^⊗t as its diagonal law, and satisfies the
+    injectable-marginal and ancestral-independence prescriptions. Incompatibility comes
+    from the Finner inequality P(000)² ≤ P_A(0) P_B(0) P_C(0), which P_t violates by at
+    least ε_t²/2 > 0; the inequality is proved both for finite latent alphabets and, in
+    FinnerMeasure.lean, for arbitrary measurable latent spaces.
+    The library also formalizes the order-t fan inequalities and their rejecting-order
+    corollary, the family R_p with rejecting order 2 at every distance, the Θ(ε^{-1/3})
+    bounds on the first rejecting order along P_ε, the order-t second-moment rate bound and
+    its convex-order sharpening, the quantitative parity rigidity behind the cycle distance
+    bound, and the triangle witness at q = 1/(16t). The two registry statements in
+    Palomar/TriangleInflation/ import Mathlib alone and carry their definitions verbatim
+    from TriangleInflation/Defs.lean and TriangleInflation/Graph/Defs.lean.
   authors: ["William Blair"]
   responsible_maintainers: ["William Blair"]
   license: "MIT"
 
 sources:
-  - title: "Inflation for the Classical Triangle: Nontermination and Quantitative Complexity"
+  - title: "Inflation for Classical Pair-Source Networks: Termination and Quantitative Obstructions"
     authors: ["William Blair"]
     id: "paper/main.pdf (this repository; not yet posted to arXiv)"
     type: "preprint"
-    location: "Theorem 3.2 (thm:main) and the corollary that follows it; the construction is Section 3.1, the incompatibility Section 3.2, the injectable-set characterization Appendix A"
+    location: >-
+      Theorem 4.2 (thm:classification), Section 4, with the reconstruction half in Section 5
+      and the witnesses in Sections 6 and 7; Theorem 8.2 (thm:main) and the corollary that
+      follows it, with the construction in Section 8.1, the incompatibility in Section 8.2
+      and the injectable-set characterization in Appendix A; the formal-verification
+      statement is Section 16 (sections/11-reproducibility.tex)
     relationship: "formalizes"
     author_endorsement: "participated"
     note: >-
       The manuscript is included in this repository under paper/ (main.pdf and its LaTeX
-      sources) together with its claim, non-claim, priority and reproduction documents
-      under paper/release/. It is not yet posted to arXiv; this registry entry is intended
-      to precede it and to be cited by it. Its Section 11 ("Formal verification") and
-      paper/release/NONCLAIMS.md state exactly what this repository proves and what it
+      sources) together with its claim, non-claim, priority, reproduction and release
+      documents under paper/release/. It is not yet posted to arXiv; this registry entry is
+      intended to precede it and to be cited by it. Its Section 16 ("Formal verification")
+      and paper/release/NONCLAIMS.md state exactly what this repository proves and what it
       leaves unformalized.
   - title: "Inflation for quantum causal structures"
     authors: ["Miguel Navascués", "Elie Wolfe"]
@@ -56,10 +76,10 @@ sources:
     relationship: "background"
     author_endorsement: "not-contacted"
     note: >-
-      The question this theorem answers for the triangle, and the source of the
-      asymptotic completeness the theorem is set against. Their §4.1 non-termination
-      result concerns causal optimization, not compatibility, and is the strongest
-      located predecessor (paper/release/PRIORITY_AUDIT.md).
+      The question both theorems answer, and the source of the asymptotic completeness they
+      are set against. Their §4.1 non-termination result concerns causal optimization, not
+      compatibility, and is the strongest located predecessor
+      (paper/release/PRIORITY_AUDIT.md).
   - title: "The inflation technique for causal inference with latent variables"
     authors: ["Elie Wolfe", "Robert W. Spekkens", "Tobias Fritz"]
     id: "https://doi.org/10.1515/jci-2017-0020"
@@ -69,7 +89,9 @@ sources:
     author_endorsement: "not-contacted"
     note: >-
       The definitions formalized as Injectable, AncestrallyIndependent and AIFeasible in
-      TriangleInflation/Defs.lean, specialized to the triangle.
+      TriangleInflation/Defs.lean for the triangle, and as GInjectable, IsAISet, Expressible
+      and GExpFeasible in TriangleInflation/Graph/Defs.lean for a general pair graph. The
+      gluing rule of their Definition 7 is glueLaw.
   - title: "A generalization of Hölder's inequality and some probability inequalities"
     authors: ["Helmut Finner"]
     id: "https://doi.org/10.1214/aop/1176989541"
@@ -95,32 +117,63 @@ sources:
     relationship: "background"
     author_endorsement: "n/a"
     note: >-
-      Quoted, not formalized. It is what justifies the finite-latent-alphabet
-      formalization boundary of TriangleCompatible; see fidelity.divergences.
+      Quoted, not formalized. It is what would justify reading the graph development's
+      finite-latent compatible set as the general one; see fidelity.divergences.
+  - title: "Towards a minimal example of quantum nonlocality without inputs"
+    authors: ["Sadra Boreiri", "Antoine Girardin", "Bo Yang", "Nicolas Brunner", "Pavel Sekatski"]
+    id: "https://doi.org/10.1103/PhysRevA.107.062413"
+    type: "paper"
+    location: "exact parity rigidity for classical models of perfect-correlation targets on cycles"
+    relationship: "background"
+    author_endorsement: "not-contacted"
+    note: >-
+      The exact rigidity statement that TriangleInflation.Graph.parity_rigidity formalizes
+      for the cycle target. The quantitative form used for the distance bound,
+      CycleModelAux.quant_rigidity, is proved here and is not theirs.
 
 related_formalizations: []
 
 classification:
   arxiv: ["quant-ph", "math.ST", "cs.LO"]
-  msc2020: ["81P13", "62A09", "68Q17", "60E15"]
+  msc2020: ["81P13", "62A09", "68Q17", "60E15", "05C90"]
 
 status:
   scope: >-
-    Complete, kernel-checked proof of the headline nontermination theorem and of the
-    supporting development it rests on: the Finner inequality for finite-latent triangle
-    models, the defect-cube inflation law and its symmetry, diagonal and injectable
-    marginals, ancestral independence from disjoint root supports, the explicit violation
-    margin, the order-t fan inequalities and their rejecting-order corollary, the family
-    R_p, the Θ(ε^{-1/3}) bounds along P_ε, and the order-t second-moment rate bound. The
-    registry-shaped statement in Palomar/TriangleInflation/ is one Comparator comparison: a
-    Challenge importing only Mathlib, a Solution delegating to the library proof, and the
-    configuration naming the compared declaration. Audit.lean prints the axioms of the
-    registry statement and of every library theorem the manuscript's coverage table names;
-    scripts/check_axioms.sh is the gate.
+    Two complete, kernel-checked developments, with one registry statement each.
+    The pair-source graph development (TriangleInflation/Graph/, 17 modules) proves the
+    classification theorem for all three hierarchies, the coincidence of the recursively
+    expressible and ancestral-independence tests, soundness and nesting of the three tests,
+    the trail criterion and the root-sink lemma, source-disjoint independence at order two,
+    induced-subgraph transport, the exhaustion lemma, the double-star reconstruction with
+    its labelling step, the cycle target with exact and quantitative parity rigidity, its
+    witness at every order, its incompatibility and its distance bound, the corrected
+    Fourier density in the triangle case and the triangle witness at q = 1/(16t), the
+    five-path target with the bilocal inequality, its distance bound and its witness at
+    every order, local flips, and the bridge identifying the triangle case with the triangle
+    module. Observed variables are binary and latent alphabets finite throughout.
+    The triangle development (TriangleInflation/) proves the nontermination theorem and the
+    supporting work it rests on: the Finner inequality for finite-latent triangle models and,
+    in FinnerMeasure.lean, for arbitrary measurable latent spaces; the defect-cube inflation
+    law with its symmetry, diagonal and injectable marginals; ancestral independence from
+    disjoint root supports; the explicit violation margin; the order-t fan inequalities and
+    their rejecting-order corollary; the family R_p; the Θ(ε^{-1/3}) bounds along P_ε; the
+    order-t second-moment rate bound and the convex-order sharpening with the bound
+    √7/(2√t).
+    Palomar/TriangleInflation/ holds two Comparator comparisons, each a Challenge importing
+    only Mathlib, a Solution delegating to the library proof, and a configuration naming the
+    compared declaration. Audit.lean prints the axioms of both registry statements and of
+    every library declaration the Coverage table of README.md names; scripts/check_axioms.sh
+    is the gate.
   sorry_count: 0
   sorry_in_definitions: 0
   axioms: ["propext", "Classical.choice", "Quot.sound"]
   main_results:
+    - declaration: "TriangleInflation.Graph.classification_NW"
+      file: "PalomarSolutions/TriangleInflationClassification.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "Palomar/TriangleInflation/classification-comparator.json"
+      literature_dependencies: []
     - declaration: "TriangleInflation.no_finite_characterizing_order"
       file: "PalomarSolutions/TriangleInflation.lean"
       sorry_count: 0
@@ -134,50 +187,80 @@ automation:
       models: ["claude-opus-5", "claude-fable-5-1"]
       framework: "Claude Code agent sessions"
       tool_setup: >-
-        The Lean development was produced in Claude Code agent sessions directed and audited by
-        the author: Claude Fable 5.1 planned the file layout, reviewed every theorem statement
-        against the manuscript before proofs were attempted, and audited the result; Claude
-        Opus 5 subagents wrote the definitions skeleton and the proofs, one file each, in
-        parallel. It was produced alongside an exact-rational certificate suite that checks the order 1, 2
-        and 3 inflation linear programs and the fan certificates independently of Lean.
-        Those certificates are described in paper/release/REPRODUCE.md and appendix
-        paper/appendices/C-certificates.tex; the Lean proofs are analytic and do not depend
-        on them. Exact model identifiers and per-session costs were not recorded and are not
-        reconstructed here.
+        The triangle development was produced in Claude Code agent sessions directed and
+        audited by the author: Claude Fable 5.1 planned the file layout, reviewed every
+        theorem statement against the manuscript before proofs were attempted, and audited
+        the result; Claude Opus 5 subagents wrote the definitions skeleton and the proofs,
+        one file each, in parallel. It was produced alongside an exact-rational certificate
+        suite that checks the order 1, 2 and 3 inflation linear programs and the fan
+        certificates independently of Lean. Those certificates are described in
+        paper/release/REPRODUCE.md and appendix paper/appendices/C-certificates.tex; the
+        Lean proofs are analytic and do not depend on them. Exact model identifiers and
+        per-session costs were not recorded for these sessions and are not reconstructed
+        here.
       prompting_notes: >-
         The manuscript was written first and the formalization follows it theorem by
-        theorem; the statement-to-declaration correspondence is the table reproduced in
-        README.md under "Coverage".
+        theorem; the statement-to-declaration correspondence is the Coverage table of
+        README.md.
+    - method: "agent"
+      models: ["claude-fable-5-1", "claude-opus-5"]
+      framework: "Claude Code agent sessions, 2026-09-14"
+      tool_setup: >-
+        The pair-source graph development, FinnerMeasure.lean and ConvexOrder.lean were
+        produced on 2026-09-14 in the same way, at larger scale: Claude Fable 5.1 wrote the
+        definitions file and the statement skeletons, directed the session and audited every
+        finished module against the manuscript; Claude Opus 5 subagents proved one module
+        each, in parallel, each reporting back the statements it had to change. Two
+        skeleton statements were found false by the provers and removed rather than
+        weakened; each removal is recorded in the header of the module it was cut from.
+        The classification-set certificates (cycles, five-path, square, triangle, low-order
+        square) were replayed independently of Lean; the Lean proofs do not depend on them.
+      prompting_notes: >-
+        Each subagent was given the manuscript section, the definitions file and one module
+        to prove, and was told to report any statement it could not prove as stated rather
+        than adjust it silently. The one statement that survived as unproved, the square
+        witness of Theorem 6.11, is kept outside this repository.
   spend_usd: "not reconstructed"
   notes: >-
     lake build followed by scripts/check_axioms.sh is the whole gate: it refuses a literal
-    sorry or admit anywhere under TriangleInflation/ or PalomarSolutions/, requires the
-    Challenge to carry exactly one sorry, regenerates the Challenge from
-    TriangleInflation/Defs.lean and fails if the file on disk differs, and fails on any
-    axiom outside propext, Classical.choice and Quot.sound.
+    open proof anywhere under TriangleInflation/ or PalomarSolutions/, requires each of the
+    two Challenges to carry exactly one, regenerates both Challenges from
+    TriangleInflation/Defs.lean and TriangleInflation/Graph/Defs.lean and fails if a file on
+    disk differs, and fails on any axiom outside propext, Classical.choice and Quot.sound.
 
 fidelity:
   divergences: >-
-    Three recorded boundaries, all recorded as scope restrictions of the theorem as stated. (1)
-    Finite latent alphabets: TriangleCompatible quantifies over TriangleModels whose three
-    latent spaces are Fintypes, where the paper (Section 2) allows arbitrary measurable
-    latent spaces. The reduction to bounded finite alphabets (Rosset–Gisin–Wolfe 2018) is
-    quoted in the paper and is not formalized, so the formal compatible set is a priori a
-    subset of the paper's C_tri and the formalized "not triangle compatible" is the weaker
-    of the two readings. (2) The recursively expressible hierarchy I^exp_t (paper
-    Definition 2.3) is not formalized: it needs d-separation in the inflated causal graph
-    and the Wolfe–Spekkens–Fritz recursion. Only I^NW_t (NWFeasible) and I^AI_t
-    (AIFeasible) are defined, and the theorem asserts membership in the stronger of those
-    two; since I^exp_t ⊆ I^AI_t ⊆ I^NW_t, the formalized membership is the weaker half of
-    the paper's Theorem 3.1. (3) Laws are bare real weight functions on finite types with
-    the predicate IsLaw, not Mathlib Measures or PMFs; all inequalities are real-valued.
-    The first rejecting order t_min is Nat.sInf of the set of rejecting orders, which
-    returns 0 when that set is empty, so every statement about it either exhibits a
-    rejecting order or assumes one; asymptotic completeness itself is quoted from
-    Navascués–Wolfe, not formalized. Paper results outside this development: Theorem 6.1
-    and Corollary 6.2 (distance asymptotics) and Proposition 8.1 (the 2^{Θ(B)} bit-length
-    law) are unformalized, and Propositions 5.1 and 7.1 are formalized in their finite
-    parts only.
+    The graph development. (1) Observed variables are binary: outcomes are Bool. The
+    manuscript's Remark 4.4 extends the classification to any fixed finite observed
+    alphabets, and that transfer is not formalized. (2) Latent alphabets are finite:
+    GCompatible quantifies over a GModel whose latent spaces are Fintypes, where the
+    mathematics allows arbitrary measurable latent spaces. The formal compatible set is
+    therefore a priori a subset of the general one, so "not compatible" is the weaker of the
+    two readings, and the nonterminating half of the classification asserts the weaker one.
+    (3) The recursively expressible test IS formalized on the graph side: dsep is the trail
+    criterion for the depth-one inflation DAG, Expressible is the Wolfe–Spekkens–Fritz
+    closure, and gExpFeasible_iff_gAIFeasible proves I^exp_t = I^AI_t on every pair-source
+    scenario. The triangle module still omits I^exp_t, so statements there about membership
+    are the weaker halves; the graph module supplies the stronger ones through the bridge
+    theorems gNWFeasible_triangle_iff, gAIFeasible_triangle_iff and gCompatible_triangle_iff.
+    The triangle module. (4) The arbitrary-latent-space form of the nontermination theorem
+    is proved: FinnerMeasure.lean defines TriangleCompatibleM over arbitrary probability
+    spaces with measurable stochastic responses, proves the Finner inequality there
+    (finner_of_compatibleM) and gives no_finite_characterizing_orderM. The elementary
+    finite-latent form is kept alongside it, and is the one the registry statement uses.
+    (5) Laws are bare real weight functions on finite types with the predicate IsLaw, not
+    Mathlib Measures or PMFs; all inequalities are real-valued. The first rejecting order
+    t_min is Nat.sInf of the set of rejecting orders, which returns 0 when that set is
+    empty, so every statement about it either exhibits a rejecting order or assumes one.
+    Asymptotic completeness itself is quoted from Navascués–Wolfe, not formalized.
+    Paper results outside this development, with no Lean statement at all: the square
+    witness of Theorem 6.11 (proved neither here nor anywhere; the manuscript states it with
+    its certificate evidence, and the Lean statement with an open proof is kept in a
+    separate library that this repository does not contain), the larger-alphabet transfer of
+    Remark 4.4, Lemma 6.13, Corollaries 6.14 and 6.15, Theorem 6.18, Proposition 6.20 and
+    its lemmas, Appendix C, the distance asymptotics of Theorem 11.1 and Corollary 11.2, the
+    2^{Θ(B)} bit-length law of Proposition 13.1, the limit form of Proposition 10.1 and
+    Corollary 8.3.
 
 review:
   status: "self-assessed"
@@ -186,26 +269,50 @@ review:
     Kernel-checked and axiom-audited in this repository by the author; no independent human
     review of the mathematics has been performed, and the manuscript has not been refereed
     or posted. The priority audit in paper/release/PRIORITY_AUDIT.md records
-    PRIORITY_NOT_KILLED with Navascués–Wolfe 2020 §4.1 as the strongest located
-    predecessor, and does not certify firstness. The statement is submitted to Palomar to
-    obtain the registry's independent dual-kernel Comparator check.
+    PRIORITY_NOT_KILLED, with Navascués–Wolfe 2020 §4.1 as the strongest located
+    predecessor, and does not certify firstness. Its addendum of 2026-09-14 records a
+    targeted sweep of the pair-source sections: no predecessor was located for the
+    classification beyond stars, for I^exp = I^AI, for the all-order witnesses, for the
+    Θ(1/t) bounds, for the source-free convex-order constant, for the order conversion or
+    for the second-order separations; attribution was corrected for exact parity rigidity
+    (Boreiri et al. 2023, not 2025). The theses of Wolfe and Pozas-Kerstjens remain unswept.
+    Both statements are submitted to Palomar to obtain the registry's independent
+    dual-kernel Comparator check.
 
 alignment:
-  namespace: "TriangleInflation"
+  namespaces: ["TriangleInflation", "TriangleInflation.Graph"]
   statements:
-    - source: "Does some finite order of classical inflation characterize compatibility in the binary triangle? (Navascués–Wolfe 2020, §4.1; answered no, paper Theorem 3.2 and its corollary)"
+    - source: "For which causal scenarios does some finite order of classical inflation characterize compatibility? (paper Theorem 4.2; the pair-source class, binary observations)"
+      lean: "TriangleInflation.Graph.classification_NW"
+      module: "Palomar.TriangleInflation.ClassificationChallenge"
+      status: "proved"
+      note: >-
+        Answer: exactly the scenarios whose every connected component is a double-star, and
+        then order two suffices. Proof via TriangleInflation.Graph.classification_NW_lib in
+        TriangleInflation/Graph/ClassificationTheorem.lean, from doubleStar_terminates (the
+        order-two reconstruction) and nontermination_of_not_doubleStar (exhaustion into an
+        induced cycle or five-path, the cycle and five-path witnesses, induced transport and
+        local flips). The library carries the _lib suffix so that the Solution can declare
+        the plain name Comparator compares. The same file proves classification_AI and
+        classification_exp.
+    - source: "Does some finite order of classical inflation characterize compatibility in the binary triangle? (Navascués–Wolfe 2020, §4.1; answered no, paper Theorem 8.2 and its corollary)"
       lean: "TriangleInflation.no_finite_characterizing_order"
       module: "Palomar.TriangleInflation.Challenge"
       status: "proved"
       note: >-
-        Answer no. Proof via TriangleInflation.no_finite_characterizing_order_lib in
-        TriangleInflation/Main.lean, from main_membership (the defect-cube inflation law)
-        and main_violation (the Finner margin ε_t²/2). The library carries the _lib suffix
-        so that the Solution can declare the plain name Comparator compares.
+        Answer no, with an explicit rational family and an explicit violation margin. Proof
+        via TriangleInflation.no_finite_characterizing_order_lib in
+        TriangleInflation/Main.lean, from main_membership (the defect-cube inflation law) and
+        main_violation (the Finner margin ε_t²/2). The triangle is the smallest scenario the
+        classification puts on the nonterminating side, so this theorem is the quantitative
+        form of that case. The arbitrary-latent-space form is
+        no_finite_characterizing_orderM in TriangleInflation/FinnerMeasure.lean.
 
 acknowledgements: >-
-  Miguel Navascués and Elie Wolfe for the question and for the order-2 example the
+  Miguel Navascués and Elie Wolfe for the question and for the order-2 example the triangle
   construction generalizes; Elie Wolfe, Robert Spekkens and Tobias Fritz for the inflation
-  definitions; Helmut Finner and Marc-Olivier Renou and coauthors for the inequality that
-  supplies the incompatibility; Denis Rosset, Nicolas Gisin and Elie Wolfe for the finite
-  latent cardinality theorem the formalization boundary leans on.
+  definitions and the expressible-set recursion; Helmut Finner and Marc-Olivier Renou and
+  coauthors for the inequality that supplies the triangle incompatibility; Sadra Boreiri and
+  coauthors for the exact parity rigidity the cycle witnesses rest on; Denis Rosset, Nicolas
+  Gisin and Elie Wolfe for the finite latent cardinality theorem the formalization boundary
+  leans on.
