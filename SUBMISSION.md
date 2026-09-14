@@ -53,29 +53,36 @@ both have moved before:
       commit on canonical `master`, which is what Palomar requires. Do not move it: the
       whole development has been checked at that commit and at Lean `v4.33.0`.
 
-## 3. Run Comparator locally first, if you can
+## 3. Comparator, run locally
 
-This has **not** been done. No Comparator checkout and no `lean4export` binary exist on the
-machine this repository was assembled on. Registration will run the same check on Palomar's
-side, but a local run is much cheaper to debug.
+Done, 2026-09-14, both pairs, both `Your solution is okay!` with the Lean default kernel
+accepting each solution. Nothing here is blocked on it. Repeat it after any change to a
+Challenge, a Solution or a definitions file:
 
 ```bash
-git clone https://github.com/leanprover/comparator
-# build lean4export at v4.33.0 and put it on PATH
 lake build
-lake env comparator Palomar/TriangleInflation/classification-comparator.json
-lake env comparator Palomar/TriangleInflation/comparator.json
+COMPARATOR_LANDRUN=<comparator>/scripts/fake-landrun.sh \
+COMPARATOR_LEAN4EXPORT=<lean4export built at v4.33.0>/.lake/build/bin/lean4export \
+  lake env <comparator>/.lake/build/bin/comparator \
+  Palomar/TriangleInflation/classification-comparator.json
+# and again for Palomar/TriangleInflation/comparator.json
 ```
 
-On macOS, Comparator's `scripts/fake-landrun.sh` stands in for the Linux sandbox; it is not
-adversarial, so it tests the comparison and not the isolation. A pass prints
-`Your solution is okay!`.
+Two things cost time the first time and are worth knowing:
 
-The likeliest failure mode is a constant that the Challenge carries and the Solution does
-not define identically. The classification Challenge carries a *selection* of
-`TriangleInflation/Graph/Defs.lean` rather than the whole file, so if Comparator complains,
-the fix is to add the missing declaration head to `GRAPH_EXTRACT` in
-`scripts/gen_challenge.py` and regenerate.
+- `lean4export` must be built at **this** repository's Lean version. A binary built at
+  `v4.33.1` refuses the `v4.33.0` oleans with `failed to read file ... incompatible header`.
+  Clone https://github.com/leanprover/lean4export, write `leanprover/lean4:v4.33.0` into its
+  `lean-toolchain`, and `lake build`.
+- On macOS there is no `landrun`, so Comparator's own `scripts/fake-landrun.sh` stands in.
+  It execs the command unsandboxed. That tests the comparison and not the isolation, which
+  is fine for debugging and is exactly why the registry runs its own check.
+
+If Comparator ever does complain, the likeliest cause is a constant that the Challenge
+carries and the Solution does not define identically. The classification Challenge carries a
+*selection* of `TriangleInflation/Graph/Defs.lean` rather than the whole file, so the fix is
+to add the missing declaration head to `GRAPH_EXTRACT` in `scripts/gen_challenge.py` and
+regenerate.
 
 ## 4. Submit
 

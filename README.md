@@ -229,10 +229,23 @@ lake env comparator Palomar/TriangleInflation/classification-comparator.json
 lake env comparator Palomar/TriangleInflation/comparator.json
 ```
 
-Neither run has been performed on the machine this repository was assembled on: no
-Comparator checkout and no `lean4export` binary are installed there. Registration is a
-deliberate, separate act: nothing in this repository submits anything. `SUBMISSION.md` lists
-what is left to do by hand.
+Both runs were performed on 2026-09-14 and both passed:
+
+```
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+```
+
+Two notes on that run. `lean4export` has to be built at *this* repository's Lean version: a
+build at `v4.33.1` refuses the `v4.33.0` oleans with `incompatible header`. And it was a
+macOS run, so `scripts/fake-landrun.sh` stood in for `landrun`; it execs the command
+unsandboxed, which means the comparison was checked and the isolation was not. Palomar runs
+the same comparison on its own infrastructure, with the real sandbox, which is the point of
+registering.
+
+Registration is a deliberate, separate act: nothing in this repository submits anything.
+`SUBMISSION.md` lists what is left to do by hand.
 
 ## Verify locally
 

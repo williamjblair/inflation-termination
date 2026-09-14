@@ -276,8 +276,11 @@ review:
     Θ(1/t) bounds, for the source-free convex-order constant, for the order conversion or
     for the second-order separations; attribution was corrected for exact parity rigidity
     (Boreiri et al. 2023, not 2025). The theses of Wolfe and Pozas-Kerstjens remain unswept.
-    Both statements are submitted to Palomar to obtain the registry's independent
-    dual-kernel Comparator check.
+    Comparator was run locally on both Challenge and Solution pairs on 2026-09-14 and
+    accepted both; that run used Comparator's fake-landrun shim, since landrun does not
+    exist on macOS, so it checked the comparison and not the sandbox isolation. Both
+    statements are submitted to Palomar to obtain the registry's independent check under the
+    real sandbox.
 
 alignment:
   namespaces: ["TriangleInflation", "TriangleInflation.Graph"]
