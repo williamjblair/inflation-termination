@@ -11,11 +11,23 @@ project:
     connected component is a double-star, and then order two suffices. A pair-source
     scenario is a finite simple graph without isolated vertices, one binary observed
     variable per vertex and one independent latent source per edge; a double-star is a tree
-    of diameter at most three. The terminating half reconstructs a model on a double star
-    from its order-two inflation. The nonterminating half supplies, at every order, a
-    strictly positive law that passes the order-t test and has no model: a parity target on
-    an induced cycle or a bilocal target on an induced five-observer path, moved to the
-    ambient graph by induced-subgraph transport and made positive by independent local
+    of diameter at most three. The terminating half first labels each component from its
+    graph structure alone (its vertices of degree at least two are pairwise adjacent and
+    number at most two; they are the centres, and every other vertex is a leaf attached to
+    one of them), then reconstructs a model from any order-two witness: source-disjoint
+    blocks are independent under the witness, and conditioning on a leaf pattern reads off
+    the joint law of the two centres' response tables, which becomes the law of a fresh
+    central source. The nonterminating half supplies, at every order t, a strictly positive
+    law that passes the order-t test and has no model. On an induced cycle the law is the
+    parity target with correlation 1/(4 m^2 t^2), whose witness is a positive Fourier
+    density on m t auxiliary signs pushed forward along products of adjacent signs; its
+    incompatibility is parity rigidity. On an induced five-observer path the law is a
+    bilocal target with h = 1/(16 t^2), whose witness is the inflated law of a pair-source
+    model with complex source weights (1 ± i s/(4t))/4 on the two inner sources, under
+    which the copies are independent and identically distributed; the real part of that
+    law is shown nonnegative by a telescoped triangle inequality, and the incompatibility is
+    the bilocal inequality sqrt|I| + sqrt|J| ≤ 1. Both witnesses are moved to the ambient
+    graph by induced-subgraph transport and made strictly positive by independent local
     flips. The same development proves the classification for the ancestral-independence
     and recursively expressible hierarchies, and proves that the latter two coincide on
     every pair-source scenario.
@@ -68,9 +80,9 @@ sources:
       intended to precede it and to be cited by it. Its Section 16 ("Formal verification")
       and paper/release/NONCLAIMS.md state exactly what this repository proves and what it
       leaves unformalized.
-  - title: "Inflation for quantum causal structures"
+  - title: "The Inflation Technique Completely Solves the Causal Compatibility Problem"
     authors: ["Miguel Navascués", "Elie Wolfe"]
-    id: "https://doi.org/10.1007/s10955-020-02561-9"
+    id: "https://doi.org/10.1515/jci-2018-0008"
     type: "paper"
     location: "§4.1, the open question whether some finite inflation order settles exact compatibility, and the order-2 P_v/Finner example; Theorem 1 and (A7), asymptotic completeness"
     relationship: "background"
@@ -295,9 +307,11 @@ alignment:
         characterizing order and the order-two characterization on double-star forests.
         Proof via TriangleInflation.Graph.classification_NW_lib and doubleStar_terminates in
         TriangleInflation/Graph/ClassificationTheorem.lean, from doubleStar_terminates (the
-        order-two reconstruction) and nontermination_of_not_doubleStar (exhaustion into an
-        induced cycle or five-path, the cycle and five-path witnesses, induced transport and
-        local flips). The library carries the _lib suffix so that the Solution can declare
+        graph-theoretic labelling exists_dsStruct followed by the order-two reconstruction
+        DSStruct.gCompatible_of_dsStruct) and nontermination_of_not_doubleStar (exhaustion
+        into an induced cycle or five-path; cycle_witness, a positive Fourier density on the
+        auxiliary signs; fivePath_witness, the inflated law of a complex-weighted model with
+        nonnegative real part; induced_transport; the flip lemmas). The library carries the _lib suffix so that the Solution can declare
         the plain name Comparator compares. The same file proves classification_AI and
         classification_exp.
     - source: "Does some finite order of classical inflation characterize compatibility in the binary triangle? (Navascués–Wolfe 2020, §4.1; answered no, paper Theorem 8.2 and its corollary)"
