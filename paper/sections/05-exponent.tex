@@ -1,6 +1,6 @@
-\section{Sharp rejecting-order exponent}\label{sec:exponent}
+\subsection{Rejecting-order exponent along the family}\label{sec:exponent}
 
-\subsection{The family \texorpdfstring{$P_\eps$}{P epsilon}}
+
 \begin{proposition}[One family with divergent rejecting order]\label{prop:family}
 For $0<\eps<1/8$ let $P_\eps=Q\bigl(\eps,\,1-\tfrac12\eps^{2/3}\bigr)$, and write $\sigma=\tfrac12\eps^{2/3}$, $m=\eps+(1-\eps)\sigma$ for the common one-variable zero marginal and $z=\eps+(1-\eps)\sigma^3$ for $P_\eps(000)$. Then $P_\eps\notin\Ctri$, $P_\eps\to\delta_{111}\in\Ctri$ as $\eps\downarrow0$, and for $H\in\{\mathrm{exp},\mathrm{AI},\mathrm{NW}\}$ the first rejecting order $\tmin^H(P_\eps)=\min\{t:P_\eps\notin\mathcal I^H_t\}$ is finite and satisfies
 \begin{gather*}
@@ -13,9 +13,9 @@ so that
 \]
 In particular $\tmin^H(P_\eps)=\Theta(\eps^{-1/3})$ for each of the three hierarchies. \end{proposition}
 
-The lower bound is the passing construction of Section~\ref{sec:main}, the upper bound the first fan inequality of Theorem~\ref{thm:fan}; the exponents agree, the constants do not. Section~\ref{sec:distance} proves the distance statements for the same family.
 
-\subsection{Proof of the exponent bounds}
+
+
 \begin{proof}[Proof of Proposition~\ref{prop:family}]
 Put $\sigma=\tfrac12\eps^{2/3}$, so $P_\eps=Q(\eps,1-\sigma)$, $m=\eps+(1-\eps)\sigma$ and $z=\eps+(1-\eps)\sigma^3$. \emph{Incompatibility:} $z\ge\eps$ and $m\le\eps+\sigma=\eps^{2/3}(\eps^{1/3}+\tfrac12)$, so $m^3<\eps^2\le z^2$ because $\eps^{1/3}<\tfrac12$ when $\eps<1/8$; Lemma~\ref{lem:finner} applies. \emph{Limit:} $\eps\to0$ and $1-\sigma\to1$, so $P_\eps\to\delta_{111}$, which is compatible. \emph{Lower bound:} if $t\le1+\tfrac12\eps^{-1/3}$ then $(t-1)\eps\le\sigma$, and Bernoulli's inequality gives $(1-\eps)^{t-1}\ge1-(t-1)\eps\ge1-\sigma$, so Theorem~\ref{thm:membership} applies with $r=1-\sigma$ and $P_\eps\in\Iexp_t$; hence every rejecting order exceeds $\lfloor1+\tfrac12\eps^{-1/3}\rfloor$. Finiteness is asymptotic completeness together with \eqref{eq:nested}.
 
@@ -26,6 +26,3 @@ v_t=\Bigl(x-\tfrac12-\tfrac{x^2}8\Bigr)\eps^{2/3}+O(\eps),
 whose leading coefficient is positive exactly for $4-2\sqrt3<x<4+2\sqrt3$. Fixing any $x$ slightly above $4-2\sqrt3$ gives rejection for all small $\eps$, which is the $\limsup$ bound. For the exact finite statement, $v_t$ is the quadratic $-\tfrac{m^2}2t^2+(z+\tfrac{m^2}2)t-m$ in $t$, with discriminant $D=(z+m^2/2)^2-2m^3$ and roots $\tau_\pm=(z+m^2/2\pm\sqrt D)/m^2$. For $\eps\le1/64$ one has $m\le\tfrac34\eps^{2/3}$ and $z\ge\eps$, so $D\ge\eps^2-2m^3\ge\eps^2(1-\tfrac{27}{32})=\tfrac5{32}\eps^2$ and $\tau_+-\tau_-=2\sqrt D/m^2\ge\tfrac{4\sqrt{10}}9\eps^{-1/3}>1$; since $v_1=z-m<0$ the integer $\lfloor\tau_-\rfloor+1$ lies strictly between the roots, where $v_t>0$. Hence $\tmin^{\mathrm{NW}}(P_\eps)\le\lfloor\tau_-\rfloor+1=(4-2\sqrt3)\eps^{-1/3}+O(1)$.
 
 \end{proof}
-
-
-The constants $\tfrac12$ and $4-2\sqrt3$ come from the passing construction and from the fan certificate; whether $\eps^{1/3}\tmin^H(P_\eps)$ converges, and to what, is open. Exact certificates at $\eps=k^{-3}$ record where the two bounds meet (Section~\ref{sec:repro}).

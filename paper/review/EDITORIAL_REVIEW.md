@@ -1,3 +1,35 @@
+# Organization and consolidation — 15 September 2026
+
+Reorganized the manuscript from `67103258ec07c20d470394a63873089e427e1b61` following the author's request. The current PDF has 49 pages, including 35 pages of main text (pages 2–36), one title/contents page, the complete appendices and references. The prior PDF had 53 pages and 44 pages of main text. The font size and page margins are unchanged.
+
+## Structure and writing
+
+Eight main sections replace seventeen. The general scenario and three tests are defined once in Section 2, followed by the triangle as a worked example. Section 3 states the classification before its structural tools and presents reconstruction, cycle obstructions and the five-path consecutively. The classification now appears on page 7, formerly page 11.
+
+Section 4 collects the quantitative convergence results and finite separations. Section 5 follows the defect family from construction through incompatibility, passing prescriptions, fan rejection, exponent and distance. Section 6 combines distance-promised and rational-input bounds. The literature comparison is in the introduction, where the distinction from the star result, conditional-independence classifications and earlier convergence estimates is established before the proofs.
+
+Repeated introductory theorem statements were replaced by concise result summaries linked to the primary statements. Duplicate triangle definitions, repeated qualifications and proof roadmaps were consolidated. Open problems retain six specific questions with less repetition of preceding results. Verification prose states coverage and limitations; commands and checker implementation details are in `VERIFICATION_GUIDE.md`.
+
+TeXcount reports 15,824 text words before and 13,988 after, a reduction of 1,836 words (about 12%). In the front matter and main text, the count falls from 14,220 to 10,001; that larger reduction includes material moved to appendices.
+
+## Complete supporting arguments
+
+Appendix A contains the root-sink and induced-subgraph transport proofs and the triangle injectable-set characterization. Appendix B contains the square order-conversion proof, count-moment reductions, monotonicity lemma and threshold certificate proof/table. Appendices C–D retain certificate formats, finite coverage and the supplementary inequalities. The material deferred by the earlier review remains excluded and unchanged.
+
+All 57 original proof bodies are retained. Two proof-body edits only update references: triangle indexing now points to Section 2.3, and the threshold certificate proof points to the companion verification guide. The preservation comparison ignores whitespace and those two changes. All 165 existing labels and all 22 citation keys remain. Numbered statements are unchanged except the deliberate consolidation of the duplicated introductory theorems and triangle definitions, and the equivalent enumeration/equation formatting of the general NW definition and soundness statement. The printed threshold table is unchanged byte-for-byte.
+
+## Build and layout validation
+
+Both `paper/main.pdf` and the standalone submission PDF compile to 49 pages, with identical extracted text. Final LaTeX passes have no overfull or underfull boxes, undefined references/citations or multiply defined labels. The arXiv archive was rebuilt without shell escape. All 49 pages were rendered and reviewed, including all eight figures and both numbered tables. The threshold plot and its caption were adjusted to fit on the same page as the separation proposition; the appendix begins on a fresh page.
+
+The README and YAML coverage map use the new theorem numbers; YAML parsing passed. Lean sources, dependency pins and certificate bytes are unchanged, so the previous Lean and exact-arithmetic gates were not rerun for this editorial revision. The new preservation and PDF checks are recorded separately in `validation.json`. These checks are not an independent specialist assessment of the unformalized mathematics.
+
+The updated manuscript and submission package accompany this repository revision. Publishing the repository revision does not update the existing Palomar record or an arXiv submission.
+
+---
+
+The following reports retain their original snapshot descriptions and theorem numbers.
+
 # Manuscript review and revision — 14 September 2026
 
 Reviewed the complete manuscript at `53c7c27a`, including all sections, the three appendices, bibliography, certificate descriptions and formalization boundaries. This is an editorial and mathematical consistency review, supported by fresh certificate replays and the existing Lean audit. It is not independent specialist peer review.

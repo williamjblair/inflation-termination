@@ -66,18 +66,18 @@ sources:
     id: "paper/main.pdf (this repository; not yet posted to arXiv)"
     type: "preprint"
     location: >-
-      Theorem 4.2 (thm:classification), Section 4, with the reconstruction half in Section 5
-      and the witnesses in Sections 6 and 7; Theorem 9.2 (thm:main) and the corollary that
-      follows it, with the construction in Section 9.1, the incompatibility in Section 9.2
+      Theorem 3.2 (thm:classification), Section 3, with reconstruction in Section 3.3
+      and the witnesses in Sections 3.4 and 3.5; Theorem 5.2 (thm:main) and the corollary that
+      follows it, with the construction in Section 5.1, the incompatibility in Section 5.2
       and the injectable-set characterization in Appendix A; the formal-verification
-      statement is Section 17 (sections/11-reproducibility.tex)
+      statement is Section 8 (sections/11-reproducibility.tex)
     relationship: "formalizes"
     author_endorsement: "participated"
     note: >-
       The manuscript is included in this repository under paper/ (main.pdf and its LaTeX
       sources) together with its claim, non-claim, priority, reproduction and release
       documents under paper/release/. It is not yet posted to arXiv; this registry entry is
-      intended to precede it and to be cited by it. Its Section 17 ("Reproducibility and formal verification")
+      intended to precede it and to be cited by it. Its Section 8 ("Verification and availability")
       and paper/release/NONCLAIMS.md state exactly what this repository proves and what it
       leaves unformalized.
   - title: "The Inflation Technique Completely Solves the Causal Compatibility Problem"
@@ -231,7 +231,7 @@ automation:
         Each subagent was given the manuscript section, the definitions file and one module
         to prove, and was told to report any statement it could not prove as stated rather
         than adjust it silently. The one statement that survived as unproved, the square
-        witness of Theorem 8.3, is kept outside this repository.
+        witness of Theorem 4.3, is kept outside this repository.
   spend_usd: "not reconstructed"
   notes: >-
     lake build followed by scripts/check_axioms.sh is the whole gate: it refuses a literal
@@ -243,7 +243,7 @@ automation:
 fidelity:
   divergences: >-
     The graph development. (1) Observed variables are binary: outcomes are Bool. The
-    manuscript's Remark 4.4 extends the classification to any fixed finite observed
+    manuscript's Remark 3.8 extends the classification to any fixed finite observed
     alphabets, and that transfer is not formalized. (2) Latent alphabets are finite:
     GCompatible quantifies over a GModel whose latent spaces are Fintypes, where the
     mathematics allows arbitrary measurable latent spaces. The formal compatible set is
@@ -266,12 +266,12 @@ fidelity:
     empty, so every statement about it either exhibits a rejecting order or assumes one.
     Asymptotic completeness itself is quoted from Navascués–Wolfe, not formalized.
     Paper results outside this development, with no Lean statement at all: the square
-    witness of Theorem 8.3 (proved analytically in the manuscript and checked at finite
+    witness of Theorem 4.3 (proved analytically in the manuscript and checked at finite
     orders by certificates, but not formalized in this repository), the larger-alphabet transfer of
-    Remark 4.4, Lemma 8.5, Corollaries 8.6 and 8.7, Theorem 8.10, Proposition 8.14 and
-    its lemmas, Appendix C, the distance asymptotics of Theorem 12.1 and Corollary 12.2, the
-    2^{Θ(B)} bit-length law of Proposition 14.1, the limit form of Proposition 11.1 and
-    Corollary 9.3.
+    Remark 3.8, Lemma 4.5, Corollaries 4.6 and 4.7, Theorem 4.10, Proposition 4.11 and
+    its lemmas, Appendix D, the distance asymptotics of Theorem 5.14 and Corollary 5.15, the
+    2^{Θ(B)} bit-length law of Proposition 6.2, the limit form of Proposition 5.13 and
+    Corollary 5.3.
 
 review:
   status: "self-assessed"
@@ -296,7 +296,7 @@ review:
 alignment:
   namespaces: ["TriangleInflation", "TriangleInflation.Graph"]
   statements:
-    - source: "For which causal scenarios does some finite order of classical inflation characterize compatibility? (paper Theorem 4.2; the pair-source class, binary observations)"
+    - source: "For which causal scenarios does some finite order of classical inflation characterize compatibility? (paper Theorem 3.2; the pair-source class, binary observations)"
       lean: "TriangleInflation.Graph.classification_NW"
       module: "Palomar.TriangleInflation.ClassificationChallenge"
       status: "proved"
@@ -313,7 +313,7 @@ alignment:
         nonnegative real part; induced_transport; the flip lemmas). The library carries the _lib suffix so that the Solution can declare
         the plain name Comparator compares. The same file proves classification_AI and
         classification_exp.
-    - source: "Does some finite order of classical inflation characterize compatibility in the binary triangle? (Navascués–Wolfe 2020, §4.1; answered no, paper Theorem 9.2 and its corollary)"
+    - source: "Does some finite order of classical inflation characterize compatibility in the binary triangle? (Navascués–Wolfe 2020, §4.1; answered no, paper Theorem 5.2 and its corollary)"
       lean: "TriangleInflation.no_finite_characterizing_order"
       module: "Palomar.TriangleInflation.Challenge"
       status: "proved"

@@ -1,55 +1,9 @@
-\section{Reproducibility and formal verification}\label{sec:repro}
+\section{Verification and availability}\label{sec:repro}
 
-The repository \repo contains the manuscript sources (\texttt{paper/}), exact rational certificates (\texttt{artifact/}) and the Lean development (\texttt{TriangleInflation/}). The classification, witness constructions and asymptotic bounds have analytic proofs in the text. Proposition~\ref{prop:paritythresholds} depends on the finite certificates in addition to the count-moment reduction.
+The sources, exact certificates and Lean development are available at \repo. The classification, witness constructions and asymptotic bounds have analytic proofs in the paper. The finite threshold claims in Proposition~\ref{prop:paritythresholds} additionally depend on rational primal and dual certificates, checked with integer and rational arithmetic and Sturm sequences. Figure~\ref{fig:thresholds} reads their endpoints directly. Appendix~\ref{app:certificates} describes the formats and finite coverage; the repository's \texttt{paper/review/VERIFICATION\_GUIDE.md} gives replay commands and checker details.
 
-\subsection{Exact certificates}
+The Lean development proves the binary classification for finite latent alphabets, including the structural lemmas, double-star reconstruction, cycle and five-path obstructions, their distance lower bounds and local flips. It also proves the corrected triangle witness. The passage to arbitrary latent spaces uses the cardinality theorem of~\cite{RGW2018}, which is not formalized here. A separate triangle development proves the defect construction and nontermination for arbitrary latent probability spaces and measurable stochastic responses, the fan bounds, and the finite bounds on the defect family. It also proves the triangle norm estimates from Theorem~\ref{thm:convexorder}.
 
-Table~\ref{tab:verification} summarizes the finite checks. All certificate checkers use Python integers and rational arithmetic; they require no linear-programming solver. Appendix~\ref{app:certificates} describes the defect and fan formats. The parity certificates contain rational primal distributions and dual functionals, with Sturm checks for the signs of their expectation polynomials. They certify intervals, not exact threshold identities or asymptotic rates. Figure~\ref{fig:thresholds} reads the interval endpoints directly from the certificate files.
+The general convex-order inequality, square corrected density and max-moment estimate, order conversion, count-moment and threshold results, distance asymptotics, bit-length theorem and supplementary inequalities are not formalized. Neither are the larger-observed-alphabet transfer or the limiting statements for the defect family. Declaration-level coverage appears in \texttt{README.md} and \texttt{formalization.yaml}; the axiom audit lists $112$ declarations.
 
-\begin{table}[htbp]
-\centering\small
-\renewcommand{\arraystretch}{1.12}
-\begin{tabular}{@{}>{\raggedright\arraybackslash}p{.21\linewidth}>{\raggedright\arraybackslash}p{.23\linewidth}>{\raggedright\arraybackslash}p{.48\linewidth}@{}}
-\toprule
-Certificate set & Range & Checked properties\\
-\midrule
-Defect cube & $t=1,2,3$ & Root probabilities, line supports, symmetry, copied-triangle marginals, diagonal products and Finner gaps.\\[3pt]
-Full defect table & $t=2$ & All $4096$ assignments; $166$ nonzero entries; $12{,}288$ symmetry equations and $64$ diagonal equations.\\[3pt]
-Fan inequalities & Fourteen rational targets & Passing bounds, fan and second-moment rejection bounds, the pointwise count identity, index embeddings and negative controls.\\[3pt]
-Classification witnesses & Cycles $C_3,C_4,C_5$ and path: $t\le2$; corrected triangle: $t\le3$ & Auxiliary density, nonnegative observed law, symmetry, prescribed marginals and ancestral products, target separation and local flips where supplied.\\[3pt]
-Parity thresholds & Triangle and square, both tests, $1\le t\le10$ & Primal moments, dual signs on every count configuration, interval positivity; brute-force AI degree enumeration for $t\le3$ and explicit realizations through $t=10$.\\
-\bottomrule
-\end{tabular}
-\caption{Finite certificate coverage. Positivity of an auxiliary density does not imply full support of its observed pushforward. The unflipped cycle witnesses have parity constraints.}\label{tab:verification}
-\end{table}
-
-The fan bounds determine the first rejecting orders of $P_\eps$ exactly at $\eps=k^{-3}$ for $k=4,6,8,10,16$: they are $4,5,6,7,10$. At $k=32,128,1024,65536$, the passing construction gives lower bounds $18,66,514,32770$, while the fan gives upper bounds $19,70,551,35122$.
-
-Run the following commands from the repository root:
-\begin{verbatim}
-python3 -B artifact/verifiers/run_replay.py
-python3 -B artifact/verifiers/mutation_tests.py
-python3 -B artifact/verifiers/mutation_tests_fan.py
-python3 -B artifact/certificates/classification/verify_classification.py
-python3 -B artifact/certificates/exponent/verify_exponent.py
-\end{verbatim}
-The replay runner uses temporary copies of the certificates and writes records under \texttt{artifact/replay\_logs/}; its independent numerical distance check requires \texttt{mpmath}. The manifest and SHA-256 sums identify the distributed artifact snapshot. New replay logs need not match those bytes. The artifact preserves the original nontermination checker for provenance; its assertions are disabled by Python's optimization flag. The hardened checker rejects optimized execution, and the mutation tests check that corrupted inputs fail. The fan checker uses explicit exceptions and also runs under optimization.
-
-\subsection{Lean coverage and its boundaries}
-
-The graph development proves the binary classification (Theorem~\ref{thm:classification}), including the root-sink, source-disjointness, transport and exhaustion lemmas, double-star reconstruction, the cycle and five-path witnesses, their incompatibility and distance lower bounds, and local flips. It also proves the corrected triangle witness at $q=1/(16t)$. These graph theorems quantify over \emph{finite} latent alphabets. The transfer to arbitrary latent spaces uses the cardinality theorem of Rosset, Gisin and Wolfe~\cite{RGW2018}, which is not formalized here; the larger-observed-alphabet transfer is also outside the Lean development.
-
-The triangle development proves the defect construction and its nontermination theorem, the fan inequalities and rejecting-order bounds, Proposition~\ref{prop:Rp}, the finite bounds of Proposition~\ref{prop:family}, and the triangle $\ell^2$ and total-variation bounds from Theorem~\ref{thm:convexorder}. The file \texttt{FinnerMeasure.lean} proves Finner and triangle nontermination for arbitrary latent probability spaces and measurable stochastic responses; its main statement is \texttt{no\_finite\_characterizing\_orderM}. The graph bridge supplies the recursively expressible version from the triangle module's AI statements.
-
-The general convex-order inequality, the square corrected-density witness and max-moment bound, square order conversion, the count-moment and threshold results, the distance asymptotics, the bit-length theorem and the supplementary appendix are not formalized. The finite bounds on the defect family are formalized; the limiting statements are not. The declaration-level coverage is documented in \texttt{README.md} and \texttt{formalization.yaml}, with the audited declarations listed in \texttt{Audit.lean}.
-
-To rebuild and audit the formal development, run
-\begin{verbatim}
-lake build
-bash scripts/check_axioms.sh
-\end{verbatim}
-The audit checks all $112$ listed declarations for dependence only on \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}, and checks that the registry challenge definitions match the library. The two challenge files contain the unproved statements required by the registry format; their corresponding solutions and the audited library contain no \texttt{sorry}.
-
-The binary, finite-latent classification, including the order-two assertion for double-star forests, is registered as \texttt{PALOMAR-2026-09-14-000009}, version~1, at
-\href{https://palomar-registry.org/entry.html?id=PALOMAR-2026-09-14-000009&version=1}{the Palomar registry}.
-The repository also contains a separate registry-form statement of triangle nontermination. The registration concerns the stated Lean theorem and its comparison with the proof; the other results retain the verification scope described above.
+The binary, finite-latent classification is registered as \texttt{PALOMAR-2026-09-14-000009}, version~1, at the \href{https://palomar-registry.org/entry.html?id=PALOMAR-2026-09-14-000009&version=1}{Palomar registry}. That registration concerns the stated classification theorem, not all results in this paper.

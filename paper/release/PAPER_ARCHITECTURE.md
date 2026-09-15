@@ -1,3 +1,22 @@
+# Current architecture — 15 September 2026
+
+The paper has eight main sections:
+
+1. Introduction: contributions, literature comparison and reading guide.
+2. Pair-source scenarios and inflation: one general setup, followed by the triangle example.
+3. Termination classification: theorem, structural tools, reduction, reconstruction, cycle and five-path obstructions.
+4. Quantitative convergence: corrected densities, distance lower bounds, convex-order upper bound, order conversion and finite separations.
+5. Defect family: construction, incompatibility, passing prescriptions, fan rejection, exponent and distance.
+6. Rejecting orders from distance and input size.
+7. Open problems.
+8. Verification and availability.
+
+Appendix A supplies full root-sink and transport proofs and the triangle injectable characterization. Appendix B contains the order-conversion proof, count-moment reductions and certified threshold table. Appendix C documents certificates; Appendix D retains the supplementary inequalities and extraction arguments. Operational replay instructions are in `paper/review/VERIFICATION_GUIDE.md`.
+
+The 49-page PDF has 35 pages of main text. Complete proofs and all eight figures are retained. This organization supersedes the plans below; their older theorem numbers and proposed bounds are historical.
+
+---
+
 > Historical audit retained from before the editorial revision. For current section numbers, corrections, deferred results and validation, see `paper/review/EDITORIAL_REVIEW.md` and the opening update in `RELEASE_STATUS.md`.
 
 # Paper architecture

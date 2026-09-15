@@ -1,6 +1,6 @@
 \section{Quantitative convergence on the triangle and square}\label{sec:cyclequant}
 
-The preceding sections prove the classification. We now measure the gap between finite-order feasibility and compatibility on the triangle and square. The parity witness of Section~\ref{sec:cycles} gives an initial lower bound; a modification of its unconstrained Fourier coefficients improves it to $\Omega(1/t)$. A convex-order argument supplies the upper bound, and the final two subsections compare the hierarchy orders and finite thresholds.
+Section~\ref{sec:classification} proves the classification. We now measure the gap between finite-order feasibility and compatibility on the triangle and square. The parity witness of Section~\ref{sec:cycles} gives an initial lower bound; a modification of its unconstrained Fourier coefficients improves it to $\Omega(1/t)$. A convex-order argument supplies the upper bound, and the final two subsections compare the hierarchy orders and finite thresholds.
 
 \subsection{A corrected density and a linear lower bound}\label{sec:corrected}
 
@@ -78,11 +78,8 @@ Take $m=3$ and $c=4$ in Lemma~\ref{lem:corrected}, name the three families $x,y,
 \[
 A^{ij}=x_iz_j,\qquad B^{ik}=x_iy_k,\qquad C^{jk}=z_jy_k,
 \]
-which is \eqref{eq:cyclewitness} for $m=3$ in the index convention of Section~\ref{sec:setup}. Positivity and normalization are Lemma~\ref{lem:corrected} with $W\ge3/5$. Symmetry within each family is again immediate. By Lemma~\ref{lem:boundary} every character prescribed by an injectable marginal, by an ancestrally independent product, or by the diagonal law has boundary empty or meeting at least two families, so \eqref{eq:Wmoments} returns $(-q)^{|\partial\cdot|/2}$ and the argument of Lemma~\ref{lem:cyclewitness} applies unchanged. The original copied triangle has $\E A=\E[x_iz_j]=-q$ and likewise $\E B=\E C=-q$, while $ABC=x_iz_jx_iy_kz_jy_k=1$, so its law is $\Pi(-q,-q,-q)=P_{3,q}$. Lemma~\ref{lem:rootsink} gives the recursive prescriptions.
+which is \eqref{eq:cyclewitness} for $m=3$ in the index convention of Section~\ref{sec:triangle}. Positivity and normalization are Lemma~\ref{lem:corrected} with $W\ge3/5$. Symmetry within each family is again immediate. By Lemma~\ref{lem:boundary} every character prescribed by an injectable marginal, by an ancestrally independent product, or by the diagonal law has boundary empty or meeting at least two families, so \eqref{eq:Wmoments} returns $(-q)^{|\partial\cdot|/2}$ and the argument of Lemma~\ref{lem:cyclewitness} applies unchanged. The original copied triangle has $\E A=\E[x_iz_j]=-q$ and likewise $\E B=\E C=-q$, while $ABC=x_iz_jx_iy_kz_jy_k=1$, so its law is $\Pi(-q,-q,-q)=P_{3,q}$. Lemma~\ref{lem:rootsink} gives the recursive prescriptions.
 \end{proof}
-The exact certificates described in Section~\ref{sec:repro} check the square and triangle witnesses of the two theorems, with and without the flips of Corollaries~\ref{cor:squaredistance} and~\ref{cor:triangledistance}, at orders one and two for the square and one to three for the triangle: positivity of every atom, symmetry, the full diagonal law and every ancestral-independence prescription.
-
-
 \subsection{Distance and the worst-case profile}\label{sec:worstcase}
 
 For $H\in\{\mathrm{NW},\mathrm{AI},\mathrm{exp}\}$ and a pair-source scenario $G$ set
@@ -185,7 +182,7 @@ using $\|P\|_2^2\ge1/K$. Total variation never exceeds $1$.
 The sampling mechanism is that of the finite de Finetti estimate of \cite[Section 4.2 and eq.~(A7)]{NW2020}, which bounds the same quantity by $L(1-\|P\|_2^2)/n$ for $L$ sources through the collision probability of two index samples. Using the full diagonal law through a conditional expectation, rather than its first two degrees, removes the factor $L$. Section~\ref{sec:general} draws the rejecting-order consequence.
 
 \FloatBarrier
-\begin{corollary}[Brackets for the square and the triangle]\label{cor:brackets}
+\begin{corollary}[Brackets for the square and the triangle]\label{cor:brackets}\label{thm:brackets-intro}
 For every $t\ge1$,
 \[
 \frac5{768\,t}\ \le\ H^{\mathrm{exp}}_t(\square)=H^{\mathrm{AI}}_t(\square)\ \le\ H^{\mathrm{NW}}_t(\square)\ \le\ \min\Bigl\{1,\frac{\sqrt{15}}{2\sqrt t}\Bigr\},
@@ -199,7 +196,7 @@ For every $t\ge1$,
 Combine Corollaries~\ref{cor:squaredistance} and~\ref{cor:triangledistance} with Theorem~\ref{thm:convexorder} at $K=16$ and $K=8$, and with Proposition~\ref{prop:gsound}.
 \end{proof}
 
-The two exponents do not meet. Whether $H^{\mathrm{NW}}_t(\square)=O(1/t)$ is open, and so is the corresponding question for the triangle; this is the form Question~\ref{q:hausdorff} takes once the lower bounds above replace the family bound.
+The gap between $t^{-1}$ and $t^{-1/2}$ remains open for both scenarios (Question~\ref{q:hausdorff}).
 
 \subsection{Order conversion on the square}\label{sec:conversion}
 
@@ -210,69 +207,13 @@ For every $t\ge2$,
 \]
 \end{theorem}
 
-\begin{proof}
-The right inclusion is Proposition~\ref{prop:gsound} and the equality is Lemma~\ref{lem:rootsink}. For the left inclusion let $\Gamma$ be an order-$n$ Navascu\'es--Wolfe witness for $P$ with $n=\lfloor3t/2\rfloor$ and let $\Gamma'$ be its restriction to the copy indices $1,\dots,t$ of each source. Restriction preserves symmetry and the diagonal law of degree $t$, so $\Gamma'\in\INW_t$; we check the AI prescriptions.
+The proof in Appendix~\ref{app:conversion} places the components of an AI set on at most $\lfloor3t/2\rfloor$ diagonal rows.
 
-Fix an AI set of $\Gamma'$ and decompose it into the connected components of its shared-parent graph, which are injectable and pairwise ancestrally independent. A component's ancestry uses two, three or four source types; the two-type components are single copied observations and correspond to edges of the four-cycle $X-Y-Z-W-X$ of source types. Any two subsets of a four-element set of sizes at least three, or of sizes three and two, intersect, so a component using at least three source types conflicts with every other component and needs a diagonal row of its own. Let $b$ be the number of these.
+Hence $H^{\mathrm{NW}}_{\lfloor3t/2\rfloor}(\square)\le H^{\mathrm{AI}}_t(\square)\le H^{\mathrm{NW}}_t(\square)$, so the two hierarchies have the same polynomial decay exponent if either has one.
 
-The remaining components form a multigraph on the source-type four-cycle, with multiplicities $n_A,n_B,n_C,n_D$ on the edges $A,B,C,D$. Opposite edges are disjoint, so the colours $\max(n_A,n_C)$ for the pair $\{A,C\}$ and $\max(n_B,n_D)$ for the pair $\{B,D\}$ suffice, and their sum equals the maximum source-type degree $\Delta$: if $n_A\ge n_C$ and $n_B\ge n_D$ the sum is $n_A+n_B=\deg X$, and $\deg X$ dominates the other three degrees. So $b+\Delta$ rows suffice.
+\subsection{Finite-order separation}\label{sec:lowthresholds}
 
-Choose a source type of residual degree $\Delta$, say $X$, together with its two neighbours $Y$ and $W$ on the cycle. A component using at least three source types omits at most one, so it uses at least two of $X,Y,W$; each of the $\Delta$ two-type components incident to $X$ uses exactly two of them. The components have pairwise disjoint copied ancestries, and the three families $X,Y,W$ supply $3t$ copies in $\Gamma'$, so $2b+2\Delta\le3t$ and therefore $b+\Delta\le\lfloor3t/2\rfloor=n$.
-
-Assign each component to the diagonal row of its colour. Components sharing a row use disjoint source types, and distinct components use distinct copies within each family, so independent permutations of the copy indices of the four sources place all components on their assigned rows simultaneously. Under $\Gamma$ the rows are independent with law $P$. Within one row the components have disjoint original source types, so Lemma~\ref{lem:sourcedisjoint}, available because $n\ge2$, makes $P$ factor across them. Hence the joint law of the placed components is the product of their $P$-marginals. Undoing the permutations, the AI set of $\Gamma'$ has exactly the prescribed product.
-\end{proof}
-
-The factor $3/2$ is the cost of placing all components on diagonal rows at once; ancestrally disjoint collections of $\lfloor3t/2\rfloor$ injectable components whose source-type conflict graph is complete show that this method cannot do better. Hence $H^{\mathrm{NW}}_{\lfloor3t/2\rfloor}(\square)\le H^{\mathrm{AI}}_t(\square)\le H^{\mathrm{NW}}_t(\square)$, so the two hierarchies have the same polynomial decay exponent if either has one.
-
-\subsection{Low-order thresholds}\label{sec:lowthresholds}
-
-For the parity family we give exact rational brackets at the first ten orders. The reduction below turns feasibility for a parity-perfect target into a finite linear program in the numbers of negative auxiliary signs; we state it for the square, where it also covers the Navascu\'es--Wolfe test.
-
-\begin{lemma}[Count-moment reduction]\label{lem:countmoment}
-Let $0\le q\le3-2\sqrt2$ and $t\ge1$. Then $P_q\in\IAI_t(\square)$ if and only if there are $w_a\ge0$, $a=(a_X,a_Y,a_Z,a_W)\in\{0,\dots,t\}^4$, with $\sum_aw_a=1$ and
-\begin{equation}\label{eq:countmoment}
-\sum_aw_a\prod_{g}K^{(t)}_{k_g}(a_g)=(-q)^{S/2},\qquad S=\sum_gk_g,
-\end{equation}
-for exactly those degree tuples $k\in\{0,\dots,t\}^4$ with $S$ even and $2\max_gk_g\le S$, where
-\[
-K^{(t)}_k(a)=\binom tk^{-1}\sum_j(-1)^j\binom aj\binom{t-a}{k-j}
-\]
-is the normalized Krawtchouk polynomial.
-\end{lemma}
-
-\begin{proof}
-Every copied square is injectable, so under any witness it has law $P_q$ and hence parity $+1$ almost surely. Parity forcing across the copy indices then gives sign potentials: from $A^{il}B^{ij}C^{jk}D^{kl}=1$ for all indices, the product $B^{ij}C^{jk}$ depends only on $(i,k)$, so writing $M^{ik}$ for it and $x_i=M^{i1}$, $y_j=C^{j1}$ gives $B^{ij}=x_iy_j$ and, by the same argument on the other pairs, every supported array is of the form $A^{il}=x_iw_l$, $B^{ij}=x_iy_j$, $C^{jk}=y_jz_k$, $D^{kl}=z_kw_l$. The potential is unique up to the simultaneous flip of all four families, so averaging over the two gauges and over independent permutations of the copy indices reduces a witness to a distribution on the four counts $a_g$ of negative signs. Under that symmetrization the average of a character with $k_g$ distinct indices in family $g$ is $\prod_gK^{(t)}_{k_g}(a_g)$, by the definition of the Krawtchouk polynomial as the mean of a $k$-element sign product drawn without replacement.
-
-It remains to characterize the prescribed degrees. Within one injectable block the boundary has even size and uses each source family at most once. Thus each family contributes at most half the size of that boundary. Boundaries of ancestrally independent blocks are disjoint, so their total degrees satisfy $S$ even and $2\max_gk_g\le S$.
-
-Conversely, regard $k_g$ as the number of terminals in source family $g$, arranged around the source cycle $X-Y-Z-W-X$. A path between two distinct source families gives an injectable block whose boundary consists of its endpoints. We construct paths using at most $t$ copies of each family, with distinct copies assigned to distinct paths. Write $(a,b,c,d)=(k_X,k_Y,k_Z,k_W)$ and, after a cyclic relabelling if necessary, assume $a+c\ge b+d$. Put $r=(a+c-b-d)/2$. The balance condition gives $0\le r\le\min(a,c)$. Pair $r$ terminals of $X$ with $r$ terminals of $Z$. The remaining $X,Z$ terminals number $b+d$ and can be paired with the $Y,W$ terminals along adjacent edges, since each of $X,Z$ is adjacent to each of $Y,W$. Route each of the $r$ opposite pairs through either $Y$ or $W$. There are $2t-b-d$ unused copies in those two families, and
-\[
-r=\frac{a+c-b-d}{2}\le t-\frac{b+d}{2}\le2t-b-d.
-\]
-These copies suffice for the internal vertices. Assigning distinct copies at every terminal and internal vertex makes the resulting injectable blocks ancestrally independent. Their joint character has the required degree tuple and prescribed value $(-q)^{S/2}$. Thus the listed equations are necessary and sufficient.
-\end{proof}
-
-\begin{lemma}[The Navascu\'es--Wolfe form]\label{lem:countmomentNW}
-Under the hypotheses of Lemma~\ref{lem:countmoment}, $P_q\in\INW_t(\square)$ if and only if \eqref{eq:countmoment} holds for exactly the degree tuples in
-\[
-D_{\mathrm{NW}}(t)=\{b_1+\dots+b_t:\ b_r\in\{0,1\}^4\text{ of even weight}\}\subseteq D_{\mathrm{AI}}(t),
-\]
-where $D_{\mathrm{AI}}(t)$ is the degree set of Lemma~\ref{lem:countmoment}. The same reductions hold for the triangle family $\Pi(-q,-q,-q)$ with three families of signs and the potentials $A^{ij}=x_iz_j$, $B^{ik}=x_iy_k$, $C^{jk}=z_jy_k$.
-\end{lemma}
-
-\begin{proof}
-Every copied square is carried to the first diagonal row by independent copy-index permutations, so under a symmetric witness with diagonal law $P_q^{\otimes t}$ it has law $P_q$ and parity $+1$; the potential representation and the symmetrization then proceed as in Lemma~\ref{lem:countmoment}. The diagonal law prescribes exactly the characters $\prod_r\prod_{v\in F_r}O_v^{(r)}$ with one vertex set $F_r$ per diagonal row; in potential form row $r$ contributes the indicator of $\partial F_r$ to the degree tuple, and the boundaries of vertex sets of a cycle are exactly its even-weight edge sets. Conversely a distribution on counts with the prescribed moments yields a symmetric witness with the diagonal law by the construction in the proof of Lemma~\ref{lem:countmoment}. For the triangle, balanced degrees $(a,b,c)$ are realized by $(a+b-c)/2$, $(b+c-a)/2$ and $(c+a-b)/2$ single-observation blocks between the respective source pairs; these counts are nonnegative integers and use exactly the prescribed number of copies. Also, $A^{ij}B^{ik}C^{jk}=1$ at $j=1$ gives $B^{ik}=A^{i1}C^{1k}$, so $x_i=A^{i1}$ and $y_k=C^{1k}$ serve as potentials for $B$, and $z_j=A^{1j}x_1$ completes the representation, unique up to a global flip.
-\end{proof}
-
-\begin{lemma}[Monotonicity along the parity direction]\label{lem:paritymonotone}
-Let $H\in\{\mathrm{NW},\mathrm{AI},\mathrm{exp}\}$, $G\in\{\triangle,\square\}$, and $0\le q'\le q$ in the range where the parity target is a law. If the parity target with parameter $q$ lies in $I^H_t(G)$, so does the one with parameter $q'$.
-\end{lemma}
-
-\begin{proof}
-If $q=0$, then $q'=0$ and there is nothing to prove. For $q>0$, Lemmas~\ref{lem:countmoment} and~\ref{lem:countmomentNW} let us take a witness to be a law on sign potentials. Multiply every potential sign by an independent $\pm1$ variable of mean $\rho=\sqrt{q'/q}$. A character whose boundary has $S$ elements is multiplied by $\rho^S$, so its value $(-q)^{S/2}$ becomes $(-q')^{S/2}$, while symmetry and the block structure of every prescription are unchanged. Lemma~\ref{lem:rootsink} covers the recursively expressible test.
-\end{proof}
-
-By Lemma~\ref{lem:paritymonotone} the set of parameters accepted at a given order is an interval $[0,q^H_t]$, and we bracket $q^H_t$ by a rational primal witness of Lemmas~\ref{lem:countmoment} and~\ref{lem:countmomentNW} at a point below it and rational dual certificates above it.
+For the square parity family $P_q$ and the triangle family $\Pi(-q,-q,-q)$, the accepted parameters at order $t$ form an interval $[0,q_t^H]$ (Lemma~\ref{lem:paritymonotone}). Rational certificates bracket the endpoints through order ten and separate the tests at the following orders.
 
 \begin{proposition}[The parity thresholds at orders up to ten]\label{prop:paritythresholds}
 For the square and the triangle, the thresholds $q^{\mathrm{AI}}_t=q^{\mathrm{exp}}_t$ and $q^{\mathrm{NW}}_t$ satisfy Table~\ref{tab:thresholds} for $1\le t\le10$. In particular:
@@ -285,37 +226,6 @@ For the square and the triangle, the thresholds $q^{\mathrm{AI}}_t=q^{\mathrm{ex
 Consequently $\INW_3(\square)\subsetneq\IAI_2(\square)=\Iexp_2(\square)\subsetneq\INW_2(\square)$.
 \end{proposition}
 
-\begin{table}
-\centering
-\small
-\renewcommand{\arraystretch}{1.15}
-\begin{tabular}{r@{\quad}ll@{\qquad}ll}
-\toprule
-& \multicolumn{2}{c}{square} & \multicolumn{2}{c}{triangle}\\
-\cmidrule(lr){2-3}\cmidrule(lr){4-5}
-$t$ & $q^{\mathrm{AI}}_t$ & $q^{\mathrm{NW}}_t$ & $q^{\mathrm{AI}}_t$ & $q^{\mathrm{NW}}_t$\\
-\midrule
-1 & $3-2\sqrt2$ & $3-2\sqrt2$ & $1/3$ & $1/3$\\
-2 & $0.1324743290$ & $\ge0.1715628752$ & $0.2679491900$ & $1/3$\\
-3 & $0.0950228950$ & $0.0950228950$ & $0.1999999980$ & $0.1999999980$\\
-4 & $0.0835279580$ & $0.0950228950$ & $0.1730047060$ & $0.1999999980$\\
-5 & $0.0657380020$ & $0.0657380020$ & $0.1428571400$ & $0.1428571400$\\
-6 & $0.0603176600$ & $0.0645356170$ & $0.1283741760$ & $0.1381856900$\\
-7 & $0.0502565110$ & $0.0502565110$ & $0.1092774840$ & $0.1092774840$\\
-8 & $0.0470271490$ & $0.0494541280$ & $0.1011416960$ & $0.1070388380$\\
-9 & $0.0406784540$ & $0.0406784540$ & $0.0888129680$ & $0.0888129680$\\
-10 & $0.0384981990$ & $0.0400943600$ & $0.0833179940$ & $0.0870307060$\\
-\bottomrule
-\end{tabular}
-\caption{Certified brackets for the parity thresholds. A decimal entry $x$ means $x\le q^H_t\le x+4\cdot10^{-9}$; the exact entries at order one and triangle NW order two follow from the endpoint laws and Proposition~\ref{prop:lowextraction}; the entry $\ge0.1715628752$ is a lower bound only, the family ending at $3-2\sqrt2\approx0.1715728753$.}\label{tab:thresholds}
-\end{table}
-
-\begin{proof}
-For each order and hierarchy, the artifact contains a nonnegative rational count distribution at the lower endpoint and rational dual functionals whose expectation polynomials are positive on intervals covering $[q_{\mathrm{hi}},q_{\mathrm{cap}}]$. The checker verifies every prescribed moment, dual nonpositivity on all count configurations, and the interval signs by Sturm sequences. Here $q_{\mathrm{cap}}=1/3$ for the triangle and $q_{\mathrm{cap}}=1715728752/10^{10}<3-2\sqrt2$ for the square. For each two-sided bracket, monotonicity (Lemma~\ref{lem:paritymonotone}) extends rejection at $q_{\mathrm{cap}}$ to the remainder of the physical range, and extends the primal witness down to zero. Section~\ref{sec:repro} gives the files and commands.
-
-Order one accepts every target law. Proposition~\ref{prop:lowextraction} gives the triangle NW order-two endpoint. The strict comparisons follow by comparing rational endpoints. On the square, the points $3/20$ and $1/10$ lie in the respective gaps; Theorem~\ref{thm:orderconversion} supplies the inclusion $\INW_3\subseteq\IAI_2$.
-\end{proof}
-
-Figure~\ref{fig:thresholds} plots the certified values of $tq_t^H$. Their variation across these ten orders suggests an inverse-order scale with an odd--even effect. It establishes neither an asymptotic exponent nor a limiting constant. Some dual polynomials have simple roots, such as $2-\sqrt3$, $1/5$ and $1/7$ in the triangle cases. A dual root supplies an upper obstruction; identifying it as the exact threshold also requires a matching primal argument at that root.
+The proof is in Appendix~\ref{app:quantitative}. Figure~\ref{fig:thresholds} plots $tq_t^H$.
 
 \input{figures/thresholds}

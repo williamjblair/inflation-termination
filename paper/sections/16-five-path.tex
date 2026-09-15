@@ -1,7 +1,7 @@
 \providecommand{\Cpath}{\mathcal C_{P_5}}
 \providecommand{\Real}{\operatorname{Re}}
 
-\section{The five-observer path}\label{sec:fivepath}
+\subsection{The five-observer path}\label{sec:fivepath}
 
 A path is a tree, and trees carry no parity obstruction of the kind used in Section~\ref{sec:cycles}. The scenario, in the language of Section~\ref{sec:pairsource}, is
 \[
@@ -14,7 +14,7 @@ A^a,\qquad B^{ai},\qquad C^{ij},\qquad D^{je},\qquad E^e .
 
 \input{figures/path}
 
-\subsection{The target}\label{sec:pathtarget}
+\subsubsection{The target}\label{sec:pathtarget}
 
 \begin{definition}[Path target]\label{def:pathtarget}
 For $0<h<1$ define the law $P_h$ by
@@ -37,7 +37,7 @@ f_{xz}:=\E\bigl[BCD\mid A=x,E=z\bigr]=\frac{1+h}4\bigl(1+(-1)^{x+z}\bigr)
 The bracket in \eqref{eq:pathtarget} lies between $1-(1+h)/2=(1-h)/2$ and $1+(1+h)/2$, so every atom lies in $[(1-h)/64,\,(3+h)/64]$ and in particular is positive. Summing $bcd$ over $\{-1,1\}^3$ gives zero, so the atoms sum to $32\cdot\frac1{32}=1$ and the $(A,E)$ marginal is uniform on four cells. Given $(x,z)$, the conditional density of $(b,c,d)$ is $\frac18\bigl[1+bcd\,f_{xz}\bigr]$, whose only nonvanishing nontrivial character is $bcd$, with value $f_{xz}$; that is \eqref{eq:fxz} and the vanishing of the proper moments.
 \end{proof}
 
-\subsection{A bilocal obstruction}\label{sec:bilocal}
+\subsubsection{A bilocal obstruction}\label{sec:bilocal}
 
 \begin{lemma}[Bilocal inequality on the path]\label{lem:bilocal}
 Let $R\in\Cpath$ with $R(A=x,E=z)>0$ for all four $(x,z)$, put $f_{xz}=\E_R[BCD\mid A=x,E=z]$ and
@@ -100,7 +100,7 @@ Averaging, $|I_R-I_P|\le24d$ and $|J_R-J_P|\le24d$. If $24d<h/4$ then
 $I_R,J_R>\tfrac{1+h}4-\tfrac h4=\tfrac14$, so $\sqrt{|I_R|}+\sqrt{|J_R|}>1$, contradicting Lemma~\ref{lem:bilocal}. Hence $24d\ge h/4$.
 \end{proof}
 
-\subsection{The witness at every order}\label{sec:pathwitness}
+\subsubsection{The witness at every order}\label{sec:pathwitness}
 
 \begin{theorem}[The path at every order]\label{thm:fivepath}
 For every $t\ge1$ put $\gamma=1/(4t)$ and $h_t=\gamma^2=1/(16t^2)$. Then

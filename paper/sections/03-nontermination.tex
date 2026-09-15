@@ -1,4 +1,6 @@
-\section{The explicit nontermination family}\label{sec:main}
+\section{The defect family and rejecting-order growth}\label{sec:main}
+
+The parity laws of Sections~\ref{sec:cycles} and~\ref{sec:cyclequant} establish nontermination and worst-case lower bounds. We now study a second triangle family for which passing and rejecting bounds yield the same exponent, and the distance to compatibility can be computed to leading order.
 
 For $0<\eps<1$ and $0\le r\le1$ define the three-bit law
 \begin{equation}\label{eq:Q}
@@ -13,7 +15,7 @@ Q(\eps,r)\in\Iexp_t\subseteq\IAI_t\subseteq\INW_t.
 \]
 \end{theorem}
 
-\begin{theorem}[No finite characterizing order]\label{thm:main}
+\begin{theorem}[No finite characterizing order]\label{thm:main}\label{thm:main-intro}
 For every integer $t\ge1$, with $\eps_t=1/(2t^3)$ and $r_t=(1-\eps_t)^{t-1}$, the law $P_t=Q(\eps_t,r_t)$ satisfies
 \[
 P_t\in\Iexp_t\subseteq\IAI_t\subseteq\INW_t
@@ -36,3 +38,7 @@ The binary-support transfer in Remark~\ref{rem:alphabets} applies to $P_t$ and i
 \input{sections/03a-construction}
 \input{sections/03b-incompatibility}
 \input{sections/03c-survival}
+
+\input{sections/04-fan}
+\input{sections/05-exponent}
+\input{sections/06-distance}

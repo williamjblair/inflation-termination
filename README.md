@@ -4,12 +4,12 @@ Lean 4 formalizations of two theorems of *Inflation for Classical Pair-Source Ne
 Termination and Quantitative Obstructions* (William Blair, manuscript, 2026, included under
 [`paper/`](paper/)).
 
-**The classification (paper Theorem 4.2).** For a pair-source scenario with binary
+**The classification (paper Theorem 3.2).** For a pair-source scenario with binary
 observations, some finite order of the Navascués–Wolfe inflation hierarchy characterizes
 compatibility if and only if every connected component of the observed graph is a
 double-star, and when it does, order two already suffices.
 
-**The triangle (paper Theorem 9.2).** The triangle is the smallest scenario on the
+**The triangle (paper Theorem 5.2).** The triangle is the smallest scenario on the
 nonterminating side, and there the failure is quantitative: for every order `t` there is an
 explicit rational three-bit law that passes the order-`t` test and violates the Finner
 inequality by at least `ε_t²/2`.
@@ -89,12 +89,12 @@ Q(ε, r) = ε·δ_000 + (1 − ε)·Bern(r)^⊗3.
 ```
 
 Membership is proved by an explicit inflation law on the order-`t` copied observations
-(paper Section 9.1): independent `Bern(ε)` defect bits on the cube `[t]³` of source-copy
+(paper Section 5.1): independent `Bern(ε)` defect bits on the cube `[t]³` of source-copy
 indices together with independent `Bern(s)` private bits, with a copied observation
 outputting `1` exactly when its private bit and every defect on its line are `0`. That law
 is `S_t³`-symmetric, has the tensor power `P^⊗t` as its diagonal law, and satisfies the
 injectable-marginal and ancestral-independence prescriptions. Incompatibility is the Finner
-inequality `P(000)² ≤ P_A(0)·P_B(0)·P_C(0)` (paper Section 9.2), which `P_t` violates by at
+inequality `P(000)² ≤ P_A(0)·P_B(0)·P_C(0)` (paper Section 5.2), which `P_t` violates by at
 least `ε_t²/2 > 0`.
 
 ## Formalization boundaries
@@ -104,7 +104,7 @@ Three, all scope restrictions of the theorems as stated. They are recorded in th
 Challenge files, and in `formalization.yaml` under `fidelity.divergences`.
 
 1. **Binary observed variables.** The classification is proved for `Bool` outcomes. The
-   manuscript's Remark 4.4 extends it to any fixed finite observed alphabets; that transfer
+   manuscript's Remark 3.8 extends it to any fixed finite observed alphabets; that transfer
    is **not** formalized.
 2. **Finite latent alphabets.** `GCompatible` quantifies over a `GModel` whose latent
    alphabets are `Fintype`s, and `TriangleCompatible` over a `TriangleModel` with three
@@ -130,11 +130,11 @@ the depth-one inflation DAG, `Expressible` is the Wolfe–Spekkens–Fritz closu
 so the statements there about membership are the weaker halves; the bridge theorems
 (`gNWFeasible_triangle_iff` and its companions) supply the stronger ones.
 
-Paper results with no Lean statement here: the square witness of Theorem 8.3, the
-larger-alphabet transfer of Remark 4.4, Lemma 8.5, Corollaries 8.6 and 8.7, Theorem 8.10,
-Proposition 8.14 and its lemmas, Appendix C, the distance asymptotics of Theorem 12.1 and
-Corollary 12.2, the `2^{Θ(B)}` bit-length law of Proposition 14.1, the limit form of
-Proposition 11.1, and Corollary 9.3.
+Paper results with no Lean statement here: the square witness of Theorem 4.3, the
+larger-alphabet transfer of Remark 3.8, Lemma 4.5, Corollaries 4.6 and 4.7, Theorem 4.10,
+Proposition 4.11 and its lemmas, Appendix D, the distance asymptotics of Theorem 5.14 and
+Corollary 5.15, the `2^{Θ(B)}` bit-length law of Proposition 6.2, the limit form of
+Proposition 5.13, and Corollary 5.3.
 
 ## Layout
 
@@ -145,7 +145,7 @@ TriangleInflation/          the triangle library
   FinnerMeasure.lean        the same for arbitrary measurable latent spaces
   Defect.lean               independence from disjoint root supports
   DefectLaw.lean            the defect-cube law: symmetry, diagonal and injectable marginals
-  Main.lean                 Theorem 9.1, Theorem 9.2 and the nontermination corollary
+  Main.lean                 Theorem 5.1, Theorem 5.2 and the nontermination corollary
   Fan.lean                  the order-t fan inequalities; the family R_p
   Exponent.lean             the Θ(ε^{-1/3}) bounds along P_ε
   Rate.lean                 the order-t second-moment rate bound
@@ -167,7 +167,7 @@ TriangleInflation/          the triangle library
     Linear.lean             the linear machinery shared by the witnesses
     TriangleWitness.lean    the triangle witness at q = 1/(16t)
     Transport.lean          induced-subgraph transport and the exhaustion lemma
-    Classification.lean     components, bad components, the pieces of Theorem 4.2
+    Classification.lean     components, bad components, the pieces of Theorem 3.2
     ClassificationTheorem.lean  classification_NW_lib, _AI, _exp
 TriangleInflation.lean      root aggregator
 Palomar/TriangleInflation/
@@ -204,7 +204,7 @@ library.
 | config | `Palomar/TriangleInflation/classification-comparator.json` | `Palomar/TriangleInflation/comparator.json` |
 | declaration | `TriangleInflation.Graph.classification_NW` | `TriangleInflation.no_finite_characterizing_order` |
 | library proof | `classification_NW_lib` | `no_finite_characterizing_order_lib` |
-| paper | Theorem 4.2 | Theorem 9.2 and its corollary |
+| paper | Theorem 3.2 | Theorem 5.2 and its corollary |
 
 Comparator compares the two statements constant by constant, so every constant in the
 statement has to be identical, by name and by definition body, in the two import closures. A
@@ -282,56 +282,62 @@ Statuses are against the manuscript. *Proved* means the paper statement is forma
 stated, up to the three boundaries above. *Partial* means a proper part of it is, and the
 Lean column names which part. *Unformalized* means there is no Lean statement at all.
 
-### Pair-source scenarios (paper Sections 3 to 8)
+### Pair-source scenarios (paper Sections 2 to 4 and Appendix A)
 
 | Paper | Statement | Status | Lean |
 |---|---|---|---|
-| Def. 3.1 to 3.5 | pair-source scenarios, the inflation, `I^NW_t`, `I^AI_t`, `I^exp_t` | proved | `gNWFeasible_of_gAIFeasible`, `gAIFeasible_of_gExpFeasible`, `gNWFeasible_triangle_iff`, `gAIFeasible_triangle_iff`, `gCompatible_triangle_iff` |
-| Prop. 3.6 | soundness of the three tests | proved | `compatible_gNWFeasible`, `compatible_gAIFeasible`, `compatible_gExpFeasible` |
-| Lem. 3.7, 3.9 | the trail criterion and the root-sink lemma, `I^exp_t = I^AI_t` | proved | `gExpFeasible_iff_gAIFeasible`, `isAISet_iff_decomposition`, `isAISet_glue`, `RootSinkAux.exists_activeTrail` |
-| Lem. 3.10 | source-disjoint independence | partial (order two) | `blockMarg_union_of_sourceDisjoint`, `blockMarg_biUnion_of_sourceDisjoint`, `gTwist_law` |
-| Lem. 3.11 | induced-subgraph transport | proved | `induced_transport`, `transport_ai_feasible`, `transport_compatible_restrict` |
-| **Thm. 4.2** | **the termination classification** | **proved** | **`classification_NW`**, `classification_AI`, `classification_exp`, `nontermination_of_not_doubleStar` |
-| Lem. 4.3 | exhaustion into an induced cycle or five-path | proved | `exhaustion`, `flip_full_support`, `flip_gExpFeasible` |
-| Rem. 4.4 | transfer to larger fixed observed alphabets | unformalized | none |
-| Thm. 5.1, Cor. 5.2 | double-star reconstruction at order two | proved (binary case) | `doubleStar_terminates`, `exists_dsStruct`, `DSStruct.gCompatible_of_dsStruct`, `centreLeaf_mass`, `gCompatible_of_localDecoder` |
-| Lem. 6.1 to 6.5 | the cycle target, its characters, exact parity rigidity | partial | `cycleTarget_isLaw`, `cycleTarget_moment`, `parity_rigidity` |
-| Lem. 6.6 to 6.7, Thm. 6.8 | quantitative rigidity, the cycle witness and its distance | proved | `CycleModelAux.quant_rigidity`, `cycle_witness`, `cycle_exp_witness`, `cycle_not_compatible`, `cycle_distance` |
-| Lem. 8.2 | the corrected Fourier density | partial (`m = 3`) | `triW_ge`, `triW_nonneg`, `triW_moment`, `triDensity_isLaw`, `triParity_isLaw` |
-| Thm. 8.3 | the square witness at `q = 1/(16t)` | unformalized | none |
-| Thm. 8.4 | the triangle witness at `q = 1/(16t)` | proved | `triangle_linear_witness` |
-| Lem. 8.5, Cor. 8.6 to 8.7 | order bounds from the parity violation | unformalized | none |
-| Thm. 8.8, Cor. 8.9 | the convex-order bound and the brackets | partial (upper bounds, triangle) | `rate_triangle_sharp`, `tv_le_of_nwFeasible`, `tv_le_sqrt_seven`, `tvDist` |
-| Thm. 8.10, Prop. 8.14 | order conversion on the square; the low-order separations | unformalized | none |
-| Lem. 7.2 to 7.3, Cor. 7.4, Thm. 7.5 | the five-path target, the bilocal inequality, the witness | proved | `fivePathTarget_isLaw`, `fivePathTarget_corr`, `bilocal_of_compatible`, `fivePath_not_compatible`, `fivePath_distance`, `fivePath_witness`, `fivePath_exp_witness` |
+| Def. 2.1 to 2.5 | pair-source scenarios, the inflation, `I^NW_t`, `I^AI_t`, `I^exp_t` | proved | `gNWFeasible_of_gAIFeasible`, `gAIFeasible_of_gExpFeasible`, `gNWFeasible_triangle_iff`, `gAIFeasible_triangle_iff`, `gCompatible_triangle_iff` |
+| Prop. 2.6 | soundness of the three tests | proved | `compatible_gNWFeasible`, `compatible_gAIFeasible`, `compatible_gExpFeasible` |
+| Lem. A.1, 3.4 | the trail criterion and the root-sink lemma, `I^exp_t = I^AI_t` | proved | `gExpFeasible_iff_gAIFeasible`, `isAISet_iff_decomposition`, `isAISet_glue`, `RootSinkAux.exists_activeTrail` |
+| Lem. 3.5 | source-disjoint independence | partial (order two) | `blockMarg_union_of_sourceDisjoint`, `blockMarg_biUnion_of_sourceDisjoint`, `gTwist_law` |
+| Lem. 3.6 | induced-subgraph transport | proved | `induced_transport`, `transport_ai_feasible`, `transport_compatible_restrict` |
+| **Thm. 3.2** | **the termination classification** | **proved** | **`classification_NW`**, `classification_AI`, `classification_exp`, `nontermination_of_not_doubleStar` |
+| Lem. 3.7 | exhaustion into an induced cycle or five-path | proved | `exhaustion`, `flip_full_support`, `flip_gExpFeasible` |
+| Rem. 3.8 | transfer to larger fixed observed alphabets | unformalized | none |
+| Thm. 3.10, Cor. 3.11 | double-star reconstruction at order two | proved (binary case) | `doubleStar_terminates`, `exists_dsStruct`, `DSStruct.gCompatible_of_dsStruct`, `centreLeaf_mass`, `gCompatible_of_localDecoder` |
+| Lem. 3.14 to 3.18 | the cycle target, its characters, exact parity rigidity | partial | `cycleTarget_isLaw`, `cycleTarget_moment`, `parity_rigidity` |
+| Lem. 3.19 to 3.20, Thm. 3.21 | quantitative rigidity, the cycle witness and its distance | proved | `CycleModelAux.quant_rigidity`, `cycle_witness`, `cycle_exp_witness`, `cycle_not_compatible`, `cycle_distance` |
+| Lem. 4.2 | the corrected Fourier density | partial (`m = 3`) | `triW_ge`, `triW_nonneg`, `triW_moment`, `triDensity_isLaw`, `triParity_isLaw` |
+| Thm. 4.3 | the square witness at `q = 1/(16t)` | unformalized | none |
+| Thm. 4.4 | the triangle witness at `q = 1/(16t)` | proved | `triangle_linear_witness` |
+| Lem. 4.5, Cor. 4.6 to 4.7 | order bounds from the parity violation | unformalized | none |
+| Thm. 4.8, Cor. 4.9 | the convex-order bound and the brackets | partial (upper bounds, triangle) | `rate_triangle_sharp`, `tv_le_of_nwFeasible`, `tv_le_sqrt_seven`, `tvDist` |
+| Thm. 4.10, Prop. 4.11 | order conversion on the square; the low-order separations | unformalized | none |
+| Lem. 3.23 to 3.24, Cor. 3.25, Thm. 3.26 | the five-path target, the bilocal inequality, the witness | proved | `fivePathTarget_isLaw`, `fivePathTarget_corr`, `bilocal_of_compatible`, `fivePath_not_compatible`, `fivePath_distance`, `fivePath_witness`, `fivePath_exp_witness` |
 
-### The triangle (paper Sections 2 and 9 to 14)
+### The triangle (paper Sections 2, 5 and 6)
 
 | Paper | Statement | Status | Lean |
 |---|---|---|---|
-| Def. 2.1, 2.2 | `I^NW_t`, injectable sets, ancestral independence, `I^AI_t` | proved | `nwFeasible_of_aiFeasible`, `injectable_iff_injectableRaw` |
-| Def. 2.3 | the recursively expressible set `I^exp_t` | proved on the graph side | `Expressible`, `gExpFeasible_iff_gAIFeasible` |
-| §2.1 | the compatible set `C_△` | proved (both latent conventions) | `TriangleCompatible`, `TriangleCompatibleM`, `triangleCompatibleM_of_triangleCompatible` |
-| Lem. 9.4 | disjoint-ancestry independence | proved | `defect_independence`, `defect_independence_family`, `rootSupport_disjoint` |
-| Lem. 9.5 | the copied-triangle law and the parameter `s` | proved | `defect_copiedTriangle_law`, `sParam_mem_Icc` |
-| Lem. 9.6 | `S_t³` symmetry of the defect-cube law | proved | `defect_symmetric` |
-| Lem. 9.7 | the Finner inequality | proved (arbitrary latent spaces) | `finner_of_compatible`, `finner_of_compatibleM` |
-| Lem. 9.8 | the explicit violation | proved | `witness_violation`, `witness_margin`, `witness_not_compatible`, `witness_not_compatibleM` |
-| Lem. 9.9 | mutual disjointness of the diagonal supports `R_l` | proved | `diagRegion_disjoint`, `defect_diagonal_law` |
-| Thm. 9.1 | membership `Q(ε,r) ∈ I^AI_t ⊆ I^NW_t` | proved | `membership_AI`, `membership_NW`, `defectLaw_witnesses_AI` |
-| **Thm. 9.2 + cor.** | **no finite characterizing order** | **proved** | **`no_finite_characterizing_order`**, `no_finite_characterizing_orderM` |
-| Cor. 9.3 | the larger-alphabet transfer | unformalized | none |
-| App. A | injectable sets are the subsets of copied triangles | proved | `injectable_iff_injectableRaw` |
-| Thm. 10.1 | the order-`t` fan inequalities and the rejecting-order corollary | partial | `fan_first`, `fan_second`, `tminNW_le_of_finner_violation` |
-| Prop. 10.2 | `R_p` has rejecting order 2 at every distance | partial | `Rlaw_tminNW`, `Rlaw_tminAI`, `Rlaw_not_compatibleM` |
-| Prop. 11.1 | `t_min(P_ε) = Θ(ε^{-1/3})` | partial (finite parts) | `Peps_tminNW_bounds`, `Peps_tminAI_bounds`, `Peps_not_compatibleM` |
-| Thm. 12.1, Cor. 12.2 | distance asymptotics | unformalized | none |
-| Cor. 13.1 | the distance-promised order bound | partial (triangle) | `rate_triangle` |
-| Prop. 14.1 | the `2^{Θ(B)}` bit-length law | unformalized | none |
-| App. B and C | certificate formats and supplementary inequalities | unformalized | none |
+| Def. 2.3, 2.4 | `I^NW_t`, injectable sets, ancestral independence, `I^AI_t` | proved | `nwFeasible_of_aiFeasible`, `injectable_iff_injectableRaw` |
+| Def. 2.5 | the recursively expressible set `I^exp_t` | proved on the graph side | `Expressible`, `gExpFeasible_iff_gAIFeasible` |
+| §2.1 and §2.3 | the compatible set `C_△` | proved (both latent conventions) | `TriangleCompatible`, `TriangleCompatibleM`, `triangleCompatibleM_of_triangleCompatible` |
+| Lem. 5.4 | disjoint-ancestry independence | proved | `defect_independence`, `defect_independence_family`, `rootSupport_disjoint` |
+| Lem. 5.5 | the copied-triangle law and the parameter `s` | proved | `defect_copiedTriangle_law`, `sParam_mem_Icc` |
+| Lem. 5.6 | `S_t³` symmetry of the defect-cube law | proved | `defect_symmetric` |
+| Lem. 5.7 | the Finner inequality | proved (arbitrary latent spaces) | `finner_of_compatible`, `finner_of_compatibleM` |
+| Lem. 5.8 | the explicit violation | proved | `witness_violation`, `witness_margin`, `witness_not_compatible`, `witness_not_compatibleM` |
+| Lem. 5.9 | mutual disjointness of the diagonal supports `R_l` | proved | `diagRegion_disjoint`, `defect_diagonal_law` |
+| Thm. 5.1 | membership `Q(ε,r) ∈ I^AI_t ⊆ I^NW_t` | proved | `membership_AI`, `membership_NW`, `defectLaw_witnesses_AI` |
+| **Thm. 5.2 + cor.** | **no finite characterizing order** | **proved** | **`no_finite_characterizing_order`**, `no_finite_characterizing_orderM` |
+| Cor. 5.3 | the larger-alphabet transfer | unformalized | none |
+| App. A.3 | injectable sets are the subsets of copied triangles | proved | `injectable_iff_injectableRaw` |
+| Thm. 5.11 | the order-`t` fan inequalities and the rejecting-order corollary | partial | `fan_first`, `fan_second`, `tminNW_le_of_finner_violation` |
+| Prop. 5.12 | `R_p` has rejecting order 2 at every distance | partial | `Rlaw_tminNW`, `Rlaw_tminAI`, `Rlaw_not_compatibleM` |
+| Prop. 5.13 | `t_min(P_ε) = Θ(ε^{-1/3})` | partial (finite parts) | `Peps_tminNW_bounds`, `Peps_tminAI_bounds`, `Peps_not_compatibleM` |
+| Thm. 5.14, Cor. 5.15 | distance asymptotics | unformalized | none |
+| Cor. 6.1 | the distance-promised order bound | partial (triangle) | `rate_triangle` |
+| Prop. 6.2 | the `2^{Θ(B)}` bit-length law | unformalized | none |
+| App. C and D | certificate formats and supplementary inequalities | unformalized | none |
 
 Declarations without a namespace prefix are in `TriangleInflation` for the second table and
 in `TriangleInflation.Graph` for the first.
+
+## Manuscript reorganization, 15 September 2026
+
+The paper now has eight main sections and 35 pages of main text (49 pages including the title, appendices and references). The setup defines each test once; the classification is followed by quantitative convergence, a unified defect-family analysis, and distance/input-size consequences. Related work is in the introduction. Longer structural proofs, order conversion and threshold calculations are in the appendices. All eight figures and the complete proofs are retained.
+
+The [verification guide](paper/review/VERIFICATION_GUIDE.md) gives replay and build commands. The [editorial report](paper/review/EDITORIAL_REVIEW.md) records the reorganization and validation. The declaration map above uses the current theorem numbers. Registration and arXiv status concern their own snapshots.
 
 ## Manuscript revision, 14 September 2026
 

@@ -1,9 +1,7 @@
-\section{Pair-source scenarios and the three finite tests}\label{sec:pairsource}
+\section{Pair-source scenarios and inflation}\label{sec:pairsource}\label{sec:setup}
 
 \providecommand{\Cscen}[1]{\mathcal C_{#1}}
 \providecommand{\supp}{\operatorname{supp}}
-
-We extend the triangle definitions to pair-source graphs and prove the structural lemmas needed for the classification.
 
 \subsection{Scenarios}
 
@@ -15,7 +13,7 @@ O_v\sim\kappa_v\bigl(\cdot\mid(S_e)_{e\ni v}\bigr),
 conditionally independently across $v$ given the sources. Write $\Cscen{G}$ for the set of joint laws of $(O_v)_{v\in V}$ obtained in this way. Unless stated otherwise every $\mathcal O_v$ is $\{0,1\}$, and we call these the binary observations.
 \end{definition}
 
-Each source is read by exactly the two endpoints of its edge. The triangle of Section~\ref{sec:setup} is the scenario of the $3$-cycle, $\Ctri=\Cscen{C_3}$; the graph $P_n$ is the path on $n$ vertices.
+Each source is read by exactly the two endpoints of its edge. We write $C_m$ for the cycle on $m$ vertices, $P_n$ for the path on $n$ vertices, and $\Ctri=\Cscen{C_3}$.
 
 Sources shared by three or more observers, and latent variables with latent parents, are outside this definition; see Remark~\ref{rem:hypergraph}.
 
@@ -35,14 +33,18 @@ A vertex of degree $d$ has $t^d$ copies, so the inflation carries $\sum_v t^{\de
 
 Call a probability law on $\prod_{v\in V}\bigl(\mathcal O_v\bigr)^{[t]^{E(v)}}$ a \emph{table} of order $t$. Each of the three tests asks for a table with prescribed marginals.
 
-\begin{definition}[Navascués--Wolfe feasible set]\label{def:gNW}
-$P\in\INW_t(G)$ if there is a table $\Gamma_t$ of order $t$ that is invariant under $\prod_{e\in E}S_t$ and whose diagonal law is a tensor power,
+\begin{definition}[Navascués--Wolfe feasible set]\label{def:gNW}\label{def:NW}
+$P\in\INW_t(G)$ if there is a table $\Gamma_t$ of order $t$ such that
+\begin{enumerate}[label=(\roman*),nosep]
+\item $\Gamma_t$ is invariant under $\prod_{e\in E}S_t$; and
+\item its diagonal law is a tensor power,
 \[
 \Law_{\Gamma_t}\bigl((O_v^{\,r})_{v\in V}\ :\ r=1,\dots,t\bigr)=P^{\otimes t}.
 \]
+\end{enumerate}
 \end{definition}
 
-\begin{definition}[Injectable sets and the AI feasible set]\label{def:gAI}
+\begin{definition}[Injectable sets and the AI feasible set]\label{def:gAI}\label{def:AI}
 A set $S$ of copied observations is \emph{injectable} if the map $\pi$ that erases copy indices is injective on $S$ and any two members of $S$ whose vertices share an edge carry the same index on that edge \cite[Definition~4]{WSF2019}. Equivalently, $S$ is injectable if and only if there are a vertex set $W\subseteq V$ and an assignment $\iota:E(W)\to[t]$ with
 \[
 S=\bigl\{O_v^{\,\iota|_{E(v)}}\ :\ v\in W\bigr\},
@@ -52,7 +54,7 @@ in which case $\pi(S)=W$. Two sets of copied observations are \emph{ancestrally 
 
 For the equivalence in Definition~\ref{def:gAI}, given $S$ injectable, let $W=\pi(S)$ and let $\iota(e)$ be the common index carried on $e$ by the members of $S$ at the endpoints of $e$ that lie in $W$, which is well defined by the agreement requirement; conversely every set of the displayed form is injectable. For the triangle this reproduces the description in Appendix~\ref{app:injectable}: the injectable sets are the subsets of the copied triangles.
 
-\begin{definition}[Recursively expressible feasible set]\label{def:gexp}
+\begin{definition}[Recursively expressible feasible set]\label{def:gexp}\label{def:exp}
 Expressible sets of copied observations are generated from injectable sets by the two rules of \cite[Definition~7]{WSF2019}, read in the inflated causal graph of Definition~\ref{def:ginflation}: if $X$ and $Y$ are $d$-separated by $Z$ and the laws on $X\cup Z$ and on $Y\cup Z$ are prescribed, then
 \[
 p(x,y,z)=\frac{p(x,z)\,p(y,z)}{p(z)}\quad\text{where }p(z)>0,\qquad p(x,y,z)=0\quad\text{where }p(z)=0,
@@ -62,112 +64,25 @@ is prescribed on $X\cup Y\cup Z$; and every marginal of a prescribed set is pres
 
 \begin{proposition}[Soundness]\label{prop:gsound}
 For every pair-source scenario $G$ and every $t\ge1$,
-\[
+\begin{equation}\label{eq:nested}
 \Cscen{G}\subseteq\Iexp_t(G)\subseteq\IAI_t(G)\subseteq\INW_t(G).
-\]
+\end{equation}
 \end{proposition}
 
 \begin{proof}
 The two inclusions on the right hold because each test adds prescriptions to the previous one. For the first, realize $P$ by a model, run the model on the inflated source family of Definition~\ref{def:ginflation}, and let $\Gamma_t$ be the law of the copied observations. Permuting the copies of one source permutes independent identically distributed variables, so $\Gamma_t$ is invariant. Distinct rows read disjoint source copies and each row has law $P$, so the diagonal law is $P^{\otimes t}$. An injectable set $S$ reads, for each $v\in\pi(S)$, the copies indexed by a single global assignment $\iota$, so the joint law of $S$ is that of $(O_v)_{v\in\pi(S)}$ in the original model, namely $P_{\pi(S)}$. Ancestrally independent sets read disjoint source copies, hence are independent. The inflated model is a causal model for the inflated graph, so all conditional independences read off that graph hold, and the expressible prescriptions follow by induction on their generation.
 \end{proof}
 
-\subsection{The two stronger tests coincide}
 
-In the inflated graph every source copy is a root and every copied observation is a sink, which makes $d$-separation explicit.
-
-\begin{lemma}[Trail criterion]\label{lem:trail}
-Let $X,Y,Z$ be disjoint sets of copied observations in the order-$t$ inflation of a pair-source scenario. Every trail between a member of $X$ and a member of $Y$ alternates copied observations and source copies, each source copy on it being a fork and each internal copied observation a collider. Such a trail is active given $Z$ if and only if all its internal copied observations lie in $Z$. Consequently $X\perp_dY\mid Z$ if and only if no trail from $X$ to $Y$ has all its internal copied observations in $Z$.
-\end{lemma}
-
-\begin{proof}
-Every edge of the inflated graph joins a source copy to a copied observation, so the nodes of a trail alternate between the two kinds. A source copy has no parents, so both of its neighbours on the trail are its children and it is a fork; being a fork not in $Z$, since $Z$ consists of copied observations, it never blocks. An internal copied observation has no children, so both of its neighbours on the trail are its parents and it is a collider; a collider blocks unless it or one of its descendants lies in $Z$, and it has no descendants, so it blocks exactly when it is not in $Z$. A trail is active given $Z$ when no node on it blocks, which is the stated condition. The last sentence is the definition of $d$-separation.
-\end{proof}
-
-The shortest trails are the two-step ones, $x-S_e^{\,m}-y$, which have no internal observation and are therefore always active: two copied observations reading a common source copy are never $d$-separated.
-
-\begin{definition}[Shared-parent graph and AI sets]\label{def:sharedparent}
-For a set $W$ of copied observations, the \emph{shared-parent graph} on $W$ joins two members when they read a common source copy. Call $W$ an \emph{AI set} if it is a union of pairwise ancestrally independent injectable sets.
-\end{definition}
-
-\begin{lemma}[Root-sink lemma]\label{lem:rootsink}
-Let $G$ be a pair-source scenario and $t\ge1$.
-\begin{enumerate}[label=(\roman*),nosep]
-\item A set $W$ of copied observations is an AI set if and only if every connected component of its shared-parent graph is injectable.
-\item A table satisfies every expressible prescription of Definition~\ref{def:gexp} if and only if it satisfies the injectable and ancestral-independence prescriptions of Definition~\ref{def:gAI}.
-\end{enumerate}
-In particular $\Iexp_t(G)=\IAI_t(G)$ for every $t$.
-\end{lemma}
-
-\begin{proof}
-(i) If every component is injectable, then components with a common source copy would be joined, so distinct components are ancestrally independent and $W$ is their union. Conversely, let $W=W_1\cup\dots\cup W_m$ with the $W_r$ injectable and pairwise ancestrally independent. Every edge of the shared-parent graph joins two members reading a common source copy, hence two members of the same $W_r$. So each component lies in one $W_r$, and a subset of an injectable set is injectable.
-
-(ii) Necessity: injectable sets are expressible by the first rule, and if $X$ and $Y$ are ancestrally independent then by Lemma~\ref{lem:trail} no trail from $X$ to $Y$ can avoid internal copied observations, and one with an internal copied observation is blocked by $\varnothing$; hence $X\perp_dY\mid\varnothing$ and the join rule with $Z=\varnothing$ prescribes $p(x)p(y)$. Iterating gives the products of Definition~\ref{def:gAI}.
-
-Sufficiency: let $\Gamma$ satisfy the prescriptions of Definition~\ref{def:gAI}. We prove by induction on the generation of the expressible family that every generated set $W$ is an AI set and that the law prescribed for it agrees with the marginal $\Gamma_W$. By (i) and the AI prescriptions, the marginal of an AI set is the product of $P_{\pi(K)}$ over the components $K$ of its shared-parent graph.
-
-For an injectable set the claim is the first AI prescription. For a marginal, the components of the shared-parent graph on a subset $W'\subseteq W$ are contained in those on $W$, hence injectable, so $W'$ is again an AI set, and the marginal of the prescription is the prescription of the marginal.
-
-Consider the join rule with $X\perp_dY\mid Z$, where $X\cup Z$ and $Y\cup Z$ are already generated. Let $K$ be a connected component of the shared-parent graph on $X\cup Y\cup Z$ and suppose $K$ meets both $X$ and $Y$. Among all paths inside $K$ from a member of $X$ to a member of $Y$ choose one of minimal length. No internal vertex of it lies in $X$, since the subpath from that vertex to the $Y$-end would be shorter, and for the same reason none lies in $Y$; so every internal vertex lies in $Z$. Inserting between consecutive vertices a source copy they share turns this path into a trail from $X$ to $Y$ whose internal copied observations all lie in $Z$, which is active by Lemma~\ref{lem:trail} and contradicts $X\perp_dY\mid Z$. Hence every component of the shared-parent graph on $X\cup Y\cup Z$ lies in $X\cup Z$ or in $Y\cup Z$. Such a component is also a component of the shared-parent graph on the smaller set, since it is connected there and no member of the smaller set outside it is adjacent to it. As $X\cup Z$ and $Y\cup Z$ are AI sets, all these components are injectable, so $X\cup Y\cup Z$ is an AI set by (i).
-
-It remains to check the prescribed law. Let $\mathcal K$ be the set of components of the shared-parent graph on $X\cup Y\cup Z$, split as $\mathcal X\sqcup\mathcal Y\sqcup\mathcal Z$ according to whether a component meets $X$, meets $Y$, or is contained in $Z$; by the previous paragraph no component meets both $X$ and $Y$, so this is a partition. Write $\alpha=\prod_{K\in\mathcal X}P_{\pi(K)}$, $\beta=\prod_{K\in\mathcal Y}P_{\pi(K)}$ and $\mu=\prod_{K\in\mathcal Z}P_{\pi(K)}$, each evaluated at the coordinates of its component. The components of the shared-parent graph on $X\cup Z$ are the members of $\mathcal X\cup\mathcal Z$ together with the components of $K\cap Z$ for $K\in\mathcal Y$; write $\nu_{\mathcal Y}$ for the product of $P_{\pi(C)}$ over the latter, and $\nu_{\mathcal X}$ for the analogous product coming from $\mathcal X$ inside $Y\cup Z$. Then
+For fixed $P$, each prescription fixes a marginal of the table, so all three tests are linear feasibility problems. Restricting a table to fewer copy indices preserves the conditions; thus the feasible sets decrease with $t$. The Navascués--Wolfe hierarchy is asymptotically complete, $\INW_t(G)\downarrow\Cscen{G}$ \cite{NW2020}. Consequently, for an incompatible law and $H\in\{\mathrm{NW},\mathrm{AI},\mathrm{exp}\}$, the first rejecting order
 \[
-\Gamma_{X\cup Z}=\alpha\,\mu\,\nu_{\mathcal Y},\qquad
-\Gamma_{Y\cup Z}=\beta\,\mu\,\nu_{\mathcal X},\qquad
-\Gamma_{Z}=\mu\,\nu_{\mathcal X}\,\nu_{\mathcal Y},
+\tmin^H(P)=\min\{t\ge1:P\notin\mathcal I_t^H(G)\}
 \]
-the last because the components of the shared-parent graph on $Z$ are those of $K\cap Z$ for $K\in\mathcal X\cup\mathcal Y$ together with $\mathcal Z$. At a point where $\Gamma_Z>0$ the factors $\mu$, $\nu_{\mathcal X}$ and $\nu_{\mathcal Y}$ are positive and cancel,
+is finite. We use total variation $d_{\TV}(P,Q)=\tfrac12\sum_x|P(x)-Q(x)|$ and the distances
 \[
-\frac{\Gamma_{X\cup Z}\,\Gamma_{Y\cup Z}}{\Gamma_{Z}}=\alpha\,\beta\,\mu=\Gamma_{X\cup Y\cup Z},
+d_{\TV}(P,\mathcal C)=\inf_{Q\in\mathcal C}d_{\TV}(P,Q),\qquad
+d_2(P,\mathcal C)=\inf_{Q\in\mathcal C}\|P-Q\|_2.
 \]
-which is the prescribed value. Where $\Gamma_Z=0$ the rule prescribes $0$, and $\Gamma_{X\cup Y\cup Z}\le\Gamma_Z=0$ there, so the two agree on zero fibres as well. This completes the induction.
-\end{proof}
+The finite latent-cardinality theorem of Rosset, Gisin and Wolfe~\cite{RGW2018} makes $\Cscen{G}$ compact and semialgebraic for fixed finite observed alphabets.
 
-Lemma~\ref{lem:rootsink} identifies the two stronger tests but says nothing about the Navascués--Wolfe test, and imposes no causal model on the table as a whole.
-
-\subsection{Blocks with disjoint sources}
-
-\begin{lemma}[Source-disjoint independence]\label{lem:sourcedisjoint}
-Let $t\ge2$ and $P\in\INW_t(G)$. If $U,W\subseteq V$ satisfy $E(U)\cap E(W)=\varnothing$, then
-\[
-P_{U\cup W}=P_U\otimes P_W.
-\]
-\end{lemma}
-
-\begin{proof}
-Let $\Gamma$ be a witness. Let $\sigma$ be the element of $\prod_eS_t$ that transposes the copy indices $1$ and $2$ on every edge of $E(W)$ and fixes all other indices. For $u\in U$ every edge at $u$ lies outside $E(W)$, so $\sigma$ fixes $O_u^{\,1}$; for $w\in W$ every edge at $w$ lies in $E(W)$, so $\sigma$ sends $O_w^{\,1}$ to $O_w^{\,2}$. Invariance of $\Gamma$ gives
-\[
-\Law\bigl((O_u^{\,1})_{u\in U},(O_w^{\,1})_{w\in W}\bigr)=\Law\bigl((O_u^{\,1})_{u\in U},(O_w^{\,2})_{w\in W}\bigr).
-\]
-The left side is the marginal of row $1$, namely $P_{U\cup W}$. The right side reads $U$-coordinates from row $1$ and $W$-coordinates from row $2$, and the two rows are independent with law $P$ each, so it is $P_U\otimes P_W$.
-\end{proof}
-
-Two vertices joined by an edge have that edge in both incidence sets, so the hypothesis says exactly that $U$ and $W$ are disjoint and no edge joins them. Iterating the lemma with $U$ a single block and $W$ the union of the others gives mutual independence of any family of pairwise source-disjoint blocks. In particular the observed law of a disconnected graph factors over its components from order two on.
-
-\subsection{Transport along induced subgraphs}
-
-\begin{lemma}[Induced-subgraph transport]\label{lem:transport}
-Let $H$ be an induced subgraph of $G$ in which no vertex is isolated, and let $\mathcal J\in\{\INW,\IAI,\Iexp\}$.
-\begin{enumerate}[label=(\roman*),nosep]
-\item If $Q\in\Cscen{G}$ then $Q_{V(H)}\in\Cscen{H}$.
-\item If $P_H\in\mathcal J_t(H)$ then $P:=P_H\otimes\Bern(1/2)^{\otimes(V\setminus V(H))}\in\mathcal J_t(G)$.
-\item $d_{\TV}(P,\Cscen{G})\ge d_{\TV}(P_H,\Cscen{H})$. In particular, if $P_H\notin\Cscen{H}$ then $P\notin\Cscen{G}$.
-\end{enumerate}
-\end{lemma}
-
-\begin{proof}
-(i) Take a $G$-model for $Q$ and keep the observations at $V(H)$. Since $H$ is induced, every edge of $G$ with both endpoints in $V(H)$ is an edge of $H$. An edge of $G$ with exactly one endpoint $v$ in $V(H)$ has its source read, among the retained observations, only by $v$; append that source to the source of one edge of $H$ at $v$, which exists because $v$ is not isolated in $H$, and let the other endpoint of that edge ignore the appended component. The result is an $H$-model with the same observed law on $V(H)$.
-
-(ii) Let $\Gamma^H$ be a witness for $P_H$ at order $t$ and write $E_H(v)$ for the set of edges of $H$ at $v$. Define a table $\Gamma$ for $G$ as follows: draw the copied observations $(O_v^{\,j})_{v\in V(H),\,j\in[t]^{E_H(v)}}$ from $\Gamma^H$, draw independent fair bits $\xi_w^{\,k}$ for $w\notin V(H)$ and $k\in[t]^{E(w)}$, and set
-\[
-O_v^{\,i}:=O_v^{\,i|_{E_H(v)}}\ (v\in V(H)),\qquad O_w^{\,k}:=\xi_w^{\,k}\ (w\notin V(H)),
-\]
-so that a copied observation at an $H$-vertex ignores the indices of the edges leaving $H$.
-
-Symmetry: a permutation of the copy indices of an edge of $H$ acts on the first family as the corresponding element of the symmetry group of the $H$-inflation and fixes the fair bits; a permutation of the copy indices of any other edge leaves every $O_v^{\,i}$ with $v\in V(H)$ unchanged and permutes the fair bits among themselves, which preserves their law. Diagonal law: row $r$ of the $G$-inflation restricted to $V(H)$ is row $r$ of the $H$-inflation, and the outside entries of the $t$ rows are $t|V\setminus V(H)|$ distinct fair bits, so the diagonal law is $P_H^{\otimes t}\otimes\Bern(1/2)^{\otimes t(V\setminus V(H))}=P^{\otimes t}$.
-
-Injectable prescriptions: let $S$ be injectable in the $G$-inflation with $W=\pi(S)$. Its members at $H$-vertices, with the outside indices dropped, form an injectable set of the $H$-inflation, because index erasure is still injective and the indices on the edges of $H$ still agree; so their joint law under $\Gamma$ is $(P_H)_{W\cap V(H)}$. Its members at outside vertices are distinct fair bits, independent of everything else, and $P_{W}=(P_H)_{W\cap V(H)}\otimes\Bern(1/2)^{\otimes(W\setminus V(H))}$, as required. Ancestrally independent families: source copies of edges of $H$ are source copies in $G$ as well, so ancestrally independent injectable sets of the $G$-inflation have ancestrally independent $H$-parts, whose laws multiply under $\Gamma^H$, while the fair bits are independent of them and of each other. Hence $\Gamma$ satisfies the conditions of Definition~\ref{def:gAI} whenever $\Gamma^H$ does. The expressible case follows from the AI case by Lemma~\ref{lem:rootsink}, applied in $H$ and in $G$.
-
-(iii) For $Q\in\Cscen{G}$, part (i) gives $Q_{V(H)}\in\Cscen{H}$, and marginalization does not increase total variation, so $d_{\TV}(P,Q)\ge d_{\TV}(P_{V(H)},Q_{V(H)})=d_{\TV}(P_H,Q_{V(H)})\ge d_{\TV}(P_H,\Cscen{H})$. Taking the infimum over $Q$ gives the claim.
-\end{proof}
-
-Part (ii) preserves strict positivity and rationality of the target, since the appended factor is the fair-bit law.
+\input{sections/02-triangle-inflation}

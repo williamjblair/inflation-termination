@@ -1,4 +1,63 @@
-\section{Injectable sets of the triangle}\label{app:injectable}
+\section{Structural details of inflation}\label{app:structure}
+
+\subsection{The root-sink lemma}\label{app:rootsink}
+
+We prove Lemma~\ref{lem:rootsink}, using the following description of active trails.
+
+\begin{lemma}[Trail criterion]\label{lem:trail}
+Let $X,Y,Z$ be disjoint sets of copied observations in the order-$t$ inflation of a pair-source scenario. Every trail between a member of $X$ and a member of $Y$ alternates copied observations and source copies, each source copy on it being a fork and each internal copied observation a collider. Such a trail is active given $Z$ if and only if all its internal copied observations lie in $Z$. Consequently $X\perp_dY\mid Z$ if and only if no trail from $X$ to $Y$ has all its internal copied observations in $Z$.
+\end{lemma}
+
+\begin{proof}
+Every edge of the inflated graph joins a source copy to a copied observation, so the nodes of a trail alternate between the two kinds. A source copy has no parents, so both of its neighbours on the trail are its children and it is a fork; being a fork not in $Z$, since $Z$ consists of copied observations, it never blocks. An internal copied observation has no children, so both of its neighbours on the trail are its parents and it is a collider; a collider blocks unless it or one of its descendants lies in $Z$, and it has no descendants, so it blocks exactly when it is not in $Z$. A trail is active given $Z$ when no node on it blocks, which is the stated condition. The last sentence is the definition of $d$-separation.
+\end{proof}
+
+The shortest trails are the two-step ones, $x-S_e^{\,m}-y$, which have no internal observation and are therefore always active: two copied observations reading a common source copy are never $d$-separated.
+
+
+\begin{proof}[Proof of Lemma~\ref{lem:rootsink}]
+(i) If every component is injectable, then components with a common source copy would be joined, so distinct components are ancestrally independent and $W$ is their union. Conversely, let $W=W_1\cup\dots\cup W_m$ with the $W_r$ injectable and pairwise ancestrally independent. Every edge of the shared-parent graph joins two members reading a common source copy, hence two members of the same $W_r$. So each component lies in one $W_r$, and a subset of an injectable set is injectable.
+
+(ii) Necessity: injectable sets are expressible by the first rule, and if $X$ and $Y$ are ancestrally independent then by Lemma~\ref{lem:trail} no trail from $X$ to $Y$ can avoid internal copied observations, and one with an internal copied observation is blocked by $\varnothing$; hence $X\perp_dY\mid\varnothing$ and the join rule with $Z=\varnothing$ prescribes $p(x)p(y)$. Iterating gives the products of Definition~\ref{def:gAI}.
+
+Sufficiency: let $\Gamma$ satisfy the prescriptions of Definition~\ref{def:gAI}. We prove by induction on the generation of the expressible family that every generated set $W$ is an AI set and that the law prescribed for it agrees with the marginal $\Gamma_W$. By (i) and the AI prescriptions, the marginal of an AI set is the product of $P_{\pi(K)}$ over the components $K$ of its shared-parent graph.
+
+For an injectable set the claim is the first AI prescription. For a marginal, the components of the shared-parent graph on a subset $W'\subseteq W$ are contained in those on $W$, hence injectable, so $W'$ is again an AI set, and the marginal of the prescription is the prescription of the marginal.
+
+Consider the join rule with $X\perp_dY\mid Z$, where $X\cup Z$ and $Y\cup Z$ are already generated. Let $K$ be a connected component of the shared-parent graph on $X\cup Y\cup Z$ and suppose $K$ meets both $X$ and $Y$. Among all paths inside $K$ from a member of $X$ to a member of $Y$ choose one of minimal length. No internal vertex of it lies in $X$, since the subpath from that vertex to the $Y$-end would be shorter, and for the same reason none lies in $Y$; so every internal vertex lies in $Z$. Inserting between consecutive vertices a source copy they share turns this path into a trail from $X$ to $Y$ whose internal copied observations all lie in $Z$, which is active by Lemma~\ref{lem:trail} and contradicts $X\perp_dY\mid Z$. Hence every component of the shared-parent graph on $X\cup Y\cup Z$ lies in $X\cup Z$ or in $Y\cup Z$. Such a component is also a component of the shared-parent graph on the smaller set, since it is connected there and no member of the smaller set outside it is adjacent to it. As $X\cup Z$ and $Y\cup Z$ are AI sets, all these components are injectable, so $X\cup Y\cup Z$ is an AI set by (i).
+
+It remains to check the prescribed law. Let $\mathcal K$ be the set of components of the shared-parent graph on $X\cup Y\cup Z$, split as $\mathcal X\sqcup\mathcal Y\sqcup\mathcal Z$ according to whether a component meets $X$, meets $Y$, or is contained in $Z$; by the previous paragraph no component meets both $X$ and $Y$, so this is a partition. Write $\alpha=\prod_{K\in\mathcal X}P_{\pi(K)}$, $\beta=\prod_{K\in\mathcal Y}P_{\pi(K)}$ and $\mu=\prod_{K\in\mathcal Z}P_{\pi(K)}$, each evaluated at the coordinates of its component. The components of the shared-parent graph on $X\cup Z$ are the members of $\mathcal X\cup\mathcal Z$ together with the components of $K\cap Z$ for $K\in\mathcal Y$; write $\nu_{\mathcal Y}$ for the product of $P_{\pi(C)}$ over the latter, and $\nu_{\mathcal X}$ for the analogous product coming from $\mathcal X$ inside $Y\cup Z$. Then
+\[
+\Gamma_{X\cup Z}=\alpha\,\mu\,\nu_{\mathcal Y},\qquad
+\Gamma_{Y\cup Z}=\beta\,\mu\,\nu_{\mathcal X},\qquad
+\Gamma_{Z}=\mu\,\nu_{\mathcal X}\,\nu_{\mathcal Y},
+\]
+the last because the components of the shared-parent graph on $Z$ are those of $K\cap Z$ for $K\in\mathcal X\cup\mathcal Y$ together with $\mathcal Z$. At a point where $\Gamma_Z>0$ the factors $\mu$, $\nu_{\mathcal X}$ and $\nu_{\mathcal Y}$ are positive and cancel,
+\[
+\frac{\Gamma_{X\cup Z}\,\Gamma_{Y\cup Z}}{\Gamma_{Z}}=\alpha\,\beta\,\mu=\Gamma_{X\cup Y\cup Z},
+\]
+which is the prescribed value. Where $\Gamma_Z=0$ the rule prescribes $0$, and $\Gamma_{X\cup Y\cup Z}\le\Gamma_Z=0$ there, so the two agree on zero fibres as well. This completes the induction.
+\end{proof}
+
+\subsection{Induced-subgraph transport}\label{app:transport}
+
+\begin{proof}[Proof of Lemma~\ref{lem:transport}]
+(i) Take a $G$-model for $Q$ and keep the observations at $V(H)$. Since $H$ is induced, every edge of $G$ with both endpoints in $V(H)$ is an edge of $H$. An edge of $G$ with exactly one endpoint $v$ in $V(H)$ has its source read, among the retained observations, only by $v$; append that source to the source of one edge of $H$ at $v$, which exists because $v$ is not isolated in $H$, and let the other endpoint of that edge ignore the appended component. The result is an $H$-model with the same observed law on $V(H)$.
+
+(ii) Let $\Gamma^H$ be a witness for $P_H$ at order $t$ and write $E_H(v)$ for the set of edges of $H$ at $v$. Define a table $\Gamma$ for $G$ as follows: draw the copied observations $(O_v^{\,j})_{v\in V(H),\,j\in[t]^{E_H(v)}}$ from $\Gamma^H$, draw independent fair bits $\xi_w^{\,k}$ for $w\notin V(H)$ and $k\in[t]^{E(w)}$, and set
+\[
+O_v^{\,i}:=O_v^{\,i|_{E_H(v)}}\ (v\in V(H)),\qquad O_w^{\,k}:=\xi_w^{\,k}\ (w\notin V(H)),
+\]
+so that a copied observation at an $H$-vertex ignores the indices of the edges leaving $H$.
+
+Symmetry: a permutation of the copy indices of an edge of $H$ acts on the first family as the corresponding element of the symmetry group of the $H$-inflation and fixes the fair bits; a permutation of the copy indices of any other edge leaves every $O_v^{\,i}$ with $v\in V(H)$ unchanged and permutes the fair bits among themselves, which preserves their law. Diagonal law: row $r$ of the $G$-inflation restricted to $V(H)$ is row $r$ of the $H$-inflation, and the outside entries of the $t$ rows are $t|V\setminus V(H)|$ distinct fair bits, so the diagonal law is $P_H^{\otimes t}\otimes\Bern(1/2)^{\otimes t(V\setminus V(H))}=P^{\otimes t}$.
+
+Injectable prescriptions: let $S$ be injectable in the $G$-inflation with $W=\pi(S)$. Its members at $H$-vertices, with the outside indices dropped, form an injectable set of the $H$-inflation, because index erasure is still injective and the indices on the edges of $H$ still agree; so their joint law under $\Gamma$ is $(P_H)_{W\cap V(H)}$. Its members at outside vertices are distinct fair bits, independent of everything else, and $P_{W}=(P_H)_{W\cap V(H)}\otimes\Bern(1/2)^{\otimes(W\setminus V(H))}$, as required. Ancestrally independent families: source copies of edges of $H$ are source copies in $G$ as well, so ancestrally independent injectable sets of the $G$-inflation have ancestrally independent $H$-parts, whose laws multiply under $\Gamma^H$, while the fair bits are independent of them and of each other. Hence $\Gamma$ satisfies the conditions of Definition~\ref{def:gAI} whenever $\Gamma^H$ does. The expressible case follows from the AI case by Lemma~\ref{lem:rootsink}, applied in $H$ and in $G$.
+
+(iii) For $Q\in\Cscen{G}$, part (i) gives $Q_{V(H)}\in\Cscen{H}$, and marginalization does not increase total variation, so $d_{\TV}(P,Q)\ge d_{\TV}(P_{V(H)},Q_{V(H)})=d_{\TV}(P_H,Q_{V(H)})\ge d_{\TV}(P_H,\Cscen{H})$. Taking the infimum over $Q$ gives the claim.
+\end{proof}
+
+\subsection{Injectable sets of the triangle}\label{app:injectable}
 
 We justify the description of injectable sets used in Definition~\ref{def:AI}. In the order-$t$ inflated triangle, a set $S$ of copied observations is injectable when the map that erases copy indices is injective on $S$ and, for any two members of $S$ that are copies of variables sharing a source in the triangle, the copy index of that source agrees \cite[Definition~4]{WSF2019}. Injectivity allows at most one copy of each of $A$, $B$, $C$. If $S$ contains $A^{ij}$ and $B^{i'k}$ then $i=i'$; if it contains $A^{ij}$ and $C^{j'k}$ then $j=j'$; if it contains $B^{ik}$ and $C^{jk'}$ then $k=k'$. Hence $S\subseteq\Delta_{ijk}$ for suitable $(i,j,k)$, any missing index being chosen freely. Conversely every subset of a copied triangle is injectable. This proves the characterization for all $t$.
 

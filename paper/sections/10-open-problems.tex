@@ -3,29 +3,24 @@
 \begin{question}[Worst-case convergence exponent]\label{q:hausdorff}
 For the square and the triangle, Corollary~\ref{cor:brackets} gives $\Omega(1/t)\le H_t^H\le O(t^{-1/2})$ for each hierarchy $H$. Which exponent in $[1/2,1]$ is sharp, and does it depend on the hierarchy?
 \end{question}
-The parity constructions give the lower bounds. The certified thresholds through order ten are consistent with $q_t^H$ of order $1/t$, but finite brackets do not settle that asymptotic claim or exclude another rate along the same family. For longer cycles Theorem~\ref{thm:cycle} gives $\Omega(m^{-2}t^{-2})$, and for the five-vertex path Theorem~\ref{thm:fivepath} gives $\Omega(t^{-2})$.
+For longer cycles Theorem~\ref{thm:cycle} gives $\Omega(m^{-2}t^{-2})$, and for the five-vertex path Theorem~\ref{thm:fivepath} gives $\Omega(t^{-2})$.
 
 \begin{question}[Exact leading constant along the defect family]\label{q:constant}
 Does $\eps^{1/3}\tmin^H(P_\eps)$ converge? If so, what is its limit, and do the three hierarchies share it?
 \end{question}
-The current bounds give the interval $[\tfrac12,4-2\sqrt3]$. The finite certificates determine the first rejecting order at $\eps=k^{-3}$ for $k\in\{4,6,8,10,16\}$; the passing and fan bounds differ at the larger tested values.
+The current bounds give the interval $[\tfrac12,4-2\sqrt3]$.
 
 \begin{question}[Separation of the hierarchies]\label{q:separation}
 Theorem~\ref{thm:orderconversion} shows that on the square the Navascués--Wolfe and ancestral-independence hierarchies differ by at most a factor $3/2$ in the order. Is the factor sharp, and does a bounded conversion hold on every pair-source scenario?
 \end{question}
-Along the parity direction the certified thresholds of Proposition~\ref{prop:paritythresholds} separate the two hierarchies at every even order up to ten and give identical brackets at every odd order up to nine, on both the square and the triangle; we do not know whether the inclusion $\IAI_t\subseteq\INW_t$ is strict at every order on any scenario, nor whether the observed odd--even pattern persists.
+Proposition~\ref{prop:paritythresholds} gives finite-order separations. Whether $\IAI_t\subsetneq\INW_t$ holds at every order on any fixed scenario remains open.
 
 \begin{question}[Beyond pair-source scenarios]\label{q:hypergraph}
 Which scenarios with a source shared by three or more observed variables admit a finite characterizing order?
 \end{question}
-The reconstruction of Theorem~\ref{thm:doublestar} uses that every source has two endpoints, and the exhaustion of Lemma~\ref{lem:exhaustion} is a statement about graphs. Both would need replacements for hypergraphs. Any proposed extension of the transport argument must specify how retained source hyperedges intersect the chosen observers; observed adjacency alone is insufficient (Remark~\ref{rem:hypergraph}).
-
 \begin{question}[Explicit rejecting orders beyond Finner]\label{q:effective}
 Can one bound the rejecting order in directly evaluable quantities of an incompatible input law that satisfies every Finner inequality?
 \end{question}
-Theorem~\ref{thm:fan} gives rejecting orders from triangle Finner violations. Lemma~\ref{lem:maxmoment} separates square laws from compatibility, but does not itself bound their rejecting order. The distance and bit-length bounds apply more broadly, but computing the distance or extracting the constants from quantifier elimination need not be practical.
-
 \begin{question}[Quantum and no-signalling analogues]\label{q:quantum}
 For which quantum or no-signalling inflation hierarchies can one construct incompatible laws with an unbounded first rejecting order and determine its growth?
 \end{question}
-This question requires specifying both the hierarchy and the compatible resource model; the classical proofs here do not decide it.

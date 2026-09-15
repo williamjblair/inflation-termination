@@ -1,4 +1,4 @@
-\section{Certificate formats}\label{app:certificates}
+\section{Certificate formats and coverage}\label{app:certificates}
 
 The files described here are under \texttt{artifact/certificates/} in the repository \repo, with the checkers under \texttt{artifact/verifiers/} and the manifest of SHA-256 identities at \texttt{artifact/MANIFEST.json}.
 
@@ -16,3 +16,24 @@ An exact Farkas certificate showing that the rational law $\tfrac12(\delta_{000}
 
 \paragraph{Fan certificates.}
 A JSON list of records, one per $k$ in the list $4$, $5$, $6$, $8$, $10$, $16$, $32$, $64$, $128$, $256$, $512$, $1024$, $4096$, $65536$, with $\eps=k^{-3}$, $\sigma=1/(2k^2)$, the eight exact atoms of $P_\eps$, the values $m$, $z$ and the Finner gap $z^2-m^3$, the passing order $\lfloor1+k/2\rfloor$ with the exact Bernoulli certificate $(t-1)\eps\le\sigma$, the first order at which $v_t=tz-m-\binom t2m^2$ is positive together with the exact rational value of $v_t$ there, and the first order at which the second-moment inequality fails. An all-order certificate records the identity $1+\tfrac12S(S-1)-S=\tfrac12(S-1)(S-2)$ and its nonnegativity on integers by cases, so that \eqref{eq:fan-pointwise} needs no order-by-order enumeration; the checker nevertheless enumerates all assignments of the fan for small $t$ and all count orbits for larger $t$, and verifies that the index permutations used in \eqref{eq:fan-cross} extend to permutations of $[t]$. Negative controls perturb the atoms, the parameters and the claimed orders and must be rejected.
+
+\subsection{Finite coverage}
+
+\begin{table}[htbp]
+\centering\small
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{.21\linewidth}>{\raggedright\arraybackslash}p{.23\linewidth}>{\raggedright\arraybackslash}p{.48\linewidth}@{}}
+\toprule
+Certificate set & Range & Checked properties\\
+\midrule
+Defect cube & $t=1,2,3$ & Root probabilities, line supports, symmetry, copied-triangle marginals, diagonal products and Finner gaps.\\[3pt]
+Full defect table & $t=2$ & All $4096$ assignments; $166$ nonzero entries; $12{,}288$ symmetry equations and $64$ diagonal equations.\\[3pt]
+Fan inequalities & Fourteen rational targets & Passing bounds, fan and second-moment rejection bounds, the pointwise count identity, index embeddings and negative controls.\\[3pt]
+Classification witnesses & Cycles $C_3,C_4,C_5$ and path: $t\le2$; corrected triangle: $t\le3$ & Auxiliary density, nonnegative observed law, symmetry, prescribed marginals and ancestral products, target separation and local flips where supplied.\\[3pt]
+Parity thresholds & Triangle and square, both tests, $1\le t\le10$ & Primal moments, dual signs on every count configuration, interval positivity; brute-force AI degree enumeration for $t\le3$ and explicit realizations through $t=10$.\\
+\bottomrule
+\end{tabular}
+\caption{Finite certificate coverage. Positivity of an auxiliary density does not imply full support of its observed pushforward. The unflipped cycle witnesses have parity constraints.}\label{tab:verification}
+\end{table}
+
+The fan bounds determine the first rejecting orders of $P_\eps$ exactly at $\eps=k^{-3}$ for $k=4,6,8,10,16$: they are $4,5,6,7,10$. At $k=32,128,1024,65536$, the passing construction gives lower bounds $18,66,514,32770$, while the fan gives upper bounds $19,70,551,35122$.

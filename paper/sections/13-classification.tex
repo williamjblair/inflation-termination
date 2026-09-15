@@ -7,7 +7,7 @@
 A \emph{double-star} is a graph with a distinguished edge $\{b,c\}$, the \emph{central edge}, such that every other vertex is adjacent to exactly one of $b$ and $c$ and to nothing else. Equivalently, a double-star is a tree of diameter at most three. Single edges and stars are double-stars.
 \end{definition}
 
-\begin{theorem}[Termination classification]\label{thm:classification}
+\begin{theorem}[Termination classification]\label{thm:classification}\label{thm:classification-intro}
 Let $G$ be a finite simple graph without isolated vertices, with binary observations. The following are equivalent.
 \begin{enumerate}[label=(\alph*),nosep]
 \item $\INW_t(G)=\Cscen{G}$ for some finite $t$.
@@ -26,6 +26,62 @@ P\in\Iexp_t(G)\setminus\Cscen{G}\subseteq\IAI_t(G)\setminus\Cscen{G}\subseteq\IN
 \end{theorem}
 
 The graph and the alphabets stay fixed as $t$ grows; only the law $P$ varies. The proof combines Theorem~\ref{thm:doublestar} with Theorems~\ref{thm:cycle} and \ref{thm:fivepath} through the exhaustion lemma below.
+
+\subsection{Structural lemmas}
+
+In the inflated graph every source copy is a root and every copied observation is a sink. This structure makes the AI and expressible prescriptions coincide; Appendix~\ref{app:rootsink} proves the equivalence.
+
+\begin{definition}[Shared-parent graph and AI sets]\label{def:sharedparent}
+For a set $W$ of copied observations, the \emph{shared-parent graph} on $W$ joins two members when they read a common source copy. Call $W$ an \emph{AI set} if it is a union of pairwise ancestrally independent injectable sets.
+\end{definition}
+
+\begin{lemma}[Root-sink lemma]\label{lem:rootsink}
+Let $G$ be a pair-source scenario and $t\ge1$.
+\begin{enumerate}[label=(\roman*),nosep]
+\item A set $W$ of copied observations is an AI set if and only if every connected component of its shared-parent graph is injectable.
+\item A table satisfies every expressible prescription of Definition~\ref{def:gexp} if and only if it satisfies the injectable and ancestral-independence prescriptions of Definition~\ref{def:gAI}.
+\end{enumerate}
+In particular $\Iexp_t(G)=\IAI_t(G)$ for every $t$.
+\end{lemma}
+
+
+Lemma~\ref{lem:rootsink} identifies the two stronger tests but says nothing about the Navascués--Wolfe test, and imposes no causal model on the table as a whole.
+
+\paragraph{Source-disjoint blocks.}
+
+\begin{lemma}[Source-disjoint independence]\label{lem:sourcedisjoint}
+Let $t\ge2$ and $P\in\INW_t(G)$. If $U,W\subseteq V$ satisfy $E(U)\cap E(W)=\varnothing$, then
+\[
+P_{U\cup W}=P_U\otimes P_W.
+\]
+\end{lemma}
+
+\begin{proof}
+Let $\Gamma$ be a witness. Let $\sigma$ be the element of $\prod_eS_t$ that transposes the copy indices $1$ and $2$ on every edge of $E(W)$ and fixes all other indices. For $u\in U$ every edge at $u$ lies outside $E(W)$, so $\sigma$ fixes $O_u^{\,1}$; for $w\in W$ every edge at $w$ lies in $E(W)$, so $\sigma$ sends $O_w^{\,1}$ to $O_w^{\,2}$. Invariance of $\Gamma$ gives
+\[
+\Law\bigl((O_u^{\,1})_{u\in U},(O_w^{\,1})_{w\in W}\bigr)=\Law\bigl((O_u^{\,1})_{u\in U},(O_w^{\,2})_{w\in W}\bigr).
+\]
+The left side is the marginal of row $1$, namely $P_{U\cup W}$. The right side reads $U$-coordinates from row $1$ and $W$-coordinates from row $2$, and the two rows are independent with law $P$ each, so it is $P_U\otimes P_W$.
+\end{proof}
+
+Two vertices joined by an edge have that edge in both incidence sets, so the hypothesis says exactly that $U$ and $W$ are disjoint and no edge joins them. Iterating the lemma with $U$ a single block and $W$ the union of the others gives mutual independence of any family of pairwise source-disjoint blocks. In particular the observed law of a disconnected graph factors over its components from order two on.
+
+\paragraph{Induced subgraphs.}
+
+\begin{lemma}[Induced-subgraph transport]\label{lem:transport}
+Let $H$ be an induced subgraph of $G$ in which no vertex is isolated, and let $\mathcal J\in\{\INW,\IAI,\Iexp\}$.
+\begin{enumerate}[label=(\roman*),nosep]
+\item If $Q\in\Cscen{G}$ then $Q_{V(H)}\in\Cscen{H}$.
+\item If $P_H\in\mathcal J_t(H)$ then $P:=P_H\otimes\Bern(1/2)^{\otimes(V\setminus V(H))}\in\mathcal J_t(G)$.
+\item $d_{\TV}(P,\Cscen{G})\ge d_{\TV}(P_H,\Cscen{H})$. In particular, if $P_H\notin\Cscen{H}$ then $P\notin\Cscen{G}$.
+\end{enumerate}
+\end{lemma}
+
+For restriction, sources crossing the subgraph boundary can be absorbed into incident retained sources. For extension, the copied observations in $H$ ignore all boundary indices, and the remaining observations are independent fair bits. Marginalization then gives the distance bound. Appendix~\ref{app:transport} gives the full proof.
+
+Part (ii) preserves strict positivity and rationality of the target, since the appended factor is the fair-bit law.
+
+\subsection{Reduction to cycles and paths}
 
 \begin{lemma}[Exhaustion]\label{lem:exhaustion}
 Let $K$ be a finite connected graph that has at least one edge and is not a double-star. Then $K$ has an induced subgraph isomorphic to a cycle $C_m$ with $m\ge3$ or to the path $P_5$.
@@ -69,5 +125,6 @@ the leaves being taken with respect to a choice of central edge in each componen
 Let three observers read one common source. That source can carry a sample of the whole observed triple, so every law on the three outcomes is compatible and the order-one test already characterizes the compatible set, while the observed adjacency graph of this scenario is the triangle, which does not terminate at any order. The adjacency graph alone therefore carries no classification once source hyperedges are allowed.
 \end{remark}
 
-\paragraph{Scope.}
-Theorem~\ref{thm:classification} decides which binary pair-source scenarios admit a finite characterizing order, and for the terminating ones it gives the order. It does not decide the worst-case distance $\sup\{d_{\TV}(P,\Cscen{G}):P\in\INW_t(G)\}$ for a nonterminating $G$, which is Question~\ref{q:hausdorff} for the triangle. Nontermination together with the convergence $\INW_t(G)\downarrow\Cscen{G}$ of \cite{NW2020} gives infinitely many strict inclusions $\INW_{t+1}(G)\subsetneq\INW_t(G)$, but not strictness at every order. It says nothing about quantum or no-signalling resources.
+\input{sections/14-double-star}
+\input{sections/15-cycles}
+\input{sections/16-five-path}

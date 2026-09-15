@@ -1,6 +1,6 @@
 {
   "base_commit": "53c7c27a299a6ee66f474c241198f0dc20db5b50",
-  "pages": 53,
+  "pages": 49,
   "figures": 8,
   "standalone_pdf_text_matches": true,
   "lean_source_and_certificate_bytes_unchanged": true,
@@ -11,8 +11,8 @@
   "latex_overfull_boxes": 0,
   "latex_unresolved_references": 0,
   "outputs_sha256": {
-    "paper/main.pdf": "be2fb47cdb0a1c977e46fa1fa6a71368be5af032a0a3a7b7fb83fe147fe00706",
-    "paper/release/arxiv-src.tar.gz": "389a8b84895cc291def7ce87c9fd786a6c18cbc9edb4cfd751255c35d4dc3a2c",
+    "paper/main.pdf": "9178b5ffc1932e06644f917102bb84bd864cdb29350896c9d41e8c9cc86bfa1c",
+    "paper/release/arxiv-src.tar.gz": "592e544d5743373992514c43697f436a8bede34577d48fb15c1f865d8186b669",
     "paper/review/deferred-supporting-original.tex": "85640195b10d84867e42fb995490f577a86ae8b470e843e736b105727aa8ef09"
   },
   "layout_review": {
@@ -22,5 +22,58 @@
     "numbered_tables_reviewed": 2,
     "latex_underfull_boxes": 0,
     "proof_and_certificate_checks_rerun": false
+  },
+  "reorganization_review": {
+    "base_commit": "67103258ec07c20d470394a63873089e427e1b61",
+    "old_proof_count": 57,
+    "retained_proof_count": 57,
+    "proof_bodies_preserved_modulo_two_reference_updates": true,
+    "old_label_count": 165,
+    "old_citation_key_count": 22,
+    "all_old_labels_preserved": true,
+    "all_old_citation_keys_preserved": true,
+    "numbered_statements_unchanged_except_consolidations": true,
+    "intentional_statement_consolidations": [
+      "def:AI",
+      "def:NW",
+      "def:exp",
+      "def:gNW",
+      "prop:gsound",
+      "thm:brackets-intro",
+      "thm:classification-intro",
+      "thm:main-intro"
+    ],
+    "pages": 49,
+    "main_text_pages": 35,
+    "main_sections": 8,
+    "figures": 8,
+    "pages_visually_reviewed": 49,
+    "numbered_tables_reviewed": 2,
+    "threshold_table_bytes_preserved": true,
+    "standalone_pdf_text_matches": true,
+    "standalone_pdf_normalized_text_matches": true,
+    "latex_diagnostics": {
+      "tmp/pdfs/build/main.log": {
+        "Overfull": 0,
+        "Underfull": 0,
+        "undefined": 0,
+        "multiply defined": 0
+      },
+      "paper/release/arxiv-build.log": {
+        "Overfull": 0,
+        "Underfull": 0,
+        "undefined": 0,
+        "multiply defined": 0
+      }
+    },
+    "lean_source_and_certificate_bytes_unchanged": true,
+    "lean_and_certificate_checks_rerun": false,
+    "formalization_yaml_parses": true,
+    "texcount_text_words": {
+      "before_total": 15824,
+      "after_total": 13988,
+      "before_front_matter_and_main": 14220,
+      "after_front_matter_and_main": 10001
+    }
   }
 }

@@ -1,54 +1,39 @@
 \section{Introduction}\label{sec:intro}
 
-A correlation scenario has independent latent sources and observed variables that respond to the sources reaching them. The compatible laws of a fixed scenario form a nonconvex set, and finite latent-cardinality bounds give it a finite semialgebraic description, but an explicit characterization is unavailable even for the classical triangle with binary observations \cite{Fritz2012,RGW2018}. Wolfe, Spekkens and Fritz introduced inflation as a test of compatibility \cite{WSF2019}: at order $t$ one copies each source $t$ times and asks for a joint law on the copied observations with prescribed marginals. Navascués and Wolfe proved that their version of the hierarchy is asymptotically complete and asked whether a fixed scenario with fixed observed alphabets admits one finite order that decides compatibility \cite{NW2020}. They named the triangle as a scenario where the answer could be no.
+A correlation scenario has independent latent sources and observed variables that respond to the sources reaching them. Its compatible laws form a nonconvex set. Finite latent-cardinality bounds make this set semialgebraic, but an explicit characterization is unavailable even for the classical triangle with binary observations \cite{Fritz2012,RGW2018}. Inflation tests compatibility by copying each source $t$ times and asking for a joint law on the copied observations with prescribed marginals \cite{WSF2019}. Navascués and Wolfe proved asymptotic completeness of their hierarchy and asked whether, for a fixed scenario and fixed observed alphabets, some finite order already decides compatibility \cite{NW2020}. They identified the triangle as a possible counterexample.
 
-We answer the question for every pair-source scenario, meaning every scenario in which each source is shared by exactly two observed variables. Such a scenario is a finite simple graph $G$: vertices are observed variables and edges are sources. The triangle, the square and longer cycles, paths and stars are all pair-source scenarios.
+We answer this question for pair-source scenarios, in which each source is shared by exactly two observers. Such a scenario is a finite simple graph $G$: observers are vertices and sources are edges. We then study the order needed to reject incompatible laws near the compatible set.
 
-\paragraph{Theorem A: which pair-source scenarios terminate.}
-Call a tree of diameter at most three a double-star; it is an edge with any number of leaves at each end, and it includes single edges and stars.
+\subsection{Main results}
 
-\begin{theorem}\label{thm:classification-intro}
-Let $G$ be a finite simple graph without isolated vertices, with binary observed variables. Some finite order of the Navascués--Wolfe hierarchy characterizes compatibility with $G$ if and only if every connected component of $G$ is a double-star, and then order two suffices. The same holds for the ancestral-independence and the recursively expressible strengthenings of the hierarchy from \cite{WSF2019}, which coincide with each other on every pair-source scenario. When some component is not a double-star, for every $t$ there is a strictly positive rational law that passes every order-$t$ test of all three hierarchies and is not compatible.
-\end{theorem}
+\paragraph{Termination classification.}
+For binary observations, a pair-source scenario has a finite characterizing order if and only if every connected component is a tree of diameter at most three, or \emph{double-star}. In that case order two suffices. Otherwise, for every prescribed order there is an incompatible, strictly positive rational law accepted at that order (Theorem~\ref{thm:classification}). This classification holds for the Navascués--Wolfe (NW), ancestral-independence (AI) and recursively expressible tests. The last two coincide on pair-source scenarios.
 
-The proof has three ingredients. On a double-star, an inflation witness determines joint response tables for the two central vertices (Theorem~\ref{thm:doublestar}). Every other connected graph contains an induced cycle or a five-vertex path. We construct an incompatible law accepted at each prescribed order on both types of subgraph, then extend it to the ambient graph (Theorems~\ref{thm:cycle} and~\ref{thm:fivepath}, Lemma~\ref{lem:transport}). Figure~\ref{fig:classification} illustrates the dividing line. The reconstruction extends the order-two star result of Navascués and Wolfe~\cite{NW2020} and resolves their four-on-line example for binary endpoints.
+The proof reconstructs a model on each double-star. Every other connected graph contains an induced cycle or a five-vertex path; explicit witnesses on these subgraphs extend to the ambient graph. Figure~\ref{fig:classification} shows the dividing line.
 
 \input{figures/classification}
 
-\paragraph{Theorem B: how far accepted laws can be from compatibility.}
-For a hierarchy $H$ and a scenario $G$ let $H_t^H(G)$ be the largest total-variation distance from the compatible set among laws accepted at order $t$. By asymptotic completeness this tends to zero. For the triangle and the square we bracket the rate.
-
-\begin{theorem}\label{thm:brackets-intro}
-For every $t\ge1$,
-\begin{align*}
-\frac5{768\,t}&\le H_t^{\mathrm{exp}}(\square)=H_t^{\mathrm{AI}}(\square)\le H_t^{\mathrm{NW}}(\square)\le\min\Bigl\{1,\frac{\sqrt{15}}{2\sqrt t}\Bigr\},\\
-\frac{27}{5120\,t}&\le H_t^{\mathrm{exp}}(\triangle)=H_t^{\mathrm{AI}}(\triangle)\le H_t^{\mathrm{NW}}(\triangle)\le\frac{\sqrt7}{2\sqrt t}.
-\end{align*}
-\end{theorem}
-
-The lower bounds use parity laws whose auxiliary Fourier coefficients can be adjusted without changing any prescribed inflation marginal. The upper bound applies to any correlation scenario with $K$ joint outcomes:
+\paragraph{Quantitative convergence.}
+Let $H_t^H(G)$ be the largest total-variation distance from compatibility among laws accepted at order $t$ by hierarchy $H$. For the triangle and square we prove
 \[
-H_n^{\mathrm{NW}}(G)\le\min\{1,\sqrt{K-1}/(2\sqrt n)\}.
+\frac{c_G}{t}\le H_t^H(G)\le\frac{C_G}{\sqrt t},
 \]
-We obtain it by extracting a compatible law from a deterministic inflation table and comparing it in convex order with an empirical distribution (Theorem~\ref{thm:convexorder}). On the square, $\INW_{\lfloor3t/2\rfloor}\subseteq\IAI_t$ for $t\ge2$, so the strengthenings change the required order by at most a factor $3/2$ (Theorem~\ref{thm:orderconversion}). The exact worst-case decay rate remains open.
+with explicit positive constants (Corollary~\ref{cor:brackets}). The lower bounds use parity laws and corrected Fourier densities. The upper bound follows from a convex-order comparison and applies to any correlation scenario with $K$ joint outcomes, with $C_G=\sqrt{K-1}/2$ (Theorem~\ref{thm:convexorder}). On the square, increasing the NW order by a factor at most $3/2$ enforces all AI prescriptions (Theorem~\ref{thm:orderconversion}). Finite certificates also separate these tests at specified orders.
 
-\paragraph{Theorem C: the triangle along an explicit family.}
-A second construction on the triangle, based on independent defects in a cube of copy indices, gives explicit rejecting-order and distance asymptotics. For every integer $t\ge1$ put
+\paragraph{Rejecting orders near the boundary.}
+A second triangle construction places independent defects in a cube of copy indices. It gives passing witnesses for
 \[
-\eps_t=\frac1{2t^3},\qquad r_t=(1-\eps_t)^{t-1},\qquad
-P_t=\eps_t\,\delta_{000}+(1-\eps_t)\,\Bern(r_t)^{\otimes3},
+Q(\eps,r)=\eps\,\delta_{000}+(1-\eps)\Bern(r)^{\otimes3},
+\qquad r\le(1-\eps)^{t-1},
 \]
-where $\Bern(r)$ takes the value $1$ with probability $r$.
-
-\begin{theorem}\label{thm:main-intro}
-For every $t\ge1$, $P_t$ satisfies the complete order-$t$ Navascués--Wolfe inflation test for the triangle, together with every ancestral-independence and recursively expressible prescription, and is not compatible: $P_t(000)^2-P_{t,A}(0)P_{t,B}(0)P_{t,C}(0)\ge\eps_t^2/2>0$, in violation of the Finner inequality.
-\end{theorem}
-
-For $0<\eps<1/8$ put $P_\eps=\eps\,\delta_{000}+(1-\eps)\Bern(1-\tfrac12\eps^{2/3})^{\otimes3}$; these laws converge to the compatible point $\delta_{111}$. Their first rejecting order satisfies
+where $\Bern(r)(1)=r$. For $P_\eps=Q(\eps,1-\tfrac12\eps^{2/3})$, a fan inequality gives a matching rejecting-order exponent:
 \[
-\tfrac12\le\liminf_{\eps\downarrow0}\eps^{1/3}\tmin^H(P_\eps)\le\limsup_{\eps\downarrow0}\eps^{1/3}\tmin^H(P_\eps)\le4-2\sqrt3
+\tmin^H(P_\eps)=\Theta(\eps^{-1/3})
+=\Theta\bigl(d_{\TV}(P_\eps,\Ctri)^{-1/3}\bigr).
 \]
-for each of the three hierarchies (Proposition~\ref{prop:family}). The lower bound is the passing construction; the upper bound is a fan inequality that every order-$t$ feasible law obeys, $tP(000)\le P_A(0)+\binom t2P_B(0)P_C(0)$ (Theorem~\ref{thm:fan}), which also gives an explicit rejecting order for any Finner-violating law. Theorem~\ref{thm:distance} shows that $\eps$ is, to leading order, $(1-2^{-3/2})^{-1}$ times the total-variation distance from $P_\eps$ to the compatible set, so along this family the rejecting order grows like the inverse cube root of the distance. This exponent belongs to the family, not to the scenario: Theorem~\ref{thm:brackets-intro} shows that the worst case over all accepted laws decays no faster than $1/t$, and Proposition~\ref{prop:Rp} gives a family approaching compatibility whose rejecting order is $2$. For rational binary-triangle laws with at most $B$ bits the worst required order is $2^{\Theta(B)}$ (Proposition~\ref{prop:bits}), and a promised distance $\delta$ gives the rejecting-order bound $\lfloor(K-1)/(4\delta^2)\rfloor+1$ in any correlation scenario with $K$ joint outcomes (Corollary~\ref{prop:promised}).
+We compute the leading distance constant and bound the rejecting-order constants (Proposition~\ref{prop:family}, Theorem~\ref{thm:distance}). This exponent describes this family; the worst-case bounds above concern all accepted laws. For rational binary-triangle inputs of at most $B$ bits, the largest first rejecting order is $2^{\Theta(B)}$ (Proposition~\ref{prop:bits}). A promised distance $\delta>0$ gives the bound $\lfloor(K-1)/(4\delta^2)\rfloor+1$ for any fixed correlation scenario.
 
-\paragraph{Scope and organization.}
-The classification concerns classical pair-source scenarios with fixed observed alphabets. Sections~\ref{sec:setup}--\ref{sec:fivepath} define the tests and prove the classification; Section~\ref{sec:cyclequant} gives the quantitative convergence bounds. Sections~\ref{sec:main}--\ref{sec:bits} study the defect family, fan inequalities and rejecting-order complexity. The hypergraph and quantum cases remain separate questions. Section~\ref{sec:repro} records the exact scope of the certificates and Lean proofs; Appendix~\ref{app:supporting} gives supplementary results with self-contained proofs.
+\input{sections/09-prior-work}
+
+\paragraph{Organization.}
+Section~\ref{sec:setup} defines the scenarios and tests, with the triangle as an example. Section~\ref{sec:classification} proves the classification. Sections~\ref{sec:cyclequant} and~\ref{sec:main} give the convergence bounds and the defect-family analysis; Section~\ref{sec:input} derives the distance and input-size consequences. Open problems and verification scope follow in Sections~\ref{sec:open} and~\ref{sec:repro}. The appendices contain the root-sink proof, order-conversion and threshold details, certificate formats and supplementary inequalities.

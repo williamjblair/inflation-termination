@@ -5,7 +5,7 @@
 Previous selection (2026-09-12): Inflation for the Classical Triangle: Nontermination and Quantitative Complexity
 
 Alternatives considered:
-0. No Finite Inflation Order Characterizes the Classical Triangle (the original; retained as the name of Theorem A)
+0. No Finite Inflation Order Characterizes the Classical Triangle (the original title)
 1. Inflation Hierarchies: Asymptotic Completeness Without Finite Termination
 1b. Finite-Order Complexity of Inflation for the Classical Triangle
 2. Finite Inflation Never Suffices Universally for the Classical Triangle
@@ -20,7 +20,7 @@ Alternatives considered:
 **Primary category.** quant-ph (where the inflation literature lives: NW, WSF, Renou et al., Gitton).
 **Secondary categories.** math.ST (causal inference), cs.IT or math.PR.
 
-**Comments field.** "53 pages, 8 figures. Lean sources and exact rational certificates are available in the linked repository."
+**Comments field.** "49 pages, 8 figures. Lean sources and exact rational certificates are available in the linked repository."
 
 **MSC.** 62D20, 62H99, 60E15, 81P13.
 **Keywords.** causal compatibility; inflation technique; correlation scenarios; triangle scenario; network nonlocality; Finner inequality; bilocal inequality; hierarchy convergence; asymptotic completeness.
