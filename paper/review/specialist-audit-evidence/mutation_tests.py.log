@@ -1,0 +1,29 @@
+OK  frozen:control                                 rc=0 claims_pass=True
+OK  frozen:truncated-certificate                   rc=1 claims_pass=False
+OK  frozen:empty-proof                             rc=1 claims_pass=False
+OK  frozen:corrupt-witness-atom                    rc=1 claims_pass=False
+OK  frozen:wrong-order                             rc=1 claims_pass=False
+OK  frozen:missing-branch                          rc=1 claims_pass=False
+OK  frozen:wrong-sign-normalized-corruption        rc=1 claims_pass=False
+OK  frozen:negative-entry                          rc=1 claims_pass=False
+OK  frozen:wrong-root-law                          rc=1 claims_pass=False
+OK  frozen:bad-support                             rc=1 claims_pass=False
+OK  frozen:negative-control-not-rejected           rc=1 claims_pass=False
+KNOWN-DEFECT frozen:python-O-corrupt-witness                rc=0 claims_pass=True fails_open=True
+KNOWN-DEFECT frozen:python-OO-corrupt-witness               rc=0 claims_pass=True fails_open=True
+OK  hardened:control                               rc=0 claims_pass=True
+OK  hardened:truncated-certificate                 rc=1 claims_pass=False
+OK  hardened:empty-proof                           rc=1 claims_pass=False
+OK  hardened:corrupt-witness-atom                  rc=1 claims_pass=False
+OK  hardened:wrong-order                           rc=1 claims_pass=False
+OK  hardened:missing-branch                        rc=1 claims_pass=False
+OK  hardened:wrong-sign-normalized-corruption      rc=1 claims_pass=False
+OK  hardened:negative-entry                        rc=1 claims_pass=False
+OK  hardened:wrong-root-law                        rc=1 claims_pass=False
+OK  hardened:bad-support                           rc=1 claims_pass=False
+OK  hardened:negative-control-not-rejected         rc=1 claims_pass=False
+OK  hardened:python-O-corrupt-witness              rc=1 claims_pass=False
+OK  hardened:python-OO-corrupt-witness             rc=1 claims_pass=False
+KNOWN DEFECTS (frozen under -O/-OO): [('frozen:python-O-corrupt-witness', True), ('frozen:python-OO-corrupt-witness', True)]
+MUTATION_TESTS_NONTERMINATION=PASS (hardened checker fails closed on every mutation)
+

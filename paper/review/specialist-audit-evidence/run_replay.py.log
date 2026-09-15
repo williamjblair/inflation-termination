@@ -1,0 +1,11 @@
+nt-frozen-reconstruct-check rc 0 wall 0.033 | {"status": "PASS", "structural_orders": [1, 2, 3], "t2_nonzero_lp_coordinates": 166}
+nt-frozen-check rc 0 wall 0.233 | }
+nt-hardened-check rc 0 wall 0.232 | }
+nt-hardened-reconstruct-check rc 0 wall 0.033 | {"status": "PASS", "structural_orders": [1, 2, 3], "t2_nonzero_lp_coordinates": 166}
+eff-frozen-check rc 0 wall 0.185 | }
+eff-hardened-check rc 0 wall 0.186 | }
+fan-check rc 0 wall 0.182 | }
+fan-check-optimized rc 0 wall 0.229 | }
+fan-independent-check rc 0 wall 0.193 | eps=1e-6: TV/eps=0.641693 (d0=0.646447), l2/eps=0.686013 (sqrt(8/7)d0=0.691080), residual/eps^(4/3)=-0.475
+classification-check rc 0 wall 12.579 | }
+

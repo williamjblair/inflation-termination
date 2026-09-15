@@ -1,0 +1,7 @@
+{
+  "command": "python3 -B artifact/certificates/exponent/verify_exponent.py --dir <empty-directory>",
+  "expected_exit": "nonzero",
+  "actual_exit": 0,
+  "stdout": "missing <empty-directory>/square.json\nmissing <empty-directory>/triangle.json\n\n=== brackets ===\n\nOK: 0 exact checks passed in 0.0s\n",
+  "stderr": ""
+}

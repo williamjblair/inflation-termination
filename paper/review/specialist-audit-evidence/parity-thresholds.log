@@ -1,0 +1,116 @@
+
+=== square (C_4), cap q_top = 107233047/625000000 ===
+    P_q is a probability law exactly on [0, 3 - 2*sqrt(2)]; 3 - 2*sqrt(2) = 0.17157287525380990... and the rational cap 1715728752/10^10 used here lies just below it
+  t=1: NW 8 / AI 8 degree tuples  [AI brute-forced over all AI families]  [every AI tuple realized by an explicit AI family]
+  t=2: NW 33 / AI 37 degree tuples  [AI brute-forced over all AI families]  [every AI tuple realized by an explicit AI family]
+  t=3: NW 96 / AI 112 degree tuples  [AI brute-forced over all AI families]  [every AI tuple realized by an explicit AI family]
+  t=4: NW 225 / AI 269 degree tuples  [every AI tuple realized by an explicit AI family]
+  t=5: NW 456 / AI 552 degree tuples  [every AI tuple realized by an explicit AI family]
+  t=6: NW 833 / AI 1017 degree tuples  [every AI tuple realized by an explicit AI family]
+  t=7: NW 1408 / AI 1728 degree tuples  [every AI tuple realized by an explicit AI family]
+  t=8: NW 2241 / AI 2761 degree tuples  [every AI tuple realized by an explicit AI family]
+  t=9: NW 3400 / AI 4200 degree tuples  [every AI tuple realized by an explicit AI family]
+  t=10: NW 4961 / AI 6141 degree tuples  [every AI tuple realized by an explicit AI family]
+  t=1 AI: P_q in I^AI_1 at q = 857864371/5000000000 = 0.1715728742  (feasible up to the cap; no upper bound)   [0.0s]
+  t=1 NW: P_q in I^NW_1 at q = 857864371/5000000000 = 0.1715728742  (feasible up to the cap; no upper bound)   [0.0s]
+  t=2 AI: q_lo = 0.1324743290 <= q_max <= 0.1324743330 = q_hi   (primal support 8, 1 dual piece(s) covering [q_hi, q_top], 6 terms)   [0.0s]
+  t=2 NW: P_q in I^NW_2 at q = 107226797/625000000 = 0.1715628752  (feasible up to the cap; no upper bound)   [0.0s]
+  t=3 AI: q_lo = 0.0950228950 <= q_max <= 0.0950228990 = q_hi   (primal support 17, 1 dual piece(s) covering [q_hi, q_top], 15 terms)   [0.0s]
+  t=3 NW: q_lo = 0.0950228950 <= q_max <= 0.0950228990 = q_hi   (primal support 15, 1 dual piece(s) covering [q_hi, q_top], 15 terms)   [0.0s]
+  t=4 AI: q_lo = 0.0835279580 <= q_max <= 0.0835279620 = q_hi   (primal support 33, 1 dual piece(s) covering [q_hi, q_top], 33 terms)   [0.0s]
+  t=4 NW: q_lo = 0.0950228950 <= q_max <= 0.0950228990 = q_hi   (primal support 28, 1 dual piece(s) covering [q_hi, q_top], 23 terms)   [0.0s]
+  t=5 AI: q_lo = 0.0657380020 <= q_max <= 0.0657380060 = q_hi   (primal support 57, 1 dual piece(s) covering [q_hi, q_top], 48 terms)   [0.0s]
+  t=5 NW: q_lo = 0.0657380020 <= q_max <= 0.0657380060 = q_hi   (primal support 48, 1 dual piece(s) covering [q_hi, q_top], 48 terms)   [0.0s]
+  t=6 AI: q_lo = 0.0603176600 <= q_max <= 0.0603176640 = q_hi   (primal support 94, 1 dual piece(s) covering [q_hi, q_top], 94 terms)   [0.1s]
+  t=6 NW: q_lo = 0.0645356170 <= q_max <= 0.0645356210 = q_hi   (primal support 78, 1 dual piece(s) covering [q_hi, q_top], 78 terms)   [0.1s]
+  t=7 AI: q_lo = 0.0502565110 <= q_max <= 0.0502565150 = q_hi   (primal support 145, 1 dual piece(s) covering [q_hi, q_top], 120 terms)   [0.2s]
+  t=7 NW: q_lo = 0.0502565110 <= q_max <= 0.0502565150 = q_hi   (primal support 120, 1 dual piece(s) covering [q_hi, q_top], 120 terms)   [0.2s]
+  t=8 AI: q_lo = 0.0470271490 <= q_max <= 0.0470271530 = q_hi   (primal support 216, 1 dual piece(s) covering [q_hi, q_top], 216 terms)   [0.7s]
+  t=8 NW: q_lo = 0.0494541280 <= q_max <= 0.0494541320 = q_hi   (primal support 177, 2 dual piece(s) covering [q_hi, q_top], 345 terms)   [0.8s]
+  t=9 AI: q_lo = 0.0406784540 <= q_max <= 0.0406784580 = q_hi   (primal support 309, 1 dual piece(s) covering [q_hi, q_top], 253 terms)   [1.0s]
+  t=9 NW: q_lo = 0.0406784540 <= q_max <= 0.0406784580 = q_hi   (primal support 253, 1 dual piece(s) covering [q_hi, q_top], 253 terms)   [0.9s]
+  t=10 AI: q_lo = 0.0384981990 <= q_max <= 0.0384982030 = q_hi   (primal support 431, 1 dual piece(s) covering [q_hi, q_top], 431 terms)   [4.3s]
+  t=10 NW: q_lo = 0.0400943600 <= q_max <= 0.0400943640 = q_hi   (primal support 351, 2 dual piece(s) covering [q_hi, q_top], 693 terms)   [3.4s]
+
+=== triangle (C_3), cap q_top = 1/3 ===
+    Pi(-q,-q,-q) is a probability law exactly on [0, 1/3]; the cap 1/3 is the exact endpoint
+  t=1: NW 4 / AI 4 degree tuples  [AI brute-forced over all AI families]  [every AI tuple realized by an explicit AI family]
+  t=2: NW 10 / AI 11 degree tuples  [AI brute-forced over all AI families]  [every AI tuple realized by an explicit AI family]
+  t=3: NW 20 / AI 23 degree tuples  [AI brute-forced over all AI families]  [every AI tuple realized by an explicit AI family]
+  t=4: NW 35 / AI 42 degree tuples  [every AI tuple realized by an explicit AI family]
+  t=5: NW 56 / AI 69 degree tuples  [every AI tuple realized by an explicit AI family]
+  t=6: NW 84 / AI 106 degree tuples  [every AI tuple realized by an explicit AI family]
+  t=7: NW 120 / AI 154 degree tuples  [every AI tuple realized by an explicit AI family]
+  t=8: NW 165 / AI 215 degree tuples  [every AI tuple realized by an explicit AI family]
+  t=9: NW 220 / AI 290 degree tuples  [every AI tuple realized by an explicit AI family]
+  t=10: NW 286 / AI 381 degree tuples  [every AI tuple realized by an explicit AI family]
+  t=1 AI: P_q in I^AI_1 at q = 1/3 = 0.3333333333  (feasible up to the cap; no upper bound)   [0.0s]
+  t=1 NW: P_q in I^NW_1 at q = 1/3 = 0.3333333333  (feasible up to the cap; no upper bound)   [0.0s]
+  t=2 AI: q_lo = 0.2679491900 <= q_max <= 0.2679491940 = q_hi   (primal support 5, 1 dual piece(s) covering [q_hi, q_top], 4 terms)   [0.0s]
+  t=2 NW: P_q in I^NW_2 at q = 1/3 = 0.3333333333  (feasible up to the cap; no upper bound)   [0.0s]
+  t=3 AI: q_lo = 0.1999999980 <= q_max <= 0.2000000020 = q_hi   (primal support 8, 1 dual piece(s) covering [q_hi, q_top], 7 terms)   [0.0s]
+  t=3 NW: q_lo = 0.1999999980 <= q_max <= 0.2000000020 = q_hi   (primal support 7, 1 dual piece(s) covering [q_hi, q_top], 7 terms)   [0.0s]
+  t=4 AI: q_lo = 0.1730047060 <= q_max <= 0.1730047100 = q_hi   (primal support 14, 1 dual piece(s) covering [q_hi, q_top], 13 terms)   [0.0s]
+  t=4 NW: q_lo = 0.1999999980 <= q_max <= 0.2000000020 = q_hi   (primal support 11, 1 dual piece(s) covering [q_hi, q_top], 10 terms)   [0.0s]
+  t=5 AI: q_lo = 0.1428571400 <= q_max <= 0.1428571440 = q_hi   (primal support 20, 1 dual piece(s) covering [q_hi, q_top], 16 terms)   [0.0s]
+  t=5 NW: q_lo = 0.1428571400 <= q_max <= 0.1428571440 = q_hi   (primal support 16, 1 dual piece(s) covering [q_hi, q_top], 16 terms)   [0.0s]
+  t=6 AI: q_lo = 0.1283741760 <= q_max <= 0.1283741800 = q_hi   (primal support 30, 1 dual piece(s) covering [q_hi, q_top], 28 terms)   [0.0s]
+  t=6 NW: q_lo = 0.1381856900 <= q_max <= 0.1381856940 = q_hi   (primal support 23, 2 dual piece(s) covering [q_hi, q_top], 46 terms)   [0.0s]
+  t=7 AI: q_lo = 0.1092774840 <= q_max <= 0.1092774880 = q_hi   (primal support 40, 1 dual piece(s) covering [q_hi, q_top], 31 terms)   [0.0s]
+  t=7 NW: q_lo = 0.1092774840 <= q_max <= 0.1092774880 = q_hi   (primal support 31, 1 dual piece(s) covering [q_hi, q_top], 31 terms)   [0.0s]
+  t=8 AI: q_lo = 0.1011416960 <= q_max <= 0.1011417000 = q_hi   (primal support 55, 1 dual piece(s) covering [q_hi, q_top], 55 terms)   [0.0s]
+  t=8 NW: q_lo = 0.1070388380 <= q_max <= 0.1070388420 = q_hi   (primal support 41, 2 dual piece(s) covering [q_hi, q_top], 81 terms)   [0.0s]
+  t=9 AI: q_lo = 0.0888129680 <= q_max <= 0.0888129720 = q_hi   (primal support 70, 1 dual piece(s) covering [q_hi, q_top], 53 terms)   [0.0s]
+  t=9 NW: q_lo = 0.0888129680 <= q_max <= 0.0888129720 = q_hi   (primal support 53, 1 dual piece(s) covering [q_hi, q_top], 53 terms)   [0.0s]
+  t=10 AI: q_lo = 0.0833179940 <= q_max <= 0.0833179980 = q_hi   (primal support 91, 1 dual piece(s) covering [q_hi, q_top], 91 terms)   [0.1s]
+  t=10 NW: q_lo = 0.0870307060 <= q_max <= 0.0870307100 = q_hi   (primal support 67, 2 dual piece(s) covering [q_hi, q_top], 134 terms)   [0.0s]
+
+=== brackets ===
+
+square
+    t   H           q_lo           q_hi    t*q_lo
+    1  AI   0.1715728742          (cap)   0.17157
+    1  NW   0.1715728742          (cap)   0.17157
+    2  AI   0.1324743290   0.1324743330   0.26495
+    2  NW   0.1715628752          (cap)   0.34313
+    3  AI   0.0950228950   0.0950228990   0.28507
+    3  NW   0.0950228950   0.0950228990   0.28507
+    4  AI   0.0835279580   0.0835279620   0.33411
+    4  NW   0.0950228950   0.0950228990   0.38009
+    5  AI   0.0657380020   0.0657380060   0.32869
+    5  NW   0.0657380020   0.0657380060   0.32869
+    6  AI   0.0603176600   0.0603176640   0.36191
+    6  NW   0.0645356170   0.0645356210   0.38721
+    7  AI   0.0502565110   0.0502565150   0.35180
+    7  NW   0.0502565110   0.0502565150   0.35180
+    8  AI   0.0470271490   0.0470271530   0.37622
+    8  NW   0.0494541280   0.0494541320   0.39563
+    9  AI   0.0406784540   0.0406784580   0.36611
+    9  NW   0.0406784540   0.0406784580   0.36611
+   10  AI   0.0384981990   0.0384982030   0.38498
+   10  NW   0.0400943600   0.0400943640   0.40094
+
+triangle
+    t   H           q_lo           q_hi    t*q_lo
+    1  AI   0.3333333333          (cap)   0.33333
+    1  NW   0.3333333333          (cap)   0.33333
+    2  AI   0.2679491900   0.2679491940   0.53590
+    2  NW   0.3333333333          (cap)   0.66667
+    3  AI   0.1999999980   0.2000000020   0.60000
+    3  NW   0.1999999980   0.2000000020   0.60000
+    4  AI   0.1730047060   0.1730047100   0.69202
+    4  NW   0.1999999980   0.2000000020   0.80000
+    5  AI   0.1428571400   0.1428571440   0.71429
+    5  NW   0.1428571400   0.1428571440   0.71429
+    6  AI   0.1283741760   0.1283741800   0.77025
+    6  NW   0.1381856900   0.1381856940   0.82911
+    7  AI   0.1092774840   0.1092774880   0.76494
+    7  NW   0.1092774840   0.1092774880   0.76494
+    8  AI   0.1011416960   0.1011417000   0.80913
+    8  NW   0.1070388380   0.1070388420   0.85631
+    9  AI   0.0888129680   0.0888129720   0.79932
+    9  NW   0.0888129680   0.0888129720   0.79932
+   10  AI   0.0833179940   0.0833179980   0.83318
+   10  NW   0.0870307060   0.0870307100   0.87031
+
+OK: 20004 exact checks passed in 43.8s

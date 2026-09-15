@@ -99,7 +99,7 @@ least `ε_t²/2 > 0`.
 
 ## Formalization boundaries
 
-Three, all scope restrictions of the theorems as stated. They are recorded in the headers of
+The model conventions are recorded in the headers of
 `TriangleInflation/Defs.lean` and `TriangleInflation/Graph/Defs.lean`, restated in the two
 Challenge files, and in `formalization.yaml` under `fidelity.divergences`.
 
@@ -122,6 +122,8 @@ Challenge files, and in `formalization.yaml` under `fidelity.divergences`.
    orders, which returns `0` when that set is empty, so every statement about it either
    exhibits a rejecting order or assumes one. Asymptotic completeness itself is quoted from
    Navascués–Wolfe, not formalized.
+
+The classification equivalence and existence of strictly positive witnesses are formalized under these conventions. The mapped declarations do not assert rationality of the classification witnesses; that clause follows analytically from the finite constructions. The terminal declaration `triangle_linear_witness` proves the endpoint `q = 1/(16t)` of Theorem 4.4, whose manuscript statement covers `0 < q <= 1/(16t)`.
 
 The recursively expressible hierarchy `I^exp_t`, which the previous version of this
 repository left out, **is** formalized on the graph side: `dsep` is the trail criterion for
@@ -291,7 +293,7 @@ Lean column names which part. *Unformalized* means there is no Lean statement at
 | Lem. A.1, 3.4 | the trail criterion and the root-sink lemma, `I^exp_t = I^AI_t` | proved | `gExpFeasible_iff_gAIFeasible`, `isAISet_iff_decomposition`, `isAISet_glue`, `RootSinkAux.exists_activeTrail` |
 | Lem. 3.5 | source-disjoint independence | partial (order two) | `blockMarg_union_of_sourceDisjoint`, `blockMarg_biUnion_of_sourceDisjoint`, `gTwist_law` |
 | Lem. 3.6 | induced-subgraph transport | proved | `induced_transport`, `transport_ai_feasible`, `transport_compatible_restrict` |
-| **Thm. 3.2** | **the termination classification** | **proved** | **`classification_NW`**, `classification_AI`, `classification_exp`, `nontermination_of_not_doubleStar` |
+| **Thm. 3.2** | **classification equivalence and positive-witness existence** | **proved (binary, finite latent; rationality clause analytic)** | **`classification_NW`**, `classification_AI`, `classification_exp`, `nontermination_of_not_doubleStar` |
 | Lem. 3.7 | exhaustion into an induced cycle or five-path | proved | `exhaustion`, `flip_full_support`, `flip_gExpFeasible` |
 | Rem. 3.8 | transfer to larger fixed observed alphabets | unformalized | none |
 | Thm. 3.10, Cor. 3.11 | double-star reconstruction at order two | proved (binary case) | `doubleStar_terminates`, `exists_dsStruct`, `DSStruct.gCompatible_of_dsStruct`, `centreLeaf_mass`, `gCompatible_of_localDecoder` |
@@ -299,7 +301,7 @@ Lean column names which part. *Unformalized* means there is no Lean statement at
 | Lem. 3.19 to 3.20, Thm. 3.21 | quantitative rigidity, the cycle witness and its distance | proved | `CycleModelAux.quant_rigidity`, `cycle_witness`, `cycle_exp_witness`, `cycle_not_compatible`, `cycle_distance` |
 | Lem. 4.2 | the corrected Fourier density | partial (`m = 3`) | `triW_ge`, `triW_nonneg`, `triW_moment`, `triDensity_isLaw`, `triParity_isLaw` |
 | Thm. 4.3 | the square witness at `q = 1/(16t)` | unformalized | none |
-| Thm. 4.4 | the triangle witness at `q = 1/(16t)` | proved | `triangle_linear_witness` |
+| Thm. 4.4 | the triangle witness at `q = 1/(16t)` | proved at this endpoint | `triangle_linear_witness` |
 | Lem. 4.5, Cor. 4.6 to 4.7 | order bounds from the parity violation | unformalized | none |
 | Thm. 4.8, Cor. 4.9 | the convex-order bound and the brackets | partial (upper bounds, triangle) | `rate_triangle_sharp`, `tv_le_of_nwFeasible`, `tv_le_sqrt_seven`, `tvDist` |
 | Thm. 4.10, Prop. 4.11 | order conversion on the square; the low-order separations | unformalized | none |

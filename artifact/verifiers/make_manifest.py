@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """Write artifact/MANIFEST.json and artifact/SHA256SUMS over every file in the
-artifact directory (excluding the two manifest files themselves)."""
+artifact directory, excluding the manifests and mutable replay_logs/ records."""
 import hashlib, json, os, pathlib, sys, time
 if not __debug__:
     raise RuntimeError("Run without -O/-OO.")
 root = pathlib.Path(__file__).resolve().parent.parent
 entries = {}
 for p in sorted(root.rglob("*")):
-    if p.is_dir() or (p.parent == root and p.name in ("MANIFEST.json", "SHA256SUMS")) or "__pycache__" in p.parts:
+    if p.is_dir() or (p.parent == root and p.name in ("MANIFEST.json", "SHA256SUMS")) or "__pycache__" in p.parts or "replay_logs" in p.relative_to(root).parts:
         continue
     rel = p.relative_to(root).as_posix()
     entries[rel] = {"sha256": hashlib.sha256(p.read_bytes()).hexdigest(), "size": p.stat().st_size}

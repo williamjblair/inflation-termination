@@ -27,6 +27,8 @@ to the NW degree system in REPORT.md).  Everything downstream of the reduction
 is checked exactly.
 
 Usage:  python3 verify_exponent.py [--dir CERTDIR] [--max-order N]
+The default checks both scenarios at every published order 1..10.  --max-order
+N with N < 10 checks complete coverage only through N and reports PARTIAL.
 """
 
 import argparse
@@ -49,6 +51,8 @@ class VerifyError(Exception):
 
 
 CHECKS = 0
+PUBLISHED_MAX_ORDER = 10
+SCENARIOS = {"square": (4, F(107233047, 625000000)), "triangle": (3, F(1, 3))}
 
 
 def need(ok, message):
@@ -414,8 +418,33 @@ def dual_poly_coeffs(coeffs):
 # ==========================================================================
 
 
+def validate_inventory(data, name, max_order=None):
+    """Bind the certificate to the published scenarios and requested coverage."""
+    limit = PUBLISHED_MAX_ORDER if max_order is None else max_order
+    need(type(limit) is int and 1 <= limit <= PUBLISHED_MAX_ORDER,
+         "max order must be an integer from 1 to 10")
+    need(name in SCENARIOS, f"unknown scenario file: {name}")
+    m, cap = SCENARIOS[name]
+    need(data["scenario"] == name and data["cycle_length"] == m,
+         f"{name}: scenario identity or cycle length mismatch")
+    need(F(data["q_top"]) == cap, f"{name}: wrong published parameter cap")
+    seen = set()
+    for rec in data["orders"]:
+        t, hier = rec["t"], rec["hierarchy"]
+        need(type(t) is int and 1 <= t <= PUBLISHED_MAX_ORDER,
+             f"{name}: order outside the published range: {t}")
+        need(hier in ("AI", "NW"), f"{name}: unknown hierarchy: {hier}")
+        key = (t, hier)
+        need(key not in seen, f"{name}: duplicate order/hierarchy record: {key}")
+        seen.add(key)
+    expected = {(t, h) for t in range(1, limit + 1) for h in ("AI", "NW")}
+    need(expected <= seen, f"{name}: missing required records: {sorted(expected - seen)}")
+
+
 def verify_file(path, max_order=None, log=print):
-    data = json.load(open(path))
+    with open(path) as stream:
+        data = json.load(stream)
+    validate_inventory(data, os.path.splitext(os.path.basename(path))[0], max_order)
     m = data["cycle_length"]
     q_top = F(data["q_top"])
     name = data["scenario"]
@@ -536,19 +565,25 @@ def main():
     ap = argparse.ArgumentParser()
     here = os.path.dirname(os.path.abspath(__file__))
     ap.add_argument("--dir", default=os.path.join(here, "certificates"))
-    ap.add_argument("--max-order", type=int, default=None)
+    ap.add_argument("--max-order", type=int, choices=range(1, PUBLISHED_MAX_ORDER + 1),
+                    default=None, help="check through N; N < 10 reports partial verification")
     args = ap.parse_args()
     t0 = time.time()
     tables = {}
-    for name in ("square", "triangle"):
-        path = os.path.join(args.dir, f"{name}.json")
-        if not os.path.exists(path):
-            print(f"missing {path}")
-            continue
+    paths = {name: os.path.join(args.dir, f"{name}.json") for name in SCENARIOS}
+    # Check the whole inventory before running any expensive arithmetic.
+    for name, path in paths.items():
+        need(os.path.isfile(path), f"missing required certificate: {path}")
+        with open(path) as stream:
+            validate_inventory(json.load(stream), name, args.max_order)
+    for name, path in paths.items():
         _data, table = verify_file(path, args.max_order)
         tables[name] = table
     summarize(tables)
-    print(f"\nOK: {CHECKS} exact checks passed in {time.time() - t0:.1f}s")
+    limit = args.max_order or PUBLISHED_MAX_ORDER
+    scope = "FULL" if limit == PUBLISHED_MAX_ORDER else "PARTIAL"
+    print(f"\nOK ({scope}): {CHECKS} exact checks passed in {time.time() - t0:.1f}s; "
+          f"both scenarios, both hierarchies, orders 1..{limit} ({4 * limit} records)")
 
 
 if __name__ == "__main__":

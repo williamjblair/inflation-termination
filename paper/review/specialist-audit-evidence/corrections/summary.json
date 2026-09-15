@@ -1,0 +1,49 @@
+{
+  "base_commit": "689af3eaed081e62699690fd1f8ae6af1d560fc4",
+  "addressed": [
+    "A1",
+    "A2",
+    "A3",
+    "A4",
+    "A5",
+    "opening nonconvexity sentence",
+    "mutable replay-log manifest separation"
+  ],
+  "pages": 49,
+  "changed_pages_visually_reviewed": [
+    1,
+    2,
+    24,
+    25,
+    34,
+    36
+  ],
+  "proof_bodies_unchanged": 57,
+  "source_labels_preserved": 166,
+  "standalone_pdf_text_matches": true,
+  "threshold_exact_checks": 20266,
+  "threshold_records": 40,
+  "threshold_mutation_cases": 19,
+  "manifest_files_verified": 47,
+  "latex_diagnostics": {
+    "main_final": {
+      "Overfull": 0,
+      "Underfull": 0,
+      "undefined": 0,
+      "multiply defined": 0
+    },
+    "arxiv_final_pass": {
+      "Overfull": 0,
+      "Underfull": 0,
+      "undefined": 0,
+      "multiply defined": 0
+    }
+  },
+  "lean_rerun": false,
+  "lean_note": "Lean source bytes unchanged; the preceding audit passed lake build and the 112-declaration axiom audit.",
+  "output_hashes": {
+    "paper/main.pdf": "8fd03663793624f77de84b935845f341892c04c11feadd88e0dba598ec604711",
+    "paper/release/arxiv-src/main.pdf": "87af6e7f7f43e8a359478deb5263a6d8ab626a9d92aaff67be81f20cb68d14cf",
+    "paper/release/arxiv-src.tar.gz": "352b7a20948bde8eb932aef3e5c0f1fdc846839f717acb112dbdb0c5ae089034"
+  }
+}

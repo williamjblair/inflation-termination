@@ -1,7 +1,18 @@
-# The worst-case convergence exponent along the cycle parity direction
+# Historical campaign report: finite parity thresholds
 
 Computational campaign, 2026-09-14. Square (4-cycle) and triangle, both
 hierarchies, orders `t = 1 .. 10`.
+
+**Release note (2026-09-15).** This report preserves the discovery campaign.
+The release supports exact verification of the supplied certificates. It does
+not include the discovery and analysis scripts `build_exponent.py` and
+`analyse_exponent.py`, so their historical commands below are not a supported
+regeneration workflow. Use the [current verification guide](../../../paper/review/VERIFICATION_GUIDE.md)
+for replay commands, coverage and failure-handling checks. Interpret the
+finite results as threshold brackets; the data do not establish an asymptotic
+exponent.
+
+Historical campaign files (only the checker and certificates are distributed):
 
 | file | role |
 | --- | --- |
@@ -10,13 +21,16 @@ hierarchies, orders `t = 1 .. 10`.
 | `analyse_exponent.py` | reads the certificates and prints the bracket table, the fits and the separations |
 | `certificates/square.json`, `certificates/triangle.json` | the certificates |
 
+Historical commands, requiring the undistributed discovery scripts:
+
 ```
 python3 build_exponent.py --max-order 10
 python3 verify_exponent.py
 python3 analyse_exponent.py
 ```
 
-Nothing in `paper/`, `release/` or `artifact/` was touched.
+The campaign ran outside the release directories; the checker, certificates
+and this report were subsequently copied into `artifact/`.
 
 ---
 

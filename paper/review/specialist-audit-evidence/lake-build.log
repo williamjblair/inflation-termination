@@ -1,0 +1,101 @@
+⚠ [3008/3178] Replayed TriangleInflation.DefectLaw
+warning: TriangleInflation/DefectLaw.lean:486:43: Variable name `ht` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ht
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: TriangleInflation/DefectLaw.lean:571:36: Variable name `ht` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ht
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: TriangleInflation/DefectLaw.lean:578:32: Variable name `ht` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ht
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: TriangleInflation/DefectLaw.lean:578:55: Variable name `hε0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hε0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3011/3178] Replayed TriangleInflation.Exponent
+warning: TriangleInflation/Exponent.lean:164:30: Variable name `h0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: TriangleInflation/Exponent.lean:164:43: Variable name `h1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: TriangleInflation/Exponent.lean:172:30: Variable name `h0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: TriangleInflation/Exponent.lean:172:43: Variable name `h1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3365/3387] Replayed TriangleInflation.Graph.RootSink
+warning: TriangleInflation/Graph/RootSink.lean:327:8: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+warning: TriangleInflation/Graph/RootSink.lean:563:26: Variable name `hXZ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hXZ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: TriangleInflation/Graph/RootSink.lean:563:47: Variable name `hYZ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hYZ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3368/3387] Replayed TriangleInflation.Graph.FivePath
+warning: TriangleInflation/Graph/FivePath.lean:332:65: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: TriangleInflation/Graph/FivePath.lean:571:65: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: TriangleInflation/Graph/FivePath.lean:721:37: Variable name `h0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: TriangleInflation/Graph/FivePath.lean:721:50: Variable name `h1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3375/3387] Replayed TriangleInflation.Graph.CycleObstruction
+warning: TriangleInflation/Graph/CycleObstruction.lean:1012:5: Variable name `hq` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hq
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3382/3387] Replayed Palomar.TriangleInflation.Challenge
+warning: Palomar/TriangleInflation/Challenge.lean:409:8: declaration uses `sorry`
+⚠ [3383/3387] Replayed Palomar.TriangleInflation.ClassificationChallenge
+warning: Palomar/TriangleInflation/ClassificationChallenge.lean:549:8: declaration uses `sorry`
+Build completed successfully (3387 jobs).

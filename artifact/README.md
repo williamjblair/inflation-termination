@@ -7,7 +7,7 @@
 | `certificates/effective/` | frozen exact order-2 Farkas calibration (`farkas.json`, `check.py`) |
 | `verifiers/` | replay runner, hardened checkers (fail closed, refuse `-O`), `harden.py`, mutation tests, manifest generator |
 | `replay_logs/` | fresh replay records with OS, architecture, Python, commands, wall times, hashes |
-| `MANIFEST.json`, `SHA256SUMS` | identities of every file |
+| `MANIFEST.json`, `SHA256SUMS` | identities of inputs, checkers and documentation; excludes mutable `replay_logs/` |
 
 What the computer verifies: that the explicit defect-cube tables at orders 1–3
 have the claimed symmetry, copied-triangle marginals, disjoint diagonal

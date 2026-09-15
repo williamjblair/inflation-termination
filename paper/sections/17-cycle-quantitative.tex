@@ -148,7 +148,7 @@ The distance bound is Lemma~\ref{lem:cycledistance} for $m=3$, whose proof uses 
 Figure~\ref{fig:convex-order} summarizes the two ways of sampling a table used in the proof.
 
 \begin{theorem}[Convex order along the diagonal]\label{thm:convexorder}
-Let $G$ be a correlation scenario, that is, finitely many independent latent sources and observed variables with finite alphabets, each a stochastic function of the sources it reads, with $K$ joint outcomes; the order-$n$ inflation and the set $\INW_n(G)$ are defined as in Section~\ref{sec:pairsource} with sources in place of edges. Let $P\in\INW_n(G)$ with witness $\Gamma$. For a deterministic table $\omega$ of copied observations let $q_\omega$ be the observed law obtained by sampling one copy index uniformly and independently for each source and reading $\omega$ at those indices. Then $q_\omega\in\Cscen{G}$ for every $\omega$, and for every convex $\Phi$ on the observed simplex
+Let $G$ be a correlation scenario with finitely many independent latent sources and finite-alphabet observations, each a stochastic function of its parent sources, with $K$ joint outcomes. Give each source-free observation an independent private source, preserving $\Cscen{G}$, and define inflation as in Section~\ref{sec:pairsource} with sources in place of edges. For $n\ge1$, let $P\in\INW_n(G)$ with witness $\Gamma$. For a deterministic table $\omega$ of copied observations let $q_\omega$ be the observed law obtained by sampling one copy index uniformly and independently for each source and reading $\omega$ at those indices. Then $q_\omega\in\Cscen{G}$ for every $\omega$, and for every convex $\Phi$ on the observed simplex
 \begin{equation}\label{eq:convexorder}
 \E_\Gamma\,\Phi(q_\omega)\ \le\ \E\,\Phi(\widehat P_n),
 \end{equation}
@@ -179,7 +179,7 @@ using $\|P\|_2^2\ge1/K$. Total variation never exceeds $1$.
 
 \input{figures/convex-order}
 
-The sampling mechanism is that of the finite de Finetti estimate of \cite[Section 4.2 and eq.~(A7)]{NW2020}, which bounds the same quantity by $L(1-\|P\|_2^2)/n$ for $L$ sources through the collision probability of two index samples. Using the full diagonal law through a conditional expectation, rather than its first two degrees, removes the factor $L$. Section~\ref{sec:general} draws the rejecting-order consequence.
+The conditional-expectation argument removes the source-count factor from the collision-based Euclidean rate $O(\sqrt{L/n})$ for $L$ sources in~\cite[eqs.~(37) and (A7)]{NW2020}. The full diagonal law yields \eqref{eq:convexorder} for every convex $\Phi$. For $n\ge2$, degree-two diagonal constraints already make distinct rows pairwise independent with marginal $P$, which suffices for the variance calculation and quadratic bound \eqref{eq:convexl2}.
 
 \FloatBarrier
 \begin{corollary}[Brackets for the square and the triangle]\label{cor:brackets}\label{thm:brackets-intro}

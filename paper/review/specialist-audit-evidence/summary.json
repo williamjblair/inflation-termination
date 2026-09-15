@@ -1,0 +1,46 @@
+{
+  "reviewed_commit": "689af3eaed081e62699690fd1f8ae6af1d560fc4",
+  "created_utc": "2026-09-15T14:51:12.674180+00:00",
+  "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+  "lean_toolchain": "leanprover/lean4:v4.33.0",
+  "working_tree_at_start": "clean",
+  "build": "existing dependency cache; not fresh dependency bootstrap",
+  "positive_checks": {
+    "lake_build": "PASS (3387 jobs)",
+    "axiom_audit": "PASS (112 declarations)",
+    "classification": "PASS",
+    "parity_thresholds": "PASS (20004 checks)",
+    "temporary_artifact_replay": "PASS (10 commands)",
+    "hardened_nontermination_mutations": "PASS",
+    "fan_mutations": "PASS under partial-certificate contract"
+  },
+  "negative_test": {
+    "command": "python3 -B artifact/certificates/exponent/verify_exponent.py --dir <empty-directory>",
+    "expected_exit": "nonzero",
+    "actual_exit": 0,
+    "stdout": "missing <empty-directory>/square.json\nmissing <empty-directory>/triangle.json\n\n=== brackets ===\n\nOK: 0 exact checks passed in 0.0s\n",
+    "stderr": ""
+  },
+  "historical_manifest_mismatches": [
+    "replay_logs/classification-check.json",
+    "replay_logs/eff-frozen-check.json",
+    "replay_logs/eff-hardened-check.json",
+    "replay_logs/fan-check-optimized.json",
+    "replay_logs/fan-check.json",
+    "replay_logs/fan-independent-check.json",
+    "replay_logs/nt-frozen-check.json",
+    "replay_logs/nt-frozen-reconstruct-check.json",
+    "replay_logs/nt-hardened-check.json",
+    "replay_logs/nt-hardened-reconstruct-check.json"
+  ],
+  "evidence_files": {
+    "axiom-audit.log": "8d773d3d6a2694dcb33da9617c7e87361685cd1625daea06d9989b973e97570a",
+    "classification.json": "5670dfe99be4eb0f4a3e47e7d146e9f106f85dd48bc415a7a38d075d5361f6c9",
+    "lake-build.log": "58d99cf9f82fc1a1c915f122f835a95a5ea8cea6b660e6459fed77ed32dd3c15",
+    "missing-certificates-negative-test.json": "2220adeef2b4ff3b0688e9e97eaf2a7661d826c441c9c5cb4eadeac3d92270e6",
+    "mutation_tests.py.log": "367d82ebe6205600f9999a0b53b82544de6d0daa66cb5a57aa9ad0ebcdf79050",
+    "mutation_tests_fan.py.log": "718e94518c5a450d2b693aee1380ddb7be8924e8b5c7cc01010d319064d71a5d",
+    "parity-thresholds.log": "46e7e1878291b8f9d6776ea5ce71d19a34d4b9cc1fbd8525a0124261929fc616",
+    "run_replay.py.log": "23a0939fb2e7d2a3f31eadae1caf954fb88bde3b54ef434965015f2c9bcb2205"
+  }
+}

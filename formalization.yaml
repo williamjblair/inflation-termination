@@ -252,7 +252,11 @@ fidelity:
     (3) The recursively expressible test IS formalized on the graph side: dsep is the trail
     criterion for the depth-one inflation DAG, Expressible is the Wolfe–Spekkens–Fritz
     closure, and gExpFeasible_iff_gAIFeasible proves I^exp_t = I^AI_t on every pair-source
-    scenario. The triangle module still omits I^exp_t, so statements there about membership
+    scenario. The classification equivalence and strictly positive witness existence are
+    formalized, but the mapped declarations do not assert rationality of those witnesses;
+    that clause is analytic. The terminal declaration triangle_linear_witness proves the
+    endpoint q = 1/(16t) of Theorem 4.4, whose manuscript statement covers 0 < q <= 1/(16t).
+    The triangle module still omits I^exp_t, so statements there about membership
     are the weaker halves; the graph module supplies the stronger ones through the bridge
     theorems gNWFeasible_triangle_iff, gAIFeasible_triangle_iff and gCompatible_triangle_iff.
     The triangle module. (4) The arbitrary-latent-space form of the nontermination theorem
@@ -312,7 +316,8 @@ alignment:
         auxiliary signs; fivePath_witness, the inflated law of a complex-weighted model with
         nonnegative real part; induced_transport; the flip lemmas). The library carries the _lib suffix so that the Solution can declare
         the plain name Comparator compares. The same file proves classification_AI and
-        classification_exp.
+        classification_exp. The positive-witness existence declaration has no rationality
+        predicate; the rationality clause of manuscript Theorem 3.2 is analytic.
     - source: "Does some finite order of classical inflation characterize compatibility in the binary triangle? (Navascués–Wolfe 2020, §4.1; answered no, paper Theorem 5.2 and its corollary)"
       lean: "TriangleInflation.no_finite_characterizing_order"
       module: "Palomar.TriangleInflation.Challenge"
