@@ -3,15 +3,15 @@ import TriangleInflation.Defect
 /-!
 # The defect cube: laws of triangles, symmetry, and the diagonal
 
-Proofs of paper Lemma 3.4 (`lem:triangle-law`), equation (eq:s), Lemma 3.5
-(`lem:symmetry`) and Lemma 3.9 (`lem:diag`). The independence lemmas they build on are in
+Proofs of paper Lemma 5.5 (`lem:triangle-law`), equation (eq:s), Lemma 5.6
+(`lem:symmetry`) and Lemma 5.9 (`lem:diag`). The independence lemmas they build on are in
 `Defect.lean`.
 
 The three substantive proofs share one mechanism. The output of a copied observation is
 the conjunction "my private bit is `0`, and every defect on my line is `0`", so it is the
 indicator `allFalse S` that a block `S` of root bits is all-zero. Under a product weight
 such an indicator has marginal `Bern(∏_{u ∈ S} w_u(0))` (`pushforward_allFalse`), and
-indicators of disjoint blocks are independent (`indep_of_disjoint_support`). Lemma 3.4
+indicators of disjoint blocks are independent (`indep_of_disjoint_support`). Lemma 5.5
 splits the root bits read by `Δ_{ijk}` into four disjoint blocks — the shared cell
 `(i,j,k)`, and for each of the three observations its private bit together with the `t-1`
 remaining cells of its line — and assembles the four marginals into `Q(ε,r)`.
@@ -369,7 +369,7 @@ private theorem disjoint_rootsDB {t : ℕ} (i j k : Fin t) :
 private theorem disjoint_rootsDC {t : ℕ} (i j k : Fin t) :
     Disjoint (rootsD i j k) (rootsC i j k) :=
   disjoint_rootsD_roots (by rw [mem_cellsC]; rintro ⟨-, -, h⟩; exact h rfl)
-/-! ### The induced permutation of root bits (Lemma 3.5) -/
+/-! ### The induced permutation of root bits (Lemma 5.6) -/
 
 /-- The action of an index permutation on copied observations, as an equivalence. -/
 private def obsPermEquiv {t : ℕ}
@@ -453,7 +453,7 @@ private theorem relabel_injective {t : ℕ}
   simp only [relabel] at hv
   rwa [show Obs.perm π ((obsPermEquiv π).symm u) = u from
     (obsPermEquiv π).apply_symm_apply u] at hv
-/-! ### Lemma 3.9 -/
+/-! ### Lemma 5.9 -/
 
 private theorem ancestorsOf_diagonalTriangle {t : ℕ} (l : Fin t) (a : Latent t)
     (h : a ∈ ancestorsOf (diagonalTriangle l)) :
@@ -479,9 +479,9 @@ open DefectLawAux
 
 noncomputable section
 
-/-! ## The law of a copied triangle (Lemma 3.4) -/
+/-! ## The law of a copied triangle (Lemma 5.5) -/
 
-/-- Paper Lemma 3.4 (`lem:triangle-law`): under the defect law every copied triangle
+/-- Paper Lemma 5.5 (`lem:triangle-law`): under the defect law every copied triangle
 `Δ_{ijk}` has law `Q(ε, r)` with `r = (1-s)(1-ε)^{t-1}`. -/
 theorem defect_copiedTriangle_law {t : ℕ} (ht : 1 ≤ t) {ε s : ℝ} (hε0 : 0 ≤ ε) (hε1 : ε ≤ 1)
     (hs0 : 0 ≤ s) (hs1 : s ≤ 1) (i j k : Fin t) :
@@ -574,7 +574,7 @@ theorem one_sub_sParam_mul (t : ℕ) (ht : 1 ≤ t) {ε r : ℝ} (hε : ε < 1) 
   simp only [sParam, sub_sub_cancel]
   exact div_mul_cancel₀ _ (ne_of_gt hpos)
 
-/-- Paper equation (eq:s): `s ∈ [0,1]` exactly in the parameter range of Theorem 3.1. -/
+/-- Paper equation (eq:s): `s ∈ [0,1]` exactly in the parameter range of Theorem 5.1. -/
 theorem sParam_mem_Icc (t : ℕ) (ht : 1 ≤ t) {ε r : ℝ} (hε0 : 0 < ε) (hε1 : ε < 1)
     (hr0 : 0 ≤ r) (hr1 : r ≤ (1 - ε) ^ (t - 1)) :
     0 ≤ sParam t ε r ∧ sParam t ε r ≤ 1 := by
@@ -587,9 +587,9 @@ theorem sParam_mem_Icc (t : ℕ) (ht : 1 ≤ t) {ε r : ℝ} (hε0 : 0 < ε) (h�
     have : 0 ≤ r / (1 - ε) ^ (t - 1) := div_nonneg hr0 hpos.le
     linarith
 
-/-! ## Symmetry (Lemma 3.5) -/
+/-! ## Symmetry (Lemma 5.6) -/
 
-/-- Paper Lemma 3.5 (`lem:symmetry`): the defect law is invariant under independent
+/-- Paper Lemma 5.6 (`lem:symmetry`): the defect law is invariant under independent
 permutations of the `X`-, `Z`- and `Y`-copy indices. -/
 theorem defect_symmetric {t : ℕ} (ε s : ℝ) : SymmetricLaw t (defectLaw t ε s) := by
   intro π ω
@@ -606,9 +606,9 @@ theorem defect_symmetric {t : ℕ} (ε s : ℝ) : SymmetricLaw t (defectLaw t ε
   · rw [if_pos h, if_pos (by rw [h])]
   · rw [if_neg h, if_neg (fun hc => h (relabel_injective π hc))]
 
-/-! ## The diagonal (Lemma 3.9) -/
+/-! ## The diagonal (Lemma 5.9) -/
 
-/-- Paper Lemma 3.9 (`lem:diag`), combinatorial half: the regions `R_l` of distinct diagonal
+/-- Paper Lemma 5.9 (`lem:diag`), combinatorial half: the regions `R_l` of distinct diagonal
 triangles are disjoint, since a cell cannot have two coordinates equal to `l` and two equal
 to `m ≠ l`. -/
 theorem diagRegion_disjoint {t : ℕ} {l m : Fin t} (h : l ≠ m) (c : Cell t) :
@@ -624,9 +624,9 @@ theorem inDiagRegion_iff {t : ℕ} (l : Fin t) (c : Cell t) :
     inDiagRegion l c = true ↔ ∃ v ∈ diagonalTriangle l, onLine v c = true := by
   simp [inDiagRegion, diagonalTriangle, copiedTriangle, or_assoc]
 
-/-- Paper Lemma 3.9 (`lem:diag`): the `t` diagonal triangles are mutually independent under
+/-- Paper Lemma 5.9 (`lem:diag`): the `t` diagonal triangles are mutually independent under
 the defect law and their joint law is `Q(ε,r)^{⊗t}` with `r = (1-s)(1-ε)^{t-1}`. This is the
-tensor-power diagonal condition of Definition 2.1(ii). -/
+tensor-power diagonal condition of Definition 2.3(ii). -/
 theorem defect_diagonal_law {t : ℕ} (ht : 1 ≤ t) {ε s : ℝ} (hε0 : 0 ≤ ε) (hε1 : ε ≤ 1)
     (hs0 : 0 ≤ s) (hs1 : s ≤ 1) :
     pushforward (defectLaw t ε s) readDiagonal

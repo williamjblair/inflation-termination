@@ -12,9 +12,10 @@ project:
     scenario is a finite simple graph without isolated vertices, one binary observed
     variable per vertex and one independent latent source per edge; a double-star is a tree
     of diameter at most three. The terminating half first labels each component from its
-    graph structure alone (its vertices of degree at least two are pairwise adjacent and
-    number at most two; they are the centres, and every other vertex is a leaf attached to
-    one of them), then reconstructs a model from any order-two witness: source-disjoint
+    graph structure alone: its vertices of degree at least two are pairwise adjacent and
+    number at most two; with two of them they are the centres, with one of them (a star) a
+    neighbour is promoted to the second centre, with none (a single edge) both endpoints are
+    the centres, and every other vertex is a leaf attached to one centre. It then reconstructs a model from any order-two witness: source-disjoint
     blocks are independent under the witness, and conditioning on a leaf pattern reads off
     the joint law of the two centres' response tables, which becomes the law of a fresh
     central source. The nonterminating half supplies, at every order t, a strictly positive
@@ -69,15 +70,15 @@ sources:
       Theorem 3.2 (thm:classification), Section 3, with reconstruction in Section 3.3
       and the witnesses in Sections 3.4 and 3.5; Theorem 5.2 (thm:main) and the corollary that
       follows it, with the construction in Section 5.1, the incompatibility in Section 5.2
-      and the injectable-set characterization in Appendix A; the formal-verification
-      statement is Section 9 (sections/11-reproducibility.tex)
+      and the injectable-set characterization in Appendix A.3; the formal-verification
+      statement is Section 8 (sections/11-reproducibility.tex)
     relationship: "formalizes"
     author_endorsement: "participated"
     note: >-
       The manuscript is included in this repository under paper/ (main.pdf and its LaTeX
       sources) together with its claim, non-claim, priority, reproduction and release
       documents under paper/release/. It is not yet posted to arXiv; this registry entry is
-      intended to precede it and to be cited by it. Its Section 9 ("Verification and availability")
+      intended to precede it and to be cited by it. Its Section 8 ("Verification and availability")
       and paper/release/NONCLAIMS.md state exactly what this repository proves and what it
       leaves unformalized.
   - title: "The Inflation Technique Completely Solves the Causal Compatibility Problem"

@@ -3,10 +3,10 @@ import TriangleInflation.Exponent
 /-!
 # The distance rate of the Navascués–Wolfe hierarchy
 
-Paper Proposition 7.1 (`prop:promised`), specialized to the binary triangle, where the
+Paper Corollary 6.1 (`prop:promised`), specialized to the binary triangle, where the
 number of independent source types is `L = 3`.
 
-Scope: the general correlation-scenario version of Proposition 7.1, and the rejecting-order
+Scope: the general correlation-scenario version of Corollary 6.1, and the rejecting-order
 corollaries `t_min ≤ ⌊L(1-‖P‖₂²)/δ₂²⌋+1 ≤ ⌊LK/(4δ²)⌋+1` that use the infimum distance to
 the compatible set, are out of scope here; only the order-`n` Euclidean estimate (eq:nw-rate)
 is stated, in the form "some compatible law is that close", which is what the paper's proof
@@ -24,7 +24,7 @@ def sqNorm (w : ThreeBit → ℝ) : ℝ := ∑ x : ThreeBit, w x ^ 2
 
 /-! ## Auxiliary facts
 
-The proof of `rate_triangle` below is the argument of paper Proposition 7.1 with `L = 3`.
+The proof of `rate_triangle` below is the argument of paper Corollary 6.1 with `L = 3`.
 The facts it needs about product laws, about the symmetry group of the inflation, and about
 the empirical law of a random copied triangle are not stated in the imported files, so they
 are proved here privately. -/
@@ -256,7 +256,7 @@ def triCount {n : ℕ} (ω : Assign n) (w : ThreeBit) : ℝ :=
 /-- The empirical law of the `n³` copied triangles of a deterministic assignment: sample the
 three copy indices uniformly and independently, and output the three bits that the
 assignment gives to the corresponding copied triangle. This is the law `q_ω` of the proof of
-paper Proposition 7.1. -/
+paper Corollary 6.1. -/
 def qLaw (n : ℕ) (ω : Assign n) : ThreeBit → ℝ := fun w => triCount ω w / (n : ℝ) ^ 3
 
 private theorem triCount_nonneg {n : ℕ} (ω : Assign n) (w : ThreeBit) : 0 ≤ triCount ω w :=
@@ -459,7 +459,7 @@ private theorem sum_pairs_const (n : ℕ) :
 
 /-! ### The two expectation identities -/
 
-/-- Fact (1) of the proof of paper Proposition 7.1: the empirical law of a random copied
+/-- Fact (1) of the proof of paper Corollary 6.1: the empirical law of a random copied
 triangle has mean `P`. -/
 theorem expect_qLaw {n : ℕ} (hn : 1 ≤ n) {P : ThreeBit → ℝ} (hP : IsLaw P)
     {Γ : Assign n → ℝ} (hsym : SymmetricLaw n Γ)
@@ -487,7 +487,7 @@ theorem expect_qLaw {n : ℕ} (hn : 1 ≤ n) {P : ThreeBit → ℝ} (hP : IsLaw 
   rw [h1, h2]
   field_simp
 
-/-- Fact (2) of the proof of paper Proposition 7.1: with `α = (1-1/n)³` the mean squared
+/-- Fact (2) of the proof of paper Corollary 6.1: with `α = (1-1/n)³` the mean squared
 norm of the empirical law is at most `α‖P‖₂² + (1-α)`. The `n³(n-1)³` ordered pairs of
 copied triangles sharing no copy index contribute `‖P‖₂²` each; the remaining pairs
 contribute at most `1` each. -/
@@ -580,7 +580,7 @@ theorem exists_le_of_weighted {α : Type*} [Fintype α] {Γ : α → ℝ}
 
 /-! ## The distance rate -/
 
-/-- Paper Proposition 7.1 (`prop:promised`), equation (eq:nw-rate), specialized to the
+/-- Paper Corollary 6.1 (`prop:promised`), equation (eq:nw-rate), specialized to the
 binary triangle (`L = 3` independent source types): if `P` is feasible at order `n` then
 some triangle-compatible law `Qc` satisfies
 `‖P - Qc‖₂² ≤ [1 - (1 - 1/n)³] (1 - ‖P‖₂²)`. -/

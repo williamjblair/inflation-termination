@@ -3,12 +3,12 @@ import TriangleInflation.DefectLaw
 /-!
 # Nontermination
 
-Statements for paper Section 3: Theorem 3.1 (`thm:membership`), Theorem 3.2 (`thm:main`) and
+Statements for paper Section 5: Theorem 5.1 (`thm:membership`), Theorem 5.2 (`thm:main`) and
 the nontermination corollary, together with the injectable-set characterization of
 Appendix A. Proofs are deferred.
 
 Formalization boundary: the recursively expressible hierarchy `I^exp_t` (paper
-Definition 2.3, and Lemmas `lem:projection`, `lem:expressible` of Section 3.3) is not
+Definition 2.5, and Lemma 5.10 (`lem:expressible`) of Section 5.3) is not
 formalized; see the header of `Defs.lean`. The paper's `Q(ε,r) ∈ I^exp_t ⊆ I^AI_t ⊆ I^NW_t`
 is formalized here as its two weaker halves, membership in `I^AI_t` and in `I^NW_t`.
 -/
@@ -109,7 +109,7 @@ theorem nwFeasible_of_aiFeasible {t : ℕ} {P : ThreeBit → ℝ} (h : AIFeasibl
   obtain ⟨Γ, hlaw, hsym, hdiag, -, -⟩ := h
   exact ⟨Γ, hlaw, hsym, hdiag⟩
 
-/-- Paper Appendix A (`app:injectable`): for the triangle, the injectable sets of the
+/-- Paper Appendix A.3 (`app:injectable`): for the triangle, the injectable sets of the
 order-`t` inflation are exactly the subsets of copied triangles. -/
 theorem injectable_iff_injectableRaw {t : ℕ} (ht : 1 ≤ t) (S : Finset (Obs t)) :
     Injectable S ↔ InjectableRaw S := by
@@ -183,10 +183,10 @@ theorem injectable_iff_injectableRaw {t : ℕ} (ht : 1 ≤ t) (S : Finset (Obs t
             (fun a b hab => (hB ⟨a, b, hab⟩).elim)
             (fun a b hab => (hC ⟨a, b, hab⟩).elim)⟩
 
-/-! ## Theorem 3.1: membership at every finite order -/
+/-! ## Theorem 5.1: membership at every finite order -/
 
 /-- The defect law with `s = 1 - r/(1-ε)^{t-1}` witnesses the ancestral-independence
-conditions for `Q(ε,r)`: this is the content of paper Section 3.3 for the two formalized
+conditions for `Q(ε,r)`: this is the content of paper Section 5.3 for the two formalized
 hierarchies. -/
 theorem defectLaw_witnesses_AI (t : ℕ) (ht : 1 ≤ t) {ε r : ℝ} (hε0 : 0 < ε) (hε1 : ε < 1)
     (hr0 : 0 ≤ r) (hr1 : r ≤ (1 - ε) ^ (t - 1)) :
@@ -221,21 +221,21 @@ theorem defectLaw_witnesses_AI (t : ℕ) (ht : 1 ≤ t) {ε r : ℝ} (hε0 : 0 <
   funext φ
   exact Finset.prod_congr rfl fun m _ => by rw [hinjm (S m) (hInj m)]
 
-/-- Paper Theorem 3.1 (`thm:membership`), ancestral-independence half: for `t ≥ 1`,
+/-- Paper Theorem 5.1 (`thm:membership`), ancestral-independence half: for `t ≥ 1`,
 `0 < ε < 1` and `0 ≤ r ≤ (1-ε)^{t-1}`, the law `Q(ε,r)` is feasible at order `t` for the
 ancestral-independence hierarchy. -/
 theorem membership_AI (t : ℕ) (ht : 1 ≤ t) {ε r : ℝ} (hε0 : 0 < ε) (hε1 : ε < 1)
     (hr0 : 0 ≤ r) (hr1 : r ≤ (1 - ε) ^ (t - 1)) : AIFeasible t (Q ε r) :=
   ⟨defectLaw t ε (sParam t ε r), defectLaw_witnesses_AI t ht hε0 hε1 hr0 hr1⟩
 
-/-- Paper Theorem 3.1 (`thm:membership`), Navascués–Wolfe half. -/
+/-- Paper Theorem 5.1 (`thm:membership`), Navascués–Wolfe half. -/
 theorem membership_NW (t : ℕ) (ht : 1 ≤ t) {ε r : ℝ} (hε0 : 0 < ε) (hε1 : ε < 1)
     (hr0 : 0 ≤ r) (hr1 : r ≤ (1 - ε) ^ (t - 1)) : NWFeasible t (Q ε r) :=
   nwFeasible_of_aiFeasible (membership_AI t ht hε0 hε1 hr0 hr1)
 
-/-! ## Theorem 3.2: no finite characterizing order -/
+/-! ## Theorem 5.2: no finite characterizing order -/
 
-/-- The parameters of paper Theorem 3.2 lie in the range of Theorem 3.1. -/
+/-- The parameters of paper Theorem 5.2 lie in the range of Theorem 5.1. -/
 theorem epsFam_mem (t : ℕ) (ht : 1 ≤ t) : 0 < epsFam t ∧ epsFam t < 1 := by
   have h1 : (1 : ℝ) ≤ (t : ℝ) := by exact_mod_cast ht
   have h3 : (1 : ℝ) ≤ (t : ℝ) ^ 3 := one_le_pow₀ h1
@@ -259,7 +259,7 @@ private theorem epsFam_lt (t : ℕ) (ht : 1 ≤ t) : epsFam t < 1 / (t : ℝ) ^ 
   rw [hhalf]
   linarith
 
-/-- Paper Theorem 3.2 (`thm:main`), membership half: `P_t ∈ I^AI_t ⊆ I^NW_t`. -/
+/-- Paper Theorem 5.2 (`thm:main`), membership half: `P_t ∈ I^AI_t ⊆ I^NW_t`. -/
 theorem main_membership (t : ℕ) (ht : 1 ≤ t) : AIFeasible t (Pfam t) ∧ NWFeasible t (Pfam t) := by
   obtain ⟨h0, h1⟩ := epsFam_mem t ht
   have hr0 : (0 : ℝ) ≤ (1 - epsFam t) ^ (t - 1) := pow_nonneg (by linarith) _
@@ -267,7 +267,7 @@ theorem main_membership (t : ℕ) (ht : 1 ≤ t) : AIFeasible t (Pfam t) ∧ NWF
     membership_AI t ht h0 h1 hr0 le_rfl
   exact ⟨hai, nwFeasible_of_aiFeasible hai⟩
 
-/-- Paper Theorem 3.2 (`thm:main`), violation half: the Finner margin of `P_t` is at least
+/-- Paper Theorem 5.2 (`thm:main`), violation half: the Finner margin of `P_t` is at least
 `ε_t²/2 > 0`, so `P_t ∉ C_tri`. -/
 theorem main_violation (t : ℕ) (ht : 1 ≤ t) :
     epsFam t ^ 2 / 2
@@ -283,7 +283,7 @@ theorem Pfam_isLaw (t : ℕ) (ht : 1 ≤ t) : IsLaw (Pfam t) := by
   have hr1 : rFam t ≤ 1 := pow_le_one₀ (by linarith) (by linarith)
   exact Q_isLaw h0.le h1.le hr0 hr1
 
-/-- Paper Theorem 3.2 (`thm:main`), the nontermination corollary: for every finite order `t`
+/-- Paper Theorem 5.2 (`thm:main`), the nontermination corollary: for every finite order `t`
 there is a three-bit law that passes the order-`t` test and is not triangle compatible, so no
 finite order of the hierarchy characterizes `C_tri`.
 

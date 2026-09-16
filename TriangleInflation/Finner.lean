@@ -3,8 +3,8 @@ import TriangleInflation.Defs
 /-!
 # The Finner inequality and the explicit violation
 
-Statements for paper Section 3.2 (`sec:incompat`): Lemma 3.7 (`lem:finner`), Lemma 3.8
-(`lem:violation`), and the incompatibility half of Proposition 4.2 (`prop:Rp`). Proofs are
+Statements for paper Section 5.2 (`sec:incompat`): Lemma 5.7 (`lem:finner`), Lemma 5.8
+(`lem:violation`), and the incompatibility half of Proposition 5.12 (`prop:Rp`). Proofs are
 deferred.
 
 This file also collects the basic normalization facts about the weight functions of
@@ -64,7 +64,7 @@ theorem Q_isLaw {ε r : ℝ} (hε0 : 0 ≤ ε) (hε1 : ε ≤ 1) (hr0 : 0 ≤ r)
     norm_num
     ring
 
-/-- `R_p` is a law for `p ∈ [0,1]` (paper Proposition 4.2). -/
+/-- `R_p` is a law for `p ∈ [0,1]` (paper Proposition 5.12). -/
 theorem Rlaw_isLaw {p : ℝ} (h0 : 0 ≤ p) (h1 : p ≤ 1) : IsLaw (Rlaw p) := by
   refine ⟨fun w => ?_, ?_⟩
   · have h1' : (0:ℝ) ≤ 1 - p := by linarith
@@ -72,7 +72,7 @@ theorem Rlaw_isLaw {p : ℝ} (h0 : 0 ≤ p) (h1 : p ≤ 1) : IsLaw (Rlaw p) := b
   · simp only [Rlaw, Fintype.sum_prod_type, Fintype.sum_bool]
     norm_num
 
-/-- The defect-cube law is a law when `ε, s ∈ [0,1]` (paper Section 3.1). -/
+/-- The defect-cube law is a law when `ε, s ∈ [0,1]` (paper Section 5.1). -/
 theorem defectLaw_isLaw {t : ℕ} {ε s : ℝ} (hε0 : 0 ≤ ε) (hε1 : ε ≤ 1)
     (hs0 : 0 ≤ s) (hs1 : s ≤ 1) : IsLaw (defectLaw t ε s) := by
   refine pushforward_isLaw (prodLaw_isLaw ?_) outputsOf
@@ -186,7 +186,7 @@ private lemma sum_weight_mul {ι : Type*} [Fintype ι] {μ : ι → ℝ} (hμ : 
     ∑ i, μ i * c = c := by
   rw [← Finset.sum_mul, hμ, one_mul]
 
-/-- Paper Lemma 3.7 (`lem:finner`), the event form of Finner's inequality for the triangle:
+/-- Paper Lemma 5.7 (`lem:finner`), the event form of Finner's inequality for the triangle:
 every triangle-compatible law satisfies `P(000)² ≤ P_A(0) P_B(0) P_C(0)`.
 
 Formalization boundary: `TriangleCompatible` uses finite latent alphabets (see the header of
@@ -282,7 +282,7 @@ private lemma Q_margC (ε r : ℝ) : margC (Q ε r) = ε + (1 - ε) * (1 - r) :=
   norm_num
   ring
 
-/-- The two elementary estimates of paper Lemma 3.8: the atom is at least `ε`, and the common
+/-- The two elementary estimates of paper Lemma 5.8: the atom is at least `ε`, and the common
 marginal `1 - (1-ε)^t` lies in `[0, tε]` (Bernoulli's inequality). -/
 private lemma witness_key (t : ℕ) (ht : 1 ≤ t) {ε : ℝ} (h0 : 0 < ε) (h1 : ε ≤ 1) :
     ε ≤ ε + (1 - ε) * (1 - (1 - ε) ^ (t - 1)) ^ 3
@@ -311,7 +311,7 @@ private lemma witness_key (t : ℕ) (ht : 1 ≤ t) {ε : ℝ} (h0 : 0 < ε) (h1 
       rw [← hpow]; ring
     rw [expand]; linarith
 
-/-- Paper Lemma 3.8 (`lem:violation`), first part: for `t ≥ 1` and `0 < ε < t⁻³`, the law
+/-- Paper Lemma 5.8 (`lem:violation`), first part: for `t ≥ 1` and `0 < ε < t⁻³`, the law
 `Q(ε, (1-ε)^{t-1})` strictly violates the Finner inequality. -/
 theorem witness_violation (t : ℕ) (ht : 1 ≤ t) {ε : ℝ} (h0 : 0 < ε) (h1 : ε < 1 / (t : ℝ) ^ 3) :
     margA (Q ε ((1 - ε) ^ (t - 1))) * margB (Q ε ((1 - ε) ^ (t - 1)))
@@ -338,14 +338,14 @@ theorem witness_violation (t : ℕ) (ht : 1 ≤ t) {ε : ℝ} (h0 : 0 < ε) (h1 
     nlinarith [sq_nonneg ε, mul_pos h0 h0]
   nlinarith [hcube, hsq, ha, h0]
 
-/-- Paper Lemma 3.8 (`lem:violation`), conclusion: such a `Q(ε,(1-ε)^{t-1})` is not
+/-- Paper Lemma 5.8 (`lem:violation`), conclusion: such a `Q(ε,(1-ε)^{t-1})` is not
 triangle compatible. -/
 theorem witness_not_compatible (t : ℕ) (ht : 1 ≤ t) {ε : ℝ} (h0 : 0 < ε)
     (h1 : ε < 1 / (t : ℝ) ^ 3) : ¬ TriangleCompatible (Q ε ((1 - ε) ^ (t - 1))) := by
   intro hc
   exact absurd (finner_of_compatible hc) (not_le.2 (witness_violation t ht h0 h1))
 
-/-- Paper Lemma 3.8 (`lem:violation`), quantitative part: at `ε = ε_t = 1/(2t³)` the Finner
+/-- Paper Lemma 5.8 (`lem:violation`), quantitative part: at `ε = ε_t = 1/(2t³)` the Finner
 margin of `P_t = Q(ε_t, r_t)` is at least `ε_t²/2`. -/
 theorem witness_margin (t : ℕ) (ht : 1 ≤ t) :
     epsFam t ^ 2 / 2
@@ -388,7 +388,7 @@ private lemma R_margB (p : ℝ) : margB (Rlaw p) = p := by
 private lemma R_margC (p : ℝ) : margC (Rlaw p) = p := by
   simp [margC, Rlaw]
 
-/-- Paper Proposition 4.2 (`prop:Rp`), incompatibility half: `R_p` violates the Finner
+/-- Paper Proposition 5.12 (`prop:Rp`), incompatibility half: `R_p` violates the Finner
 inequality, hence is not triangle compatible, for every `0 < p < 1`. -/
 theorem Rlaw_not_compatible {p : ℝ} (h0 : 0 < p) (h1 : p < 1) :
     ¬ TriangleCompatible (Rlaw p) := by

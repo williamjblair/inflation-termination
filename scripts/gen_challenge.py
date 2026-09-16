@@ -110,9 +110,9 @@ Equivalently: no finite level of the hierarchy characterizes the triangle-compat
 explicit defect-cube inflation law, and incompatibility from the Finner inequality
 `P(000)² ≤ P_A(0) P_B(0) P_C(0)`, which `P_t` violates by at least `ε_t²/2`.
 
-This is Theorem 8.2 and its corollary in *Inflation for Classical Pair-Source Networks:
+This is Theorem 5.2 and its corollary in *Inflation for Classical Pair-Source Networks:
 Termination and Quantitative Obstructions* (William Blair, manuscript, 2026), included
-under `paper/`; the construction is Section 8.1, the incompatibility Section 8.2. The
+under `paper/`; the construction is Section 5.1, the incompatibility Section 5.2. The
 triangle is the smallest scenario the classification theorem
 (`Palomar/TriangleInflation/ClassificationChallenge.lean`) puts on the nonterminating side,
 and this theorem is the quantitative form of that case.
@@ -156,7 +156,7 @@ which is not triangle compatible (`¬ TriangleCompatible P`).
 
 So no finite order of the hierarchy characterizes the triangle-compatible set: whatever
 order `t` is chosen, the order-`t` test admits a law that no triangle model produces.
-Paper Theorem 8.2 and the corollary that follows it. -/
+Paper Theorem 5.2 and the corollary that follows it. -/
 theorem no_finite_characterizing_order (t : ℕ) (ht : 1 ≤ t) :
     ∃ P : ThreeBit → ℝ, IsLaw P ∧ AIFeasible t P ∧ NWFeasible t P ∧ ¬ TriangleCompatible P := by
   sorry
@@ -181,11 +181,11 @@ order `t ≥ 1` of the hierarchy equals the compatible set, then every component
 star. Reading it right to left: if every component is a double star, then some order does,
 and the proof supplies `t = 2`.
 
-This is Theorem 4.2 in *Inflation for Classical Pair-Source Networks: Termination and
+This is Theorem 3.2 in *Inflation for Classical Pair-Source Networks: Termination and
 Quantitative Obstructions* (William Blair, manuscript, 2026), included under `paper/`
-(Section 4). The nonterminating half rests on explicit targets that pass the order-`t` test
-at every `t` and are incompatible: a parity target on every induced cycle (Section 6) and a
-bilocal target on the five-observer path (Section 7), moved to the ambient graph by
+(Section 3). The nonterminating half rests on explicit targets that pass the order-`t` test
+at every `t` and are incompatible: a parity target on every induced cycle (Section 3.4) and a
+bilocal target on the five-observer path (Section 3.5), moved to the ambient graph by
 induced-subgraph transport and made strictly positive by independent local flips. The
 terminating half reconstructs a model on a double star from its order-two inflation
 (Section 5). The triangle case, sharpened to an explicit family with a quantitative
@@ -233,7 +233,7 @@ model. Right to left it is the reconstruction half. The second conjunct is the o
 in the paper: on a double-star forest the order-two test already characterizes
 compatibility.
 
-Paper Theorem 4.2. -/
+Paper Theorem 3.2. -/
 theorem TriangleInflation.Graph.classification_NW (Γ : PairGraph) :
     ((∃ t : ℕ, 1 ≤ t ∧ ∀ P : GTarget Γ, IsLaw P → (GNWFeasible Γ t P ↔ GCompatible Γ P))
       ↔ IsDoubleStarForest Γ.G) ∧

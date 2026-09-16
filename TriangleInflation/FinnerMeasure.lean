@@ -15,7 +15,7 @@ particular an arbitrary-latent model, so the finite-latent compatible set is a s
 paper's `C_△`, and a theorem `¬ TriangleCompatible P` is therefore the *weaker* of the two
 nonmembership statements. Closing the gap needs either the cardinality reduction of Rosset,
 Gisin and Wolfe (2018) — quoted in the paper, not formalized — or a proof of Finner's
-inequality (paper Lemma 3.7) for arbitrary latent probability spaces. This file gives the
+inequality (paper Lemma 5.7) for arbitrary latent probability spaces. This file gives the
 second.
 
 `TriangleModelM` is a triangle model whose latent alphabets are arbitrary measurable spaces
@@ -24,7 +24,7 @@ carrying probability measures, with measurable response probabilities `f, g, h` 
 masses against the product measure `μX ⊗ μY ⊗ μZ`. No finiteness, no countability, no
 determinism, no regularity beyond measurability is assumed.
 
-* `finner_of_compatibleM` is Lemma 3.7 in that generality: `P(000)² ≤ P_A(0) P_B(0) P_C(0)`.
+* `finner_of_compatibleM` is Lemma 5.7 in that generality: `P(000)² ≤ P_A(0) P_B(0) P_C(0)`.
   The proof is the paper's: Cauchy–Schwarz in `y` for fixed `(x,z)`, Cauchy–Schwarz in the
   independent pair `(x,z)` against the constant function, then `f ≤ 1`, `g² ≤ g`, `h² ≤ h`
   because the responses are probabilities, and Fubini to factor the `(x,z)` integral of a
@@ -110,7 +110,7 @@ def TriangleModelM.law (M : TriangleModelM) : ThreeBit → ℝ := fun w =>
         * respMass (M.h (p.2.2, p.2.1)) w.2.2
     ∂(M.μX.prod (M.μY.prod M.μZ))
 
-/-- Paper Section 2.1: the triangle-compatible set `C_△`, with **no** restriction on the
+/-- Paper Section 2.3: the triangle-compatible set `C_△`, with **no** restriction on the
 latent alphabets. `triangleCompatibleM_of_triangleCompatible` shows it contains the
 finite-latent set `TriangleCompatible` of `Defs.lean`. -/
 def TriangleCompatibleM (P : ThreeBit → ℝ) : Prop :=
@@ -459,7 +459,7 @@ private lemma integral_sum_bool₂ {α : Type*} [MeasurableSpace α] {μ : Measu
   rw [integral_add (i true) (i false), integral_add (hF true true) (hF true false),
     integral_add (hF false true) (hF false false)]
 
-/-- Paper Lemma 3.7 (`lem:finner`) with **arbitrary probability spaces** as latent alphabets:
+/-- Paper Lemma 5.7 (`lem:finner`) with **arbitrary probability spaces** as latent alphabets:
 every law that comes from a measure-theoretic triangle model satisfies
 `P(000)² ≤ P_A(0) P_B(0) P_C(0)`. -/
 theorem finner_of_compatibleM {P : ThreeBit → ℝ} (hc : TriangleCompatibleM P) :
@@ -581,12 +581,12 @@ Each statement below is the arbitrary-latent form of the finite-latent statement
 name in `Finner.lean`, `Main.lean` and `Exponent.lean`. The finite computations are reused
 verbatim: they are statements about the three-bit law alone and mention no model. -/
 
-/-- Paper Lemma 3.8 (`lem:violation`), arbitrary latent alphabets. -/
+/-- Paper Lemma 5.8 (`lem:violation`), arbitrary latent alphabets. -/
 theorem witness_not_compatibleM (t : ℕ) (ht : 1 ≤ t) {ε : ℝ} (h0 : 0 < ε)
     (h1 : ε < 1 / (t : ℝ) ^ 3) : ¬ TriangleCompatibleM (Q ε ((1 - ε) ^ (t - 1))) := fun hc =>
   absurd (finner_of_compatibleM hc) (not_le.2 (witness_violation t ht h0 h1))
 
-/-- Paper Proposition 4.2 (`prop:Rp`), incompatibility half, arbitrary latent alphabets. -/
+/-- Paper Proposition 5.12 (`prop:Rp`), incompatibility half, arbitrary latent alphabets. -/
 theorem Rlaw_not_compatibleM {p : ℝ} (h0 : 0 < p) (h1 : p < 1) :
     ¬ TriangleCompatibleM (Rlaw p) := by
   intro hc
@@ -608,7 +608,7 @@ private lemma exists_cube_rootM {ε : ℝ} (h0 : 0 < ε) :
     rw [← Real.rpow_natCast (ε ^ ((1 : ℝ) / 3)) 2, ← Real.rpow_mul h0.le]
     norm_num
 
-/-- Paper Proposition 5.1 (`prop:family`), part (c), arbitrary latent alphabets. -/
+/-- Paper Proposition 5.13 (`prop:family`), part (c), arbitrary latent alphabets. -/
 theorem Peps_not_compatibleM {ε : ℝ} (h0 : 0 < ε) (h1 : ε < 1 / 8) :
     ¬ TriangleCompatibleM (Peps ε) := by
   intro hc
@@ -646,7 +646,7 @@ theorem Peps_not_compatibleM {ε : ℝ} (h0 : 0 < ε) (h1 : ε < 1 / 8) :
       _ ≤ zEps ε ^ 2 := pow_le_pow_left₀ hu3pos.le hzlb 2
   nlinarith [hfin, hm3, hz2]
 
-/-- Paper Theorem 3.2 (`thm:main`), violation half, arbitrary latent alphabets. -/
+/-- Paper Theorem 5.2 (`thm:main`), violation half, arbitrary latent alphabets. -/
 theorem main_violationM (t : ℕ) (ht : 1 ≤ t) :
     epsFam t ^ 2 / 2
         ≤ atom000 (Pfam t) ^ 2 - margA (Pfam t) * margB (Pfam t) * margC (Pfam t)
@@ -657,7 +657,7 @@ theorem main_violationM (t : ℕ) (ht : 1 ≤ t) :
   have h0 := (epsFam_mem t ht).1
   nlinarith [hfin, hm, mul_pos h0 h0]
 
-/-- Paper Theorem 3.2 (`thm:main`), the nontermination corollary with arbitrary latent
+/-- Paper Theorem 5.2 (`thm:main`), the nontermination corollary with arbitrary latent
 alphabets: for every finite order `t` there is a three-bit law that passes the order-`t`
 test and is not triangle compatible for **any** latent probability spaces. -/
 theorem no_finite_characterizing_orderM (t : ℕ) (ht : 1 ≤ t) :

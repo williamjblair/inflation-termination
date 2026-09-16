@@ -27,11 +27,11 @@ order `t ≥ 1` of the hierarchy equals the compatible set, then every component
 star. Reading it right to left: if every component is a double star, then some order does,
 and the proof supplies `t = 2`.
 
-This is Theorem 4.2 in *Inflation for Classical Pair-Source Networks: Termination and
+This is Theorem 3.2 in *Inflation for Classical Pair-Source Networks: Termination and
 Quantitative Obstructions* (William Blair, manuscript, 2026), included under `paper/`
-(Section 4). The nonterminating half rests on explicit targets that pass the order-`t` test
-at every `t` and are incompatible: a parity target on every induced cycle (Section 6) and a
-bilocal target on the five-observer path (Section 7), moved to the ambient graph by
+(Section 3). The nonterminating half rests on explicit targets that pass the order-`t` test
+at every `t` and are incompatible: a parity target on every induced cycle (Section 3.4) and a
+bilocal target on the five-observer path (Section 3.5), moved to the ambient graph by
 induced-subgraph transport and made strictly positive by independent local flips. The
 terminating half reconstructs a model on a double star from its order-two inflation
 (Section 5). The triangle case, sharpened to an explicit family with a quantitative
@@ -118,7 +118,7 @@ def tensorPow (t : ℕ) (P : ThreeBit → ℝ) : (Fin t → ThreeBit) → ℝ :=
 
 /-! ## The copied observations of the order-`t` inflation
 
-Paper Section 2.2. `A^{ij}` has `X`-index `i` and `Z`-index `j`; `B^{ik}` has `X`-index `i`
+Paper Section 2.3. `A^{ij}` has `X`-index `i` and `Z`-index `j`; `B^{ik}` has `X`-index `i`
 and `Y`-index `k`; `C^{jk}` has `Z`-index `j` and `Y`-index `k`. -/
 
 /-- The `3t²` copied observations of the order-`t` inflation. -/
@@ -155,16 +155,16 @@ def Obs.ancestors {t : ℕ} : Obs t → Finset (Latent t)
 def ancestorsOf {t : ℕ} (S : Finset (Obs t)) : Finset (Latent t) :=
   S.biUnion Obs.ancestors
 
-/-- Paper Definition 2.2: two sets of copied observations are *ancestrally independent*
+/-- Paper Definition 2.4: two sets of copied observations are *ancestrally independent*
 when their copied latent ancestors are disjoint. -/
 def AncestrallyIndependent {t : ℕ} (S T : Finset (Obs t)) : Prop :=
   Disjoint (ancestorsOf S) (ancestorsOf T)
 
-/-- The copied triangle `Δ_{ijk} = {A^{ij}, B^{ik}, C^{jk}}` (paper Section 2.2). -/
+/-- The copied triangle `Δ_{ijk} = {A^{ij}, B^{ik}, C^{jk}}` (paper Section 2.3). -/
 def copiedTriangle {t : ℕ} (i j k : Fin t) : Finset (Obs t) :=
   {Obs.A i j, Obs.B i k, Obs.C j k}
 
-/-- The diagonal triangle `Δ_{lll}` (paper Section 2.2). -/
+/-- The diagonal triangle `Δ_{lll}` (paper Section 2.3). -/
 def diagonalTriangle {t : ℕ} (l : Fin t) : Finset (Obs t) := copiedTriangle l l l
 
 /-- The three-bit outcome that an assignment gives to the copied triangle `Δ_{ijk}`. -/
@@ -179,7 +179,7 @@ def readDiagonal {t : ℕ} (ω : Assign t) : Fin t → ThreeBit :=
 
 /-- The action of `(σ_X, σ_Z, σ_Y) ∈ S_t × S_t × S_t` on copied observations. The first
 component permutes `X`-copy indices, the second `Z`-copy indices, the third `Y`-copy
-indices, exactly as in Definition 2.1(i). -/
+indices, exactly as in Definition 2.3(i). -/
 def Obs.perm {t : ℕ} (π : Equiv.Perm (Fin t) × Equiv.Perm (Fin t) × Equiv.Perm (Fin t)) :
     Obs t → Obs t
   | .A i j => .A (π.1 i) (π.2.1 j)
@@ -190,14 +190,14 @@ def Obs.perm {t : ℕ} (π : Equiv.Perm (Fin t) × Equiv.Perm (Fin t) × Equiv.P
 def relabel {t : ℕ} (π : Equiv.Perm (Fin t) × Equiv.Perm (Fin t) × Equiv.Perm (Fin t))
     (ω : Assign t) : Assign t := fun v => ω (Obs.perm π v)
 
-/-- Paper Definition 2.1(i): invariance under independent permutations of the three
+/-- Paper Definition 2.3(i): invariance under independent permutations of the three
 index families. -/
 def SymmetricLaw (t : ℕ) (Γ : Assign t → ℝ) : Prop :=
   ∀ π ω, Γ (relabel π ω) = Γ ω
 
 /-! ### Injectable sets
 
-Paper Definition 2.2 and Appendix A. -/
+Paper Definition 2.4 and Appendix A. -/
 
 /-- The primitive condition of Wolfe–Spekkens–Fritz Definition 4, specialized to the
 triangle: erasing copy indices is injective on the set, and any two members that are copies
@@ -211,11 +211,11 @@ def SharedAgree {t : ℕ} : Obs t → Obs t → Prop
   | .C _ k', .B _ k => k = k'
   | _, _ => True
 
-/-- The primitive definition of an injectable set (paper Appendix A). -/
+/-- The primitive definition of an injectable set (paper Appendix A.3). -/
 def InjectableRaw {t : ℕ} (S : Finset (Obs t)) : Prop :=
   (∀ u ∈ S, ∀ v ∈ S, u.party = v.party → u = v) ∧ (∀ u ∈ S, ∀ v ∈ S, SharedAgree u v)
 
-/-- Paper Definition 2.2 together with Appendix A: for the triangle the injectable sets are
+/-- Paper Definition 2.4 together with Appendix A: for the triangle the injectable sets are
 exactly the subsets of copied triangles. This characterization is the working definition
 here; `Main.injectable_iff_injectableRaw` records its equivalence with `InjectableRaw`. -/
 def Injectable {t : ℕ} (S : Finset (Obs t)) : Prop :=
@@ -229,7 +229,7 @@ reads the bit of the party it is a copy of. -/
 def partyRead {t : ℕ} (S : Finset (Obs t)) (w : ThreeBit) : S → Bool :=
   fun v => partyBit v.1.party w
 
-/-! ### The defect cube (paper Section 3.1)
+/-! ### The defect cube (paper Section 5.1)
 
 `Cell t` indexes the cube `[t]³` of defect bits `D_{ijk}`; `Obs t` indexes the private bits
 `N_v`. The root bits are indexed by `Root t = Cell t ⊕ Obs t`. -/
@@ -242,7 +242,7 @@ abbrev Root (t : ℕ) := Cell t ⊕ Obs t
 
 /-- `onLine v c` says the cell `c` lies on the line `Λ(v)` read by the observation `v`:
 `Λ(A^{ij}) = {(i,j,k) : k ∈ [t]}`, `Λ(B^{ik}) = {(i,j,k) : j ∈ [t]}`,
-`Λ(C^{jk}) = {(i,j,k) : i ∈ [t]}` (paper Section 3.1). -/
+`Λ(C^{jk}) = {(i,j,k) : i ∈ [t]}` (paper Section 5.1). -/
 def onLine {t : ℕ} : Obs t → Cell t → Bool
   | .A i j, c => (c.1 == i) && (c.2.1 == j)
   | .B i k, c => (c.1 == i) && (c.2.2 == k)
@@ -258,7 +258,7 @@ def outputsOf {t : ℕ} (x : Root t → Bool) : Assign t :=
   outputs (fun c => x (Sum.inl c)) (fun v => x (Sum.inr v))
 
 /-- The root bits that a set of copied observations reads: the defect cells on their lines,
-together with their own private bits (paper Lemma 3.3, "disjoint inputs"). -/
+together with their own private bits (paper Lemma 5.4, "disjoint inputs"). -/
 def rootSupport {t : ℕ} (S : Finset (Obs t)) : Finset (Root t) :=
   (Finset.univ.filter (fun c : Cell t => ∃ v ∈ S, onLine v c = true)).image Sum.inl
     ∪ S.image Sum.inr
@@ -280,19 +280,19 @@ def Q (ε r : ℝ) : ThreeBit → ℝ := fun w =>
   ε * (if w = (false, false, false) then 1 else 0)
     + (1 - ε) * (bern r w.1 * bern r w.2.1 * bern r w.2.2)
 
-/-- `ε_t = 1/(2t³)` (paper Theorem 3.2). -/
+/-- `ε_t = 1/(2t³)` (paper Theorem 5.2). -/
 def epsFam (t : ℕ) : ℝ := 1 / (2 * (t : ℝ) ^ 3)
 
-/-- `r_t = (1 - ε_t)^{t-1}` (paper Theorem 3.2). -/
+/-- `r_t = (1 - ε_t)^{t-1}` (paper Theorem 5.2). -/
 def rFam (t : ℕ) : ℝ := (1 - epsFam t) ^ (t - 1)
 
-/-- The nontermination family `P_t = Q(ε_t, r_t)` (paper Theorem 3.2). -/
+/-- The nontermination family `P_t = Q(ε_t, r_t)` (paper Theorem 5.2). -/
 def Pfam (t : ℕ) : ThreeBit → ℝ := Q (epsFam t) (rFam t)
 
-/-- The divergent-rejecting-order family `P_ε = Q(ε, 1 - ε^{2/3}/2)` (paper Proposition 5.1). -/
+/-- The divergent-rejecting-order family `P_ε = Q(ε, 1 - ε^{2/3}/2)` (paper Proposition 5.13). -/
 def Peps (ε : ℝ) : ThreeBit → ℝ := Q ε (1 - ε ^ ((2 : ℝ) / 3) / 2)
 
-/-- `R_p = (1-p) δ_{111} + p δ_{000}` (paper Proposition 4.2). -/
+/-- `R_p = (1-p) δ_{111} + p δ_{000}` (paper Proposition 5.12). -/
 def Rlaw (p : ℝ) : ThreeBit → ℝ := fun w =>
   (1 - p) * (if w = (true, true, true) then 1 else 0)
     + p * (if w = (false, false, false) then 1 else 0)
@@ -332,32 +332,32 @@ def TriangleModel.Valid (M : TriangleModel) : Prop :=
     (∀ p, 0 ≤ M.h p ∧ M.h p ≤ 1)
 
 /-- The observed law of a triangle model: the sources are independent and the responses are
-conditionally independent given the sources (paper Section 2.1). -/
+conditionally independent given the sources (paper Section 2.3). -/
 def TriangleModel.law (M : TriangleModel) : ThreeBit → ℝ := fun w =>
   ∑ x : M.X, ∑ y : M.Y, ∑ z : M.Z,
     M.μX x * M.μY y * M.μZ z
       * respMass (M.f (x, z)) w.1 * respMass (M.g (x, y)) w.2.1 * respMass (M.h (z, y)) w.2.2
 
-/-- Paper Section 2.1: the triangle-compatible set `C_tri`, with the finite-latent-alphabet
+/-- Paper Section 2.3: the triangle-compatible set `C_tri`, with the finite-latent-alphabet
 formalization boundary described in the file header. -/
 def TriangleCompatible (P : ThreeBit → ℝ) : Prop :=
   ∃ M : TriangleModel, M.Valid ∧ M.law = P
 
 /-! ## The finite inflation tests -/
 
-/-- Paper Definition 2.1: the Navascués–Wolfe feasible set `I^NW_t`. A law `Γ_t` on the
+/-- Paper Definition 2.3: the Navascués–Wolfe feasible set `I^NW_t`. A law `Γ_t` on the
 copied observations, invariant under `S_t³`, whose diagonal law is the tensor power `P^{⊗t}`. -/
 def NWFeasible (t : ℕ) (P : ThreeBit → ℝ) : Prop :=
   ∃ Γ : Assign t → ℝ, IsLaw Γ ∧ SymmetricLaw t Γ ∧
     pushforward Γ readDiagonal = tensorPow t P
 
-/-- The injectable-marginal prescriptions of paper Definition 2.2: every injectable set has
+/-- The injectable-marginal prescriptions of paper Definition 2.4: every injectable set has
 the corresponding marginal of `P`. -/
 def InjectableMarginals (t : ℕ) (Γ : Assign t → ℝ) (P : ThreeBit → ℝ) : Prop :=
   ∀ S : Finset (Obs t), Injectable S →
     pushforward Γ (restrictAssign S) = pushforward P (partyRead S)
 
-/-- The ancestral-independence prescriptions of paper Definition 2.2: every union of
+/-- The ancestral-independence prescriptions of paper Definition 2.4: every union of
 pairwise ancestrally independent injectable sets has the product of the corresponding
 marginals. The union is presented as a finite family, whose joint restriction law is
 required to factor. -/
@@ -368,7 +368,7 @@ def AncestralProducts (t : ℕ) (Γ : Assign t → ℝ) (P : ThreeBit → ℝ) :
       = fun φ : ∀ m : Fin n, (S m) → Bool =>
           ∏ m : Fin n, pushforward P (partyRead (S m)) (φ m)
 
-/-- Paper Definition 2.2: the ancestral-independence feasible set `I^AI_t`. -/
+/-- Paper Definition 2.4: the ancestral-independence feasible set `I^AI_t`. -/
 def AIFeasible (t : ℕ) (P : ThreeBit → ℝ) : Prop :=
   ∃ Γ : Assign t → ℝ, IsLaw Γ ∧ SymmetricLaw t Γ ∧
     pushforward Γ readDiagonal = tensorPow t P ∧
@@ -384,7 +384,7 @@ def rootWeight (t : ℕ) (ε s : ℝ) : Root t → Bool → ℝ
 /-- The joint law of the independent root bits of the defect cube. -/
 def rootLaw (t : ℕ) (ε s : ℝ) : (Root t → Bool) → ℝ := prodLaw (rootWeight t ε s)
 
-/-- Paper Section 3.1: the defect-cube law `Γ_t`, the pushforward of the independent defect
+/-- Paper Section 5.1: the defect-cube law `Γ_t`, the pushforward of the independent defect
 and private bits under the output map (eq:outputs). Unfolding `pushforward` and `prodLaw`
 gives the explicit finite sum of product weights of paper equation (eq:table):
 `Γ_t(w) = ∑_{x : outputsOf x = w} ∏_{roots} bern _ (x _)`. -/
@@ -393,7 +393,7 @@ def defectLaw (t : ℕ) (ε s : ℝ) : Assign t → ℝ :=
 
 /-! ## First rejecting order
 
-Paper Section 2.2: `t_min^H(P) = min {t ≥ 1 : P ∉ I^H_t}`. Formalized as `Nat.sInf`, which
+Paper Section 2.3: `t_min^H(P) = min {t ≥ 1 : P ∉ I^H_t}`. Formalized as `Nat.sInf`, which
 returns the junk value `0` when the set is empty. The set is nonempty exactly when some
 finite order rejects `P`; that this happens for every incompatible `P` is the asymptotic
 completeness of the hierarchy, which is quoted from Navascués–Wolfe in the paper and is not
@@ -545,7 +545,7 @@ model. Right to left it is the reconstruction half. The second conjunct is the o
 in the paper: on a double-star forest the order-two test already characterizes
 compatibility.
 
-Paper Theorem 4.2. -/
+Paper Theorem 3.2. -/
 theorem TriangleInflation.Graph.classification_NW (Γ : PairGraph) :
     ((∃ t : ℕ, 1 ≤ t ∧ ∀ P : GTarget Γ, IsLaw P → (GNWFeasible Γ t P ↔ GCompatible Γ P))
       ↔ IsDoubleStarForest Γ.G) ∧

@@ -5,7 +5,7 @@ import TriangleInflation.Rate
 /-!
 # The convex-order distance rate for the triangle
 
-The sharpening of `rate_triangle` (paper Proposition 7.1) recorded as item B3 of the
+The sharpening of `rate_triangle` (paper Corollary 6.1) recorded as item B3 of the
 `2026-09-13` audit notes: for a law feasible at order `n` the Euclidean distance to the
 triangle-compatible set is at most `(1 - ‖P‖₂²)/n`, with no factor counting the three
 independent source types.
@@ -27,7 +27,7 @@ The total-variation corollaries convert with Cauchy–Schwarz on the eight atoms
 `‖P‖₂² ≥ 1/8` for a law on eight atoms.
 
 Nothing here restates or weakens `Rate.lean`; `rate_triangle` is kept as the formalization
-of the manuscript's Proposition 7.1 as written, and the theorems below are the improvement.
+of the manuscript's Corollary 6.1 as written, and the theorems below are the improvement.
 -/
 
 namespace TriangleInflation
@@ -253,7 +253,7 @@ private theorem expect_sq_le_sharp {n : ℕ} (hn : 1 ≤ n) {P : ThreeBit → �
 
 /-! ## The sharp distance rate -/
 
-/-- Audit item B3: the convex-order sharpening of paper Proposition 7.1 for the binary
+/-- Audit item B3: the convex-order sharpening of paper Corollary 6.1 for the binary
 triangle. If `P` is feasible at order `n` then some triangle-compatible law `Qc` satisfies
 `‖P - Qc‖₂² ≤ (1 - ‖P‖₂²)/n`. The constant carries no factor counting the three
 independent source types, so it improves `rate_triangle`, whose constant

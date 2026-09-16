@@ -9,7 +9,7 @@ itself, copied verbatim from `TriangleInflation/Defs.lean` and
 definitions live under the same names, and declares the same theorem, discharged by the
 library's `classification_NW_lib` together with `doubleStar_terminates`
 (`TriangleInflation/Graph/ClassificationTheorem.lean` and `Graph/DoubleStarForest.lean`,
-paper Theorem 4.2 with the order-two clause of Theorem 5.1).
+paper Theorem 3.2 with the order-two clause of Theorem 3.10).
 
 This Solution sits under its own root module rather than under `Palomar`: Palomar's verifier
 puts its recompiled Challenge first on `LEAN_PATH` and Lean resolves every module sharing
@@ -31,7 +31,7 @@ model. Right to left it is the reconstruction half. The second conjunct is the o
 in the paper: on a double-star forest the order-two test already characterizes
 compatibility.
 
-Paper Theorem 4.2. -/
+Paper Theorem 3.2. -/
 theorem classification_NW (Γ : PairGraph) :
     ((∃ t : ℕ, 1 ≤ t ∧ ∀ P : GTarget Γ, IsLaw P → (GNWFeasible Γ t P ↔ GCompatible Γ P))
       ↔ IsDoubleStarForest Γ.G) ∧

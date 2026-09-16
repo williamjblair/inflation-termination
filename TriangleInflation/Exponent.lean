@@ -3,11 +3,11 @@ import TriangleInflation.Fan
 /-!
 # Rejecting-order exponent for the family `P_ε`
 
-Statements for the finite parts of paper Proposition 5.1 (`prop:family`): the passing
+Statements for the finite parts of paper Proposition 5.13 (`prop:family`): the passing
 construction below `1 + ½ ε^{-1/3}`, the fan rejection at `⌊τ_-(ε)⌋ + 1`, and
 incompatibility. Proofs are deferred.
 
-Scope: the asymptotic `liminf`/`limsup` statement of Proposition 5.1 is not formalized, nor
+Scope: the asymptotic `liminf`/`limsup` statement of Proposition 5.13 is not formalized, nor
 is the finiteness of `t_min` (which the paper quotes from the asymptotic completeness of the
 Navascués–Wolfe hierarchy). Only the explicit finite bounds are stated.
 -/
@@ -18,7 +18,7 @@ open Finset
 
 noncomputable section
 
-/-- `σ = ½ ε^{2/3}`, so that `P_ε = Q(ε, 1 - σ)` (paper Proposition 5.1). -/
+/-- `σ = ½ ε^{2/3}`, so that `P_ε = Q(ε, 1 - σ)` (paper Proposition 5.13). -/
 def sigmaEps (ε : ℝ) : ℝ := ε ^ ((2 : ℝ) / 3) / 2
 
 /-- `m = ε + (1-ε)σ`, the common one-variable zero marginal of `P_ε`. -/
@@ -28,14 +28,14 @@ def mEps (ε : ℝ) : ℝ := ε + (1 - ε) * sigmaEps ε
 def zEps (ε : ℝ) : ℝ := ε + (1 - ε) * sigmaEps ε ^ 3
 
 /-- `τ_- = (z + m²/2 - √((z + m²/2)² - 2m³))/m²`, the smaller root of the quadratic
-`v_t = t z - m - C(t,2) m²` of paper Proposition 5.1. -/
+`v_t = t z - m - C(t,2) m²` of paper Proposition 5.13. -/
 def tauMinus (ε : ℝ) : ℝ :=
   (zEps ε + mEps ε ^ 2 / 2 - Real.sqrt ((zEps ε + mEps ε ^ 2 / 2) ^ 2 - 2 * mEps ε ^ 3))
     / mEps ε ^ 2
 
 /-! ## Private auxiliaries
 
-The estimates of paper Proposition 5.1 are written in terms of `u = ε^{1/3}`, for which
+The estimates of paper Proposition 5.13 are written in terms of `u = ε^{1/3}`, for which
 `σ = u²/2`; splitting them off keeps each elaboration small. -/
 
 /-- The real cube root of `ε`, packaged with the two identities the estimates below use:
@@ -88,7 +88,7 @@ private theorem fan_gap {m z x s : ℝ} (hm : 0 < m)
   rw [not_lt] at hcon
   nlinarith [key, mul_nonneg hm2.le (sub_nonneg.mpr hcon)]
 
-/-- The elementary bounds `m ≤ ¾u²` and `z ≥ u³` of paper Proposition 5.1, for `ε ≤ 1/64`
+/-- The elementary bounds `m ≤ ¾u²` and `z ≥ u³` of paper Proposition 5.13, for `ε ≤ 1/64`
 (equivalently `u ≤ 1/4`). -/
 private theorem mz_bounds {ε : ℝ} (h0 : 0 < ε) (h1 : ε ≤ 1 / 64) :
     ∃ u : ℝ, 0 < u ∧ u ≤ 1 / 4 ∧ 0 < mEps ε ∧ mEps ε ≤ 3 / 4 * u ^ 2 ∧ u ^ 3 ≤ zEps ε := by
@@ -111,7 +111,7 @@ private theorem mz_bounds {ε : ℝ} (h0 : 0 < ε) (h1 : ε ≤ 1 / 64) :
     nlinarith [mul_nonneg (show (0 : ℝ) ≤ 1 - u ^ 3 by linarith)
       (show (0 : ℝ) ≤ (u ^ 2 / 2) ^ 3 by positivity)]
 
-/-- The discriminant bound `D = (z + m²/2)² - 2m³ ≥ (5/32)u⁶` of paper Proposition 5.1. -/
+/-- The discriminant bound `D = (z + m²/2)² - 2m³ ≥ (5/32)u⁶` of paper Proposition 5.13. -/
 private theorem disc_lb {m z u : ℝ} (hu0 : 0 < u) (hm0 : 0 < m) (hmub : m ≤ 3 / 4 * u ^ 2)
     (hzlb : u ^ 3 ≤ z) : 5 / 32 * u ^ 6 ≤ (z + m ^ 2 / 2) ^ 2 - 2 * m ^ 3 := by
   have hu3pos : (0 : ℝ) < u ^ 3 := pow_pos hu0 3
@@ -155,7 +155,7 @@ private theorem Peps_disc {ε : ℝ} (h0 : 0 < ε) (h1 : ε ≤ 1 / 64) :
       nlinarith [mul_nonneg hu3pos.le (show (0 : ℝ) ≤ 1 / 4 - u by linarith)]
     linarith
 
-/-! ## The statements of Proposition 5.1 -/
+/-! ## The statements of Proposition 5.13 -/
 
 /-- `P_ε` is `Q(ε, 1 - σ)`. -/
 theorem Peps_eq (ε : ℝ) : Peps ε = Q ε (1 - sigmaEps ε) := rfl
@@ -174,8 +174,8 @@ theorem zEps_eq_atom {ε : ℝ} (h0 : 0 < ε) (h1 : ε < 1) : atom000 (Peps ε) 
   norm_num [-mul_eq_mul_left_iff]
   ring
 
-/-- Paper Proposition 5.1 (`prop:family`), lower bound, part (a): if `0 < ε < 1/8` and
-`t ≤ 1 + ½ ε^{-1/3}` then `P_ε` is feasible at order `t`. This is Theorem 3.1 applied with
+/-- Paper Proposition 5.13 (`prop:family`), lower bound, part (a): if `0 < ε < 1/8` and
+`t ≤ 1 + ½ ε^{-1/3}` then `P_ε` is feasible at order `t`. This is Theorem 5.1 applied with
 `r = 1 - σ`, using `(1-ε)^{t-1} ≥ 1 - (t-1)ε ≥ 1 - σ`. -/
 theorem Peps_aiFeasible {ε : ℝ} (h0 : 0 < ε) (h1 : ε < 1 / 8) (t : ℕ) (ht : 1 ≤ t)
     (hle : (t : ℝ) ≤ 1 + ε ^ (-(1 : ℝ) / 3) / 2) : AIFeasible t (Peps ε) := by
@@ -212,7 +212,7 @@ theorem Peps_nwFeasible {ε : ℝ} (h0 : 0 < ε) (h1 : ε < 1 / 8) (t : ℕ) (ht
     (hle : (t : ℝ) ≤ 1 + ε ^ (-(1 : ℝ) / 3) / 2) : NWFeasible t (Peps ε) :=
   nwFeasible_of_aiFeasible (Peps_aiFeasible h0 h1 t ht hle)
 
-/-- Paper Proposition 5.1 (`prop:family`), upper bound, part (b): if `ε ≤ 1/64` then the
+/-- Paper Proposition 5.13 (`prop:family`), upper bound, part (b): if `ε ≤ 1/64` then the
 first fan inequality rejects `P_ε` at order `⌊τ_-(ε)⌋ + 1`. -/
 theorem Peps_not_nwFeasible {ε : ℝ} (h0 : 0 < ε) (h1 : ε ≤ 1 / 64) :
     ¬ NWFeasible (⌊tauMinus ε⌋₊ + 1) (Peps ε) := by
@@ -257,7 +257,7 @@ theorem Peps_not_nwFeasible {ε : ℝ} (h0 : 0 < ε) (h1 : ε ≤ 1 / 64) :
   rw [zEps_eq_atom h0 hε1, hA, hB, hC, Nat.cast_choose_two] at hfan
   linarith
 
-/-- Paper Proposition 5.1 (`prop:family`), part (c): `P_ε` violates the Finner inequality,
+/-- Paper Proposition 5.13 (`prop:family`), part (c): `P_ε` violates the Finner inequality,
 since `m³ < ε² ≤ z²` when `ε < 1/8`; hence `P_ε ∉ C_tri`. -/
 theorem Peps_not_compatible {ε : ℝ} (h0 : 0 < ε) (h1 : ε < 1 / 8) :
     ¬ TriangleCompatible (Peps ε) := by
@@ -296,7 +296,7 @@ theorem Peps_not_compatible {ε : ℝ} (h0 : 0 < ε) (h1 : ε < 1 / 8) :
       _ ≤ zEps ε ^ 2 := pow_le_pow_left₀ hu3pos.le hzlb 2
   nlinarith [hfin, hm3, hz2]
 
-/-- Paper Proposition 5.1 (`prop:family`), the finite sandwich on the first rejecting order
+/-- Paper Proposition 5.13 (`prop:family`), the finite sandwich on the first rejecting order
 of the Navascués–Wolfe hierarchy. -/
 theorem Peps_tminNW_bounds {ε : ℝ} (h0 : 0 < ε) (h1 : ε ≤ 1 / 64) :
     ⌊1 + ε ^ (-(1 : ℝ) / 3) / 2⌋₊ + 1 ≤ tminNW (Peps ε)

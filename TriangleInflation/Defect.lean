@@ -3,9 +3,9 @@ import TriangleInflation.Finner
 /-!
 # The defect cube
 
-Statements for paper Section 3.1 (`sec:construction`) and the Navascués–Wolfe part of
-Section 3.3 (`sec:survival`): Lemma 3.3 (`lem:disjoint`), Lemma 3.4 (`lem:triangle-law`),
-Lemma 3.5 (`lem:symmetry`) and Lemma 3.9 (`lem:diag`), together with the general
+Statements for paper Section 5.1 (`sec:construction`) and the Navascués–Wolfe part of
+Section 5.3 (`sec:survival`): Lemma 5.4 (`lem:disjoint`), Lemma 5.5 (`lem:triangle-law`),
+Lemma 5.6 (`lem:symmetry`) and Lemma 5.9 (`lem:diag`), together with the general
 independence lemma for functions of disjoint coordinate sets under a product weight that
 those proofs use. Proofs are deferred.
 -/
@@ -228,13 +228,13 @@ theorem indep_of_disjoint_family {ι : Type*} [Fintype ι] [DecidableEq ι] {n :
   intro m x y hxy
   rw [hF m x y hxy]
 
-/-! ## Disjoint ancestry gives disjoint inputs (Lemma 3.3) -/
+/-! ## Disjoint ancestry gives disjoint inputs (Lemma 5.4) -/
 
 /-- Every copied observation has a copied latent ancestor. -/
 theorem Obs.ancestors_nonempty {t : ℕ} (u : Obs t) : u.ancestors.Nonempty := by
   cases u <;> simp [Obs.ancestors]
 
-/-- The combinatorial half of paper Lemma 3.3 (`lem:disjoint`): two lines through the cube
+/-- The combinatorial half of paper Lemma 5.4 (`lem:disjoint`): two lines through the cube
 meet only if the corresponding observations share a copied latent ancestor. -/
 theorem line_inter_ancestors {t : ℕ} {u v : Obs t} {c : Cell t}
     (hu : onLine u c = true) (hv : onLine v c = true) :
@@ -323,7 +323,7 @@ theorem mem_rootSupport_inr {t : ℕ} {S : Finset (Obs t)} {u : Obs t} :
     (Sum.inr u : Root t) ∈ rootSupport S ↔ u ∈ S := by
   simp [rootSupport]
 
-/-- Paper Lemma 3.3 (`lem:disjoint`), "disjoint inputs": ancestrally independent sets of
+/-- Paper Lemma 5.4 (`lem:disjoint`), "disjoint inputs": ancestrally independent sets of
 copied observations read disjoint sets of defect cells and have distinct private bits. -/
 theorem rootSupport_disjoint {t : ℕ} {S T : Finset (Obs t)} (h : AncestrallyIndependent S T) :
     Disjoint (rootSupport S) (rootSupport T) := by
@@ -432,7 +432,7 @@ theorem pushforward_defectLaw {t : ℕ} {ε s : ℝ} {γ : Type*} [DecidableEq �
       = pushforward (prodLaw (rootWeight t ε s)) (fun x => G (outputsOf x)) := by
   rw [defectLaw, rootLaw, pushforward_pushforward]
 
-/-- Paper Lemma 3.3 (`lem:disjoint`), independence: under the defect law the outputs of two
+/-- Paper Lemma 5.4 (`lem:disjoint`), independence: under the defect law the outputs of two
 ancestrally independent sets of copied observations are independent. -/
 theorem defect_independence {t : ℕ} {ε s : ℝ} (hε0 : 0 ≤ ε) (hε1 : ε ≤ 1)
     (hs0 : 0 ≤ s) (hs1 : s ≤ 1) {S T : Finset (Obs t)} (h : AncestrallyIndependent S T) :
@@ -445,8 +445,8 @@ theorem defect_independence {t : ℕ} {ε s : ℝ} (hε0 : 0 ≤ ε) (hε1 : ε 
     (fun x y hxy => restrictAssign_outputsOf_congr S x y hxy)
     (fun x y hxy => restrictAssign_outputsOf_congr T x y hxy)
 
-/-- The finite-family form of paper Lemma 3.3, which is what the ancestral-independence
-prescriptions of Definition 2.2 require. -/
+/-- The finite-family form of paper Lemma 5.4, which is what the ancestral-independence
+prescriptions of Definition 2.4 require. -/
 theorem defect_independence_family {t : ℕ} {ε s : ℝ} (hε0 : 0 ≤ ε) (hε1 : ε ≤ 1)
     (hs0 : 0 ≤ s) (hs1 : s ≤ 1) {n : ℕ} (S : Fin n → Finset (Obs t))
     (h : ∀ m m', m ≠ m' → AncestrallyIndependent (S m) (S m')) :

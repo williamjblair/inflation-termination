@@ -7,7 +7,7 @@ The Challenge states `TriangleInflation.no_finite_characterizing_order` over def
 carries itself, copied verbatim from `TriangleInflation/Defs.lean`. This module imports the
 library, where those same definitions live under the same names, and declares the same
 theorem, discharged by the library's `no_finite_characterizing_order_lib`
-(`TriangleInflation/Main.lean`, paper Theorem 3.2).
+(`TriangleInflation/Main.lean`, paper Theorem 5.2).
 
 This Solution sits under its own root module rather than under `Palomar`: Palomar's verifier
 puts its recompiled Challenge first on `LEAN_PATH` and Lean resolves every module sharing
@@ -26,7 +26,7 @@ which is not triangle compatible (`¬ TriangleCompatible P`).
 
 So no finite order of the hierarchy characterizes the triangle-compatible set: whatever
 order `t` is chosen, the order-`t` test admits a law that no triangle model produces.
-Paper Theorem 3.2 and the corollary that follows it. -/
+Paper Theorem 5.2 and the corollary that follows it. -/
 theorem no_finite_characterizing_order (t : ℕ) (ht : 1 ≤ t) :
     ∃ P : ThreeBit → ℝ, IsLaw P ∧ AIFeasible t P ∧ NWFeasible t P ∧ ¬ TriangleCompatible P :=
   no_finite_characterizing_order_lib t ht

@@ -3,8 +3,8 @@ import TriangleInflation.Main
 /-!
 # Finite-order fan inequalities
 
-Statements for paper Section 4: Theorem 4.1 (`thm:fan`) with its pointwise certificate
-(eq:fan-pointwise) and rejecting-order corollary (eq:fan-order), and Proposition 4.2
+Statements for paper Section 5.4: Theorem 5.11 (`thm:fan`) with its pointwise certificate
+(eq:fan-pointwise) and rejecting-order corollary (eq:fan-order), and Proposition 5.12
 (`prop:Rp`). Proofs are deferred.
 -/
 
@@ -560,13 +560,13 @@ private lemma fan_bound_C {t : ℕ} (ht : 1 ≤ t) {P : ThreeBit → ℝ} (hP : 
     exact expect_pair hP hd hs Party.A Party.B hii (1, Equiv.swap i i0, Equiv.swap i' i0) _ _
       (by simp [obsDiag, Obs.perm]) (by simp [obsDiag, Obs.perm])
 
-/-- Paper Theorem 4.1 (`thm:fan`), first inequality: if `P ∈ I^NW_t` then
+/-- Paper Theorem 5.11 (`thm:fan`), first inequality: if `P ∈ I^NW_t` then
 `t z ≤ a + C(t,2) b c`, where `a = P_A(0)`, `b = P_B(0)`, `c = P_C(0)`, `z = P(000)`. -/
 theorem fan_first (t : ℕ) (ht : 1 ≤ t) {P : ThreeBit → ℝ} (hP : IsLaw P) (h : NWFeasible t P) :
     (t : ℝ) * atom000 P ≤ margA P + (t.choose 2 : ℝ) * (margB P * margC P) :=
   (fan_bounds_A ht hP h).1
 
-/-- Paper Theorem 4.1 (`thm:fan`), second inequality: if `P ∈ I^NW_t` then
+/-- Paper Theorem 5.11 (`thm:fan`), second inequality: if `P ∈ I^NW_t` then
 `t (z² - abc) ≤ az - abc`. -/
 theorem fan_second (t : ℕ) (ht : 1 ≤ t) {P : ThreeBit → ℝ} (hP : IsLaw P) (h : NWFeasible t P) :
     (t : ℝ) * (atom000 P ^ 2 - margA P * margB P * margC P)
@@ -588,7 +588,7 @@ private lemma not_nwFeasible_of_lt {P : ThreeBit → ℝ} (hP : IsLaw P) (T : �
     · rw [hm, hm'] at hgt; nlinarith [hB]
     · rw [hm, hm'] at hgt; nlinarith [hC]
 
-/-- Paper Theorem 4.1 (`thm:fan`), rejecting-order corollary (eq:fan-order): a Finner
+/-- Paper Theorem 5.11 (`thm:fan`), rejecting-order corollary (eq:fan-order): a Finner
 violation `z² > abc` gives the explicit first rejecting order
 `t_min^NW(P) ≤ ⌊(z min{a,b,c} - abc)/(z² - abc)⌋ + 1`.
 
@@ -606,7 +606,7 @@ theorem tminNW_le_of_finner_violation {P : ThreeBit → ℝ} (hP : IsLaw P)
   push_cast
   exact Nat.lt_floor_add_one _
 
-/-- Paper Theorem 4.1 (`thm:fan`), rejecting-order corollary for the ancestral-independence
+/-- Paper Theorem 5.11 (`thm:fan`), rejecting-order corollary for the ancestral-independence
 hierarchy: the smaller feasible sets reject no later. -/
 theorem tminAI_le_of_finner_violation {P : ThreeBit → ℝ} (hP : IsLaw P)
     (hv : margA P * margB P * margC P < atom000 P ^ 2) :
@@ -622,7 +622,7 @@ theorem tminAI_le_of_finner_violation {P : ThreeBit → ℝ} (hP : IsLaw P)
   push_cast
   exact Nat.lt_floor_add_one _
 
-/-! ## Proposition 4.2: no uniformly divergent distance lower bound -/
+/-! ## Proposition 5.12: no uniformly divergent distance lower bound -/
 
 /-- The order-one assignments are exactly the three-bit outcomes. -/
 private def assignOneEquiv : Assign 1 ≃ ThreeBit where
@@ -694,7 +694,7 @@ private lemma diagonal_one {P : ThreeBit → ℝ} :
       (fun w => if w = v 0 then P w else 0) (fun ω => rfl)]
   simp [tensorPow]
 
-/-- Paper Proposition 4.2 (`prop:Rp`): order one is passed by every law. -/
+/-- Paper Proposition 5.12 (`prop:Rp`): order one is passed by every law. -/
 theorem nwFeasible_one {P : ThreeBit → ℝ} (hP : IsLaw P) : NWFeasible 1 P :=
   ⟨fun ω => P (assignOneEquiv ω), isLaw_one hP, symmetric_one, diagonal_one⟩
 
@@ -764,7 +764,7 @@ theorem aiFeasible_one {P : ThreeBit → ℝ} (hP : IsLaw P) : AIFeasible 1 P :=
     exact (Finset.prod_eq_single_of_mem m₀ (Finset.mem_univ _)
       (fun m _ hm => hone m (hother m hm))).symm
 
-/-- Paper Proposition 4.2 (`prop:Rp`): `R_p` fails the first fan inequality at order two,
+/-- Paper Proposition 5.12 (`prop:Rp`): `R_p` fails the first fan inequality at order two,
 which reads `2p ≤ p + p²`. -/
 private lemma Rlaw_atom000 (p : ℝ) : atom000 (Rlaw p) = p := by
   simp [atom000, Rlaw]
@@ -787,7 +787,7 @@ theorem Rlaw_not_nwFeasible_two {p : ℝ} (h0 : 0 < p) (h1 : p < 1) :
   norm_num at h
   nlinarith [h]
 
-/-- Paper Proposition 4.2 (`prop:Rp`): `t_min^NW(R_p) = 2` for every `0 < p < 1`, while
+/-- Paper Proposition 5.12 (`prop:Rp`): `t_min^NW(R_p) = 2` for every `0 < p < 1`, while
 `R_p → δ_{111} ∈ C_tri` as `p ↓ 0`. Hence no lower bound of the form
 `t_min^H(P) ≥ c d_TV(P, C_tri)^{-α}` can hold for all incompatible `P`. -/
 theorem Rlaw_tminNW {p : ℝ} (h0 : 0 < p) (h1 : p < 1) : tminNW (Rlaw p) = 2 := by
@@ -804,7 +804,7 @@ theorem Rlaw_tminNW {p : ℝ} (h0 : 0 < p) (h1 : p < 1) : tminNW (Rlaw p) = 2 :=
     exact hnf (nwFeasible_one hlaw)
   omega
 
-/-- Paper Proposition 4.2 (`prop:Rp`) for the ancestral-independence hierarchy. -/
+/-- Paper Proposition 5.12 (`prop:Rp`) for the ancestral-independence hierarchy. -/
 theorem Rlaw_tminAI {p : ℝ} (h0 : 0 < p) (h1 : p < 1) : tminAI (Rlaw p) = 2 := by
   have hlaw : IsLaw (Rlaw p) := Rlaw_isLaw h0.le h1.le
   have h2 : (2 : ℕ) ∈ {t : ℕ | 1 ≤ t ∧ ¬ AIFeasible t (Rlaw p)} :=

@@ -278,7 +278,7 @@ def glueLaw (X Y Z : Finset (GObs Γ t))
   else 0
 
 /-- The recursively expressible sets of the order-`t` inflation, each with its prescribed
-law (paper Definition 2.3, Wolfe–Spekkens–Fritz Definition 7). `Expressible t P S μ` says
+law (paper Definition 2.5, Wolfe–Spekkens–Fritz Definition 7). `Expressible t P S μ` says
 that the closure prescribes the law `μ` on the set `S` of copied observations.
 
 The three rules are: an injectable set carries the pushforward of the target under the
