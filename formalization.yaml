@@ -50,8 +50,8 @@ project:
     least ε_t²/2 > 0; the inequality is proved both for finite latent alphabets and, in
     FinnerMeasure.lean, for arbitrary measurable latent spaces.
     The library also formalizes the order-t fan inequalities and their rejecting-order
-    corollary, the family R_p with rejecting order 2 at every distance, the Θ(ε^{-1/3})
-    bounds on the first rejecting order along P_ε, the order-t second-moment rate bound and
+    corollary, the family R_p with rejecting order 2 at every distance, the finite
+    bounds on the first rejecting order along P_ε behind its Θ(ε^{-1/3}) growth, the order-t second-moment rate bound and
     its convex-order sharpening, the quantitative parity rigidity behind the cycle distance
     bound, and the square and triangle witnesses at q = 1/(16t). The two registry statements in
     Palomar/TriangleInflation/ import Mathlib alone and carry their definitions verbatim
@@ -169,7 +169,7 @@ status:
     in FinnerMeasure.lean, for arbitrary measurable latent spaces; the defect-cube inflation
     law with its symmetry, diagonal and injectable marginals; ancestral independence from
     disjoint root supports; the explicit violation margin; the order-t fan inequalities and
-    their rejecting-order corollary; the family R_p; the Θ(ε^{-1/3}) bounds along P_ε; the
+    their rejecting-order corollary; the family R_p; the finite bounds behind the Θ(ε^{-1/3}) growth along P_ε; the
     order-t second-moment rate bound and the convex-order sharpening with the bound
     √7/(2√t).
     Palomar/TriangleInflation/ holds two Comparator comparisons, each a Challenge importing
@@ -277,9 +277,8 @@ fidelity:
     Asymptotic completeness itself is quoted from Navascués–Wolfe, not formalized.
     Paper results outside this development, with no Lean statement at all: the
     larger-alphabet transfer of Remark 3.8, Lemma 4.5, Corollaries 4.6 and 4.7, Theorem
-    4.10, Propositions 4.11 and 4.12 and their lemmas, the explicit rejecting orders of
-    Section 6.3 (Propositions 6.3, 6.4 and 6.6, Corollary 6.5), the hypergraph results of
-    Section 7, Appendix D, the distance asymptotics of Theorem 5.14 and Corollary 5.15, the
+    4.10, Propositions 4.11 and 4.12 and their lemmas, the cubic parity certificates and
+    explicit rejecting orders of Remark 6.3, Appendix D, the distance asymptotics of Theorem 5.14 and Corollary 5.15, the
     2^{Θ(B)} bit-length law of Proposition 6.2, the limit form of Proposition 5.13 and
     Corollary 5.3.
 

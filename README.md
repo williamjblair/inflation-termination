@@ -15,8 +15,9 @@ explicit rational three-bit law that passes the order-`t` test and violates the 
 inequality by at least `ε_t²/2`.
 
 Everything here is kernel-proved. `Audit.lean` prints the axioms of the two registry
-statements and of every library declaration the Coverage table below names; all 112 depend
-on `propext`, `Classical.choice` and `Quot.sound` and nothing else. The repository holds
+statements and of every library declaration the Coverage table below names; all 113 audited
+declarations (the two registry statements and 111 library results) depend on `propext`,
+`Classical.choice` and `Quot.sound` and nothing else. The repository holds
 exactly two unfinished proofs, one in each Challenge file, where Palomar's submission rules
 require them.
 
@@ -24,7 +25,7 @@ Registered with Palomar as `PALOMAR-2026-09-14-000009` (version 1): https://palo
 
 ## Layout
 
-`paper/` holds the manuscript with its release documents, `artifact/` the exact rational certificates with their checkers and replay records (run `python3 -B artifact/verifiers/run_replay.py` and the two `verify_*.py` scripts from this directory), `TriangleInflation/` the Lean development, `Palomar/` and `PalomarSolutions/` the two registry statements.
+`paper/` holds the manuscript with its release documents, `artifact/` the exact rational certificates with their checkers and replay records (the commands are in `paper/review/VERIFICATION_GUIDE.md` and run from this directory), `TriangleInflation/` the Lean development, `Palomar/` and `PalomarSolutions/` the two registry statements.
 
 ## The two theorems
 
@@ -134,8 +135,8 @@ so the statements there about membership are the weaker halves; the bridge theor
 
 Paper results with no Lean statement here: the
 larger-alphabet transfer of Remark 3.8, Lemma 4.5, Corollaries 4.6 and 4.7, Theorem 4.10,
-Propositions 4.11 and 4.12 and their lemmas, the explicit rejecting orders of Section 6.3
-(Propositions 6.3, 6.4 and 6.6, Corollary 6.5), the hypergraph results of Section 7, Appendix D, the distance asymptotics of Theorem 5.14 and
+Propositions 4.11 and 4.12 and their lemmas, the cubic parity certificates and explicit
+rejecting orders of Remark 6.3, Appendix D, the distance asymptotics of Theorem 5.14 and
 Corollary 5.15, the `2^{Θ(B)}` bit-length law of Proposition 6.2, the limit form of
 Proposition 5.13, and Corollary 5.3.
 
@@ -150,7 +151,7 @@ TriangleInflation/          the triangle library
   DefectLaw.lean            the defect-cube law: symmetry, diagonal and injectable marginals
   Main.lean                 Theorem 5.1, Theorem 5.2 and the nontermination corollary
   Fan.lean                  the order-t fan inequalities; the family R_p
-  Exponent.lean             the Θ(ε^{-1/3}) bounds along P_ε
+  Exponent.lean             the finite bounds behind Θ(ε^{-1/3}) along P_ε
   Rate.lean                 the order-t second-moment rate bound
   ConvexOrder.lean          the convex-order sharpening and the bound √7/(2√t)
   Graph.lean                aggregator for the pair-source development
@@ -182,7 +183,7 @@ Palomar/TriangleInflation/
 PalomarSolutions/
   TriangleInflationClassification.lean  Solution 1: same declaration, proved from the library
   TriangleInflation.lean                Solution 2
-Audit.lean                  #print axioms for both registry statements and 110 library results
+Audit.lean                  #print axioms for both registry statements and 111 library results
 scripts/gen_challenge.py    generates both Challenges from the library definitions files
 scripts/check_axioms.sh     the verification gate
 formalization.yaml          provenance, sources, automation, review (the
@@ -333,16 +334,15 @@ Lean column names which part. *Unformalized* means there is no Lean statement at
 | Thm. 5.14, Cor. 5.15 | distance asymptotics | unformalized | none |
 | Cor. 6.1 | the distance-promised order bound | partial (triangle) | `rate_triangle` |
 | Prop. 6.2 | the `2^{Θ(B)}` bit-length law | unformalized | none |
-| Props. 6.3, 6.4, 6.6, Cor. 6.5 | cubic parity certificates, the barycentre bound, explicit rejecting orders, disjointness from Finner violations | unformalized | none |
-| Section 7 | hypergraph scenarios: absorption, traces, termination (Thm. 7.7, 7.9, Cor. 7.10), nontermination through pair sets (Thm. 7.13), Conjecture 7.14 | unformalized | none |
+| Rem. 6.3 | cubic parity certificates and explicit rejecting orders | unformalized | none |
 | App. C and D | certificate formats and supplementary inequalities | unformalized | none |
 
 Declarations without a namespace prefix are in `TriangleInflation` for the second table and
 in `TriangleInflation.Graph` for the first.
 
-## Additions, 16 September 2026
+## Revision, 16 September 2026
 
-Four audited results were added without changing the numbering of Sections 1 to 6. Lemma 4.2 now uses `c = m R^{m-1}`, which extends Theorems 4.3 and 4.4 to `q <= (16/15)^{2/t} - 1` and `q <= (9/8)^{2/t} - 1` and raises the lower brackets of Corollary 4.9 above `1/(47t)` and `1/(43t)`. Proposition 4.12 converts orders along the parity direction on both scenarios, with triangle brackets at orders 11 to 13. Section 6.3 gives closed-form rejecting orders for parity violations, which satisfy every Finner inequality. The new Section 7 treats sources shared by three or more observers; open problems and verification are now Sections 8 and 9. The square witness at `q = 1/(16t)` is proved in Lean (`square_linear_witness`); the other additions are analytic, with exact finite checks under `artifact/certificates/`. See [`paper/review/ADDITIONS-2026-09-16.md`](paper/review/ADDITIONS-2026-09-16.md).
+Four audited results were added on 16 September 2026 and the manuscript was then cut after a referee audit and a priority sweep. Lemma 4.2 uses `c = m R^{m-1}`, which extends Theorems 4.3 and 4.4 to `q <= (16/15)^{2/t} - 1` and `q <= (9/8)^{2/t} - 1` and raises the lower brackets of Corollary 4.9 above `1/(47t)` and `1/(43t)`. Proposition 4.12 converts orders along the parity direction on both scenarios, with triangle brackets at orders 11 to 13. Remark 6.3 states two cubic parity certificates and the rejecting order `⌊3/v⌋ + 1` for a law that violates one by `v`; the `1/n` mechanism is Navascués and Wolfe's, and the constant does not depend on the sources. The section on sources shared by three or more observers was removed and is being prepared as a companion paper; open problems and verification are Sections 7 and 8. The square witness at `q = 1/(16t)` is proved in Lean (`square_linear_witness`); the other additions are analytic, with exact finite checks under `artifact/certificates/`. See [`paper/review/ADDITIONS-2026-09-16.md`](paper/review/ADDITIONS-2026-09-16.md).
 
 ## Manuscript reorganization, 15 September 2026
 
@@ -363,8 +363,8 @@ be cited by it. `paper/release/PRIORITY_AUDIT.md` records `PRIORITY_NOT_KILLED`,
 Navascués–Wolfe 2020 §4.1 as the strongest located predecessor, and does not certify
 firstness; its addendum of 2026-09-14 covers the pair-source sections and located no
 predecessor for the classification beyond stars, for `I^exp = I^AI`, for the all-order
-witnesses or for the `Θ(1/t)` bounds. `paper/release/NONCLAIMS.md` records exactly what is
-and is not formalized, and its scope agrees with the Coverage tables above. No independent
+witnesses or for the `Θ(1/t)` bounds. `paper/release/NONCLAIMS.md` records what is and is
+not formalized, in the numbering of the Coverage tables above. No independent
 human review of the mathematics has been performed.
 
 A green build here is a scoped, re-checkable build and axiom result. It is not scientific

@@ -1,6 +1,6 @@
 # Verification guide
 
-This guide accompanies the reorganized manuscript. The analytic proofs, finite computations and Lean coverage are distinguished in Section 9. Appendix C describes the certificate formats and finite ranges. Declaration-level mappings are in `README.md` and `formalization.yaml`.
+This guide accompanies the reorganized manuscript. The analytic proofs, finite computations and Lean coverage are distinguished in Section 8. Appendix C describes the certificate formats and finite ranges. Declaration-level mappings are in `README.md` and `formalization.yaml`.
 
 ## Exact certificates
 
@@ -15,22 +15,22 @@ python3 -B artifact/certificates/exponent/verify_exponent.py
 python3 -B artifact/verifiers/mutation_tests_exponent.py
 python3 -B artifact/certificates/exponent/odd/verify_odd.py
 python3 -B artifact/certificates/beyond-finner/verify_beyond_finner.py
-python3 -B artifact/certificates/hypergraph/verify_hypergraph.py
 ```
 
 The checkers use Python integers and rational arithmetic; no LP solver is required. The parity checks verify primal moments, dual nonpositivity on all count configurations, and signs of expectation polynomials using Sturm sequences. Figure 6 reads its interval endpoints from those certificates. Matching rational brackets do not prove equality of thresholds.
 
 The threshold verifier requires both scenario files and all 40 published order/hierarchy records by default, rejecting missing, duplicate or mislabeled records. `--max-order N` checks complete coverage through N; for N below ten its success message says `PARTIAL`. The mutation suite covers missing files and records, duplicate records, incorrect metadata and corrupted weights. The release supports verification of the supplied threshold certificates; the discovery scripts named in the historical campaign report are not distributed.
 
-The three checkers added on 16 September 2026 are standard-library only and refuse optimized execution:
+The two checkers added on 16 September 2026 for this manuscript are standard-library only and refuse optimized execution:
 
 - `exponent/odd/verify_odd.py` (about 50 s) imports `../verify_exponent.py` and reuses its record checks on `exponent/odd/certificates/{triangle,square}.json`: triangle orders 11 to 13 in both hierarchies and square order 11 in the AI hierarchy. Both files are required and each must carry exactly these records; the published t ≤ 10 inventory check is replaced by this extension inventory, not skipped. It also checks the degree-set identities and the containment behind Proposition 4.12, the order-three face example, the intermediate degree systems in `layers-triangle.json`, and the odd-order bracket identities and order-12 separation quoted after Proposition 4.12. The expected final line is `OK: 5115 local checks and 9084 verify_exponent checks passed`.
-- `beyond-finner/verify_beyond_finner.py` (about 4 s) checks Section 6.3: the identities behind Proposition 6.4, sampled falsification tests of the certificates of Proposition 6.3 and of Proposition 6.6 on exact laws of random finite models, and the worked laws of Remark 6.7. Expected: `PASS: 68183 exact checks`.
-- `hypergraph/verify_hypergraph.py` (about 3 s) checks Section 7 instances: reconstruction on explicit tables (Theorem 7.9), the transported triangle witness in `{123,14,24}` (Theorem 7.13), the census of reduced scenarios on at most five observers against `certificates/S6_census.json`, and negative controls. It compares the transport record with `certificates/S5_transport_record.json` and fails if either stored record is missing or different; it does not write into the artifact. `certificates/lp_S1.json` was discovered with an LP solver whose script is not distributed; the checker re-verifies those tables from scratch. Expected: `ALL CHECKS PASSED (8 + 4 + 4 + 2 reconstruction instances, 1 transport certificate)`.
+- `beyond-finner/verify_beyond_finner.py` (about 4 s) checks Remark 6.3: the algebraic identities behind the bound `F(P) >= -Σ(P)/n`, and sampled falsification tests of the cubic certificates on exact laws of random finite models. It also runs checks written for an earlier, longer version of Section 6.3 that are not part of the current manuscript (see `artifact/README.md`). Expected: `PASS: 68183 exact checks`.
 
-These checks cover finite instances. The theorems of Sections 6.3 and 7 and Proposition 4.12 are proved analytically; sampled checks are falsification tests, not proofs.
+These checks cover finite instances. Remark 6.3 and Proposition 4.12 are proved analytically; sampled checks are falsification tests, not proofs.
 
-The replay runner uses temporary certificate copies and writes records under `artifact/replay_logs/`. Its independent numerical distance check requires `mpmath`. The manifest and SHA-256 sums identify the distributed inputs, checkers and documentation. They exclude `artifact/replay_logs/`, whose execution records change on replay.
+The directory `artifact/certificates/hypergraph/` and its checker belong to the companion paper on sources shared by three or more observers. They are kept in the artifact for that paper and are not part of this manuscript's verification.
+
+The replay runner uses temporary certificate copies and writes records under `artifact/replay_logs/`, which are tracked files; restore them with `git checkout -- artifact/replay_logs/` after a replay unless a refreshed record is intended. Its independent numerical distance check requires `mpmath`. The manifest and SHA-256 sums identify the distributed inputs, checkers and documentation. They exclude `artifact/replay_logs/`, whose execution records change on replay.
 
 The artifact retains the original nontermination checker for provenance. Python's optimization flag disables its assertions. Use the hardened checker, which rejects optimized execution. The mutation tests check that corrupted inputs fail. The fan checker uses explicit exceptions and also runs under optimization.
 
@@ -47,7 +47,7 @@ The graph development proves the binary classification for finite latent alphabe
 
 `TriangleInflation/FinnerMeasure.lean` separately proves Finner and triangle nontermination for arbitrary latent probability spaces and measurable stochastic responses. Its main statement is `no_finite_characterizing_orderM`. The graph bridge supplies recursively expressible conclusions from the triangle module's AI statements.
 
-The general convex-order inequality, the corrected densities beyond `q = 1/(16t)`, the max-moment bound and survivor corollaries, square order conversion, count-moment and threshold results including Proposition 4.12, the explicit rejecting orders of Section 6.3, the hypergraph results of Section 7, distance asymptotics, bit-length theorem and supplementary inequalities are not formalized. The finite bounds on the defect family are formalized; their limiting statements are not. Consult the README and YAML map for individual declarations.
+The general convex-order inequality, the corrected densities beyond `q = 1/(16t)`, the max-moment bound and survivor corollaries, square order conversion, count-moment and threshold results including Proposition 4.12, the cubic certificates and rejecting orders of Remark 6.3, distance asymptotics, bit-length theorem and supplementary inequalities are not formalized. The finite bounds on the defect family are formalized; their limiting statements are not. Consult the README and YAML map for individual declarations.
 
 ## Paper and submission package
 

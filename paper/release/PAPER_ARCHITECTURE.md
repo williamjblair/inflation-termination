@@ -1,3 +1,20 @@
+# Revision of 16 September 2026 (after the referee audit)
+
+The paper again has eight main sections. Section 7 of the additions below (sources shared by three or more observers) was removed and becomes a companion paper; Subsection 6.3 was cut to a single remark on cubic parity certificates. The structure is:
+
+1. Introduction: contributions, literature comparison and reading guide; the scope paragraph points to the companion paper.
+2. Pair-source scenarios and inflation, with the triangle example.
+3. Termination classification, with Fritz 2012 cited as the ancestor of the exhaustion argument and Remark 3.9 on a single source read by three observers.
+4. Quantitative convergence on the triangle and square, including Proposition 4.12.
+5. The triangle defect family.
+6. Rejecting orders from distance (6.1), input size (6.2) and cubic parity certificates (6.3, Remark 6.3).
+7. Open problems.
+8. Verification and availability.
+
+Appendix B.2 opens with the sign-potential lemma (B.1) behind the count-moment reductions. The PDF has 54 pages, 38 of main text. See `paper/review/ADDITIONS-2026-09-16.md`.
+
+---
+
 # Additions of 16 September 2026
 
 A ninth main section, Section 7 (sources shared by three or more observers), now follows Section 6; open problems and verification are Sections 8 and 9. Section 6 gains Subsection 6.3 (explicit rejecting orders for parity violations), Section 4 gains Proposition 4.12 with its proof in Appendix B.4, and Lemma 4.2 carries the sharper constant. The PDF has 62 pages, 46 of main text. See `paper/review/ADDITIONS-2026-09-16.md`.

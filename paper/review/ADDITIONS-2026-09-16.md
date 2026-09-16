@@ -1,5 +1,42 @@
 # Additions of 16 September 2026
 
+## Revision after the referee audit and priority sweep
+
+Two reports on commit `0885897` led to a cut revision the same day. Both are research notes in the author's development repository (`resource-theory`), not distributed here, and both are AI-assisted, not independent human review:
+
+- `papers/inflation-nontermination/research/2026-09-16/review/REFEREE_AUDIT.md` (minor revision; four P2 findings, five P3 findings)
+- `papers/inflation-nontermination/research/2026-09-16/priority/PRIORITY_SWEEP_SECTIONS_6.3_7.md` (verdicts, citations and attribution sentences for Sections 6.3 and 7)
+
+### What was cut and why
+
+- **Section 7, sources shared by three or more observers, was removed** and becomes a separate companion paper. The referee audit (P3-4) judged that it interrupted the path from the quantitative bounds to the open problems and that a strong-journal referee would ask for a split; its P2-2 and P2-3 findings (the misstated nontermination criterion in the abstract and introduction, the unreduced seven-observer claim) and P3-1 (census status) concern that section and go with it. What stays: one sentence in the introduction's scope paragraph, Remark 3.9 with a citation to Fritz 2012 Proposition 3.7, and Question 7.4 restated neutrally. The conjecture environment, the census and hypergraph rows of Appendix C and every cross-reference were removed. `artifact/certificates/hypergraph/` stays in the artifact, and `artifact/README.md` says it belongs to the companion paper.
+- **Section 6.3 was cut to Remark 6.3** (under one page). The sweep found that all three worked examples are rejected at AI order two by the Spiral-inflation inequality (52) of Wolfe, Spekkens and Fritz, that the W law's incompatibility is their Example 2, that its Finner compliance is noted by Renou et al. 2019, and that the `1/n` mechanism is Navascués–Wolfe 2020 Theorem 1 with eqs. (34) and (A5). The remark keeps the two cubic certificates with a short proof, the bound `F(P) >= -Σ(P)/n` with `Σ(P) <= 3` as a consequence of Theorem 4.8, the resulting rejecting order, and these attributions. Removed: the worked examples, the quadratic route (former Corollary 6.5(ii)) and its comparison, the Hessian remark, and Proposition 6.6. `verify_beyond_finner.py` still checks the removed examples and the former Proposition 6.6; `artifact/README.md` says so.
+- **Fritz 2012** is cited after the proof of Lemma 3.7 as the direct ancestor of the forbidden-induced-subgraph shape of the exhaustion argument (Theorem 3.8, Lemma 3.9) and of the hypergraph framing, and has a row in `paper/release/PRIORITY_AUDIT.md`.
+
+### Referee findings
+
+| finding | resolution |
+| --- | --- |
+| P2-1, paragraph after Proposition 4.12 | The false no-go sentence, the degree-gap and parity-weighted-moment claims and the floating-point remark were deleted. "Coincide" became "have identical certified brackets", with a pointer to Proposition 4.11(ii). |
+| P2-2, hypergraph criterion in abstract and introduction | Moot: the sentences were removed with Section 7; no remaining sentence states a hypergraph criterion. |
+| P2-3, seven-observer minimality | Moot: removed with Section 7. |
+| P2-4, ledgers | `CLAIMS.md` and `NONCLAIMS.md` rewritten in current numbering; superseded bodies (with `5/(768t)`, `27/(5120t)`, the claim of Lean coverage over a range of `q`, and paths that do not exist here) removed, remaining in git history. Lean scope of both corrected witnesses stated as `q = 1/(16t)` only. `README.md` gives 113 audited declarations (two registry statements and 111 library results) and no longer says the non-claims agree with the coverage tables. |
+| P3-1, census status in Section 9 | Moot: removed with Section 7. |
+| P3-2, abstract overclaim on cubic certificates | The abstract now states only the rejecting order `⌊3/v⌋ + 1` for a law that violates a certificate by `v`; the Finner proposition is gone. |
+| P3-3, Lemmas B.1 and B.2 sketched | Appendix B.2 now has Lemma B.1 (sign potentials) with a full proof of the potential representation, its uniqueness up to a global flip, and the sufficiency statement for a family-exchangeable potential law; Lemmas B.2 and B.3 cite it for both directions. Proposition 4.12 cites Lemma B.1(ii). |
+| P3-4, structure and length | Section 7 removed and Section 6.3 cut; open problems and verification are Sections 7 and 8 again. |
+| P3-5, notation | Clashes that remain after the cuts: the guarantee endpoint of Corollaries 4.6 and 4.7 is now `\underline q_t`, distinct from the thresholds `q_t^H`. The hypergraph `H`, the split sources `S`, the centre set `Z`, the parity error `ε` and `G(P)` of Section 6.3 left with the cuts. Not changed: `H` as hierarchy label and profile, `c` and `T` in their separate local uses. |
+
+Also fixed from the audit's P4 list: the Appendix C table now lists the corrected square certificates at orders 1 and 2 (last paragraph of the audit); `formalization.yaml` and the README describe the finite bounds behind `Θ(ε^{-1/3})` rather than the asymptotic form; the verification guide says how to restore `artifact/replay_logs/` after a replay; the arXiv abstract matches `main.tex`.
+
+### Result
+
+The PDF has 54 pages: the title and contents page, 38 pages of main text (pages 2 to 39), and the appendices and references. The abstract has 1622 characters. Both LaTeX builds have no undefined references, multiply defined labels, or overfull or underfull boxes, and the standalone PDF text matches `paper/main.pdf`. Section and theorem numbers in Sections 1 to 5 are unchanged, except that Lemmas B.1 to B.3 of the earlier version are now Lemmas B.2 to B.4 after the new Lemma B.1.
+
+## Additions as integrated at commit 0885897
+
+The record below describes the integration before the revision above. Its rows for Section 6.3 (Propositions 6.3, 6.4, 6.6, Corollary 6.5, Remark 6.7) and Section 7, its page counts and its section numbers for open problems and verification are superseded.
+
 Four results audited on 16 September 2026 were added to the manuscript reviewed in `SPECIALIST_AUDIT.md`. They were first integrated into an older copy of the manuscript and then ported onto this structure. The specialist audit's corrections are kept, including the private-source convention of Theorem 4.8 (finding A2). Section, theorem and equation numbers in Sections 1 to 6 are unchanged except for the new statements listed below. Open problems and verification move from Sections 7 and 8 to Sections 8 and 9.
 
 The PDF now has 62 pages: the title and contents page, 46 pages of main text (pages 2 to 47), and the appendices and references. Both LaTeX builds have no undefined references, multiply defined labels, or overfull or underfull boxes, and the standalone PDF text matches `paper/main.pdf`.

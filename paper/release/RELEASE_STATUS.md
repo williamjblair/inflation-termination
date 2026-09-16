@@ -1,3 +1,17 @@
+# Revision of 16 September 2026 (after the referee audit and priority sweep)
+
+This entry supersedes the additions entry below for page counts, structure and the status of Sections 6.3 and 7. The manuscript was cut after an AI-assisted referee audit and a priority sweep of commit `0885897`; `paper/review/ADDITIONS-2026-09-16.md` records what was cut, why, and how each finding was resolved.
+
+- Section 7 (sources shared by three or more observers) was removed for a companion paper. The introduction says such scenarios are treated in a companion paper; Remark 3.9 cites Fritz 2012 Proposition 3.7; Question 7.4 asks which such scenarios admit a finite characterizing order. `artifact/certificates/hypergraph/` stays in the artifact for the companion paper.
+- Section 6.3 is now Remark 6.3: two cubic parity certificates, the bound `F(P) >= -Σ(P)/n` with `Σ(P) <= 3` from Theorem 4.8, and the rejecting order `⌊3/v⌋ + 1`, with the `1/n` mechanism attributed to Navascués–Wolfe 2020 and the W law to Wolfe–Spekkens–Fritz and Renou et al.
+- Fritz 2012 Theorem 3.8 and Lemma 3.9 are cited as the ancestor of the exhaustion argument; `PRIORITY_AUDIT.md` has an addendum with the sweep's verdicts.
+- Appendix B.2 now proves the sign-potential representation and its sufficiency in full (new Lemma B.1). The paragraph after Proposition 4.12 states only certified facts.
+- `CLAIMS.md` and `NONCLAIMS.md` were rewritten in current numbering; `README.md` gives 113 audited declarations.
+
+The PDF has 54 pages, 38 of them main text (pages 2 to 39), and eight main sections: open problems and verification are Sections 7 and 8. The abstract has 1622 characters and `ARXIV_PASTE.md` matches it. Checks run for this revision: both LaTeX builds (no undefined references, no overfull or underfull boxes, standalone PDF text identical to `paper/main.pdf`); `lake build` and `bash scripts/check_axioms.sh` (`PASS: 113 audited declaration(s) clean`); every command in `paper/review/VERIFICATION_GUIDE.md` from the repository root, with `artifact/replay_logs/` restored afterwards. Nothing was pushed, uploaded to arXiv or sent to Palomar.
+
+---
+
 # Additions of 16 September 2026
 
 Four audited results were added; see `paper/review/ADDITIONS-2026-09-16.md` for locations, statuses and the audits. The paper now has 62 pages, 46 of them main text, and nine main sections: the new Section 7 treats sources shared by three or more observers, and open problems and verification are Sections 8 and 9. Numbers in Sections 1 to 6 are otherwise unchanged.

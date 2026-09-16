@@ -1,6 +1,6 @@
 {
  "artifact": "inflation-nontermination",
- "generated_utc": "2026-09-16T18:21:53Z",
+ "generated_utc": "2026-09-16T19:03:55Z",
  "frozen_identities": {
   "maintained_repository_revision": "768d404c631659574d9fad232c028df4f63fbc3b",
   "original_proof_source_sha256": "a38310645a78b5d9372ef55080899308e4ab4b84f57ee207e21979913f5e3bf4",
@@ -9,8 +9,8 @@
  },
  "files": {
   "README.md": {
-   "sha256": "fe11605ef078cd6c455b3aca3efb5c2580ef1e780d2c6a835d4261250e20d230",
-   "size": 1683
+   "sha256": "6dd99fd7838fcf3de8d20c053042eb51611c69b53b0b0aee18dabe4718eef550",
+   "size": 2442
   },
   "certificates/beyond-finner/verify_beyond_finner.py": {
    "sha256": "70cf6d552b1d7e21026ea67b699875ffe122a3dd800836b443115d998419e92a",
