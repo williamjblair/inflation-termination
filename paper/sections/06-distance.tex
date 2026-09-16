@@ -1,6 +1,6 @@
 \subsection{Distance to the compatible set}\label{sec:distance}
 
-To express the rejecting-order exponent in terms of distance, we compute the leading distance from $P_\eps$ to $\Ctri$.
+We compute the leading distance from $P_\eps$ to $\Ctri$, which expresses the rejecting-order exponent in terms of distance.
 
 \begin{theorem}[Distance asymptotics]\label{thm:distance}
 For $P_\eps=Q(\eps,1-\tfrac12\eps^{2/3})$, $0<\eps<1/8$,
@@ -21,7 +21,7 @@ This is a statement about one direction of approach to the boundary; by Proposit
 \begin{proof}[Proof of Theorem~\ref{thm:distance}]
 Put $\sigma=\tfrac12\eps^{2/3}$, $m=\eps+(1-\eps)\sigma$, $z=\eps+(1-\eps)\sigma^3$, $c_0=2^{-3/2}$ and $d_0=1-c_0$.
 
-\emph{Lower bounds.} The product law $\Bern(1-\sigma)^{\otimes3}$ is compatible and within total variation $\eps$ of $P_\eps$. Compactness of $\Ctri$ gives a nearest law in either norm \cite{RGW2018}. A total-variation minimizer $Q$ therefore has distance $\delta=O(\eps)$. Since probabilities of events differ by at most $\delta$,
+\emph{Lower bounds.} The product law $\Bern(1-\sigma)^{\otimes3}$ is compatible and within total variation $\eps$ of $P_\eps$. Compactness of $\Ctri$ gives a nearest law in either norm \cite{RGW2018}. A total-variation minimizer $Q$ has distance $\delta=O(\eps)$. Since probabilities of events differ by at most $\delta$,
 \[
 Q(000)\ge z-\delta,\qquad Q_V(0)\le m+\delta\quad(V=A,B,C).
 \]
@@ -58,4 +58,4 @@ $111$ & $1-3\sigma-\eps$ & $1-3\sigma-(c_0+6h)\eps$ \\
 Since $1-c_0=7h$, the deviation at $000$ is $-d_0\eps+O(\eps^{4/3})$ and at each of the other seven atoms it is $h\eps+O(\eps^{4/3})$. Its total variation is $d_0\eps+O(\eps^{4/3})$ and its Euclidean norm is $\sqrt{8/7}\,d_0\eps+O(\eps^{4/3})$, proving both upper bounds.
 \end{proof}
 
-Corollary~\ref{cor:geometry} follows from Theorem~\ref{thm:distance} and Proposition~\ref{prop:family}. The constant $1-2^{-3/2}$ is the fraction of the rare atom $P_\eps(000)\approx\eps$ that no compatible law can retain once its zero marginals are pinned near $\tfrac12\eps^{2/3}$, by the Finner inequality.
+Corollary~\ref{cor:geometry} follows from Theorem~\ref{thm:distance} and Proposition~\ref{prop:family}. The constant $1-2^{-3/2}$ is the fraction of the rare atom $P_\eps(000)\approx\eps$ that, by the Finner inequality, no compatible law with zero marginals near $\tfrac12\eps^{2/3}$ can retain.

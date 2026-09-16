@@ -44,14 +44,14 @@ Condition an order-$n$ square witness on $D^{11}=\dots=D^{nn}=1$, an event of pr
 
 \subsection{Independent-cell constructions}
 
-Consider independent cell roots and symmetric line responses. Let $U_{ijk}$, $(i,j,k)\in[n]^3$, be independent with a common law $\mu$ on a finite alphabet, let each observed type $V\in\{A,B,C\}$ carry a permutation-invariant kernel $g_V$ giving its probability of output one from the $n$ roots on its line, and let the responses be independently randomized across copied observations. The resulting table is a full order-$n$ witness, and with the profiles $f_V(s)=\E[g_V(s,U_2,\dots,U_n)]$ and $m_V=\sum_s\mu_sf_V(s)$ the target is $\sum_s\mu_s\bigotimes_V\Bern(f_V(s))$. Write $\mathcal L_n^{(\kappa)}$ for the laws obtained this way from a root alphabet of size $\kappa$.
+Let $U_{ijk}$, $(i,j,k)\in[n]^3$, be independent with a common law $\mu$ on a finite alphabet, let each observed type $V\in\{A,B,C\}$ carry a permutation-invariant kernel $g_V$ giving its probability of output one from the $n$ roots on its line, and let the responses be independently randomized across copied observations. The resulting table is a full order-$n$ witness, and with the profiles $f_V(s)=\E[g_V(s,U_2,\dots,U_n)]$ and $m_V=\sum_s\mu_sf_V(s)$ the target is $\sum_s\mu_s\bigotimes_V\Bern(f_V(s))$. Write $\mathcal L_n^{(\kappa)}$ for the laws obtained this way from a root alphabet of size $\kappa$.
 
 \begin{lemma}[Profile variance]\label{lem:cellvar}
 For every admissible line kernel, $\operatorname{Var}_\mu(f_V)\le m_V(1-m_V)/n$.
 \end{lemma}
 
 \begin{proof}
-Write $f=f_V$, $m=m_V$, $h=f-m$, $v=\E h(U)^2$ and $T=\sum_{i=1}^nh(U_i)$, and let $g=g_V(U_1,\dots,U_n)$. Independence gives $\E T^2=nv$, and symmetry of the kernel gives $\E[(g-m)T]=n\E[h(U_1)(g-m)]=nv$. Cauchy--Schwarz then give $(nv)^2\le\operatorname{Var}(g)\,nv$. For $v>0$ divide by $nv$ and use $0\le g\le1$ to get $nv\le\operatorname{Var}(g)\le m(1-m)$; the case $v=0$ is immediate.
+Write $f=f_V$, $m=m_V$, $h=f-m$, $v=\E h(U)^2$ and $T=\sum_{i=1}^nh(U_i)$, and let $g=g_V(U_1,\dots,U_n)$. Independence gives $\E T^2=nv$, and symmetry of the kernel gives $\E[(g-m)T]=n\E[h(U_1)(g-m)]=nv$. Cauchy--Schwarz then gives $(nv)^2\le\operatorname{Var}(g)\,nv$. For $v>0$ divide by $nv$ and use $0\le g\le1$ to get $nv\le\operatorname{Var}(g)\le m(1-m)$; the case $v=0$ is immediate.
 \end{proof}
 
 \begin{proposition}[Independent-cell ceilings]\label{prop:cellceiling}
@@ -114,11 +114,11 @@ Every parity-even three-bit law passes the order-two symmetric test. For the uni
 \begin{proof}
 Draw an ordered pair $(x,y)\sim P^{\otimes2}$ of parity-even triples. If $x=y$, let $\omega_{xy}$ be the constant table with that value everywhere. If $x\ne y$, the two triples differ at exactly two observed nodes, and those two nodes share a source; activate only that source, letting its index $1$ produce the entries of $x$ and its index $2$ those of $y$ at the two differing nodes, with the third node constant and all other source indices ignored. This defines the whole twelve-bit table. Its diagonal is $(x,y)$; swapping the active source's two indices exchanges $\omega_{xy}$ with $\omega_{yx}$, whose weights $P(x)P(y)$ agree; swapping inactive indices changes nothing. So the mixture is a normalized, nonnegative, symmetric table with diagonal law $P^{\otimes2}$, which proves the first claim.
 
-For $U$ the four constant tables and the twelve oriented two-outcome tables each carry probability $1/16$. Every reweighting of a supported table is supported on at most two of the four parity-even outcomes, so for its support $D$ one has $d_{\TV}(U,Q)\ge U(D^c)\ge1/2$, with equality for a nonconstant table whose active source is fair. Meanwhile $U=\Par000\in\Cpar$.
+For $U$ the four constant tables and the twelve oriented two-outcome tables each carry probability $1/16$. Every reweighting of a supported table is supported on at most two of the four parity-even outcomes, so for its support $D$ one has $d_{\TV}(U,Q)\ge U(D^c)\ge1/2$, with equality for a nonconstant table whose active source is fair. Yet $U=\Par000\in\Cpar$.
 \end{proof}
 
-Theorem~\ref{thm:identitytransfer} does not extend from identities to inequalities, and the failure is visible at degree two. Let $n$ be even and take the table $A^{ij}=b_i$ with half the $b_i$ equal to zero and half to one, and $B,C$ constant. The polynomial $f(q)=(q_A(1)-\tfrac12)^2$ is nonnegative on every reweighting, while its degree-two polarization on distinct source indices is
+Theorem~\ref{thm:identitytransfer} does not extend from identities to inequalities, and it fails already at degree two. Let $n$ be even and take the table $A^{ij}=b_i$ with half the $b_i$ equal to zero and half to one, and $B,C$ constant. The polynomial $f(q)=(q_A(1)-\tfrac12)^2$ is nonnegative on every reweighting, while its degree-two polarization on distinct source indices is
 \[
 \frac1{n(n-1)}\sum_{i\ne j}\Bigl(b_i-\frac12\Bigr)\Bigl(b_j-\frac12\Bigr)=-\frac1{4(n-1)}<0,
 \]
-because the centered sum vanishes while its sum of squares is $n/4$. Nonnegativity on all reweighted models therefore does not imply nonnegativity of the distinct-index expression that finite inflation tests. This identifies the loss in one route to a $C/n$ distance bound; it is not a counterexample to such a bound. Proposition~\ref{prop:lowextraction} does show that any universal constant $C$ with $e_\Gamma(P)\le C/n$ for all $n$, $P$ and $\Gamma$ must satisfy $C\ge1$.
+because the centered sum vanishes while its sum of squares is $n/4$. This identifies the loss in one route to a $C/n$ distance bound; it is not a counterexample to such a bound. Proposition~\ref{prop:lowextraction} shows that any universal constant $C$ with $e_\Gamma(P)\le C/n$ for all $n$, $P$ and $\Gamma$ must satisfy $C\ge1$.

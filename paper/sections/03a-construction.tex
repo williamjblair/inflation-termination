@@ -24,7 +24,7 @@ Figure~\ref{fig:defect-cube} shows the line geometry: $A^{ij}$ reads the line of
 \end{equation}
 For rational $\eps$, these entries are rational. Here $F_t$ is the map \eqref{eq:outputs} from defect configurations to observed assignments. The entries are nonnegative and sum to $(\eps+1-\eps)^{t^3}=1$.
 
-$\Gamma_t$ does not come from running an inflated triangle model; it is a probability law on the copied observations, which is what a finite inflation test asks for.
+$\Gamma_t$ is a probability law on the copied observations, which is what a finite inflation test asks for; we do not obtain it by running an inflated triangle model.
 
 \input{figures/defect-cube}
 
@@ -32,7 +32,7 @@ $\Gamma_t$ does not come from running an inflated triangle model; it is a probab
 If two sets of copied observations have disjoint copied latent ancestry in the order-$t$ inflation, then their defect lines and their private bits are disjoint, and the two sets of outputs are independent under $\Gamma_t$.
 \end{lemma}
 \begin{proof}
-Two lines through the cube intersect only if they share the index that corresponds to a common source type: $\Lambda(A^{ij})\cap\Lambda(B^{i'k})\ne\emptyset$ forces $i=i'$, and then $X_i$ is a common ancestor; similarly $\Lambda(A^{ij})\cap\Lambda(C^{j'k})\ne\emptyset$ forces $j=j'$ and $\Lambda(B^{ik})\cap\Lambda(C^{jk'})\ne\emptyset$ forces $k=k'$; two lines of the same type are disjoint unless the observations coincide. Taking unions, disjoint ancestry implies disjoint defect supports. Distinct observations have distinct private bits. Outputs that are functions of disjoint families of independent bits are independent.
+Two lines of the cube intersect only if they share the index that corresponds to a common source type: $\Lambda(A^{ij})\cap\Lambda(B^{i'k})\ne\emptyset$ forces $i=i'$, and then $X_i$ is a common ancestor; similarly $\Lambda(A^{ij})\cap\Lambda(C^{j'k})\ne\emptyset$ forces $j=j'$ and $\Lambda(B^{ik})\cap\Lambda(C^{jk'})\ne\emptyset$ forces $k=k'$; two lines of the same type are disjoint unless the observations coincide. Taking unions, disjoint ancestry implies disjoint defect supports. Distinct observations have distinct private bits. Outputs that are functions of disjoint families of independent bits are independent.
 \end{proof}
 
 \begin{lemma}[Law of a copied triangle]\label{lem:triangle-law}

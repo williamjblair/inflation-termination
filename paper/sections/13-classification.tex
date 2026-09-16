@@ -29,7 +29,7 @@ The graph and the alphabets stay fixed as $t$ grows; only the law $P$ varies. Th
 
 \subsection{Structural lemmas}
 
-In the inflated graph every source copy is a root and every copied observation is a sink. This structure makes the AI and expressible prescriptions coincide; Appendix~\ref{app:rootsink} proves the equivalence.
+In the inflated graph every source copy is a root and every copied observation is a sink, and as a result the AI and expressible prescriptions coincide; Appendix~\ref{app:rootsink} proves the equivalence.
 
 \begin{definition}[Shared-parent graph and AI sets]\label{def:sharedparent}
 For a set $W$ of copied observations, the \emph{shared-parent graph} on $W$ joins two members when they read a common source copy. Call $W$ an \emph{AI set} if it is a union of pairwise ancestrally independent injectable sets.
@@ -45,7 +45,7 @@ In particular $\Iexp_t(G)=\IAI_t(G)$ for every $t$.
 \end{lemma}
 
 
-Lemma~\ref{lem:rootsink} identifies the two stronger tests but says nothing about the Navascués--Wolfe test, and imposes no causal model on the table as a whole.
+Lemma~\ref{lem:rootsink} identifies the two stronger tests. It says nothing about the Navascués--Wolfe test and imposes no causal model on the table as a whole.
 
 \paragraph{Source-disjoint blocks.}
 
@@ -77,7 +77,7 @@ Let $H$ be an induced subgraph of $G$ in which no vertex is isolated, and let $\
 \end{enumerate}
 \end{lemma}
 
-For restriction, sources crossing the subgraph boundary can be absorbed into incident retained sources. For extension, the copied observations in $H$ ignore all boundary indices, and the remaining observations are independent fair bits. Marginalization then gives the distance bound. Appendix~\ref{app:transport} gives the full proof.
+The proof is in Appendix~\ref{app:transport}.
 
 Part (ii) preserves strict positivity and rationality of the target, since the appended factor is the fair-bit law.
 
@@ -92,10 +92,10 @@ Suppose first that $K$ contains a cycle, and let $C$ be one of minimum length. A
 
 Suppose next that $K$ is a tree. We claim that a tree of diameter at most three is a double-star. If the diameter is $1$ then $K$ is a single edge. If it is $2$ then $K$ is a star. Let the diameter be $3$ and fix a geodesic $u_0u_1u_2u_3$. Let $w$ be a vertex other than $u_1$ and $u_2$, and consider the unique path from $w$ to $u_1$. If it avoids $u_2$, then it also avoids $u_3$, since the path from $u_3$ to $u_1$ passes through $u_2$; so concatenating with $u_1u_2u_3$ gives a path and $d(w,u_3)=d(w,u_1)+2\le3$, whence $d(w,u_1)=1$. If it contains $u_2$, then the path from $w$ to $u_2$ avoids $u_1$ and hence $u_0$, and the same argument with $u_0$ gives $d(w,u_2)=1$. Every vertex is therefore adjacent to $u_1$ or $u_2$, and $K$ is a double-star with central edge $u_1u_2$.
 
-So a tree that is not a double-star has diameter at least $4$. Take a geodesic of length at least $4$ and let $v_0,\dots,v_4$ be five consecutive vertices on it. Any edge of $K$ among them other than the four geodesic edges would create a cycle in a tree, so the induced subgraph on $\{v_0,\dots,v_4\}$ is $P_5$.
+A tree that is not a double-star therefore has diameter at least $4$. Take a geodesic of length at least $4$ and let $v_0,\dots,v_4$ be five consecutive vertices on it. Any edge of $K$ among them other than the four geodesic edges would create a cycle in a tree, so the induced subgraph on $\{v_0,\dots,v_4\}$ is $P_5$.
 \end{proof}
 
-The argument has a direct ancestor. Fritz classified the graph scenarios in which every correlation is classical as the disjoint unions of stars~\cite[Theorem 3.8]{Fritz2012}: every other connected graph has an induced triangle, square or four-vertex path~\cite[Lemma 3.9]{Fritz2012}, and a correlation on that induced subgraph extends to the whole graph by deterministic outcomes at the remaining vertices. Lemma~\ref{lem:exhaustion} and the proof below have the same shape, with double-stars in place of stars, cycles and the five-vertex path as the forbidden induced subgraphs, and inflation witnesses in place of correlations. The framing of scenarios with arbitrary sources as hypergraphs is also Fritz's~\cite[Section 3]{Fritz2012}.
+Fritz classified the graph scenarios in which every correlation is classical as the disjoint unions of stars~\cite[Theorem 3.8]{Fritz2012}: every other connected graph has an induced triangle, square or four-vertex path~\cite[Lemma 3.9]{Fritz2012}, and a correlation on that induced subgraph extends to the whole graph by deterministic outcomes at the remaining vertices. Lemma~\ref{lem:exhaustion} and the proof below follow that argument, with double-stars in place of stars, cycles and the five-vertex path as the forbidden induced subgraphs, and inflation witnesses in place of correlations. Fritz also framed scenarios with arbitrary sources as hypergraphs~\cite[Section 3]{Fritz2012}.
 
 \begin{proof}[Proof of Theorem~\ref{thm:classification}]
 Assume (d). Each component is a double-star with binary observations, so Theorem~\ref{thm:doublestar} and Corollary~\ref{cor:disjointunions} give $\INW_2(G)=\Cscen{G}$. With Proposition~\ref{prop:gsound},
@@ -124,7 +124,7 @@ the leaves being taken with respect to a choice of central edge in each componen
 \end{remark}
 
 \begin{remark}[Scenarios that are not pair-source]\label{rem:hypergraph}
-Let three observers read one common source. That source can carry a sample of the whole observed triple, so every law on the three outcomes is compatible~\cite[Proposition 3.7]{Fritz2012} and the order-one test already characterizes the compatible set, while the observed adjacency graph of this scenario is the triangle, which does not terminate at any order. The adjacency graph alone therefore does not decide termination once a source may be read by three or more observers. Such scenarios are treated in a companion paper.
+Let three observers read one common source. That source can carry a sample of the whole observed triple, so every law on the three outcomes is compatible~\cite[Proposition 3.7]{Fritz2012} and the order-one test characterizes the compatible set. The observed adjacency graph of this scenario is the triangle, which does not terminate at any order. Once a source may be read by three or more observers, the adjacency graph alone does not decide termination. A companion paper treats such scenarios.
 \end{remark}
 
 \input{sections/14-double-star}

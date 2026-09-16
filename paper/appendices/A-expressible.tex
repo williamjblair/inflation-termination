@@ -9,10 +9,10 @@ Let $X,Y,Z$ be disjoint sets of copied observations in the order-$t$ inflation o
 \end{lemma}
 
 \begin{proof}
-Every edge of the inflated graph joins a source copy to a copied observation, so the nodes of a trail alternate between the two kinds. A source copy has no parents, so both of its neighbours on the trail are its children and it is a fork; being a fork not in $Z$, since $Z$ consists of copied observations, it never blocks. An internal copied observation has no children, so both of its neighbours on the trail are its parents and it is a collider; a collider blocks unless it or one of its descendants lies in $Z$, and it has no descendants, so it blocks exactly when it is not in $Z$. A trail is active given $Z$ when no node on it blocks, which is the stated condition. The last sentence is the definition of $d$-separation.
+Every edge of the inflated graph joins a source copy to a copied observation, so the nodes of a trail alternate between the two kinds. A source copy has no parents, so both of its neighbours on the trail are its children and it is a fork. It lies outside $Z$, since $Z$ consists of copied observations, so it never blocks. An internal copied observation has no children, so both of its neighbours on the trail are its parents and it is a collider; a collider blocks unless it or one of its descendants lies in $Z$, and it has no descendants, so it blocks exactly when it is not in $Z$. A trail is active given $Z$ when no node on it blocks, which is the stated condition. The last sentence is the definition of $d$-separation.
 \end{proof}
 
-The shortest trails are the two-step ones, $x-S_e^{\,m}-y$, which have no internal observation and are therefore always active: two copied observations reading a common source copy are never $d$-separated.
+The shortest trails are the two-step ones, $x-S_e^{\,m}-y$, which have no internal observation and so are always active: two copied observations reading a common source copy are never $d$-separated.
 
 
 \begin{proof}[Proof of Lemma~\ref{lem:rootsink}]
@@ -26,7 +26,7 @@ For an injectable set the claim is the first AI prescription. For a marginal, th
 
 Consider the join rule with $X\perp_dY\mid Z$, where $X\cup Z$ and $Y\cup Z$ are already generated. Let $K$ be a connected component of the shared-parent graph on $X\cup Y\cup Z$ and suppose $K$ meets both $X$ and $Y$. Among all paths inside $K$ from a member of $X$ to a member of $Y$ choose one of minimal length. No internal vertex of it lies in $X$, since the subpath from that vertex to the $Y$-end would be shorter, and for the same reason none lies in $Y$; so every internal vertex lies in $Z$. Inserting between consecutive vertices a source copy they share turns this path into a trail from $X$ to $Y$ whose internal copied observations all lie in $Z$, which is active by Lemma~\ref{lem:trail} and contradicts $X\perp_dY\mid Z$. Hence every component of the shared-parent graph on $X\cup Y\cup Z$ lies in $X\cup Z$ or in $Y\cup Z$. Such a component is also a component of the shared-parent graph on the smaller set, since it is connected there and no member of the smaller set outside it is adjacent to it. As $X\cup Z$ and $Y\cup Z$ are AI sets, all these components are injectable, so $X\cup Y\cup Z$ is an AI set by (i).
 
-It remains to check the prescribed law. Let $\mathcal K$ be the set of components of the shared-parent graph on $X\cup Y\cup Z$, split as $\mathcal X\sqcup\mathcal Y\sqcup\mathcal Z$ according to whether a component meets $X$, meets $Y$, or is contained in $Z$; by the previous paragraph no component meets both $X$ and $Y$, so this is a partition. Write $\alpha=\prod_{K\in\mathcal X}P_{\pi(K)}$, $\beta=\prod_{K\in\mathcal Y}P_{\pi(K)}$ and $\mu=\prod_{K\in\mathcal Z}P_{\pi(K)}$, each evaluated at the coordinates of its component. The components of the shared-parent graph on $X\cup Z$ are the members of $\mathcal X\cup\mathcal Z$ together with the components of $K\cap Z$ for $K\in\mathcal Y$; write $\nu_{\mathcal Y}$ for the product of $P_{\pi(C)}$ over the latter, and $\nu_{\mathcal X}$ for the analogous product coming from $\mathcal X$ inside $Y\cup Z$. Then
+For the prescribed law, let $\mathcal K$ be the set of components of the shared-parent graph on $X\cup Y\cup Z$, split as $\mathcal X\sqcup\mathcal Y\sqcup\mathcal Z$ according to whether a component meets $X$, meets $Y$, or is contained in $Z$; by the previous paragraph no component meets both $X$ and $Y$, so this is a partition. Write $\alpha=\prod_{K\in\mathcal X}P_{\pi(K)}$, $\beta=\prod_{K\in\mathcal Y}P_{\pi(K)}$ and $\mu=\prod_{K\in\mathcal Z}P_{\pi(K)}$, each evaluated at the coordinates of its component. The components of the shared-parent graph on $X\cup Z$ are the members of $\mathcal X\cup\mathcal Z$ together with the components of $K\cap Z$ for $K\in\mathcal Y$; write $\nu_{\mathcal Y}$ for the product of $P_{\pi(C)}$ over the latter, and $\nu_{\mathcal X}$ for the analogous product coming from $\mathcal X$ inside $Y\cup Z$. Then
 \[
 \Gamma_{X\cup Z}=\alpha\,\mu\,\nu_{\mathcal Y},\qquad
 \Gamma_{Y\cup Z}=\beta\,\mu\,\nu_{\mathcal X},\qquad
@@ -36,7 +36,7 @@ the last because the components of the shared-parent graph on $Z$ are those of $
 \[
 \frac{\Gamma_{X\cup Z}\,\Gamma_{Y\cup Z}}{\Gamma_{Z}}=\alpha\,\beta\,\mu=\Gamma_{X\cup Y\cup Z},
 \]
-which is the prescribed value. Where $\Gamma_Z=0$ the rule prescribes $0$, and $\Gamma_{X\cup Y\cup Z}\le\Gamma_Z=0$ there, so the two agree on zero fibres as well. This completes the induction.
+which is the prescribed value. Where $\Gamma_Z=0$ the rule prescribes $0$, and $\Gamma_{X\cup Y\cup Z}\le\Gamma_Z=0$ there, so the two also agree on zero fibres. This completes the induction.
 \end{proof}
 
 \subsection{Induced-subgraph transport}\label{app:transport}
@@ -61,4 +61,4 @@ Injectable prescriptions: let $S$ be injectable in the $G$-inflation with $W=\pi
 
 We justify the description of injectable sets used in Definition~\ref{def:AI}. In the order-$t$ inflated triangle, a set $S$ of copied observations is injectable when the map that erases copy indices is injective on $S$ and, for any two members of $S$ that are copies of variables sharing a source in the triangle, the copy index of that source agrees \cite[Definition~4]{WSF2019}. Injectivity allows at most one copy of each of $A$, $B$, $C$. If $S$ contains $A^{ij}$ and $B^{i'k}$ then $i=i'$; if it contains $A^{ij}$ and $C^{j'k}$ then $j=j'$; if it contains $B^{ik}$ and $C^{jk'}$ then $k=k'$. Hence $S\subseteq\Delta_{ijk}$ for suitable $(i,j,k)$, any missing index being chosen freely. Conversely every subset of a copied triangle is injectable. This proves the characterization for all $t$.
 
-The degree-$t$ diagonal condition (ii) of Definition~\ref{def:NW} also implies the lower-degree conditions of \cite{NW2020}: the law of any $g\le t$ diagonal triangles is a marginal of $P^{\otimes t}$, hence $P^{\otimes g}$, and by symmetry the same holds for any $g$ copied triangles with pairwise distinct indices in all three families.
+The degree-$t$ diagonal condition (ii) of Definition~\ref{def:NW} implies the lower-degree conditions of \cite{NW2020}: the law of any $g\le t$ diagonal triangles is a marginal of $P^{\otimes t}$, hence $P^{\otimes g}$, and by symmetry the same holds for any $g$ copied triangles with pairwise distinct indices in all three families.

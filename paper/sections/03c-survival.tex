@@ -1,6 +1,6 @@
 \subsection{Survival of every finite order}\label{sec:survival}
 
-We verify that the defect law $\Gamma_t$ is a witness for Theorem~\ref{thm:membership}.
+The defect law $\Gamma_t$ witnesses Theorem~\ref{thm:membership}.
 
 \subsubsection{The Navascués--Wolfe conditions}
 Symmetry is Lemma~\ref{lem:symmetry}. For the diagonal law, let $R_\ell$ be the union of the three lines of the diagonal triangle $\Delta_{\ell\ell\ell}$:
@@ -16,10 +16,10 @@ If $\ell\ne m$ then $R_\ell\cap R_m=\emptyset$. Consequently the $t$ diagonal tr
 A cell has three coordinates; it cannot have two of them equal to $\ell$ and two equal to $m\ne\ell$. The private bits of distinct diagonal triangles are distinct. Mutual independence of functions of disjoint families of independent variables follows, and Lemma~\ref{lem:triangle-law} identifies each factor.
 \end{proof}
 
-The lemma proves the tensor-power diagonal law, so $Q(\eps,r)\in\INW_t$.
+With symmetry and the tensor-power diagonal law, $Q(\eps,r)\in\INW_t$.
 
 \subsubsection{The ancestral-independence conditions}
-Every injectable set is a subset of some copied triangle $\Delta_{ijk}$ (Definition~\ref{def:AI}), so its prescribed marginal is a projection of $Q(\eps,r)$ and is matched by Lemma~\ref{lem:triangle-law}. A union of pairwise ancestrally independent injectable sets is, by Lemma~\ref{lem:disjoint} applied to the union, a family of outputs depending on pairwise disjoint families of independent bits, hence mutually independent, with the prescribed product law. This proves $Q(\eps,r)\in\IAI_t$.
+Every injectable set is a subset of some copied triangle $\Delta_{ijk}$ (Definition~\ref{def:AI}), so its prescribed marginal is a projection of $Q(\eps,r)$, and Lemma~\ref{lem:triangle-law} matches it. By Lemma~\ref{lem:disjoint} applied to the union, the outputs in a union of pairwise ancestrally independent injectable sets depend on pairwise disjoint families of independent bits, so they are mutually independent with the prescribed product law. This proves $Q(\eps,r)\in\IAI_t$.
 
 \subsubsection{The recursively expressible conditions}
 \begin{lemma}[Recursive prescriptions hold]\label{lem:expressible}

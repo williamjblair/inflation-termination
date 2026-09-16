@@ -63,7 +63,7 @@ where $x^{\mathbf i}=(x_s^{\,i_s})_s$ and $z^{\mathbf k}=(z_j^{\,k_j})_j$. Divid
 \Gamma\bigl(B^{\,\mathbf i,1}=\beta,\ C^{\,1,\mathbf k}=\gamma\mid E\bigr)
 =P\bigl(O_b=\beta,\ O_c=\gamma\ \bigm|\ O_{\ell_s}=x_s^{\,i_s}\ \forall s,\ O_{r_j}=z_j^{\,k_j}\ \forall j\bigr),
 \end{equation}
-the conditioning event on the right having positive probability whenever every $x_s^{\,i_s}$ and $z_j^{\,k_j}$ is supported. This identity is the finite-order step, a statement about the witness derived from symmetry and the diagonal law alone.
+the conditioning event on the right having positive probability whenever every $x_s^{\,i_s}$ and $z_j^{\,k_j}$ is supported. This identity uses only the symmetry and the diagonal law of the witness.
 
 \medskip
 \emph{(iv) Two response tables and fresh sources.}
@@ -86,10 +86,10 @@ Each response reads only the sources of its incident edges: $b$ reads $X_1^*,\do
 \prod_sP_{\ell_s}(\xi_s)\prod_jP_{r_j}(\zeta_j)\,\mu\bigl(F(\xi)=\beta,G(\zeta)=\gamma\bigr)
 =P_{\mathrm{leaf}}(\xi,\zeta)\,P(\beta,\gamma\mid\xi,\zeta)=P(\beta,\gamma,\xi,\zeta).
 \]
-Unsupported leaf values are never sampled, so the arbitrary choices there do not matter. Hence $P\in\Cscen{G}$.
+The model never samples unsupported leaf values, so the arbitrary choices there do not matter. Hence $P\in\Cscen{G}$.
 \end{proof}
 
-The conditional law supplies the distribution of the central response tables. The model then samples this central source independently of fresh leaf sources, as required by the graph. A central source with
+A central source with
 \(
 |\mathcal O_b|^{\prod_s|\supp P_{\ell_s}|}\,|\mathcal O_c|^{\prod_j|\supp P_{r_j}|}
 \)
@@ -110,7 +110,7 @@ Consider $A(X)$, $B(X,Y)$, $C(Y,Z)$, $D(Z)$, the path $P_4$ with $A$ and $D$ at 
 \begin{proof}
 $P_4$ is the double-star with central edge $\{B,C\}$, one left leaf $A$ and one right leaf $D$; apply Theorem~\ref{thm:doublestar}, whose bound involves only the leaf alphabets.
 \end{proof}
-This is the four-on-line scenario of \cite[Figure~8]{NW2020}. Navascu\'es and Wolfe list it with the triangle among the scenarios whose compatible set is cut out by inequality constraints, show that order two does not suffice for the triangle, and leave the four-on-line case open. The corollary settles it at order two for binary endpoints.
+The four-observer path is the four-on-line scenario of \cite[Figure~8]{NW2020}. Navascu\'es and Wolfe list it with the triangle among the scenarios whose compatible set is cut out by inequality constraints, show that order two does not suffice for the triangle, and leave the four-on-line case open. The corollary settles it at order two for binary endpoints.
 
 \begin{corollary}[Disjoint unions]\label{cor:disjointunions}
 Let $G$ be a disjoint union of double-stars $G_1,\dots,G_n$ with orders $T_1,\dots,T_n$ as above, and let $T=\max\{2,T_1,\dots,T_n\}$. Then $\INW_T(G)=\Cscen{G}$.
@@ -120,4 +120,4 @@ Let $G$ be a disjoint union of double-stars $G_1,\dots,G_n$ with orders $T_1,\do
 Let $P\in\INW_T(G)$ with witness $\Gamma$. Distinct components are source-disjoint, so Lemma~\ref{lem:sourcedisjoint}, iterated, gives $P=\bigotimes_aP_{V(G_a)}$. The restriction of $\Gamma$ to the copied observations at the vertices of $G_a$ is a table for the order-$T$ inflation of $G_a$: it is invariant under permutations of the copy indices of the edges of $G_a$, and its diagonal law is the corresponding marginal of $P^{\otimes T}$, namely $\bigl(P_{V(G_a)}\bigr)^{\otimes T}$. Hence $P_{V(G_a)}\in\INW_T(G_a)\subseteq\INW_{T_a}(G_a)$, the inclusion because discarding the copy indices outside $[T_a]$ leaves a witness at order $T_a$. Theorem~\ref{thm:doublestar} now gives $P_{V(G_a)}\in\Cscen{G_a}$. Realize each component by its own model on its own independent source family; the joint observed law is the product, which is $P$.
 \end{proof}
 
-A star is the case $q=0$, with $c$ one of its leaves. There the bound of Theorem~\ref{thm:doublestar} is not sharp: order two suffices with arbitrary finite alphabets \cite[Section 4.1]{NW2020}, by taking independent sources equal to the leaf values and letting the centre respond with its conditional law given them. Theorem~\ref{thm:doublestar} adds the central edge, where the two centres share a source and the leaf values on the two sides must be assembled into one pair of response tables.
+A star is the case $q=0$, with $c$ one of its leaves. There the bound of Theorem~\ref{thm:doublestar} is not sharp: order two suffices with arbitrary finite alphabets \cite[Section 4.1]{NW2020}, by taking independent sources equal to the leaf values and letting the centre respond with its conditional law given them. Theorem~\ref{thm:doublestar} adds the central edge, across which the two centres share a source, so the leaf values on the two sides have to be assembled into one pair of response tables.

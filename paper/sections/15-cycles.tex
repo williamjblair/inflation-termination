@@ -6,7 +6,7 @@
 
 \subsection{Cycles}\label{sec:cycles}
 
-Section~\ref{sec:pairsource} writes the three finite tests for an arbitrary pair-source scenario. For every cycle and every order we construct a strictly positive law that the strongest of them accepts and that no model produces, with a quantitative separation from compatibility. Section~\ref{sec:cyclequant} refines the distance bound for the triangle and square.
+Section~\ref{sec:pairsource} states the three finite tests for an arbitrary pair-source scenario. For every cycle and every order we construct a strictly positive law that the strongest of them accepts and that no model produces, with a quantitative separation from compatibility.
 
 Throughout, the $m$-cycle $C_m$, $m\ge3$, has observed variables $O_0,\dots,O_{m-1}$ and sources $S_0,\dots,S_{m-1}$, indices read modulo $m$, with $O_v$ a child of $S_{v-1}$ and $S_v$; the copied observations of Definition~\ref{def:ginflation} are written $O_v^{ij}$, children of $S_{v-1,i}$ and $S_{v,j}$. The triangle is $C_3$, with $\Ctri=\Cscen{C_3}$, read as $A=O_0$, $B=O_1$, $C=O_2$ and $X=S_0$, $Y=S_1$, $Z=S_2$; the square is $C_4$, written $\square$, read as $A(X,W)$, $B(X,Y)$, $C(Y,Z)$, $D(Z,W)$ with $X=S_0$, $Y=S_1$, $Z=S_2$, $W=S_3$.
 
@@ -45,7 +45,7 @@ For $m\ge3$ and $q\ge0$ let $P_{m,q}$ be the signed measure on $\{-1,1\}^m$ with
 \end{equation}
 \end{definition}
 
-If $m^2q\le1/4$ then $P_{m,q}$ is a probability law, being the law of $(\sigma_{v-1}\sigma_v)_{v=0}^{m-1}$ for $\sigma\sim H_{m,q}$. The exact ranges in the two cases we use are wider.
+If $m^2q\le1/4$ then $P_{m,q}$ is a probability law, namely the law of $(\sigma_{v-1}\sigma_v)_{v=0}^{m-1}$ for $\sigma\sim H_{m,q}$. In the two cases we use, the exact ranges are wider.
 
 Taking $F$ the whole vertex set gives $\E[\prod_vO_v]=1$, so wherever $P_{m,q}$ is a probability law the product of all $m$ signs is $1$ almost surely; taking $F$ a contiguous arc gives mean $-q$. For $m=3$ the family is the parity-even law with observed means $x,y,z$,
 \begin{equation}\label{eq:paritylaw}
@@ -88,7 +88,7 @@ Positivity of $H_{N,q}$ holds since $N^2q=m^2t^2q\le1/4$. The density \eqref{eq:
 and characters determine a law on a finite sign cube, so the blocks are independent with the prescribed marginals. The diagonal rows are pairwise ancestrally independent injectable copied cycles, so the diagonal law is $P_{m,q}^{\otimes t}$. Lemma~\ref{lem:rootsink} supplies the recursive prescriptions.
 \end{proof}
 
-The witness is a law on the copied observations, not the output of an inflated model: under $H_{N,q}$ the auxiliary signs are correlated across families.
+The witness is a law on the copied observations. It does not come from an inflated model, since under $H_{N,q}$ the auxiliary signs are correlated across families.
 
 \begin{lemma}[Exact parity rigidity]\label{lem:parityrigidity}
 Let $R\in\Ctri$ with $ABC=1$ almost surely. Then there are $\sigma,\tau,\upsilon\in[-1,1]$ with $(\E A,\E B,\E C)=(\sigma\tau,\sigma\upsilon,\tau\upsilon)$. In particular $\E A\cdot\E B\cdot\E C\ge0$.
@@ -98,7 +98,7 @@ Let $R\in\Ctri$ with $ABC=1$ almost surely. Then there are $\sigma,\tau,\upsilon
 Absorb the response seeds into incident sources, so that $A=A(X,Z)$, $B=B(X,Y)$, $C=C(Z,Y)$ are deterministic signs. For $\mu_Y$-almost every $y$ the identity $A(X,Z)B(X,y)C(Z,y)=1$ holds for $\mu_X\otimes\mu_Z$-almost every $(X,Z)$; fix such a $y_0$ and put $S(X)=B(X,y_0)$, $T(Z)=C(Z,y_0)$, so that $A=ST$ almost surely. Substituting in $ABC=1$ gives $\bigl(S(X)B(X,Y)\bigr)\bigl(T(Z)C(Z,Y)\bigr)=1$ almost surely. Write $B'=SB$ and $C'=TC$. Conditionally on $Y$ these are independent signs, and they agree almost surely, so each equals a function $U(Y)$ almost surely. Hence $A=ST$, $B=SU$, $C=TU$ almost surely, and independence of the three sources gives the means with $\sigma=\E S$, $\tau=\E T$, $\upsilon=\E U$. Their product is $(\sigma\tau\upsilon)^2$.
 \end{proof}
 
-Rigidity of the parity-perfect (parity token-counting) triangle correlations is prior work: the exact statement is due to Boreiri, Girardin, Ulu, Lipka-Bartosik, Brunner and Sekatski \cite{BoreiriEtAl2023}, and Boreiri, Ulu, Brunner and Sekatski \cite{BoreiriEtAl2025} give a noise-robust form (a compatible law with parity error $\epsilon$ is within $3\epsilon$ of a parity-perfect compatible law); Lemma~\ref{lem:quantrigidity} is a moment form of that robustness. Renou and Beigi \cite{RenouBeigi2022PRA,RenouBeigi2022PRL} prove rigidity of token-counting distributions on every ring scenario with bipartite sources; their statements concern integer token counts rather than parity, so they do not contain the lemma below, but they are the prior rigidity results on cycles. We give the two proofs because we need the statements for arbitrary latent alphabets and stochastic responses, and because the constant of Lemma~\ref{lem:quantrigidity} enters the distance bounds below.
+Exact rigidity of the parity-perfect (parity token-counting) triangle correlations is due to Boreiri, Girardin, Ulu, Lipka-Bartosik, Brunner and Sekatski \cite{BoreiriEtAl2023}, and Boreiri, Ulu, Brunner and Sekatski \cite{BoreiriEtAl2025} give a noise-robust form (a compatible law with parity error $\epsilon$ is within $3\epsilon$ of a parity-perfect compatible law); Lemma~\ref{lem:quantrigidity} is a moment form of that robustness. Renou and Beigi \cite{RenouBeigi2022PRA,RenouBeigi2022PRL} prove rigidity of token-counting distributions on every ring scenario with bipartite sources; these are the prior rigidity results on cycles, but they concern integer token counts rather than parity and do not contain the lemma below. We include both proofs: we need the statements for arbitrary latent alphabets and stochastic responses, and the constant of Lemma~\ref{lem:quantrigidity} enters the distance bounds below.
 
 \begin{lemma}[Quantitative parity rigidity]\label{lem:quantrigidity}
 Let $R\in\Ctri$ and $W=\E_R[ABC]$. Then
@@ -133,14 +133,14 @@ where $\E_Y[uw]=\E[S(X)T(Z)b(X,Y)c(Z,Y)]$ by independence of the sources and $\E
 \]
 and likewise $|\E[c]-\E[T]\,\E[\upsilon]|\le4(1-W)$. Write $\sigma=\E[S]$, $\tau=\E[T]$, $\nu=\E[\upsilon]$. If all three means were below $-4(1-W)$, then $\sigma\tau\le\E[a]+(1-W)<0$, $\sigma\nu<0$ and $\tau\nu<0$, whose product $(\sigma\tau\nu)^2$ is nonnegative, a contradiction.
 \end{proof}
-For $W=1$ the lemma recovers the consequence of Lemma~\ref{lem:parityrigidity} that at least one mean is nonnegative. A compatible law at total-variation distance $\delta$ from a parity-perfect law has $1-W\le2\delta$, so the lemma also replaces the repair step of \cite{BoreiriEtAl2025}: we construct no repaired model, and the bound holds for arbitrary latent alphabets and stochastic responses.
+For $W=1$ the lemma recovers the consequence of Lemma~\ref{lem:parityrigidity} that at least one mean is nonnegative. A compatible law at total-variation distance $\delta$ from a parity-perfect law has $1-W\le2\delta$, so the lemma replaces the repair step of \cite{BoreiriEtAl2025}: we construct no repaired model, and the bound holds for arbitrary latent alphabets and stochastic responses.
 
 \begin{lemma}[Distance of the cycle family]\label{lem:cycledistance}
 Let $m\ge3$ and let $q>0$ be such that $P_{m,q}$ is a probability law. Then $d_{\TV}(P_{m,q},\Ccyc)\ge q/10$; in particular $P_{m,q}\notin\Ccyc$.
 \end{lemma}
 
 \begin{proof}
-As illustrated in Figure~\ref{fig:cycle-reduction}, partition $\{0,\dots,m-1\}$ into three nonempty contiguous arcs $\Lambda_1,\Lambda_2,\Lambda_3$ and let $\varphi(o)=(V_1,V_2,V_3)$ with $V_r=\prod_{v\in\Lambda_r}o_v$. If $R\in\Ccyc$, then $\varphi_*R\in\Ctri$: the three sources on the arc boundaries are independent, each arc product is a function of the two boundary sources adjacent to its arc together with the sources internal to that arc, and those internal sources can be absorbed as private randomness of the arc. Each $\partial\Lambda_r$ has two elements, and $\partial(\Lambda_1\cup\Lambda_2)=\partial\Lambda_3$, so \eqref{eq:cycletarget} gives
+As illustrated in Figure~\ref{fig:cycle-reduction}, partition $\{0,\dots,m-1\}$ into three nonempty contiguous arcs $\Lambda_1,\Lambda_2,\Lambda_3$ and let $\varphi(o)=(V_1,V_2,V_3)$ with $V_r=\prod_{v\in\Lambda_r}o_v$. If $R\in\Ccyc$, then $\varphi_*R\in\Ctri$: the three sources on the arc boundaries are independent, each arc product is a function of the two boundary sources adjacent to its arc together with the sources internal to that arc, and we absorb those internal sources into the private randomness of the arc. Each $\partial\Lambda_r$ has two elements, and $\partial(\Lambda_1\cup\Lambda_2)=\partial\Lambda_3$, so \eqref{eq:cycletarget} gives
 \[
 \varphi_*P_{m,q}=\Pi(-q,-q,-q).
 \]
@@ -166,7 +166,7 @@ Consequently no finite order of any of the three hierarchies characterizes $\Ccy
 \begin{proof}
 Apply $T_\eta$ independently to every copied observation of the witness of Lemma~\ref{lem:cyclewitness}. The resulting law is strictly positive, still invariant under the copy-index permutations, and its characters are those of \eqref{eq:masterchar} multiplied by $(1-2\eta)^{|F|}$. The same factor multiplies the target characters, and $|F|$ adds over disjoint blocks, so every injectable marginal and every ancestrally independent product of Lemma~\ref{lem:cyclewitness} persists with $\widetilde P_{m,q}$ in place of $P_{m,q}$, as does the diagonal law. Lemma~\ref{lem:rootsink} again supplies the recursive prescriptions.
 
-For the distance, $d_{\TV}(\widetilde P_{m,q},P_{m,q})\le m\eta=q/32$ by a union bound over the flipped coordinates, and Lemma~\ref{lem:cycledistance} gives $d_{\TV}(\widetilde P_{m,q},\Ccyc)\ge q/10-q/32=11q/160$. Since $t$ was arbitrary and $\widetilde P_{m,q}\notin\Ccyc$, the feasible set at order $t$ is strictly larger than $\Ccyc$ for every $t$.
+For the distance, $d_{\TV}(\widetilde P_{m,q},P_{m,q})\le m\eta=q/32$ by a union bound over the flipped coordinates, and Lemma~\ref{lem:cycledistance} gives $d_{\TV}(\widetilde P_{m,q},\Ccyc)\ge q/10-q/32=11q/160$. As $t$ is arbitrary and $\widetilde P_{m,q}\notin\Ccyc$, the feasible set at order $t$ is strictly larger than $\Ccyc$ for every $t$.
 \end{proof}
 
 For each fixed cycle this gives a lower bound of order $t^{-2}$ on the worst-case distance. Section~\ref{sec:cyclequant} improves the lower bound to order $t^{-1}$ for the triangle and square.

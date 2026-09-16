@@ -1,6 +1,6 @@
 \subsection{Finite-order fan inequalities}\label{sec:fan}
 
-The inequalities of this section bound, for every law feasible at order $t$, the probability of the all-zero atom by the one-variable zero marginals.
+For every law feasible at order $t$, we bound the probability of the all-zero atom by the one-variable zero marginals.
 
 \begin{theorem}[Fan inequalities]\label{thm:fan}
 Let $P$ be a law on three bits with $a=P_A(0)$, $b=P_B(0)$, $c=P_C(0)$, $z=P(000)$. If $P\in\INW_t$ then
@@ -16,7 +16,7 @@ Consequently, if $z^2>abc$ (a Finner violation), then
 and the same bound holds for $\tmin^{\mathrm{AI}}$ and $\tmin^{\mathrm{exp}}$.
 \end{theorem}
 
-This gives an explicit rejecting order in terms of four probabilities. Relabelling the local outcomes gives the corresponding bound for a Finner violation at any atom.
+Relabelling the local outcomes gives the corresponding bound for a Finner violation at any atom.
 
 \input{figures/fan}
 
@@ -41,11 +41,11 @@ If $\mathsf A=0$ the left side vanishes. If $\mathsf A=1$, put $S=\sum_k\mathsf 
 
 \emph{Second inequality.} Let $U=\sum_kT_k$. Since $U=\mathsf AU$, Cauchy--Schwarz gives $(\E U)^2\le\E\mathsf A\cdot\E U^2$, and $U^2=\sum_kT_k+\sum_{k\ne\ell}T_kT_\ell$ with $T_kT_\ell\le\mathsf B_k\mathsf C_\ell$. Hence $(tz)^2\le a[tz+t(t-1)bc]$, which rearranges to $t(z^2-abc)\le az-abc$.
 
-\emph{Rejecting order.} If $z^2>abc$, the second inequality fails as soon as $t>(az-abc)/(z^2-abc)$; the fan can be rooted at whichever of $A,B,C$ has the smallest zero marginal, giving \eqref{eq:fan-order}. The ratio is at least $1$ since numerator minus denominator equals $z(\min\{a,b,c\}-z)\ge0$, so the bound is never below $2$, consistent with order one never rejecting. The smaller feasible sets of \eqref{eq:nested} reject no later.
+\emph{Rejecting order.} If $z^2>abc$, the second inequality fails as soon as $t>(az-abc)/(z^2-abc)$; we root the fan at whichever of $A,B,C$ has the smallest zero marginal, giving \eqref{eq:fan-order}. The ratio is at least $1$ since numerator minus denominator equals $z(\min\{a,b,c\}-z)\ge0$, so the bound is never below $2$, consistent with order one never rejecting. The smaller feasible sets of \eqref{eq:nested} reject no later.
 \end{proof}
 
-Inequality \eqref{eq:fan-pointwise} is a pointwise marginal-polytope certificate in the sense of \cite{WSF2019}, on a $1\times1\times t$ box of source copies; here it is available in closed form at every order.
+Inequality \eqref{eq:fan-pointwise} is a pointwise marginal-polytope certificate in the sense of \cite{WSF2019}, on a $1\times1\times t$ box of source copies; here we have it in closed form at every order.
 
 \begin{proof}[Proof of Proposition~\ref{prop:Rp}]
-$R_p$ has $a=b=c=z=p$, so $z^2=p^2>p^3=abc$ and Lemma~\ref{lem:finner} gives incompatibility. Order one is passed by every law. At order two the first fan inequality reads $2p\le p+p^2$, which fails for $p<1$; so $\tmin^H(R_p)=2$ for all three hierarchies, while $d_{\TV}(R_p,\Ctri)\le p\to0$.
+$R_p$ has $a=b=c=z=p$, so $z^2=p^2>p^3=abc$ and Lemma~\ref{lem:finner} gives incompatibility. Order one is passed by every law. At order two the first fan inequality reads $2p\le p+p^2$, which fails for $p<1$. Hence $\tmin^H(R_p)=2$ for all three hierarchies, while $d_{\TV}(R_p,\Ctri)\le p\to0$.
 \end{proof}

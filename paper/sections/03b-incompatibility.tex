@@ -1,7 +1,7 @@
 \subsection{Incompatibility by Finner}\label{sec:incompat}
 
 \begin{lemma}[Finner inequality for the triangle]\label{lem:finner}
-Every $P\in\Ctri$ satisfies the inequality $P(000)^2\le P_A(0)P_B(0)P_C(0)$.
+Every $P\in\Ctri$ satisfies $P(000)^2\le P_A(0)P_B(0)P_C(0)$.
 \end{lemma}
 \begin{proof}
 Let the sources have laws $\mu_X,\mu_Y,\mu_Z$ on arbitrary measurable spaces and let
@@ -31,4 +31,3 @@ P_t(000)^2-P_{t,A}(0)P_{t,B}(0)P_{t,C}(0)\ \ge\ \eps_t^2-t^3\eps_t^3=\frac{\eps_
 With $r=(1-\eps)^{t-1}$, $P(000)=\eps+(1-\eps)(1-r)^3\ge\eps$ and, by symmetry of the three coordinates, $P_A(0)=P_B(0)=P_C(0)=1-(1-\eps)r=1-(1-\eps)^t\le t\eps$ by Bernoulli's inequality. Hence $P(000)^2\ge\eps^2$ and $P_A(0)P_B(0)P_C(0)\le t^3\eps^3$, and $\eps^2>t^3\eps^3$ exactly when $\eps<t^{-3}$. For $\eps_t=1/(2t^3)$ the difference is at least $\eps_t^2(1-t^3\eps_t)=\eps_t^2/2$.
 \end{proof}
 
-At $t=1$ the witness is $P_1=\tfrac12(\delta_{000}+\delta_{111})$ with $P_1(000)^2=1/4$ and $P_{1,A}(0)^3=1/8$; the margin $1/8$ is $\eps_1^2/2$.

@@ -34,7 +34,7 @@ f_{xz}:=\E\bigl[BCD\mid A=x,E=z\bigr]=\frac{1+h}4\bigl(1+(-1)^{x+z}\bigr)
 \end{lemma}
 
 \begin{proof}
-The bracket in \eqref{eq:pathtarget} lies between $1-(1+h)/2=(1-h)/2$ and $1+(1+h)/2$, so every atom lies in $[(1-h)/64,\,(3+h)/64]$ and in particular is positive. Summing $bcd$ over $\{-1,1\}^3$ gives zero, so the atoms sum to $32\cdot\frac1{32}=1$ and the $(A,E)$ marginal is uniform on four cells. Given $(x,z)$, the conditional density of $(b,c,d)$ is $\frac18\bigl[1+bcd\,f_{xz}\bigr]$, whose only nonvanishing nontrivial character is $bcd$, with value $f_{xz}$; that is \eqref{eq:fxz} and the vanishing of the proper moments.
+The bracket in \eqref{eq:pathtarget} lies between $1-(1+h)/2=(1-h)/2$ and $1+(1+h)/2$, so every atom lies in $[(1-h)/64,\,(3+h)/64]$ and is positive. Summing $bcd$ over $\{-1,1\}^3$ gives zero, so the atoms sum to $32\cdot\frac1{32}=1$ and the $(A,E)$ marginal is uniform on four cells. Given $(x,z)$, the conditional density of $(b,c,d)$ is $\frac18\bigl[1+bcd\,f_{xz}\bigr]$, whose only nonvanishing nontrivial character is $bcd$, with value $f_{xz}$; that is \eqref{eq:fxz} and the vanishing of the proper moments.
 \end{proof}
 
 \subsubsection{A bilocal obstruction}\label{sec:bilocal}
@@ -78,7 +78,7 @@ so $p_++p_-\le1$ and $r_++r_-\le1$. Cauchy--Schwarz gives
 \]
 \end{proof}
 
-Inequalities of this shape originate with Branciard, Rosset, Gisin and Pironio \cite{BranciardRossetGisinPironio2012} for the bilocal scenario with measurement inputs; Lemma~\ref{lem:bilocal} is the specialization to a single fixed setting, one binary central output and two binary endpoint observations, proved here for arbitrary latent alphabets and stochastic responses.
+Inequalities of this shape go back to Branciard, Rosset, Gisin and Pironio \cite{BranciardRossetGisinPironio2012} for the bilocal scenario with measurement inputs; Lemma~\ref{lem:bilocal} is the specialization to a single fixed setting, one binary central output and two binary endpoint observations, proved here for arbitrary latent alphabets and stochastic responses.
 
 \begin{corollary}[Quantitative incompatibility]\label{cor:pathdistance}
 For every $0<h<1$,
@@ -126,7 +126,7 @@ This is $H_{2t,h_t}$ of Lemma~\ref{lem:parityaux} read in the coordinates $\sigm
 \begin{equation}\label{eq:Htpos}
 H_t(u,v)\ \ge\ \tfrac23\,2^{-2t}\ >\ 0 .
 \end{equation}
-All its values are rational.
+Its values are rational.
 
 \emph{The witness.} Draw $(u,v)\sim H_t$; independently draw fair bits $X_a$ and $Z_e$, fair signs $r_i$ and $s_j$, and fair signs $\nu_{ij}$, all mutually independent, $a,i,j,e\in[t]$. With $u^0=1$ and $u^1=u$, define every copied observation by
 \begin{equation}\label{eq:pathwitness}
@@ -136,7 +136,7 @@ C^{ij}=\begin{cases}r_is_j,&u_i=v_j,\\ r_is_j\nu_{ij},&u_i\ne v_j,\end{cases}\qq
 D^{je}=s_j\,v_j^{Z_e},\qquad
 E^e=Z_e .
 \end{equation}
-Each copied observation is a function of the data attached to its copied parents together with its own private sign: $r_i$ and $u_i$ belong to $L_i$, and $s_j$ and $v_j$ to $R_j$. Call the resulting law $\Gamma_t$. It is a nonnegative rational probability law; the auxiliary density is strictly positive, while the observed table can have zero entries. As in Section~\ref{sec:construction}, $\Gamma_t$ is a law on the copied observations and not the output of an inflated model: under $H_t$ the families $u$ and $v$ are correlated.
+Each copied observation is a function of the data attached to its copied parents together with its own private sign: $r_i$ and $u_i$ belong to $L_i$, and $s_j$ and $v_j$ to $R_j$. Call the resulting law $\Gamma_t$. It is a nonnegative rational probability law. The auxiliary density is strictly positive, but the observed table can have zero entries. As in Section~\ref{sec:construction}, $\Gamma_t$ is a law on the copied observations and does not come from an inflated model, since under $H_t$ the families $u$ and $v$ are correlated.
 
 \emph{Formal weights.} Give each $u_i$ the complex weight $(1+i\gamma u_i)/2$ and each $v_j$ the weight $(1-i\gamma v_j)/2$, and keep the actual probabilities of $X,Z,r,s,\nu$. Write $\E_\ast$ for the resulting formal expectation, a product functional on the $6t+t^2$ auxiliary coordinates, with $\E_\ast u_i=i\gamma$ and $\E_\ast v_j=-i\gamma$. Since the weights of the auxiliary coordinates multiply to a complex number whose real part is $H_t$, and the other coordinates carry real weights,
 \begin{equation}\label{eq:realpart}
@@ -151,7 +151,7 @@ and $\E_\ast\nu_{ij}=0$, so $\E_\ast\bigl[B^{ai}C^{ij}D^{je}\bigr]=\E_\ast\bigl[
 \[
 \E_\ast\bigl[u_i^{\,x}v_j^{\,z}\one\{u_i=v_j\}\bigr]=\frac{1+h}4\bigl(1+(-1)^{x+z}\bigr)=f_{xz},
 \]
-which is real. Every character of the copied path is thus one of: a character of the fair bits $X_a,Z_e$ alone; a character carrying a proper nonempty subset of $\{B^{ai},C^{ij},D^{je}\}$, with formal expectation zero; or a character carrying all three, with formal expectation $\frac14\sum_{x,z}\chi(x,z)f_{xz}$. All of these are real and all agree with the corresponding characters of $P_h$ in Lemma~\ref{lem:pathtarget}, so by \eqref{eq:realpart}
+which is real. Every character of the copied path is thus one of: a character of the fair bits $X_a,Z_e$ alone; a character carrying a proper nonempty subset of $\{B^{ai},C^{ij},D^{je}\}$, with formal expectation zero; or a character carrying all three, with formal expectation $\frac14\sum_{x,z}\chi(x,z)f_{xz}$. These are real and agree with the corresponding characters of $P_h$ in Lemma~\ref{lem:pathtarget}, so by \eqref{eq:realpart}
 \[
 \Law_{\Gamma_t}\bigl(A^a,B^{ai},C^{ij},D^{je},E^e\bigr)=P_h,
 \]
@@ -175,4 +175,4 @@ Along this family the first rejecting order grows without bound while the target
 \[
 P_{h_t}(x,b,c,d,z)\ \ge\ \frac{1-h_t}{64}\ \ge\ \frac{15}{1024}
 \]
-for every $t$ and every atom. The obstruction therefore does not come from vanishing probabilities. The theorem supplies a distance lower bound of order $t^{-2}$; it does not determine this family's distance asymptotics. The general upper bound is $O(t^{-1/2})$. Whether the path admits accepted laws at distance $\Omega(t^{-1})$, as the triangle and square do, remains open.
+for every $t$ and every atom. Vanishing probabilities play no role in the obstruction. The theorem gives a distance lower bound of order $t^{-2}$ and leaves the distance asymptotics of this family undetermined. The general upper bound is $O(t^{-1/2})$. It remains open whether the path admits accepted laws at distance $\Omega(t^{-1})$, as the triangle and square do.

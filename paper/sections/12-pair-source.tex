@@ -17,7 +17,7 @@ Each source is read by exactly the two endpoints of its edge. We write $C_m$ for
 
 Sources shared by three or more observers, and latent variables with latent parents, are outside this definition; see Remark~\ref{rem:hypergraph}.
 
-Assign each vertex $v$ an independent random seed and append it to the source of one edge at $v$, to be ignored by the other endpoint. The graph is unchanged and the seed makes the response at $v$ deterministic, so stochastic and deterministic responses generate the same set $\Cscen{G}$ \cite{WSF2019}. The assumption that no vertex is isolated ensures an incident edge is available.
+Assign each vertex $v$ an independent random seed and append it to the source of an edge at $v$, which exists because no vertex is isolated; the other endpoint ignores the seed. The graph is unchanged and the seed makes the response at $v$ deterministic, so stochastic and deterministic responses generate the same set $\Cscen{G}$ \cite{WSF2019}.
 
 \subsection{Inflation at order \texorpdfstring{$t$}{t}}
 
@@ -31,7 +31,7 @@ all conditionally independent given the source copies. Writing $r$ also for the 
 
 A vertex of degree $d$ has $t^d$ copies, so the inflation carries $\sum_v t^{\deg v}$ observed variables. The group $\prod_{e\in E}S_t$ acts on the copy labels: $\sigma=(\sigma_e)_{e\in E}$ sends the label $i$ to $\sigma(i)$ with $\sigma(i)_e=\sigma_e(i_e)$, and hence sends $O_v^{\,i}$ to $O_v^{\,\sigma(i)}$. Each $\sigma$ maps rows to rows when all its components are equal, and otherwise mixes them.
 
-Call a probability law on $\prod_{v\in V}\bigl(\mathcal O_v\bigr)^{[t]^{E(v)}}$ a \emph{table} of order $t$. Each of the three tests asks for a table with prescribed marginals.
+Call a probability law on $\prod_{v\in V}\bigl(\mathcal O_v\bigr)^{[t]^{E(v)}}$ a \emph{table} of order $t$. The three tests below ask for a table with prescribed marginals.
 
 \begin{definition}[Navascués--Wolfe feasible set]\label{def:gNW}\label{def:NW}
 $P\in\INW_t(G)$ if there is a table $\Gamma_t$ of order $t$ such that
@@ -74,7 +74,7 @@ The two inclusions on the right hold because each test adds prescriptions to the
 \end{proof}
 
 
-For fixed $P$, each prescription fixes a marginal of the table, so all three tests are linear feasibility problems. Restricting a table to fewer copy indices preserves the conditions; thus the feasible sets decrease with $t$. The Navascués--Wolfe hierarchy is asymptotically complete, $\INW_t(G)\downarrow\Cscen{G}$ \cite{NW2020}. Consequently, for an incompatible law and $H\in\{\mathrm{NW},\mathrm{AI},\mathrm{exp}\}$, the first rejecting order
+For fixed $P$ each prescription fixes a marginal of the table, so all three tests are linear feasibility problems. Restricting a table to fewer copy indices preserves the conditions, so the feasible sets decrease with $t$. The Navascués--Wolfe hierarchy is asymptotically complete, $\INW_t(G)\downarrow\Cscen{G}$ \cite{NW2020}. Consequently, for an incompatible law and $H\in\{\mathrm{NW},\mathrm{AI},\mathrm{exp}\}$, the first rejecting order
 \[
 \tmin^H(P)=\min\{t\ge1:P\notin\mathcal I_t^H(G)\}
 \]
