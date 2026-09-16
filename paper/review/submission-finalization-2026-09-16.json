@@ -1,0 +1,94 @@
+{
+  "date": "2026-09-16",
+  "baseline_commit": "76a1644f2f92ef3ec4f0462147ee69903964b0ba",
+  "scope": "Manuscript wording, mathematical exposition, layout and submission packaging. No Lean or Palomar files edited by this review.",
+  "pages": 52,
+  "main_text_pages": 37,
+  "main_sections": 8,
+  "figures": 8,
+  "numbered_tables": 2,
+  "abstract_words": 208,
+  "original_labels": 180,
+  "all_original_labels_retained": true,
+  "original_proof_environments": 59,
+  "final_proof_environments": 59,
+  "byte_identical_proof_bodies": 57,
+  "proof_body_edits": [
+    "Classification proof closing reference clarified",
+    "Appendix B membership statement corrected to refer to the law rather than its witness"
+  ],
+  "other_mathematical_edits": [
+    "Positive noise parameter required for full support",
+    "Cubic Taylor remainder and variance argument made explicit",
+    "Finite threshold values distinguished from unproved asymptotic limits",
+    "Coefficient-extraction counterexample restricted to the proof step it refutes",
+    "Open questions sharpened; strict comparison restricted to orders at least two"
+  ],
+  "standalone_pdf_text_matches": true,
+  "arxiv_archive_members": [
+    "main.tex",
+    "main.bbl",
+    "references.bib",
+    "figures/thresholds.pdf"
+  ],
+  "abstract_matches_arxiv_fields": true,
+  "latex_final_pass": {
+    "overfull_boxes": 0,
+    "underfull_boxes": 0,
+    "unresolved_references": 0,
+    "multiply_defined_labels": 0
+  },
+  "visual_review": "All pages reviewed in rendered contact sheets; affected final pages re-rendered and checked, including figures, coverage table, formula (22), title and references.",
+  "verification": {
+    "threshold_extension": {
+      "command": "python3 -B artifact/certificates/exponent/odd/verify_odd.py",
+      "result": "PASS",
+      "local_checks": 5115,
+      "verify_exponent_checks": 9084
+    },
+    "cubic_certificates": {
+      "command": "python3 -B artifact/certificates/beyond-finner/verify_beyond_finner.py",
+      "result": "PASS",
+      "exact_checks": 68183,
+      "limitation": "Includes checks of sampled models; not a proof of the universal certificate inequalities."
+    },
+    "artifact_manifest_entries_matched": 56,
+    "lean_build_rerun": false,
+    "axiom_audit_rerun": false,
+    "palomar_actions": null,
+    "protected_baseline_files": 125,
+    "concurrent_changes_observed_not_edited_by_this_review": [
+      "Audit.lean",
+      "Palomar/TriangleInflation/Challenge.lean",
+      "Palomar/TriangleInflation/ClassificationChallenge.lean",
+      "PalomarSolutions/TriangleInflation.lean",
+      "PalomarSolutions/TriangleInflationClassification.lean",
+      "TriangleInflation/ConvexOrder.lean",
+      "TriangleInflation/Defect.lean",
+      "TriangleInflation/DefectLaw.lean",
+      "TriangleInflation/Defs.lean",
+      "TriangleInflation/Exponent.lean",
+      "TriangleInflation/Fan.lean",
+      "TriangleInflation/Finner.lean",
+      "TriangleInflation/FinnerMeasure.lean",
+      "TriangleInflation/Graph/Defs.lean",
+      "TriangleInflation/Main.lean",
+      "TriangleInflation/Rate.lean",
+      "formalization.yaml",
+      "scripts/gen_challenge.py"
+    ],
+    "note": "Concurrent changes prevent a claim that the entire protected working tree is byte-identical. This review did not edit those files or validate the concurrent changes."
+  },
+  "palomar_citation": "Published version 1 cited; new-version submission reported running by author. No change to that submission.",
+  "outputs_sha256": {
+    "paper/main.pdf": "4b5bb2161bcb8e4ea18b567771060652a945072915651c8f22ff689451560872",
+    "paper/release/arxiv-src/main.pdf": "e3e61b934fbf64ef69ef8c1538715fd5f40837dcaa788c0fb2a5524c9ba7dc65",
+    "paper/release/arxiv-src.tar.gz": "272bdbcb3b7561295c0828858049e470c6999a52f6e36124842bafb05748ac4a"
+  },
+  "not_performed": [
+    "Independent specialist peer review",
+    "arXiv upload",
+    "Palomar submission or registration",
+    "git commit or push"
+  ]
+}

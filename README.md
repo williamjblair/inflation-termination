@@ -5,15 +5,15 @@ Termination and Quantitative Obstructions* (William Blair, 2026). It contains th
 exact rational certificates behind its finite computations, and a Lean 4 formalization of its
 main theorems.
 
-- **Paper:** [`paper/main.pdf`](paper/main.pdf) (53 pages) with LaTeX sources under
+- **Paper:** [`paper/main.pdf`](paper/main.pdf) (52 pages) with LaTeX sources under
   [`paper/`](paper/). Not yet posted to arXiv.
 - **Lean:** 113 audited declarations, each depending only on `propext`,
   `Classical.choice` and `Quot.sound`. Lean `v4.33.0`, Mathlib
   `db584cd6d46c92f209a44c0f1c829460d327499d`.
 - **Palomar:** the classification theorem is registered as
   [`PALOMAR-2026-09-14-000009`](https://palomar-registry.org/entry.html?id=PALOMAR-2026-09-14-000009&version=1).
-  Version 1 is from commit `93cc53f1`; version 2, from the commit that cites it, is under
-  review. The registered Lean statement is the same in both.
+  Version 1 is from commit `93cc53f1`. The author reports that a new-version submission is
+  running; the manuscript cites the published version until the new record is registered.
 
 ## Results
 
@@ -94,7 +94,7 @@ has drifted from the library definitions, and on any axiom outside `propext`,
 `Graph/FivePathWitness.lean` is the slow module, about two minutes for one 32-point
 computation.
 
-**Certificates.** From the repository root, with Python 3 and the standard library only:
+**Certificates.** From the repository root with Python 3 (the replay runner also uses `mpmath`):
 
 ```bash
 python3 -B artifact/verifiers/run_replay.py

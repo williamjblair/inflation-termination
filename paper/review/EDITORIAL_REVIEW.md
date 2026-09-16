@@ -1,3 +1,9 @@
+# Final submission review — 16 September 2026
+
+The current manuscript has **52 pages** after the final prose, mathematical-exposition and layout pass. See [SUBMISSION_FINALIZATION_2026-09-16.md](SUBMISSION_FINALIZATION_2026-09-16.md) for the current changes and checks. Reports below describe historical snapshots.
+
+---
+
 # Additions of 16 September 2026
 
 Four audited results were added after this editorial report: the sharper Theorem B constants (Lemma 4.2, Theorems 4.3 and 4.4, Corollaries 4.6, 4.7 and 4.9), Proposition 4.12 on order conversion along the parity direction, the explicit rejecting orders of Section 6.3, and the hypergraph scenarios of the new Section 7. The paper has 62 pages. Details, statuses, deviations from the reference integration and the locations of the audits are in `ADDITIONS-2026-09-16.md`. The report below describes the 15 September snapshot.

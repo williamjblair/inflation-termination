@@ -1,6 +1,6 @@
 \section{Certificate formats and coverage}\label{app:certificates}
 
-The files below are under \texttt{artifact/certificates/} in the repository \repo, with the checkers under \texttt{artifact/verifiers/} and the manifest of SHA-256 identities at \texttt{artifact/MANIFEST.json}.
+The files below are under \texttt{artifact/certificates/} in the repository \repo, with checkers in the certificate directories and under \texttt{artifact/verifiers/}, and the manifest of SHA-256 identities at \texttt{artifact/MANIFEST.json}.
 
 \paragraph{Structural certificate at order $t$.}
 A JSON object with the root law (kind, $\eps_t=1/(2t^3)$ and $1-\eps_t$ as exact fractions), the value $r_t$, the list of $t^3$ roots $D_{ijk}$, for each of the $3t^2$ outputs the list of roots on its line, the eight target atoms of $P_t$ as exact fractions, and the claimed counts of diagonal equations ($8^t$) and symmetry generators ($3(t-1)$). The checker recomputes every claimed quantity from the definitions and compares exactly. It computes the copied-triangle marginals by enumerating the $2^{3t-2}$ assignments of the roots on the three lines through a cell, so $t=3$, with $2^7$ assignments per triangle and $8^3=512$ diagonal equations, takes negligible time.
@@ -17,7 +17,19 @@ An exact Farkas certificate that the rational law $\tfrac12(\delta_{000}+\delta_
 \paragraph{Fan certificates.}
 A JSON list of records, one per $k$ in the list $4$, $5$, $6$, $8$, $10$, $16$, $32$, $64$, $128$, $256$, $512$, $1024$, $4096$, $65536$, with $\eps=k^{-3}$, $\sigma=1/(2k^2)$, the eight exact atoms of $P_\eps$, the values $m$, $z$ and the Finner gap $z^2-m^3$, the passing order $\lfloor1+k/2\rfloor$ with the exact Bernoulli certificate $(t-1)\eps\le\sigma$, the first order at which $v_t=tz-m-\binom t2m^2$ is positive together with the exact rational value of $v_t$ there, and the first order at which the second-moment inequality fails. An all-order certificate records the identity $1+\tfrac12S(S-1)-S=\tfrac12(S-1)(S-2)$ and its nonnegativity on integers by cases, so that \eqref{eq:fan-pointwise} needs no order-by-order enumeration; the checker still enumerates all assignments of the fan for small $t$ and all count orbits for larger $t$, and verifies that the index permutations used in \eqref{eq:fan-cross} extend to permutations of $[t]$. Negative controls perturb the atoms, the parameters and the claimed orders, and the checker must reject each of them.
 
-\begin{table}[htbp]
+
+
+\paragraph{Threshold extension.}
+The directory \texttt{exponent/odd/} holds certificates in the format of the parity-threshold files for the triangle at orders $11$, $12$ and $13$ in both hierarchies, and for the square at order $11$ in the ancestral-independence hierarchy, with brackets for two intermediate degree systems of the triangle at orders four and six. Its checker reuses the threshold checker record by record, binds each file to exactly these records, and adds exact checks of the degree-set identities behind Proposition~\ref{prop:parityconversion} for orders up to $16$, the containment $D_{\mathrm{AI}}(s)\subseteq D_{\mathrm{NW}}(t)$ for $s,t\le12$, and the bracket comparisons quoted after that proposition.
+
+\paragraph{Cubic certificates.}
+The checker in \texttt{beyond-finner/} is exact and self-contained. It evaluates the certificates of Remark~\ref{rem:cubicorder} on the exact laws of random finite deterministic models, a falsification test rather than a proof, and checks the algebraic identities behind its bound $\mathcal F(P)\ge-\Sigma(P)/n$ by enumeration at small $n$.
+
+\subsection{Finite coverage}
+
+The fan bounds determine the first rejecting orders of $P_\eps$ exactly at $\eps=k^{-3}$ for $k=4,6,8,10,16$: they are $4,5,6,7,10$. At $k=32,128,1024,65536$, the passing construction gives lower bounds $18,66,514,32770$, while the fan gives upper bounds $19,70,551,35122$.
+
+\begin{table}[!htbp]
 \centering\small
 \renewcommand{\arraystretch}{1.12}
 \begin{tabular}{@{}>{\raggedright\arraybackslash}p{.21\linewidth}>{\raggedright\arraybackslash}p{.23\linewidth}>{\raggedright\arraybackslash}p{.48\linewidth}@{}}
@@ -35,13 +47,3 @@ Cubic certificates & Sampled compatible laws & Certificate signs on exact model 
 \end{tabular}
 \caption{Finite certificate coverage. Positivity of an auxiliary density does not imply full support of its observed pushforward. The unflipped cycle witnesses have parity constraints.}\label{tab:verification}
 \end{table}
-
-\paragraph{Threshold extension.}
-The directory \texttt{exponent/odd/} holds certificates in the format of the parity-threshold files for the triangle at orders $11$, $12$ and $13$ in both hierarchies, and for the square at order $11$ in the ancestral-independence hierarchy, with brackets for two intermediate degree systems of the triangle at orders four and six. Its checker reuses the threshold checker record by record, binds each file to exactly these records, and adds exact checks of the degree-set identities behind Proposition~\ref{prop:parityconversion} for orders up to $16$, the containment $D_{\mathrm{AI}}(s)\subseteq D_{\mathrm{NW}}(t)$ for $s,t\le12$, and the bracket comparisons quoted after that proposition.
-
-\paragraph{Cubic certificates.}
-The checker in \texttt{beyond-finner/} is exact and self-contained. It evaluates the certificates of Remark~\ref{rem:cubicorder} on the exact laws of random finite deterministic models, a falsification test rather than a proof, and checks the algebraic identities behind its bound $\mathcal F(P)\ge-\Sigma(P)/n$ by enumeration at small $n$.
-
-\subsection{Finite coverage}
-
-The fan bounds determine the first rejecting orders of $P_\eps$ exactly at $\eps=k^{-3}$ for $k=4,6,8,10,16$: they are $4,5,6,7,10$. At $k=32,128,1024,65536$, the passing construction gives lower bounds $18,66,514,32770$, while the fan gives upper bounds $19,70,551,35122$.

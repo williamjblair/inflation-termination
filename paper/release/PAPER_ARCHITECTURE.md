@@ -1,3 +1,9 @@
+# Current manuscript — 16 September 2026
+
+The final manuscript retains eight main sections and four appendices, with 37 pages of main text (pages 2–38) and 52 pages overall. All 59 proof environments and 180 labels from the latest pre-review revision are retained. See [the finalization report](../review/SUBMISSION_FINALIZATION_2026-09-16.md) for the current review. The architecture records below are historical.
+
+---
+
 # Revision of 16 September 2026 (after the referee audit)
 
 The paper again has eight main sections. Section 7 of the additions below (sources shared by three or more observers) was removed and becomes a companion paper; Subsection 6.3 was cut to a single remark on cubic parity certificates. The structure is:

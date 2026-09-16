@@ -124,5 +124,7 @@
       "paper/release/arxiv-src/main.pdf": "87af6e7f7f43e8a359478deb5263a6d8ab626a9d92aaff67be81f20cb68d14cf",
       "paper/release/arxiv-src.tar.gz": "352b7a20948bde8eb932aef3e5c0f1fdc846839f717acb112dbdb0c5ae089034"
     }
-  }
+  },
+  "current_submission_review": "submission-finalization-2026-09-16.json",
+  "legacy_fields_note": "Other fields preserve earlier validation snapshots. Use current_submission_review for the final manuscript and package as of 16 September 2026."
 }

@@ -1,6 +1,6 @@
 \section{Quantitative convergence on the triangle and square}\label{sec:cyclequant}
 
-With the classification of Section~\ref{sec:classification} proved, we measure the gap between finite-order feasibility and compatibility on the triangle and square. The parity witness of Section~\ref{sec:cycles} gives an initial lower bound; a modification of its unconstrained Fourier coefficients improves it to $\Omega(1/t)$. A convex-order argument gives the upper bound. The last two subsections compare the hierarchy orders and the finite thresholds.
+We bound the distance from finite-order feasible laws to compatibility on the triangle and square. Modifying the unconstrained Fourier coefficients of the parity witness improves the lower bound from $\Omega(t^{-2})$ to $\Omega(t^{-1})$. A convex-order argument gives an $O(t^{-1/2})$ upper bound. We then compare the hierarchy orders and certify finite threshold gaps.
 
 \subsection{A corrected density and a linear lower bound}\label{sec:corrected}
 
@@ -22,7 +22,11 @@ so $|1-\prod_ge^{i\theta_g}|\le\sum_g|1-e^{i\theta_g}|$. Cauchy--Schwarz gives $
 \begin{lemma}[Corrected density]\label{lem:corrected}
 Fix $m\in\{3,4\}$ and $t\ge1$, and let $q>0$ satisfy
 \begin{equation}\label{eq:Wrange}
-R:=(1+q)^{t/2}\ \le\ \frac{m^2}{m^2-1},\qquad\text{that is}\qquad q\le\Bigl(\tfrac98\Bigr)^{2/t}-1\ \ (m=3),\qquad q\le\Bigl(\tfrac{16}{15}\Bigr)^{2/t}-1\ \ (m=4).
+R:=(1+q)^{t/2}\le\frac{m^2}{m^2-1},\qquad\text{equivalently}\qquad
+q\le\begin{cases}
+(9/8)^{2/t}-1,&m=3,\\
+(16/15)^{2/t}-1,&m=4.
+\end{cases}
 \end{equation}
 Set $c=mR^{m-1}$. On $m$ families of $t$ signs $s_{g,i}$ put
 \begin{equation}\label{eq:Wdensity}
@@ -130,7 +134,7 @@ The left side does not depend on $z$; averaging over $z$ finishes the proof.
 \end{proof}
 
 \begin{corollary}[Survivors on the square]\label{cor:squaredistance}
-$d_{\TV}(P_q,\Csq)\ge q/6$ for $0<q\le3-2\sqrt2$. With flip probability $\eta<1/2$ applied to each of the four bits and to every copied observation, $\widetilde P_q=T_\eta^{\otimes4}P_q$ is strictly positive, lies in $\IAI_t(\square)=\Iexp_t(\square)$ whenever $P_q$ does, and satisfies $d_{\TV}(\widetilde P_q,\Csq)\ge q/6-4\eta$. At $\underline q_t=(16/15)^{2/t}-1$,
+$d_{\TV}(P_q,\Csq)\ge q/6$ for $0<q\le3-2\sqrt2$. With flip probability $0<\eta<1/2$ applied to each of the four bits and to every copied observation, $\widetilde P_q=T_\eta^{\otimes4}P_q$ is strictly positive, lies in $\IAI_t(\square)=\Iexp_t(\square)$ whenever $P_q$ does, and satisfies $d_{\TV}(\widetilde P_q,\Csq)\ge q/6-4\eta$. At $\underline q_t=(16/15)^{2/t}-1$,
 \[
 H^{\mathrm{exp}}_t(\square)=H^{\mathrm{AI}}_t(\square)\ \ge\ \frac{\underline q_t}6\ >\ \frac1{47\,t},
 \]
@@ -142,7 +146,7 @@ If $R\in\Csq$ and $d=d_{\TV}(P_q,R)$, each of $\E_RA$, $\E_RB$, $\E_R[AB]$ is at
 \end{proof}
 
 \begin{corollary}[Survivors on the triangle]\label{cor:triangledistance}
-$d_{\TV}(\Pi(-q,-q,-q),\Ctri)\ge q/10$ for $0<q\le1/3$. With flip probability $\eta<1/2$ on each of the three bits and on every copied observation, the noisy target is strictly positive, lies in $\IAI_t(\triangle)=\Iexp_t(\triangle)$ whenever the target does, and is at distance at least $q/10-3\eta$ from $\Ctri$. At $\underline q_t=(9/8)^{2/t}-1$,
+$d_{\TV}(\Pi(-q,-q,-q),\Ctri)\ge q/10$ for $0<q\le1/3$. With flip probability $0<\eta<1/2$ on each of the three bits and on every copied observation, the noisy target is strictly positive, lies in $\IAI_t(\triangle)=\Iexp_t(\triangle)$ whenever the target does, and is at distance at least $q/10-3\eta$ from $\Ctri$. At $\underline q_t=(9/8)^{2/t}-1$,
 \[
 H^{\mathrm{exp}}_t(\triangle)=H^{\mathrm{AI}}_t(\triangle)\ \ge\ \frac{\underline q_t}{10}\ >\ \frac1{43\,t},
 \]
@@ -247,6 +251,6 @@ Let $s\ge1$ and $t\ge\max\{s,\lfloor3s/2\rfloor\}$. Then $q^{\mathrm{NW}}_t\le q
 
 The proof is in Appendix~\ref{app:parityconversion}. At $s=3$ it gives $q^{\mathrm{NW}}_4\le q^{\mathrm{AI}}_3$, and at these two orders the certified brackets agree, the exception in Proposition~\ref{prop:paritythresholds}(iii).
 
-Table~\ref{tab:thresholds} shows two further regularities that our theorems do not explain. The products $tq^H_t$ increase towards constants near $0.4$ on the square and $0.9$ on the triangle, about three and four times the constants $2\ln(16/15)\approx0.129$ and $2\ln(9/8)\approx0.236$ of Theorems~\ref{thm:squarelinear} and~\ref{thm:trianglelinear}. Exact certificates extend the odd and even pattern of Proposition~\ref{prop:paritythresholds} on the triangle: $q^{\mathrm{AI}}_t$ and $q^{\mathrm{NW}}_t$ have identical certified brackets at $t=11$ and $t=13$, with an ancestral-independence dual supported on Navascu\'es--Wolfe keys only, and $q^{\mathrm{AI}}_{12}<q^{\mathrm{NW}}_{12}$. As in Proposition~\ref{prop:paritythresholds}(ii), identical brackets do not establish equal thresholds. Neither pattern is proved beyond the certified orders.
+At order ten, Table~\ref{tab:thresholds} gives $tq_t^H\approx0.385$ (AI) and $0.401$ (NW) on the square, and $0.833$ (AI) and $0.870$ (NW) on the triangle. These exceed the asymptotic constants $2\ln(16/15)\approx0.129$ and $2\ln(9/8)\approx0.236$ in our all-order feasibility guarantees. The finite brackets do not determine whether $tq_t^H$ converges. Exact certificates extend the odd and even pattern of Proposition~\ref{prop:paritythresholds} on the triangle: $q^{\mathrm{AI}}_t$ and $q^{\mathrm{NW}}_t$ have identical certified brackets at $t=11$ and $t=13$, with an ancestral-independence dual supported on Navascu\'es--Wolfe keys only, and $q^{\mathrm{AI}}_{12}<q^{\mathrm{NW}}_{12}$. As in Proposition~\ref{prop:paritythresholds}(ii), identical brackets do not establish equal thresholds. The odd/even pattern remains open beyond the certified orders.
 
 \input{figures/thresholds}

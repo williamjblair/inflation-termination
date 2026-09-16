@@ -1,8 +1,8 @@
-\section{Rejecting orders from distance, parity and input size}\label{sec:input}
+\section{Rejecting orders from distance, input size and parity}\label{sec:input}
 
 \subsection{Distance-promised rejecting orders}\label{sec:general}
 
-By Theorem~\ref{thm:main}, no order fixed in advance suffices for the scenario. For a single instance, Theorem~\ref{thm:convexorder} bounds it under a distance promise, Proposition~\ref{prop:bits} bounds it in the input size, and Remark~\ref{rem:cubicorder} bounds it in closed form for laws on the square and the triangle that violate a cubic parity certificate.
+The required order depends on the input law. We give bounds in terms of its distance from compatibility, its rational encoding length and its violation of a cubic parity certificate.
 
 \begin{corollary}[Distance-promised rejecting order]\label{prop:promised}
 Let $G$ be a correlation scenario with $K$ joint outcomes, using the private-source convention of Section~\ref{sec:convexorder}, and let $\delta_2=d_2(P,\mathcal C_G)$ and $\delta=d_{\TV}(P,\mathcal C_G)$. If $P\in\INW_n(G)$ then
@@ -32,14 +32,28 @@ In sign notation, every $R\in\Csq$ and every $R'\in\Ctri$ satisfy
 \E_RA\,\E_RB\,\E_R[AB]+8\,R(ABCD=-1)\ \ge\ 0,\qquad
 \E_{R'}A\,\E_{R'}B\,\E_{R'}C+10\,R'(ABC=-1)\ \ge\ 0 .
 \]
-Replacing $C$ by $-C$ on the square, and $A$ by $-A$ on the triangle, preserves the compatible sets and gives the companion certificates $\E_RA\,\E_RB\,\E_R[AB]+8\,R(ABCD=1)\ge0$ and $-\E_{R'}A\,\E_{R'}B\,\E_{R'}C+10\,R'(ABC=1)\ge0$. The proof uses $|xyz-x'y'z'|\le|x-x'|+|y-y'|+|z-z'|$ on $[-1,1]^3$. On the square, fix $z$ in the proof of Lemma~\ref{lem:maxmoment}: the moments $\E A$, $\E B$, $\E[AB]$ differ from those of the comparison pair $(A'_z,B'_z)$ by at most $2\Pr(A\ne A'_z)$, $2\Pr(B\ne B'_z)$ and $2e_z$, in total $4e_z\le8\delta_z$, and the comparison product $(\E f_z)^2(\E g_z)^2(\E h_z)^2$ is nonnegative; averaging over $z$ gives the constant $8$. On the triangle, the proof of Lemma~\ref{lem:quantrigidity} bounds the error of $\E A$ against $\sigma\tau$ by $1-W$ and the errors of $\E B$ and $\E C$ against $\sigma\nu$ and $\tau\nu$ by $4(1-W)$ together, and $(\sigma\tau\nu)^2\ge0$; the total $5(1-W)$ equals $10\,R'(ABC=-1)$. The certificates add the errors of the parity-rigidity argument~\cite{BoreiriEtAl2023,BoreiriEtAl2025} instead of taking their maximum.
+Replacing $C$ by $-C$ on the square, and $A$ by $-A$ on the triangle, preserves the compatible sets and gives the companion certificates $\E_RA\,\E_RB\,\E_R[AB]+8\,R(ABCD=1)\ge0$ and $-\E_{R'}A\,\E_{R'}B\,\E_{R'}C+10\,R'(ABC=1)\ge0$.
+
+To prove the certificates, use $|xyz-x'y'z'|\le|x-x'|+|y-y'|+|z-z'|$ on $[-1,1]^3$. On the square, fix $z$ in the proof of Lemma~\ref{lem:maxmoment}: the moments $\E A$, $\E B$, $\E[AB]$ differ from those of the comparison pair $(A'_z,B'_z)$ by at most $2\Pr(A\ne A'_z)$, $2\Pr(B\ne B'_z)$ and $2e_z$, in total $4e_z\le8\delta_z$, and the comparison product $(\E f_z)^2(\E g_z)^2(\E h_z)^2$ is nonnegative; averaging over $z$ gives the constant $8$. On the triangle, the proof of Lemma~\ref{lem:quantrigidity} bounds the error of $\E A$ against $\sigma\tau$ by $1-W$ and the errors of $\E B$ and $\E C$ against $\sigma\nu$ and $\tau\nu$ by $4(1-W)$ together, and $(\sigma\tau\nu)^2\ge0$; the total $5(1-W)$ equals $10\,R'(ABC=-1)$. The certificates add the errors of the parity-rigidity argument~\cite{BoreiriEtAl2023,BoreiriEtAl2025} instead of taking their maximum.
 
 Let $\mathcal F$ be one of these four left-hand sides, read as a function of the law, let $l_1,l_2,l_3$ be the three moments in its product and $\Sigma(P)=3-l_1^2-l_2^2-l_3^2\le3$. If $P\in\INW_n(\square)$, respectively $P\in\INW_n(\triangle)$, then
 \[
 \mathcal F(P)\ \ge\ -\frac{\Sigma(P)}n,\qquad\text{so}\qquad
 \tmin^H(P)\ \le\ \Bigl\lfloor\frac{\Sigma(P)}{-\mathcal F(P)}\Bigr\rfloor+1\ \le\ \Bigl\lfloor\frac3{-\mathcal F(P)}\Bigr\rfloor+1
 \]
-for $H\in\{\mathrm{NW},\mathrm{AI},\mathrm{exp}\}$ whenever $\mathcal F(P)<0$. This is a consequence of Theorem~\ref{thm:convexorder}, which applies without its private-source convention because every observation reads a source. Its compatible laws $q_\omega$ satisfy $\E_\Gamma q_\omega=P$, since its proof gives $\E[\widehat P\mid\omega]=q_\omega$, and \eqref{eq:convexorder} with the convex function $\mu\mapsto(\E_\mu\chi-\E_P\chi)^2$ gives $\E_\Gamma h^2\le(1-(\E_P\chi)^2)/n$ for the deviation $h=\E_{q_\omega}\chi-\E_P\chi$ of each of the three sign functions $\chi$. Expanding the product, $\mathcal F(q_\omega)-\mathcal F(P)$ is a linear function of $q_\omega-P$, whose mean vanishes, plus a remainder bounded by $|h_1h_2|+|h_1h_3|+|h_2h_3|\le h_1^2+h_2^2+h_3^2$. Averaging $\mathcal F(q_\omega)\ge0$ gives the bound, and \eqref{eq:nested} transfers it to the other two hierarchies.
+for $H\in\{\mathrm{NW},\mathrm{AI},\mathrm{exp}\}$ whenever $\mathcal F(P)<0$.
+To obtain the order bound, use the compatible laws $q_\omega$ of Theorem~\ref{thm:convexorder}. They satisfy $\E_\Gamma q_\omega=P$. For the three sign functions $\chi_i$ defining the moments $l_i=\E_P\chi_i$, put $h_i=\E_{q_\omega}\chi_i-l_i$. Applying \eqref{eq:convexorder} to $\mu\mapsto(\E_\mu\chi_i-l_i)^2$ gives
+\[
+\E_\Gamma h_i=0,\qquad \E_\Gamma h_i^2\le\frac{1-l_i^2}{n}.
+\]
+The product $g(l)=\pm l_1l_2l_3$ has zero diagonal second derivatives and mixed second derivatives of absolute value at most one on $[-1,1]^3$. Taylor's formula along the segment from $l$ to $l+h$ therefore gives
+\[
+\bigl|g(l+h)-g(l)-\nabla g(l)\cdot h\bigr|
+\le\sum_{i<j}|h_ih_j|\le\sum_i h_i^2.
+\]
+The parity-error term of $\mathcal F$ is linear in the law, so its mean is unchanged. Averaging $\mathcal F(q_\omega)\ge0$ now yields $0\le\E_\Gamma\mathcal F(q_\omega)\le\mathcal F(P)+\Sigma(P)/n$. This proves the bound for NW, and \eqref{eq:nested} transfers it to AI and exp.
 
-That a polynomial inequality valid on the compatible set holds on $\INW_n$ up to an error of order $1/n$ is Theorem~1 of Navascués and Wolfe with their equation~(34), and their equation~(A5) makes the constant explicit~\cite{NW2020}; that constant depends on the number of sources, while $\Sigma(P)\le3$ does not. Cubic triangle inequalities of the same form, in $\E A$, $\E B$, $\E C$ and $\E[ABC]$, appear among the order-two inequalities of Wolfe, Spekkens and Fritz~\cite[Section IV C, eqs.~(51)--(54) of arXiv v5]{WSF2019}; the certificates above are not among them. A certificate can reject a law that satisfies the Finner inequality \eqref{eq:finner} at every atom. The W law, uniform on the three outcomes with exactly one $1$, has $-\E A\,\E B\,\E C+10\,P(ABC=1)=-1/27$ and $\Sigma=8/3$, so the bound gives $\tmin^H\le73$. Its incompatibility with the triangle is Example~2 of~\cite{WSF2019}, and that it satisfies the Finner inequality is noted in~\cite[footnote 4]{Renou2019}. Navascués and Wolfe report that their hierarchy rejects it at order three~\cite[footnote 2]{NW2020}, so the order above is far from tight for this law.
+Navascués and Wolfe prove that a polynomial inequality valid on the compatible set holds on $\INW_n$ up to an error of order $1/n$~\cite[Theorem 1, eqs.~(34) and (A5)]{NW2020}. Their explicit constant depends on the number of sources; the bound $\Sigma(P)\le3$ here is independent of it. Cubic triangle inequalities of the same form, in $\E A$, $\E B$, $\E C$ and $\E[ABC]$, appear among the order-two inequalities of Wolfe, Spekkens and Fritz~\cite[Section IV C, eqs.~(51)--(54) of arXiv v5]{WSF2019}; the certificates above are not among them. A certificate can reject a law that satisfies the Finner inequality \eqref{eq:finner} at every atom.
+
+For example, the W law, uniform on the three outcomes with exactly one $1$, has $-\E A\,\E B\,\E C+10\,P(ABC=1)=-1/27$ and $\Sigma=8/3$, so the bound gives $\tmin^H\le73$. Its incompatibility with the triangle is Example~2 of~\cite{WSF2019}, and that it satisfies the Finner inequality is noted in~\cite[footnote 4]{Renou2019}. Navascués and Wolfe report that their hierarchy rejects it at order three~\cite[footnote 2]{NW2020}, so the order above is far from tight for this law.
 \end{remark}

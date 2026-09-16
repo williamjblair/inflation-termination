@@ -62,7 +62,7 @@
 \vspace{-1em}
 
 \begin{abstract}
-The classical inflation hierarchy converges to the set of distributions compatible with a correlation scenario, but convergence need not occur at a finite order. We classify finite termination for pair-source scenarios with binary observations: some finite order characterizes compatibility if and only if every connected component of the source graph is a tree of diameter at most three. In that case order two suffices. The classification holds for the Navascués--Wolfe hierarchy and its ancestral-independence and recursively expressible strengthenings; the latter two coincide on pair-source scenarios. The proof reconstructs a model on each double-star and constructs incompatible, strictly positive rational laws accepted at every prescribed order on cycles and the five-observer path. For the triangle and square, the largest total-variation distance of an accepted law from compatibility lies between $c/t$ and $C/\sqrt t$. The upper bound follows from a convex-order argument and depends only on the number of observed outcomes. A separate triangle construction gives a first rejecting order of $\Theta(d^{-1/3})$ along an explicit family at distance $d$ from compatibility, and yields a worst required order of $2^{\Theta(B)}$ for rational inputs of $B$ bits. A triangle or square law that violates one of two cubic parity certificates by $v$ is rejected at order $\lfloor3/v\rfloor+1$ by all three hierarchies. Exact certificates accompany the finite computations. The classification equivalence for binary observations and finite latent alphabets, together with several triangle results, is formalized in Lean.
+The classical inflation hierarchy converges to the set of distributions compatible with a correlation scenario. We classify when convergence occurs at a finite order for pair-source scenarios with binary observations: a finite order characterizes compatibility if and only if every connected component of the source graph is a tree of diameter at most three. Order two then suffices. The classification holds for the Navascués--Wolfe hierarchy and its ancestral-independence and recursively expressible strengthenings; the latter two coincide on pair-source scenarios. On every other graph, each prescribed order accepts an incompatible, strictly positive rational law. For the triangle and square, the largest total-variation distance from compatibility among laws accepted at order $t$ lies between $c/t$ and $C/\sqrt t$. Corrected Fourier densities give the lower bound; a convex-order argument gives an upper bound that depends only on the number of observed outcomes. We also prove order-conversion bounds and certify finite-order separations between the hierarchies. Along a separate triangle family at distance $d$ from compatibility, the first rejecting order is $\Theta(d^{-1/3})$. Over rational binary-triangle inputs of at most $B$ bits, the worst required order is $2^{\Theta(B)}$. Exact rational certificates accompany the finite computations. The classification equivalence for binary observations and finite latent alphabets, together with several triangle results, is formalized in Lean.
 \end{abstract}
 
 \begingroup
@@ -78,14 +78,14 @@ The classical inflation hierarchy converges to the set of distributions compatib
 
 A correlation scenario has independent latent sources and observed variables that respond to the sources reaching them. Its compatible set need not be convex. Finite latent-cardinality bounds make this set semialgebraic, but no explicit characterization is known even for the classical triangle with binary observations \cite{Fritz2012,RGW2018}. Inflation tests compatibility by copying each source $t$ times and asking for a joint law on the copied observations with prescribed marginals \cite{WSF2019}. Navascués and Wolfe proved asymptotic completeness of their hierarchy and asked whether, for a fixed scenario and fixed observed alphabets, some finite order already decides compatibility \cite{NW2020}. They identified the triangle as a possible counterexample.
 
-We answer this question for pair-source scenarios, in which each source reaches exactly two observers. Such a scenario is a finite simple graph $G$: observers are vertices and sources are edges. A companion paper treats scenarios with sources shared by three or more observers. We then study the order needed to reject incompatible laws near the compatible set.
+We answer this question for pair-source scenarios, in which each source reaches exactly two observers. Such a scenario is a finite simple graph $G$: observers are vertices and sources are edges. We then study the order needed to reject incompatible laws near the compatible set.
 
 \subsection{Main results}
 
 \paragraph{Termination classification.}
 For binary observations, a pair-source scenario has a finite characterizing order if and only if every connected component is a tree of diameter at most three, or \emph{double-star}. In that case order two suffices. Otherwise, for every prescribed order there is an incompatible, strictly positive rational law accepted at that order (Theorem~\ref{thm:classification}). This classification holds for the Navascués--Wolfe (NW), ancestral-independence (AI) and recursively expressible tests. The last two coincide on pair-source scenarios.
 
-The proof reconstructs a model on each double-star. Every other connected graph contains an induced cycle or a five-vertex path; explicit witnesses on these subgraphs extend to the ambient graph. Figure~\ref{fig:classification} shows the dividing line.
+The proof reconstructs a model on each double-star. Every other connected graph contains an induced cycle or a five-vertex path; explicit witnesses on these subgraphs extend to the ambient graph. Figure~\ref{fig:classification} summarizes the classification.
 
 \begin{figure}[!htbp]
 \centering
@@ -129,7 +129,7 @@ where $\Bern(r)(1)=r$. For $P_\eps=Q(\eps,1-\tfrac12\eps^{2/3})$, a fan inequali
 \tmin^H(P_\eps)=\Theta(\eps^{-1/3})
 =\Theta\bigl(d_{\TV}(P_\eps,\Ctri)^{-1/3}\bigr).
 \]
-We compute the leading distance constant and bound the rejecting-order constants (Proposition~\ref{prop:family}, Theorem~\ref{thm:distance}). This exponent concerns this family alone; the worst-case bounds above cover all accepted laws. For rational binary-triangle inputs of at most $B$ bits, the largest first rejecting order is $2^{\Theta(B)}$ (Proposition~\ref{prop:bits}). A promised distance $\delta>0$ gives the bound $\lfloor(K-1)/(4\delta^2)\rfloor+1$ for any fixed correlation scenario (Corollary~\ref{prop:promised}). On the square and the triangle, a law that violates one of two cubic parity certificates by $v$ is rejected at order $\lfloor3/v\rfloor+1$ (Remark~\ref{rem:cubicorder}). The $1/n$ mechanism is that of Navascués and Wolfe~\cite[Theorem 1]{NW2020}; the constant here does not depend on the number of sources.
+We compute the leading distance constant and bound the rejecting-order constants (Proposition~\ref{prop:family}, Theorem~\ref{thm:distance}). This exponent concerns this family alone; the worst-case bounds above cover all accepted laws. For rational binary-triangle inputs of at most $B$ bits, the largest first rejecting order is $2^{\Theta(B)}$ (Proposition~\ref{prop:bits}). A promised distance $\delta>0$ gives the bound $\lfloor(K-1)/(4\delta^2)\rfloor+1$ for any fixed correlation scenario (Corollary~\ref{prop:promised}). On the square and the triangle, a law that violates one of two cubic parity certificates by $v$ is rejected at order $\lfloor3/v\rfloor+1$ (Remark~\ref{rem:cubicorder}). The $1/n$ error estimate follows the approach of Navascués and Wolfe~\cite[Theorem 1]{NW2020}; the constant here does not depend on the number of sources.
 
 \subsection{Relation to prior work}\label{sec:prior}
 
@@ -160,7 +160,7 @@ Let $G=(V,E)$ be a finite simple graph without isolated vertices. The associated
 \[
 O_v\sim\kappa_v\bigl(\cdot\mid(S_e)_{e\ni v}\bigr),
 \]
-conditionally independently across $v$ given the sources. Write $\Cscen{G}$ for the set of joint laws of $(O_v)_{v\in V}$ obtained in this way. Unless stated otherwise every $\mathcal O_v$ is $\{0,1\}$, and we call these the binary observations.
+conditionally independently across $v$ given the sources. Write $\Cscen{G}$ for the set of joint laws of $(O_v)_{v\in V}$ obtained in this way. Unless stated otherwise, every $\mathcal O_v$ is $\{0,1\}$; we then speak of binary observations.
 \end{definition}
 
 Each source is read by exactly the two endpoints of its edge. We write $C_m$ for the cycle on $m$ vertices, $P_n$ for the path on $n$ vertices, and $\Ctri=\Cscen{C_3}$.
@@ -396,7 +396,7 @@ P_H\in\Iexp_t(H)\setminus\Cscen{H}.
 \]
 Let $P=P_H\otimes\Bern(1/2)^{\otimes(V\setminus V(H))}$. By Lemma~\ref{lem:transport}(ii), $P\in\Iexp_t(G)$, and by Lemma~\ref{lem:transport}(iii), $P\notin\Cscen{G}$. It is strictly positive and rational because $P_H$ is. By Proposition~\ref{prop:gsound} the same law lies in $\IAI_t(G)$ and in $\INW_t(G)$, so none of the three tests equals $\Cscen{G}$ at order $t$. As $t$ was arbitrary, (a), (b) and (c) all fail.
 
-This proves the equivalence and both quantitative assertions.
+This proves the equivalence, the order-two bound and the witness assertion.
 \end{proof}
 
 For $m=3$ the witness of Theorem~\ref{thm:cycle} is a second nonterminating family for the triangle, alongside the defect construction of Theorem~\ref{thm:main}.
@@ -410,7 +410,7 @@ the leaves being taken with respect to a choice of central edge in each componen
 \end{remark}
 
 \begin{remark}[Scenarios that are not pair-source]\label{rem:hypergraph}
-Let three observers read one common source. That source can carry a sample of the whole observed triple, so every law on the three outcomes is compatible~\cite[Proposition 3.7]{Fritz2012} and the order-one test characterizes the compatible set. The observed adjacency graph of this scenario is the triangle, which does not terminate at any order. Once a source may be read by three or more observers, the adjacency graph alone does not decide termination. A companion paper treats such scenarios.
+Let three observers read one common source. That source can carry a sample of the whole observed triple, so every law on the three outcomes is compatible~\cite[Proposition 3.7]{Fritz2012} and the order-one test characterizes the compatible set. Its observer adjacency graph is the same as that of the pair-source triangle, whose hierarchy does not terminate. Thus the adjacency graph alone does not decide termination when a source may be read by three or more observers.
 \end{remark}
 
 \subsection{Finite reconstruction on double-stars}\label{sec:doublestar}
@@ -545,7 +545,7 @@ A star is the case $q=0$, with $c$ one of its leaves. There the bound of Theorem
 
 \subsection{Cycles}\label{sec:cycles}
 
-Section~\ref{sec:pairsource} states the three finite tests for an arbitrary pair-source scenario. For every cycle and every order we construct a strictly positive law that the strongest of them accepts and that no model produces, with a quantitative separation from compatibility.
+For every cycle and every order, we construct a strictly positive law that passes all three tests and has positive distance from compatibility.
 
 Throughout, the $m$-cycle $C_m$, $m\ge3$, has observed variables $O_0,\dots,O_{m-1}$ and sources $S_0,\dots,S_{m-1}$, indices read modulo $m$, with $O_v$ a child of $S_{v-1}$ and $S_v$; the copied observations of Definition~\ref{def:ginflation} are written $O_v^{ij}$, children of $S_{v-1,i}$ and $S_{v,j}$. The triangle is $C_3$, with $\Ctri=\Cscen{C_3}$, read as $A=O_0$, $B=O_1$, $C=O_2$ and $X=S_0$, $Y=S_1$, $Z=S_2$; the square is $C_4$, written $\square$, read as $A(X,W)$, $B(X,Y)$, $C(Y,Z)$, $D(Z,W)$ with $X=S_0$, $Y=S_1$, $Z=S_2$, $W=S_3$.
 
@@ -608,7 +608,7 @@ For a set $F$ of copied observations let $\partial F$ denote the set of copied s
 \end{equation}
 
 \begin{lemma}[Boundaries of prescribed characters]\label{lem:boundary}
-Let $F_1,\dots,F_r$ be pairwise ancestrally independent injectable sets of copied observations of $C_m$ and let $U_i\subseteq F_i$. Then each $\partial U_i$ has even cardinality and contains at most one copy of each source, so it is empty or meets at least two source families; the sets $\partial U_1,\dots,\partial U_r$ are pairwise disjoint; and $\partial(U_1\cup\dots\cup U_r)=\bigsqcup_i\partial U_i$, which again is empty or meets at least two source families. Moreover $\partial U_i$ is the image, under erasure of copy indices, of the boundary of the corresponding original observed set.
+Let $F_1,\dots,F_r$ be pairwise ancestrally independent injectable sets of copied observations of $C_m$ and let $U_i\subseteq F_i$. Then each $\partial U_i$ has even cardinality and contains at most one copy of each source, so it is empty or meets at least two source families; the sets $\partial U_1,\dots,\partial U_r$ are pairwise disjoint; and $\partial(U_1\cup\dots\cup U_r)=\bigsqcup_i\partial U_i$, which again is empty or meets at least two source families. Moreover, erasing copy indices maps $\partial U_i$ bijectively onto the boundary of the corresponding original observed set.
 \end{lemma}
 
 \begin{proof}
@@ -735,7 +735,7 @@ For each fixed cycle this gives a lower bound of order $t^{-2}$ on the worst-cas
 
 \subsection{The five-observer path}\label{sec:fivepath}
 
-A path is a tree, and trees carry no parity obstruction of the kind used in Section~\ref{sec:cycles}. The scenario, in the language of Section~\ref{sec:pairsource}, is
+For the five-observer path we use a bilocal inequality in place of the cycle parity obstruction. The scenario is
 \[
 A(X),\qquad B(X,L),\qquad C(L,R),\qquad D(R,Z),\qquad E(Z),
 \]
@@ -924,12 +924,12 @@ Along this family the first rejecting order grows without bound while the target
 \[
 P_{h_t}(x,b,c,d,z)\ \ge\ \frac{1-h_t}{64}\ \ge\ \frac{15}{1024}
 \]
-for every $t$ and every atom. Vanishing probabilities play no role in the obstruction. The theorem gives a distance lower bound of order $t^{-2}$ and leaves the distance asymptotics of this family undetermined. The general upper bound is $O(t^{-1/2})$. It remains open whether the path admits accepted laws at distance $\Omega(t^{-1})$, as the triangle and square do.
+for every $t$ and every atom. The theorem gives a distance lower bound of order $t^{-2}$ and leaves the distance asymptotics of this family undetermined. The general upper bound is $O(t^{-1/2})$. It remains open whether the path admits accepted laws at distance $\Omega(t^{-1})$, as the triangle and square do.
 
 
 \section{Quantitative convergence on the triangle and square}\label{sec:cyclequant}
 
-With the classification of Section~\ref{sec:classification} proved, we measure the gap between finite-order feasibility and compatibility on the triangle and square. The parity witness of Section~\ref{sec:cycles} gives an initial lower bound; a modification of its unconstrained Fourier coefficients improves it to $\Omega(1/t)$. A convex-order argument gives the upper bound. The last two subsections compare the hierarchy orders and the finite thresholds.
+We bound the distance from finite-order feasible laws to compatibility on the triangle and square. Modifying the unconstrained Fourier coefficients of the parity witness improves the lower bound from $\Omega(t^{-2})$ to $\Omega(t^{-1})$. A convex-order argument gives an $O(t^{-1/2})$ upper bound. We then compare the hierarchy orders and certify finite threshold gaps.
 
 \subsection{A corrected density and a linear lower bound}\label{sec:corrected}
 
@@ -951,7 +951,11 @@ so $|1-\prod_ge^{i\theta_g}|\le\sum_g|1-e^{i\theta_g}|$. Cauchy--Schwarz gives $
 \begin{lemma}[Corrected density]\label{lem:corrected}
 Fix $m\in\{3,4\}$ and $t\ge1$, and let $q>0$ satisfy
 \begin{equation}\label{eq:Wrange}
-R:=(1+q)^{t/2}\ \le\ \frac{m^2}{m^2-1},\qquad\text{that is}\qquad q\le\Bigl(\tfrac98\Bigr)^{2/t}-1\ \ (m=3),\qquad q\le\Bigl(\tfrac{16}{15}\Bigr)^{2/t}-1\ \ (m=4).
+R:=(1+q)^{t/2}\le\frac{m^2}{m^2-1},\qquad\text{equivalently}\qquad
+q\le\begin{cases}
+(9/8)^{2/t}-1,&m=3,\\
+(16/15)^{2/t}-1,&m=4.
+\end{cases}
 \end{equation}
 Set $c=mR^{m-1}$. On $m$ families of $t$ signs $s_{g,i}$ put
 \begin{equation}\label{eq:Wdensity}
@@ -1059,7 +1063,7 @@ The left side does not depend on $z$; averaging over $z$ finishes the proof.
 \end{proof}
 
 \begin{corollary}[Survivors on the square]\label{cor:squaredistance}
-$d_{\TV}(P_q,\Csq)\ge q/6$ for $0<q\le3-2\sqrt2$. With flip probability $\eta<1/2$ applied to each of the four bits and to every copied observation, $\widetilde P_q=T_\eta^{\otimes4}P_q$ is strictly positive, lies in $\IAI_t(\square)=\Iexp_t(\square)$ whenever $P_q$ does, and satisfies $d_{\TV}(\widetilde P_q,\Csq)\ge q/6-4\eta$. At $\underline q_t=(16/15)^{2/t}-1$,
+$d_{\TV}(P_q,\Csq)\ge q/6$ for $0<q\le3-2\sqrt2$. With flip probability $0<\eta<1/2$ applied to each of the four bits and to every copied observation, $\widetilde P_q=T_\eta^{\otimes4}P_q$ is strictly positive, lies in $\IAI_t(\square)=\Iexp_t(\square)$ whenever $P_q$ does, and satisfies $d_{\TV}(\widetilde P_q,\Csq)\ge q/6-4\eta$. At $\underline q_t=(16/15)^{2/t}-1$,
 \[
 H^{\mathrm{exp}}_t(\square)=H^{\mathrm{AI}}_t(\square)\ \ge\ \frac{\underline q_t}6\ >\ \frac1{47\,t},
 \]
@@ -1071,7 +1075,7 @@ If $R\in\Csq$ and $d=d_{\TV}(P_q,R)$, each of $\E_RA$, $\E_RB$, $\E_R[AB]$ is at
 \end{proof}
 
 \begin{corollary}[Survivors on the triangle]\label{cor:triangledistance}
-$d_{\TV}(\Pi(-q,-q,-q),\Ctri)\ge q/10$ for $0<q\le1/3$. With flip probability $\eta<1/2$ on each of the three bits and on every copied observation, the noisy target is strictly positive, lies in $\IAI_t(\triangle)=\Iexp_t(\triangle)$ whenever the target does, and is at distance at least $q/10-3\eta$ from $\Ctri$. At $\underline q_t=(9/8)^{2/t}-1$,
+$d_{\TV}(\Pi(-q,-q,-q),\Ctri)\ge q/10$ for $0<q\le1/3$. With flip probability $0<\eta<1/2$ on each of the three bits and on every copied observation, the noisy target is strictly positive, lies in $\IAI_t(\triangle)=\Iexp_t(\triangle)$ whenever the target does, and is at distance at least $q/10-3\eta$ from $\Ctri$. At $\underline q_t=(9/8)^{2/t}-1$,
 \[
 H^{\mathrm{exp}}_t(\triangle)=H^{\mathrm{AI}}_t(\triangle)\ \ge\ \frac{\underline q_t}{10}\ >\ \frac1{43\,t},
 \]
@@ -1188,7 +1192,7 @@ Let $s\ge1$ and $t\ge\max\{s,\lfloor3s/2\rfloor\}$. Then $q^{\mathrm{NW}}_t\le q
 
 The proof is in Appendix~\ref{app:parityconversion}. At $s=3$ it gives $q^{\mathrm{NW}}_4\le q^{\mathrm{AI}}_3$, and at these two orders the certified brackets agree, the exception in Proposition~\ref{prop:paritythresholds}(iii).
 
-Table~\ref{tab:thresholds} shows two further regularities that our theorems do not explain. The products $tq^H_t$ increase towards constants near $0.4$ on the square and $0.9$ on the triangle, about three and four times the constants $2\ln(16/15)\approx0.129$ and $2\ln(9/8)\approx0.236$ of Theorems~\ref{thm:squarelinear} and~\ref{thm:trianglelinear}. Exact certificates extend the odd and even pattern of Proposition~\ref{prop:paritythresholds} on the triangle: $q^{\mathrm{AI}}_t$ and $q^{\mathrm{NW}}_t$ have identical certified brackets at $t=11$ and $t=13$, with an ancestral-independence dual supported on Navascu\'es--Wolfe keys only, and $q^{\mathrm{AI}}_{12}<q^{\mathrm{NW}}_{12}$. As in Proposition~\ref{prop:paritythresholds}(ii), identical brackets do not establish equal thresholds. Neither pattern is proved beyond the certified orders.
+At order ten, Table~\ref{tab:thresholds} gives $tq_t^H\approx0.385$ (AI) and $0.401$ (NW) on the square, and $0.833$ (AI) and $0.870$ (NW) on the triangle. These exceed the asymptotic constants $2\ln(16/15)\approx0.129$ and $2\ln(9/8)\approx0.236$ in our all-order feasibility guarantees. The finite brackets do not determine whether $tq_t^H$ converges. Exact certificates extend the odd and even pattern of Proposition~\ref{prop:paritythresholds} on the triangle: $q^{\mathrm{AI}}_t$ and $q^{\mathrm{NW}}_t$ have identical certified brackets at $t=11$ and $t=13$, with an ancestral-independence dual supported on Navascu\'es--Wolfe keys only, and $q^{\mathrm{AI}}_{12}<q^{\mathrm{NW}}_{12}$. As in Proposition~\ref{prop:paritythresholds}(ii), identical brackets do not establish equal thresholds. The odd/even pattern remains open beyond the certified orders.
 
 \begin{figure}[!htbp]
 \centering
@@ -1544,11 +1548,11 @@ Since $1-c_0=7h$, the deviation at $000$ is $-d_0\eps+O(\eps^{4/3})$ and at each
 Corollary~\ref{cor:geometry} follows from Theorem~\ref{thm:distance} and Proposition~\ref{prop:family}. The constant $1-2^{-3/2}$ is the fraction of the rare atom $P_\eps(000)\approx\eps$ that, by the Finner inequality, no compatible law with zero marginals near $\tfrac12\eps^{2/3}$ can retain.
 
 
-\section{Rejecting orders from distance, parity and input size}\label{sec:input}
+\section{Rejecting orders from distance, input size and parity}\label{sec:input}
 
 \subsection{Distance-promised rejecting orders}\label{sec:general}
 
-By Theorem~\ref{thm:main}, no order fixed in advance suffices for the scenario. For a single instance, Theorem~\ref{thm:convexorder} bounds it under a distance promise, Proposition~\ref{prop:bits} bounds it in the input size, and Remark~\ref{rem:cubicorder} bounds it in closed form for laws on the square and the triangle that violate a cubic parity certificate.
+The required order depends on the input law. We give bounds in terms of its distance from compatibility, its rational encoding length and its violation of a cubic parity certificate.
 
 \begin{corollary}[Distance-promised rejecting order]\label{prop:promised}
 Let $G$ be a correlation scenario with $K$ joint outcomes, using the private-source convention of Section~\ref{sec:convexorder}, and let $\delta_2=d_2(P,\mathcal C_G)$ and $\delta=d_{\TV}(P,\mathcal C_G)$. If $P\in\INW_n(G)$ then
@@ -1598,22 +1602,36 @@ In sign notation, every $R\in\Csq$ and every $R'\in\Ctri$ satisfy
 \E_RA\,\E_RB\,\E_R[AB]+8\,R(ABCD=-1)\ \ge\ 0,\qquad
 \E_{R'}A\,\E_{R'}B\,\E_{R'}C+10\,R'(ABC=-1)\ \ge\ 0 .
 \]
-Replacing $C$ by $-C$ on the square, and $A$ by $-A$ on the triangle, preserves the compatible sets and gives the companion certificates $\E_RA\,\E_RB\,\E_R[AB]+8\,R(ABCD=1)\ge0$ and $-\E_{R'}A\,\E_{R'}B\,\E_{R'}C+10\,R'(ABC=1)\ge0$. The proof uses $|xyz-x'y'z'|\le|x-x'|+|y-y'|+|z-z'|$ on $[-1,1]^3$. On the square, fix $z$ in the proof of Lemma~\ref{lem:maxmoment}: the moments $\E A$, $\E B$, $\E[AB]$ differ from those of the comparison pair $(A'_z,B'_z)$ by at most $2\Pr(A\ne A'_z)$, $2\Pr(B\ne B'_z)$ and $2e_z$, in total $4e_z\le8\delta_z$, and the comparison product $(\E f_z)^2(\E g_z)^2(\E h_z)^2$ is nonnegative; averaging over $z$ gives the constant $8$. On the triangle, the proof of Lemma~\ref{lem:quantrigidity} bounds the error of $\E A$ against $\sigma\tau$ by $1-W$ and the errors of $\E B$ and $\E C$ against $\sigma\nu$ and $\tau\nu$ by $4(1-W)$ together, and $(\sigma\tau\nu)^2\ge0$; the total $5(1-W)$ equals $10\,R'(ABC=-1)$. The certificates add the errors of the parity-rigidity argument~\cite{BoreiriEtAl2023,BoreiriEtAl2025} instead of taking their maximum.
+Replacing $C$ by $-C$ on the square, and $A$ by $-A$ on the triangle, preserves the compatible sets and gives the companion certificates $\E_RA\,\E_RB\,\E_R[AB]+8\,R(ABCD=1)\ge0$ and $-\E_{R'}A\,\E_{R'}B\,\E_{R'}C+10\,R'(ABC=1)\ge0$.
+
+To prove the certificates, use $|xyz-x'y'z'|\le|x-x'|+|y-y'|+|z-z'|$ on $[-1,1]^3$. On the square, fix $z$ in the proof of Lemma~\ref{lem:maxmoment}: the moments $\E A$, $\E B$, $\E[AB]$ differ from those of the comparison pair $(A'_z,B'_z)$ by at most $2\Pr(A\ne A'_z)$, $2\Pr(B\ne B'_z)$ and $2e_z$, in total $4e_z\le8\delta_z$, and the comparison product $(\E f_z)^2(\E g_z)^2(\E h_z)^2$ is nonnegative; averaging over $z$ gives the constant $8$. On the triangle, the proof of Lemma~\ref{lem:quantrigidity} bounds the error of $\E A$ against $\sigma\tau$ by $1-W$ and the errors of $\E B$ and $\E C$ against $\sigma\nu$ and $\tau\nu$ by $4(1-W)$ together, and $(\sigma\tau\nu)^2\ge0$; the total $5(1-W)$ equals $10\,R'(ABC=-1)$. The certificates add the errors of the parity-rigidity argument~\cite{BoreiriEtAl2023,BoreiriEtAl2025} instead of taking their maximum.
 
 Let $\mathcal F$ be one of these four left-hand sides, read as a function of the law, let $l_1,l_2,l_3$ be the three moments in its product and $\Sigma(P)=3-l_1^2-l_2^2-l_3^2\le3$. If $P\in\INW_n(\square)$, respectively $P\in\INW_n(\triangle)$, then
 \[
 \mathcal F(P)\ \ge\ -\frac{\Sigma(P)}n,\qquad\text{so}\qquad
 \tmin^H(P)\ \le\ \Bigl\lfloor\frac{\Sigma(P)}{-\mathcal F(P)}\Bigr\rfloor+1\ \le\ \Bigl\lfloor\frac3{-\mathcal F(P)}\Bigr\rfloor+1
 \]
-for $H\in\{\mathrm{NW},\mathrm{AI},\mathrm{exp}\}$ whenever $\mathcal F(P)<0$. This is a consequence of Theorem~\ref{thm:convexorder}, which applies without its private-source convention because every observation reads a source. Its compatible laws $q_\omega$ satisfy $\E_\Gamma q_\omega=P$, since its proof gives $\E[\widehat P\mid\omega]=q_\omega$, and \eqref{eq:convexorder} with the convex function $\mu\mapsto(\E_\mu\chi-\E_P\chi)^2$ gives $\E_\Gamma h^2\le(1-(\E_P\chi)^2)/n$ for the deviation $h=\E_{q_\omega}\chi-\E_P\chi$ of each of the three sign functions $\chi$. Expanding the product, $\mathcal F(q_\omega)-\mathcal F(P)$ is a linear function of $q_\omega-P$, whose mean vanishes, plus a remainder bounded by $|h_1h_2|+|h_1h_3|+|h_2h_3|\le h_1^2+h_2^2+h_3^2$. Averaging $\mathcal F(q_\omega)\ge0$ gives the bound, and \eqref{eq:nested} transfers it to the other two hierarchies.
+for $H\in\{\mathrm{NW},\mathrm{AI},\mathrm{exp}\}$ whenever $\mathcal F(P)<0$.
+To obtain the order bound, use the compatible laws $q_\omega$ of Theorem~\ref{thm:convexorder}. They satisfy $\E_\Gamma q_\omega=P$. For the three sign functions $\chi_i$ defining the moments $l_i=\E_P\chi_i$, put $h_i=\E_{q_\omega}\chi_i-l_i$. Applying \eqref{eq:convexorder} to $\mu\mapsto(\E_\mu\chi_i-l_i)^2$ gives
+\[
+\E_\Gamma h_i=0,\qquad \E_\Gamma h_i^2\le\frac{1-l_i^2}{n}.
+\]
+The product $g(l)=\pm l_1l_2l_3$ has zero diagonal second derivatives and mixed second derivatives of absolute value at most one on $[-1,1]^3$. Taylor's formula along the segment from $l$ to $l+h$ therefore gives
+\[
+\bigl|g(l+h)-g(l)-\nabla g(l)\cdot h\bigr|
+\le\sum_{i<j}|h_ih_j|\le\sum_i h_i^2.
+\]
+The parity-error term of $\mathcal F$ is linear in the law, so its mean is unchanged. Averaging $\mathcal F(q_\omega)\ge0$ now yields $0\le\E_\Gamma\mathcal F(q_\omega)\le\mathcal F(P)+\Sigma(P)/n$. This proves the bound for NW, and \eqref{eq:nested} transfers it to AI and exp.
 
-That a polynomial inequality valid on the compatible set holds on $\INW_n$ up to an error of order $1/n$ is Theorem~1 of Navascués and Wolfe with their equation~(34), and their equation~(A5) makes the constant explicit~\cite{NW2020}; that constant depends on the number of sources, while $\Sigma(P)\le3$ does not. Cubic triangle inequalities of the same form, in $\E A$, $\E B$, $\E C$ and $\E[ABC]$, appear among the order-two inequalities of Wolfe, Spekkens and Fritz~\cite[Section IV C, eqs.~(51)--(54) of arXiv v5]{WSF2019}; the certificates above are not among them. A certificate can reject a law that satisfies the Finner inequality \eqref{eq:finner} at every atom. The W law, uniform on the three outcomes with exactly one $1$, has $-\E A\,\E B\,\E C+10\,P(ABC=1)=-1/27$ and $\Sigma=8/3$, so the bound gives $\tmin^H\le73$. Its incompatibility with the triangle is Example~2 of~\cite{WSF2019}, and that it satisfies the Finner inequality is noted in~\cite[footnote 4]{Renou2019}. Navascués and Wolfe report that their hierarchy rejects it at order three~\cite[footnote 2]{NW2020}, so the order above is far from tight for this law.
+Navascués and Wolfe prove that a polynomial inequality valid on the compatible set holds on $\INW_n$ up to an error of order $1/n$~\cite[Theorem 1, eqs.~(34) and (A5)]{NW2020}. Their explicit constant depends on the number of sources; the bound $\Sigma(P)\le3$ here is independent of it. Cubic triangle inequalities of the same form, in $\E A$, $\E B$, $\E C$ and $\E[ABC]$, appear among the order-two inequalities of Wolfe, Spekkens and Fritz~\cite[Section IV C, eqs.~(51)--(54) of arXiv v5]{WSF2019}; the certificates above are not among them. A certificate can reject a law that satisfies the Finner inequality \eqref{eq:finner} at every atom.
+
+For example, the W law, uniform on the three outcomes with exactly one $1$, has $-\E A\,\E B\,\E C+10\,P(ABC=1)=-1/27$ and $\Sigma=8/3$, so the bound gives $\tmin^H\le73$. Its incompatibility with the triangle is Example~2 of~\cite{WSF2019}, and that it satisfies the Finner inequality is noted in~\cite[footnote 4]{Renou2019}. Navascués and Wolfe report that their hierarchy rejects it at order three~\cite[footnote 2]{NW2020}, so the order above is far from tight for this law.
 \end{remark}
 
 \section{Open problems}\label{sec:open}
 
 \begin{question}[Worst-case convergence exponent]\label{q:hausdorff}
-For the square and the triangle, Corollary~\ref{cor:brackets} gives $\Omega(1/t)\le H_t^H\le O(t^{-1/2})$ for each hierarchy $H$. Which exponent in $[1/2,1]$ is sharp, and does it depend on the hierarchy?
+For the square and the triangle, Corollary~\ref{cor:brackets} gives $\Omega(1/t)\le H_t^H\le O(t^{-1/2})$ for each hierarchy $H$. What is the sharp asymptotic rate? Does a power-law exponent exist, and does the rate depend on the hierarchy?
 \end{question}
 For longer cycles Theorem~\ref{thm:cycle} gives $\Omega(m^{-2}t^{-2})$, and for the five-vertex path Theorem~\ref{thm:fivepath} gives $\Omega(t^{-2})$.
 
@@ -1625,7 +1643,7 @@ The current bounds give the interval $[\tfrac12,4-2\sqrt3]$.
 \begin{question}[Separation of the hierarchies]\label{q:separation}
 Is the factor $3/2$ of Theorem~\ref{thm:orderconversion} sharp, and does a bounded order conversion hold on every pair-source scenario?
 \end{question}
-Proposition~\ref{prop:paritythresholds} gives finite-order separations. It remains open whether $\IAI_t\subsetneq\INW_t$ holds at every order on any fixed scenario.
+Proposition~\ref{prop:paritythresholds} gives finite-order separations. It remains open whether some fixed scenario satisfies $\IAI_t\subsetneq\INW_t$ at every order $t\ge2$.
 
 \begin{question}[Beyond pair-source scenarios]\label{q:hypergraph}
 Which scenarios with sources shared by three or more observers admit a finite characterizing order?
@@ -1633,7 +1651,7 @@ Which scenarios with sources shared by three or more observers admit a finite ch
 Remark~\ref{rem:hypergraph} shows that the observer graph alone does not decide this.
 
 \begin{question}[Explicit rejecting orders beyond Finner]\label{q:effective}
-Can one bound the rejecting order in directly evaluable quantities of an incompatible input law that satisfies every Finner inequality?
+Can one obtain computable rejecting-order bounds, with explicit constants, for every incompatible rational law on the triangle or square, including laws that satisfy all Finner and cubic parity inequalities considered here?
 \end{question}
 Theorem~\ref{thm:fan} covers the laws that violate a Finner inequality, and Remark~\ref{rem:cubicorder} covers the laws on the square and the triangle that violate a cubic parity certificate. The Spiral-inflation inequalities of~\cite[Section IV C]{WSF2019} and equation~(31) of~\cite{NW2020} are closed-form criteria that reject some Finner-satisfying laws at order two, but they give no rejecting order beyond a fixed level. The constants $8$ and $10$ of the certificates are not known to be sharp. The distance and bit-length bounds apply more broadly, but computing the distance or extracting the constants from quantifier elimination may be impractical.
 
@@ -1649,7 +1667,7 @@ The Lean development proves the binary classification equivalence and existence 
 
 The general convex-order inequality, the corrected densities beyond $q=1/(16t)$, the max-moment estimate and survivor corollaries, order conversion, count-moment and threshold results including Proposition~\ref{prop:parityconversion}, the cubic certificates and rejecting orders of Remark~\ref{rem:cubicorder}, distance asymptotics, bit-length theorem and supplementary inequalities are not formalized. Neither are the larger-observed-alphabet transfer or the limiting statements for the defect family. Declaration-level coverage appears in \texttt{README.md} and \texttt{formalization.yaml}; the axiom audit lists $113$ declarations.
 
-The binary, finite-latent classification is registered as \texttt{PALOMAR-2026-09-14-000009}, version~2, at the \href{https://palomar-registry.org/entry.html?id=PALOMAR-2026-09-14-000009&version=2}{Palomar registry}. That registration concerns the stated classification theorem, not all results in this paper.
+The binary, finite-latent classification is registered as \texttt{PALOMAR-2026-09-14-000009}, version~1, at the \href{https://palomar-registry.org/entry.html?id=PALOMAR-2026-09-14-000009&version=1}{Palomar registry}. That registration concerns the stated classification theorem, not all results in this paper.
 
 
 \clearpage
@@ -1724,7 +1742,7 @@ The degree-$t$ diagonal condition (ii) of Definition~\ref{def:NW} implies the lo
 \subsection{Proof of square order conversion}\label{app:conversion}
 
 \begin{proof}[Proof of Theorem~\ref{thm:orderconversion}]
-The right inclusion is Proposition~\ref{prop:gsound} and the equality is Lemma~\ref{lem:rootsink}. For the left inclusion let $\Gamma$ be an order-$n$ Navascu\'es--Wolfe witness for $P$ with $n=\lfloor3t/2\rfloor$ and let $\Gamma'$ be its restriction to the copy indices $1,\dots,t$ of each source. Restriction preserves symmetry and the diagonal law of degree $t$, so $\Gamma'\in\INW_t$; we check the AI prescriptions.
+The right inclusion is Proposition~\ref{prop:gsound} and the equality is Lemma~\ref{lem:rootsink}. For the left inclusion let $\Gamma$ be an order-$n$ Navascu\'es--Wolfe witness for $P$ with $n=\lfloor3t/2\rfloor$ and let $\Gamma'$ be its restriction to the copy indices $1,\dots,t$ of each source. Restriction preserves symmetry and the diagonal law of degree $t$, so $\Gamma'$ witnesses $P\in\INW_t$; we check the AI prescriptions.
 
 Fix an AI set of $\Gamma'$ and decompose it into the connected components of its shared-parent graph, which are injectable and pairwise ancestrally independent. A component's ancestry uses two, three or four source types; the two-type components are single copied observations and correspond to edges of the four-cycle $X-Y-Z-W-X$ of source types. Any two subsets of a four-element set of sizes at least three, or of sizes three and two, intersect, so a component using at least three source types conflicts with every other component and needs a diagonal row of its own. Let $b$ be the number of these.
 
@@ -1846,7 +1864,7 @@ On the square this is Theorem~\ref{thm:orderconversion} for $s\ge2$, since $\INW
 
 \section{Certificate formats and coverage}\label{app:certificates}
 
-The files below are under \texttt{artifact/certificates/} in the repository \repo, with the checkers under \texttt{artifact/verifiers/} and the manifest of SHA-256 identities at \texttt{artifact/MANIFEST.json}.
+The files below are under \texttt{artifact/certificates/} in the repository \repo, with checkers in the certificate directories and under \texttt{artifact/verifiers/}, and the manifest of SHA-256 identities at \texttt{artifact/MANIFEST.json}.
 
 \paragraph{Structural certificate at order $t$.}
 A JSON object with the root law (kind, $\eps_t=1/(2t^3)$ and $1-\eps_t$ as exact fractions), the value $r_t$, the list of $t^3$ roots $D_{ijk}$, for each of the $3t^2$ outputs the list of roots on its line, the eight target atoms of $P_t$ as exact fractions, and the claimed counts of diagonal equations ($8^t$) and symmetry generators ($3(t-1)$). The checker recomputes every claimed quantity from the definitions and compares exactly. It computes the copied-triangle marginals by enumerating the $2^{3t-2}$ assignments of the roots on the three lines through a cell, so $t=3$, with $2^7$ assignments per triangle and $8^3=512$ diagonal equations, takes negligible time.
@@ -1863,7 +1881,19 @@ An exact Farkas certificate that the rational law $\tfrac12(\delta_{000}+\delta_
 \paragraph{Fan certificates.}
 A JSON list of records, one per $k$ in the list $4$, $5$, $6$, $8$, $10$, $16$, $32$, $64$, $128$, $256$, $512$, $1024$, $4096$, $65536$, with $\eps=k^{-3}$, $\sigma=1/(2k^2)$, the eight exact atoms of $P_\eps$, the values $m$, $z$ and the Finner gap $z^2-m^3$, the passing order $\lfloor1+k/2\rfloor$ with the exact Bernoulli certificate $(t-1)\eps\le\sigma$, the first order at which $v_t=tz-m-\binom t2m^2$ is positive together with the exact rational value of $v_t$ there, and the first order at which the second-moment inequality fails. An all-order certificate records the identity $1+\tfrac12S(S-1)-S=\tfrac12(S-1)(S-2)$ and its nonnegativity on integers by cases, so that \eqref{eq:fan-pointwise} needs no order-by-order enumeration; the checker still enumerates all assignments of the fan for small $t$ and all count orbits for larger $t$, and verifies that the index permutations used in \eqref{eq:fan-cross} extend to permutations of $[t]$. Negative controls perturb the atoms, the parameters and the claimed orders, and the checker must reject each of them.
 
-\begin{table}[htbp]
+
+
+\paragraph{Threshold extension.}
+The directory \texttt{exponent/odd/} holds certificates in the format of the parity-threshold files for the triangle at orders $11$, $12$ and $13$ in both hierarchies, and for the square at order $11$ in the ancestral-independence hierarchy, with brackets for two intermediate degree systems of the triangle at orders four and six. Its checker reuses the threshold checker record by record, binds each file to exactly these records, and adds exact checks of the degree-set identities behind Proposition~\ref{prop:parityconversion} for orders up to $16$, the containment $D_{\mathrm{AI}}(s)\subseteq D_{\mathrm{NW}}(t)$ for $s,t\le12$, and the bracket comparisons quoted after that proposition.
+
+\paragraph{Cubic certificates.}
+The checker in \texttt{beyond-finner/} is exact and self-contained. It evaluates the certificates of Remark~\ref{rem:cubicorder} on the exact laws of random finite deterministic models, a falsification test rather than a proof, and checks the algebraic identities behind its bound $\mathcal F(P)\ge-\Sigma(P)/n$ by enumeration at small $n$.
+
+\subsection{Finite coverage}
+
+The fan bounds determine the first rejecting orders of $P_\eps$ exactly at $\eps=k^{-3}$ for $k=4,6,8,10,16$: they are $4,5,6,7,10$. At $k=32,128,1024,65536$, the passing construction gives lower bounds $18,66,514,32770$, while the fan gives upper bounds $19,70,551,35122$.
+
+\begin{table}[!htbp]
 \centering\small
 \renewcommand{\arraystretch}{1.12}
 \begin{tabular}{@{}>{\raggedright\arraybackslash}p{.21\linewidth}>{\raggedright\arraybackslash}p{.23\linewidth}>{\raggedright\arraybackslash}p{.48\linewidth}@{}}
@@ -1881,16 +1911,6 @@ Cubic certificates & Sampled compatible laws & Certificate signs on exact model 
 \end{tabular}
 \caption{Finite certificate coverage. Positivity of an auxiliary density does not imply full support of its observed pushforward. The unflipped cycle witnesses have parity constraints.}\label{tab:verification}
 \end{table}
-
-\paragraph{Threshold extension.}
-The directory \texttt{exponent/odd/} holds certificates in the format of the parity-threshold files for the triangle at orders $11$, $12$ and $13$ in both hierarchies, and for the square at order $11$ in the ancestral-independence hierarchy, with brackets for two intermediate degree systems of the triangle at orders four and six. Its checker reuses the threshold checker record by record, binds each file to exactly these records, and adds exact checks of the degree-set identities behind Proposition~\ref{prop:parityconversion} for orders up to $16$, the containment $D_{\mathrm{AI}}(s)\subseteq D_{\mathrm{NW}}(t)$ for $s,t\le12$, and the bracket comparisons quoted after that proposition.
-
-\paragraph{Cubic certificates.}
-The checker in \texttt{beyond-finner/} is exact and self-contained. It evaluates the certificates of Remark~\ref{rem:cubicorder} on the exact laws of random finite deterministic models, a falsification test rather than a proof, and checks the algebraic identities behind its bound $\mathcal F(P)\ge-\Sigma(P)/n$ by enumeration at small $n$.
-
-\subsection{Finite coverage}
-
-The fan bounds determine the first rejecting orders of $P_\eps$ exactly at $\eps=k^{-3}$ for $k=4,6,8,10,16$: they are $4,5,6,7,10$. At $k=32,128,1024,65536$, the passing construction gives lower bounds $18,66,514,32770$, while the fan gives upper bounds $19,70,551,35122$.
 
 \providecommand{\Csq}{\mathcal C_{\square}}
 \providecommand{\Cpar}{\mathcal C_{\mathrm{par}}}
@@ -2011,7 +2031,7 @@ Draw an ordered pair $(x,y)\sim P^{\otimes2}$ of parity-even triples. If $x=y$, 
 For $U$ the four constant tables and the twelve oriented two-outcome tables each carry probability $1/16$. Every reweighting of a supported table is supported on at most two of the four parity-even outcomes, so for its support $D$ one has $d_{\TV}(U,Q)\ge U(D^c)\ge1/2$, with equality for a nonconstant table whose active source is fair. Yet $U=\Par000\in\Cpar$.
 \end{proof}
 
-Theorem~\ref{thm:identitytransfer} does not extend from identities to inequalities, and it fails already at degree two. Let $n$ be even and take the table $A^{ij}=b_i$ with half the $b_i$ equal to zero and half to one, and $B,C$ constant. The polynomial $f(q)=(q_A(1)-\tfrac12)^2$ is nonnegative on every reweighting, while its degree-two polarization on distinct source indices is
+The coefficient-extraction step in the proof of Theorem~\ref{thm:identitytransfer} does not preserve inequalities, even at degree two. Let $n$ be even and take the table $A^{ij}=b_i$ with half the $b_i$ equal to zero and half to one, and $B,C$ constant. The polynomial $f(q)=(q_A(1)-\tfrac12)^2$ is nonnegative on every reweighting, while its degree-two polarization on distinct source indices is
 \[
 \frac1{n(n-1)}\sum_{i\ne j}\Bigl(b_i-\frac12\Bigr)\Bigl(b_j-\frac12\Bigr)=-\frac1{4(n-1)}<0,
 \]
@@ -2022,6 +2042,7 @@ because the centered sum vanishes while its sum of squares is $n/4$. This identi
 The author used AI systems in preparing the manuscript and verification code and takes responsibility for the content. Section~\ref{sec:repro} distinguishes the analytic proofs, finite certificate checks and Lean formalization.
 
 \begingroup
+\small
 \raggedright
 \bibliographystyle{plainurl}
 \bibliography{references}

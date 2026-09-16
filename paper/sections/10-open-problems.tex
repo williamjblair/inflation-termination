@@ -1,7 +1,7 @@
 \section{Open problems}\label{sec:open}
 
 \begin{question}[Worst-case convergence exponent]\label{q:hausdorff}
-For the square and the triangle, Corollary~\ref{cor:brackets} gives $\Omega(1/t)\le H_t^H\le O(t^{-1/2})$ for each hierarchy $H$. Which exponent in $[1/2,1]$ is sharp, and does it depend on the hierarchy?
+For the square and the triangle, Corollary~\ref{cor:brackets} gives $\Omega(1/t)\le H_t^H\le O(t^{-1/2})$ for each hierarchy $H$. What is the sharp asymptotic rate? Does a power-law exponent exist, and does the rate depend on the hierarchy?
 \end{question}
 For longer cycles Theorem~\ref{thm:cycle} gives $\Omega(m^{-2}t^{-2})$, and for the five-vertex path Theorem~\ref{thm:fivepath} gives $\Omega(t^{-2})$.
 
@@ -13,7 +13,7 @@ The current bounds give the interval $[\tfrac12,4-2\sqrt3]$.
 \begin{question}[Separation of the hierarchies]\label{q:separation}
 Is the factor $3/2$ of Theorem~\ref{thm:orderconversion} sharp, and does a bounded order conversion hold on every pair-source scenario?
 \end{question}
-Proposition~\ref{prop:paritythresholds} gives finite-order separations. It remains open whether $\IAI_t\subsetneq\INW_t$ holds at every order on any fixed scenario.
+Proposition~\ref{prop:paritythresholds} gives finite-order separations. It remains open whether some fixed scenario satisfies $\IAI_t\subsetneq\INW_t$ at every order $t\ge2$.
 
 \begin{question}[Beyond pair-source scenarios]\label{q:hypergraph}
 Which scenarios with sources shared by three or more observers admit a finite characterizing order?
@@ -21,7 +21,7 @@ Which scenarios with sources shared by three or more observers admit a finite ch
 Remark~\ref{rem:hypergraph} shows that the observer graph alone does not decide this.
 
 \begin{question}[Explicit rejecting orders beyond Finner]\label{q:effective}
-Can one bound the rejecting order in directly evaluable quantities of an incompatible input law that satisfies every Finner inequality?
+Can one obtain computable rejecting-order bounds, with explicit constants, for every incompatible rational law on the triangle or square, including laws that satisfy all Finner and cubic parity inequalities considered here?
 \end{question}
 Theorem~\ref{thm:fan} covers the laws that violate a Finner inequality, and Remark~\ref{rem:cubicorder} covers the laws on the square and the triangle that violate a cubic parity certificate. The Spiral-inflation inequalities of~\cite[Section IV C]{WSF2019} and equation~(31) of~\cite{NW2020} are closed-form criteria that reject some Finner-satisfying laws at order two, but they give no rejecting order beyond a fixed level. The constants $8$ and $10$ of the certificates are not known to be sharp. The distance and bit-length bounds apply more broadly, but computing the distance or extracting the constants from quantifier elimination may be impractical.
 

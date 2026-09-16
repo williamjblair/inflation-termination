@@ -1,3 +1,13 @@
+# Submission finalization — 16 September 2026
+
+This entry supersedes earlier page counts and editorial status below. The final PDF has **52 pages**, 37 pages of main text, eight main sections, eight figures and two numbered tables. The abstract is 208 words and matches `ARXIV_PASTE.md`. Both manuscript and standalone builds pass with identical extracted text and no final-pass layout or reference warnings. The upload archive is rebuilt.
+
+The full review, corrections and validation limits are recorded in [SUBMISSION_FINALIZATION_2026-09-16.md](../review/SUBMISSION_FINALIZATION_2026-09-16.md), with output hashes in [the validation record](../review/submission-finalization-2026-09-16.json). Fresh threshold-extension and cubic-certificate checks pass (14,199 and 68,183 checks); all 56 artifact manifest entries match. These checks do not constitute independent specialist review.
+
+The manuscript cites published Palomar version 1; the author reports a new-version submission is running. This editorial review made no Lean or Palomar changes. Concurrent changes elsewhere in the working tree were left alone, and no Lean build or axiom audit was rerun. No upload, commit or push was performed.
+
+---
+
 # Revision of 16 September 2026 (after the referee audit and priority sweep)
 
 This entry supersedes the additions entry below for page counts, structure and the status of Sections 6.3 and 7. The manuscript was cut after an AI-assisted referee audit and a priority sweep of commit `0885897`; `paper/review/ADDITIONS-2026-09-16.md` records what was cut, why, and how each finding was resolved.
