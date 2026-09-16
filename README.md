@@ -11,9 +11,9 @@ main theorems.
   `Classical.choice` and `Quot.sound`. Lean `v4.33.0`, Mathlib
   `db584cd6d46c92f209a44c0f1c829460d327499d`.
 - **Palomar:** the classification theorem is registered as
-  [`PALOMAR-2026-09-14-000009`](https://palomar-registry.org/entry.html?id=PALOMAR-2026-09-14-000009&version=1),
-  version 1, from commit `93cc53f1`. That version predates the manuscript revisions of 15 and
-  16 September; the registered Lean statement is unchanged.
+  [`PALOMAR-2026-09-14-000009`](https://palomar-registry.org/entry.html?id=PALOMAR-2026-09-14-000009&version=1).
+  Version 1 is from commit `93cc53f1`; version 2, from the commit that cites it, is under
+  review. The registered Lean statement is the same in both.
 
 ## Results
 
@@ -136,7 +136,7 @@ proves it from the library, and a configuration permitting only the three standa
 | configuration | `Palomar/TriangleInflation/classification-comparator.json` | `Palomar/TriangleInflation/comparator.json` |
 | library proof | `classification_NW_lib` | `no_finite_characterizing_order_lib` |
 | paper | Theorem 3.2 | Theorem 5.2 |
-| Palomar | registered, version 1 | not registered |
+| Palomar | registered (version 1; version 2 under review) | not registered |
 
 ```lean
 theorem TriangleInflation.Graph.classification_NW (Γ : PairGraph) :
