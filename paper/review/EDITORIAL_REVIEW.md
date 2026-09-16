@@ -1,3 +1,9 @@
+# Additions of 16 September 2026
+
+Four audited results were added after this editorial report: the sharper Theorem B constants (Lemma 4.2, Theorems 4.3 and 4.4, Corollaries 4.6, 4.7 and 4.9), Proposition 4.12 on order conversion along the parity direction, the explicit rejecting orders of Section 6.3, and the hypergraph scenarios of the new Section 7. The paper has 62 pages. Details, statuses, deviations from the reference integration and the locations of the audits are in `ADDITIONS-2026-09-16.md`. The report below describes the 15 September snapshot.
+
+---
+
 # Organization and consolidation — 15 September 2026
 
 Reorganized the manuscript from `67103258ec07c20d470394a63873089e427e1b61` following the author's request. The current PDF has 49 pages, including 35 pages of main text (pages 2–36), one title/contents page, the complete appendices and references. The prior PDF had 53 pages and 44 pages of main text. The font size and page margins are unchanged.

@@ -1,3 +1,9 @@
+# Additions of 16 September 2026
+
+A ninth main section, Section 7 (sources shared by three or more observers), now follows Section 6; open problems and verification are Sections 8 and 9. Section 6 gains Subsection 6.3 (explicit rejecting orders for parity violations), Section 4 gains Proposition 4.12 with its proof in Appendix B.4, and Lemma 4.2 carries the sharper constant. The PDF has 62 pages, 46 of main text. See `paper/review/ADDITIONS-2026-09-16.md`.
+
+---
+
 # Current architecture — 15 September 2026
 
 The paper has eight main sections:

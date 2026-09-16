@@ -53,7 +53,7 @@ project:
     corollary, the family R_p with rejecting order 2 at every distance, the Θ(ε^{-1/3})
     bounds on the first rejecting order along P_ε, the order-t second-moment rate bound and
     its convex-order sharpening, the quantitative parity rigidity behind the cycle distance
-    bound, and the triangle witness at q = 1/(16t). The two registry statements in
+    bound, and the square and triangle witnesses at q = 1/(16t). The two registry statements in
     Palomar/TriangleInflation/ import Mathlib alone and carry their definitions verbatim
     from TriangleInflation/Defs.lean and TriangleInflation/Graph/Defs.lean.
   authors: ["William Blair"]
@@ -70,14 +70,14 @@ sources:
       and the witnesses in Sections 3.4 and 3.5; Theorem 5.2 (thm:main) and the corollary that
       follows it, with the construction in Section 5.1, the incompatibility in Section 5.2
       and the injectable-set characterization in Appendix A; the formal-verification
-      statement is Section 8 (sections/11-reproducibility.tex)
+      statement is Section 9 (sections/11-reproducibility.tex)
     relationship: "formalizes"
     author_endorsement: "participated"
     note: >-
       The manuscript is included in this repository under paper/ (main.pdf and its LaTeX
       sources) together with its claim, non-claim, priority, reproduction and release
       documents under paper/release/. It is not yet posted to arXiv; this registry entry is
-      intended to precede it and to be cited by it. Its Section 8 ("Verification and availability")
+      intended to precede it and to be cited by it. Its Section 9 ("Verification and availability")
       and paper/release/NONCLAIMS.md state exactly what this repository proves and what it
       leaves unformalized.
   - title: "The Inflation Technique Completely Solves the Causal Compatibility Problem"
@@ -152,14 +152,15 @@ classification:
 status:
   scope: >-
     Two complete, kernel-checked developments, with one registry statement each.
-    The pair-source graph development (TriangleInflation/Graph/, 17 modules) proves the
+    The pair-source graph development (TriangleInflation/Graph/, 18 modules) proves the
     classification theorem for all three hierarchies, the coincidence of the recursively
     expressible and ancestral-independence tests, soundness and nesting of the three tests,
     the trail criterion and the root-sink lemma, source-disjoint independence at order two,
     induced-subgraph transport, the exhaustion lemma, the double-star reconstruction with
     its labelling step, the cycle target with exact and quantitative parity rigidity, its
     witness at every order, its incompatibility and its distance bound, the corrected
-    Fourier density in the triangle case and the triangle witness at q = 1/(16t), the
+    Fourier density with the constants c = 4 (triangle) and c = 5 (square) and the triangle
+    and square witnesses at q = 1/(16t), the
     five-path target with the bilocal inequality, its distance bound and its witness at
     every order, local flips, and the bridge identifying the triangle case with the triangle
     module. Observed variables are binary and latent alphabets finite throughout.
@@ -231,7 +232,8 @@ automation:
         Each subagent was given the manuscript section, the definitions file and one module
         to prove, and was told to report any statement it could not prove as stated rather
         than adjust it silently. The one statement that survived as unproved, the square
-        witness of Theorem 4.3, is kept outside this repository.
+        witness of Theorem 4.3, was proved on 2026-09-16 at q = 1/(16t) in
+        TriangleInflation/Graph/SquareWitness.lean (square_linear_witness).
   spend_usd: "not reconstructed"
   notes: >-
     lake build followed by scripts/check_axioms.sh is the whole gate: it refuses a literal
@@ -254,8 +256,12 @@ fidelity:
     closure, and gExpFeasible_iff_gAIFeasible proves I^exp_t = I^AI_t on every pair-source
     scenario. The classification equivalence and strictly positive witness existence are
     formalized, but the mapped declarations do not assert rationality of those witnesses;
-    that clause is analytic. The terminal declaration triangle_linear_witness proves the
-    endpoint q = 1/(16t) of Theorem 4.4, whose manuscript statement covers 0 < q <= 1/(16t).
+    that clause is analytic. The terminal declarations square_linear_witness and
+    triangle_linear_witness prove the endpoint specialization q = 1/(16t) of Theorems 4.3
+    and 4.4, with the density constants c = 5 and c = 4. The manuscript statements cover
+    0 < q <= (16/15)^{2/t} - 1 and 0 < q <= (9/8)^{2/t} - 1 with c = m R^{m-1}; the wider
+    ranges, and the survivor bounds q_t/6 > 1/(47t) and q_t/10 > 1/(43t) built on them, are
+    analytic only.
     The triangle module still omits I^exp_t, so statements there about membership
     are the weaker halves; the graph module supplies the stronger ones through the bridge
     theorems gNWFeasible_triangle_iff, gAIFeasible_triangle_iff and gCompatible_triangle_iff.
@@ -269,11 +275,11 @@ fidelity:
     t_min is Nat.sInf of the set of rejecting orders, which returns 0 when that set is
     empty, so every statement about it either exhibits a rejecting order or assumes one.
     Asymptotic completeness itself is quoted from Navascués–Wolfe, not formalized.
-    Paper results outside this development, with no Lean statement at all: the square
-    witness of Theorem 4.3 (proved analytically in the manuscript and checked at finite
-    orders by certificates, but not formalized in this repository), the larger-alphabet transfer of
-    Remark 3.8, Lemma 4.5, Corollaries 4.6 and 4.7, Theorem 4.10, Proposition 4.11 and
-    its lemmas, Appendix D, the distance asymptotics of Theorem 5.14 and Corollary 5.15, the
+    Paper results outside this development, with no Lean statement at all: the
+    larger-alphabet transfer of Remark 3.8, Lemma 4.5, Corollaries 4.6 and 4.7, Theorem
+    4.10, Propositions 4.11 and 4.12 and their lemmas, the explicit rejecting orders of
+    Section 6.3 (Propositions 6.3, 6.4 and 6.6, Corollary 6.5), the hypergraph results of
+    Section 7, Appendix D, the distance asymptotics of Theorem 5.14 and Corollary 5.15, the
     2^{Θ(B)} bit-length law of Proposition 6.2, the limit form of Proposition 5.13 and
     Corollary 5.3.
 

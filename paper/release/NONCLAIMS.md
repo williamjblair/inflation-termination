@@ -1,5 +1,14 @@
 > Historical audit retained from before the editorial revision. For current section numbers, corrections, deferred results and validation, see `paper/review/EDITORIAL_REVIEW.md` and the opening update in `RELEASE_STATUS.md`.
 
+## Additions of 16 September 2026 (current numbering)
+
+- **Not a classification of hypergraph scenarios.** Section 7 proves termination for the class of Corollary 7.10 and nontermination whenever a pair set carries a non-double-star component. Conjecture 7.14 is not proved; whether `K_4^(3)` terminates is open, and on five observers eleven reduced scenarios are left undecided by the two results.
+- **Not that the AI and NW parity thresholds coincide at odd orders.** The brackets agree at every certified odd order through 13 on the triangle and through 9 on the square; no proof is claimed, and the floating-point triangle values at order 15 decide nothing.
+- **Not sharp constants.** The survivor bounds `1/(47t)` and `1/(43t)` are not claimed optimal, and the certificate constants 8 and 10 of Proposition 6.3 are not known to be sharp.
+- **Not an explicit rejecting order for every incompatible law.** Section 6.3 covers laws detected by the cubic certificates or the max-moment form; Question 8.5 remains open for the rest.
+- **Not a Lean proof of the wider ranges.** Lean proves the square and triangle witnesses at `q = 1/(16t)` only, with `c = 5` and `c = 4`. The ranges with `c = m R^{m-1}`, Corollaries 4.6 and 4.7, Proposition 4.12, Section 6.3 and Section 7 are analytic only.
+- **Sampled checks are not proofs.** The random compatible models in `artifact/certificates/beyond-finner/` test the constants of Proposition 6.3; the proof is in the text.
+
 # Non-claims
 
 The manuscript does not claim, and the reader must not infer:

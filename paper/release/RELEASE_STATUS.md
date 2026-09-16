@@ -1,3 +1,18 @@
+# Additions of 16 September 2026
+
+Four audited results were added; see `paper/review/ADDITIONS-2026-09-16.md` for locations, statuses and the audits. The paper now has 62 pages, 46 of them main text, and nine main sections: the new Section 7 treats sources shared by three or more observers, and open problems and verification are Sections 8 and 9. Numbers in Sections 1 to 6 are otherwise unchanged.
+
+| Addition | Where | Analytic | Exact certificates | Lean |
+| --- | --- | --- | --- | --- |
+| Corrected density with `c = m R^{m-1}`; square witness for `q <= (16/15)^{2/t} - 1`, triangle witness for `q <= (9/8)^{2/t} - 1`; survivors `> 1/(47t)` and `> 1/(43t)`; brackets | Lemma 4.2, Theorems 4.3 and 4.4, Corollaries 4.6, 4.7 and 4.9 | proved, audited | at `q = 1/(16t)` with `c = 5`, `c = 4` (unchanged classification set) | endpoint specialization `q = 1/(16t)` for both witnesses: `square_linear_witness` (new), `triangle_linear_witness` |
+| Order conversion along the parity direction; triangle brackets at orders 11 to 13 | Proposition 4.12, Appendix B.4 | proved, audited | `artifact/certificates/exponent/odd/` | none |
+| Cubic parity certificates and explicit rejecting orders beyond Finner | Section 6.3, Propositions 6.3, 6.4, 6.6, Corollary 6.5, Remark 6.7 | proved, audited | `artifact/certificates/beyond-finner/` (examples exact; certificate constants sampled) | none |
+| Hypergraph scenarios: termination for the class of Corollary 7.10, nontermination through pair sets, Conjecture 7.14 | Section 7 | proved, audited; conjecture open | `artifact/certificates/hypergraph/` | none |
+
+Checks run for this revision: the three new verifiers pass from the repository root (`OK: 5115 local checks and 9084 verify_exponent checks passed`; `PASS: 68183 exact checks`; `ALL CHECKS PASSED (8 + 4 + 4 + 2 reconstruction instances, 1 transport certificate)`), and fail on a removed extension record or a missing census record. The manifest lists 56 files. `lake build` and `bash scripts/check_axioms.sh` pass with 113 audited declarations. Both LaTeX builds have no undefined references and no overfull or underfull boxes. The earlier threshold, classification and replay verifiers were not rerun; their inputs and code are unchanged. Nothing was pushed, uploaded to arXiv or sent to Palomar.
+
+---
+
 # Current manuscript — 15 September 2026
 
 This update supersedes the historical snapshots below for the working manuscript. The reorganized paper has 49 pages: one title/contents page, 35 pages of main text, and the complete appendices and references. Eight main sections replace seventeen. The classification is Theorem 3.2 in Section 3; quantitative convergence is Section 4; the defect construction, fan bounds, exponent and distance are Section 5; distance-promised and bit-length bounds are Section 6; open problems and verification are Sections 7–8. Related work is in the introduction. Appendices A–B hold longer structural proofs, order conversion and threshold reductions; C–D contain certificate formats and supplementary results. All eight figures remain. See `paper/review/EDITORIAL_REVIEW.md` and `paper/review/validation.json` for preservation and build checks.

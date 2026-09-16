@@ -123,7 +123,7 @@ Challenge files, and in `formalization.yaml` under `fidelity.divergences`.
    exhibits a rejecting order or assumes one. Asymptotic completeness itself is quoted from
    Navascués–Wolfe, not formalized.
 
-The classification equivalence and existence of strictly positive witnesses are formalized under these conventions. The mapped declarations do not assert rationality of the classification witnesses; that clause follows analytically from the finite constructions. The terminal declaration `triangle_linear_witness` proves the endpoint `q = 1/(16t)` of Theorem 4.4, whose manuscript statement covers `0 < q <= 1/(16t)`.
+The classification equivalence and existence of strictly positive witnesses are formalized under these conventions. The mapped declarations do not assert rationality of the classification witnesses; that clause follows analytically from the finite constructions. The terminal declarations `square_linear_witness` and `triangle_linear_witness` prove the endpoint specialization `q = 1/(16t)` of Theorems 4.3 and 4.4, using the density constants `c = 5` and `c = 4`. The manuscript statements cover `0 < q <= (16/15)^{2/t} - 1` and `0 < q <= (9/8)^{2/t} - 1` with `c = m R^{m-1}`; those wider ranges are analytic only.
 
 The recursively expressible hierarchy `I^exp_t`, which the previous version of this
 repository left out, **is** formalized on the graph side: `dsep` is the trail criterion for
@@ -132,9 +132,10 @@ the depth-one inflation DAG, `Expressible` is the Wolfe–Spekkens–Fritz closu
 so the statements there about membership are the weaker halves; the bridge theorems
 (`gNWFeasible_triangle_iff` and its companions) supply the stronger ones.
 
-Paper results with no Lean statement here: the square witness of Theorem 4.3, the
+Paper results with no Lean statement here: the
 larger-alphabet transfer of Remark 3.8, Lemma 4.5, Corollaries 4.6 and 4.7, Theorem 4.10,
-Proposition 4.11 and its lemmas, Appendix D, the distance asymptotics of Theorem 5.14 and
+Propositions 4.11 and 4.12 and their lemmas, the explicit rejecting orders of Section 6.3
+(Propositions 6.3, 6.4 and 6.6, Corollary 6.5), the hypergraph results of Section 7, Appendix D, the distance asymptotics of Theorem 5.14 and
 Corollary 5.15, the `2^{Θ(B)}` bit-length law of Proposition 6.2, the limit form of
 Proposition 5.13, and Corollary 5.3.
 
@@ -153,7 +154,7 @@ TriangleInflation/          the triangle library
   Rate.lean                 the order-t second-moment rate bound
   ConvexOrder.lean          the convex-order sharpening and the bound √7/(2√t)
   Graph.lean                aggregator for the pair-source development
-  Graph/                    the pair-source library, 17 modules
+  Graph/                    the pair-source library, 18 modules
     Defs.lean               scenarios, copied observations, the three tests, compatibility
     Flips.lean              independent local flips
     Soundness.lean          soundness of the three tests
@@ -168,6 +169,7 @@ TriangleInflation/          the triangle library
     CycleObstruction.lean   parity rigidity, incompatibility and the distance bound
     Linear.lean             the linear machinery shared by the witnesses
     TriangleWitness.lean    the triangle witness at q = 1/(16t)
+    SquareWitness.lean      the square witness at q = 1/(16t)
     Transport.lean          induced-subgraph transport and the exhaustion lemma
     Classification.lean     components, bad components, the pieces of Theorem 3.2
     ClassificationTheorem.lean  classification_NW_lib, _AI, _exp
@@ -299,12 +301,13 @@ Lean column names which part. *Unformalized* means there is no Lean statement at
 | Thm. 3.10, Cor. 3.11 | double-star reconstruction at order two | proved (binary case) | `doubleStar_terminates`, `exists_dsStruct`, `DSStruct.gCompatible_of_dsStruct`, `centreLeaf_mass`, `gCompatible_of_localDecoder` |
 | Lem. 3.14 to 3.18 | the cycle target, its characters, exact parity rigidity | partial | `cycleTarget_isLaw`, `cycleTarget_moment`, `parity_rigidity` |
 | Lem. 3.19 to 3.20, Thm. 3.21 | quantitative rigidity, the cycle witness and its distance | proved | `CycleModelAux.quant_rigidity`, `cycle_witness`, `cycle_exp_witness`, `cycle_not_compatible`, `cycle_distance` |
-| Lem. 4.2 | the corrected Fourier density | partial (`m = 3`) | `triW_ge`, `triW_nonneg`, `triW_moment`, `triDensity_isLaw`, `triParity_isLaw` |
-| Thm. 4.3 | the square witness at `q = 1/(16t)` | unformalized | none |
-| Thm. 4.4 | the triangle witness at `q = 1/(16t)` | proved at this endpoint | `triangle_linear_witness` |
-| Lem. 4.5, Cor. 4.6 to 4.7 | order bounds from the parity violation | unformalized | none |
+| Lem. 4.2 | the corrected Fourier density | partial (`m = 3` with `c = 4` for `tq <= 1/16`; the `m = 4`, `c = 5` case is proved inside `square_linear_witness`; the range with `c = m R^{m-1}` is analytic) | `triW_ge`, `triW_nonneg`, `triW_moment`, `triDensity_isLaw`, `triParity_isLaw` |
+| Thm. 4.3 | the square witness for `q <= (16/15)^{2/t} - 1` | proved at the endpoint specialization `q = 1/(16t)` | `square_linear_witness` |
+| Thm. 4.4 | the triangle witness for `q <= (9/8)^{2/t} - 1` | proved at the endpoint specialization `q = 1/(16t)` | `triangle_linear_witness` |
+| Lem. 4.5, Cor. 4.6 to 4.7 | the max-moment inequality and the survivor bounds `q_t/6 > 1/(47t)`, `q_t/10 > 1/(43t)` | unformalized | none |
 | Thm. 4.8, Cor. 4.9 | the convex-order bound and the brackets | partial (upper bounds, triangle) | `rate_triangle_sharp`, `tv_le_of_nwFeasible`, `tv_le_sqrt_seven`, `tvDist` |
 | Thm. 4.10, Prop. 4.11 | order conversion on the square; the low-order separations | unformalized | none |
+| Prop. 4.12 | order conversion along the parity direction, square and triangle | unformalized | none |
 | Lem. 3.23 to 3.24, Cor. 3.25, Thm. 3.26 | the five-path target, the bilocal inequality, the witness | proved | `fivePathTarget_isLaw`, `fivePathTarget_corr`, `bilocal_of_compatible`, `fivePath_not_compatible`, `fivePath_distance`, `fivePath_witness`, `fivePath_exp_witness` |
 
 ### The triangle (paper Sections 2, 5 and 6)
@@ -330,14 +333,20 @@ Lean column names which part. *Unformalized* means there is no Lean statement at
 | Thm. 5.14, Cor. 5.15 | distance asymptotics | unformalized | none |
 | Cor. 6.1 | the distance-promised order bound | partial (triangle) | `rate_triangle` |
 | Prop. 6.2 | the `2^{Θ(B)}` bit-length law | unformalized | none |
+| Props. 6.3, 6.4, 6.6, Cor. 6.5 | cubic parity certificates, the barycentre bound, explicit rejecting orders, disjointness from Finner violations | unformalized | none |
+| Section 7 | hypergraph scenarios: absorption, traces, termination (Thm. 7.7, 7.9, Cor. 7.10), nontermination through pair sets (Thm. 7.13), Conjecture 7.14 | unformalized | none |
 | App. C and D | certificate formats and supplementary inequalities | unformalized | none |
 
 Declarations without a namespace prefix are in `TriangleInflation` for the second table and
 in `TriangleInflation.Graph` for the first.
 
+## Additions, 16 September 2026
+
+Four audited results were added without changing the numbering of Sections 1 to 6. Lemma 4.2 now uses `c = m R^{m-1}`, which extends Theorems 4.3 and 4.4 to `q <= (16/15)^{2/t} - 1` and `q <= (9/8)^{2/t} - 1` and raises the lower brackets of Corollary 4.9 above `1/(47t)` and `1/(43t)`. Proposition 4.12 converts orders along the parity direction on both scenarios, with triangle brackets at orders 11 to 13. Section 6.3 gives closed-form rejecting orders for parity violations, which satisfy every Finner inequality. The new Section 7 treats sources shared by three or more observers; open problems and verification are now Sections 8 and 9. The square witness at `q = 1/(16t)` is proved in Lean (`square_linear_witness`); the other additions are analytic, with exact finite checks under `artifact/certificates/`. See [`paper/review/ADDITIONS-2026-09-16.md`](paper/review/ADDITIONS-2026-09-16.md).
+
 ## Manuscript reorganization, 15 September 2026
 
-The paper now has eight main sections and 35 pages of main text (49 pages including the title, appendices and references). The setup defines each test once; the classification is followed by quantitative convergence, a unified defect-family analysis, and distance/input-size consequences. Related work is in the introduction. Longer structural proofs, order conversion and threshold calculations are in the appendices. All eight figures and the complete proofs are retained.
+At that date the paper had eight main sections and 35 pages of main text (49 pages including the title, appendices and references). The setup defines each test once; the classification is followed by quantitative convergence, a unified defect-family analysis, and distance/input-size consequences. Related work is in the introduction. Longer structural proofs, order conversion and threshold calculations are in the appendices. All eight figures and the complete proofs are retained.
 
 The [verification guide](paper/review/VERIFICATION_GUIDE.md) gives replay and build commands. The [editorial report](paper/review/EDITORIAL_REVIEW.md) records the reorganization and validation. The declaration map above uses the current theorem numbers. Registration and arXiv status concern their own snapshots.
 

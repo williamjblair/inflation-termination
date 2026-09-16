@@ -1,5 +1,19 @@
 > Historical audit retained from before the editorial revision. For current section numbers, corrections, deferred results and validation, see `paper/review/EDITORIAL_REVIEW.md` and the opening update in `RELEASE_STATUS.md`.
 
+## Additions of 16 September 2026 (current numbering)
+
+These entries use the numbering of the current PDF. "Analytic" means proved in the text and audited on 16 September 2026; "exact" means also checked by a finite rational certificate; "Lean" means formalized in this repository.
+
+A1. **Lemma 4.2 (corrected density).** For `m in {3,4}`, `t >= 1` and `q > 0` with `R = (1+q)^{t/2} <= m²/(m²-1)`, that is `q <= (9/8)^{2/t} - 1` for `m = 3` and `q <= (16/15)^{2/t} - 1` for `m = 4`, and `c = m R^{m-1}`, the density `W = Re ∏ f_g + c Σ_g (1 - Re f_g)` satisfies `W >= R^{m-1}(m² - (m²-1)R) >= 0` and has the characters of `eq:Wmoments`. The range contains `q <= 1/(8t)` (`m = 4`) and `q <= 2/(9t)` (`m = 3`). Analytic. Lean for `m = 3, c = 4` and, inside `square_linear_witness`, `m = 4, c = 5`, both at `tq <= 1/16`.
+A2. **Theorems 4.3 and 4.4.** `P_q ∈ I_t^AI(□) = I_t^exp(□)` for `0 < q <= (16/15)^{2/t} - 1`; `Π(-q,-q,-q) ∈ I_t^AI(△) = I_t^exp(△)` for `0 < q <= (9/8)^{2/t} - 1`. Analytic; exact certificates at `q = 1/(16t)` (square orders 1 to 2, triangle orders 1 to 3); Lean at the endpoint specialization `q = 1/(16t)` only (`square_linear_witness`, `triangle_linear_witness`).
+A3. **Corollaries 4.6, 4.7 and 4.9.** With `q_t = (16/15)^{2/t} - 1` and `q_t = (9/8)^{2/t} - 1`: `H_t^exp(□) = H_t^AI(□) >= q_t/6 > 1/(47t)` and `H_t^exp(△) = H_t^AI(△) >= q_t/10 > 1/(43t)`, also for the supremum over strictly positive accepted laws; the brackets of Corollary 4.9 use these lower bounds with the unchanged upper bounds. Analytic.
+A4. **Proposition 4.12 (order conversion along the parity direction).** For `s >= 1` and `t >= max{s, ⌊3s/2⌋}`, `q_t^NW <= q_s^AI` on the square and the triangle. Analytic.
+A5. **Brackets at triangle orders 11 to 13.** `q_t^AI` and `q_t^NW` have identical certified brackets at `t = 11, 13`, with an AI dual using NW keys only, and `q_12^AI < q_12^NW`. Exact certificates. Whether the thresholds coincide at every odd order is not claimed.
+A6. **Proposition 6.3 (cubic parity certificates).** On `C_□`: `EA EB E[AB] + 8 R(ABCD = -1) >= 0` and `EA EB E[AB] + 8 R(ABCD = 1) >= 0`; on `C_△`: `±EA EB EC + 10 R(ABC = ∓1) >= 0`. Analytic; sampled exact falsification test.
+A7. **Proposition 6.4 and Corollary 6.5 (explicit rejecting orders).** For `P ∈ I_n^NW`, `F(P) >= -Σ(P)/n` with `Σ(P) <= min{3, 6(1 - ‖P‖²)}`; hence `t_min^H(P) <= ⌊Σ(P)/(-F(P))⌋ + 1` when `F(P) < 0`, and the quadratic bound of Corollary 6.5(ii) when `G(P) < 0`, for `H` in NW, AI, exp. Analytic.
+A8. **Proposition 6.6.** A three-bit law that violates a Finner inequality has both triangle certificates nonnegative; a law satisfying all eight Finner inequalities fails no fan inequality at any order. Analytic; sampled exact check. Remark 6.7 examples exact.
+A9. **Section 7 (hypergraph scenarios).** Lemmas 7.2, 7.3, 7.5, Corollary 7.6; Theorem 7.7 (an observer reading every source drops out); Theorem 7.9 (hyper-double-star reconstruction at order `T_H`); Corollary 7.10 (termination for the peeling class `P`); Proposition 7.11 (on graphs, `P` is the double-stars); Theorem 7.13 (for binary observations, strictly positive rational laws in `I_t^exp(H) \ C_H` at every `t`, with the cycle and five-path distance bounds, whenever a pair set carries a non-double-star component with an edge). Analytic; exact instance checks. Conjecture 7.14 is open; `K_4^(3)` is the only four-observer scenario the two results leave undecided (exhaustive enumeration).
+
 # Claims
 
 Exact scope of what the manuscript proves (numbering as in the paper after the

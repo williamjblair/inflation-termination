@@ -93,6 +93,9 @@ the paper statement each group covers.
 -- INF-T6.11: Theorem 6.12, the triangle witness at q = 1/(16t)
 #print axioms TriangleInflation.Graph.triangle_linear_witness
 
+-- Theorem 4.3 (square witness) at the endpoint q = 1/(16t), corrected density m = 4, c = 5
+#print axioms TriangleInflation.Graph.square_linear_witness
+
 -- INF-L7.3: Lemmas 7.2 and 7.3, Corollary 7.4 and Theorem 7.5, the five-observer path
 #print axioms TriangleInflation.Graph.fivePathTarget_isLaw
 #print axioms TriangleInflation.Graph.fivePathTarget_corr
