@@ -130,27 +130,27 @@ The left side does not depend on $z$; averaging over $z$ finishes the proof.
 \end{proof}
 
 \begin{corollary}[Survivors on the square]\label{cor:squaredistance}
-$d_{\TV}(P_q,\Csq)\ge q/6$ for $0<q\le3-2\sqrt2$. With flip probability $\eta<1/2$ applied to each of the four bits and to every copied observation, $\widetilde P_q=T_\eta^{\otimes4}P_q$ is strictly positive, lies in $\IAI_t(\square)=\Iexp_t(\square)$ whenever $P_q$ does, and satisfies $d_{\TV}(\widetilde P_q,\Csq)\ge q/6-4\eta$. At $q_t=(16/15)^{2/t}-1$,
+$d_{\TV}(P_q,\Csq)\ge q/6$ for $0<q\le3-2\sqrt2$. With flip probability $\eta<1/2$ applied to each of the four bits and to every copied observation, $\widetilde P_q=T_\eta^{\otimes4}P_q$ is strictly positive, lies in $\IAI_t(\square)=\Iexp_t(\square)$ whenever $P_q$ does, and satisfies $d_{\TV}(\widetilde P_q,\Csq)\ge q/6-4\eta$. At $\underline q_t=(16/15)^{2/t}-1$,
 \[
-H^{\mathrm{exp}}_t(\square)=H^{\mathrm{AI}}_t(\square)\ \ge\ \frac{q_t}6\ >\ \frac1{47\,t},
+H^{\mathrm{exp}}_t(\square)=H^{\mathrm{AI}}_t(\square)\ \ge\ \frac{\underline q_t}6\ >\ \frac1{47\,t},
 \]
 and the same bound holds for the supremum over strictly positive accepted laws.
 \end{corollary}
 
 \begin{proof}
-If $R\in\Csq$ and $d=d_{\TV}(P_q,R)$, each of $\E_RA$, $\E_RB$, $\E_R[AB]$ is at most $-q+2d$ and the parity error of $R$ is at most $d$, since $P_q$ has none. Lemma~\ref{lem:maxmoment} gives $0\le-q+2d+4d$, so $d\ge q/6$. The noise argument of Theorem~\ref{thm:cycle} applies to the witness of Theorem~\ref{thm:squarelinear}, and $d_{\TV}(\widetilde P_q,P_q)\le4\eta$. Theorem~\ref{thm:squarelinear} places $P_{q_t}$ in $\IAI_t(\square)$, so $H^{\mathrm{AI}}_t(\square)\ge q_t/6$, and letting $\eta\downarrow0$ gives the bound over strictly positive laws. Finally $q_t\ge2\ln(16/15)/t$ and $\ln(16/15)/3>1/47$; Lemma~\ref{lem:rootsink} identifies the two suprema.
+If $R\in\Csq$ and $d=d_{\TV}(P_q,R)$, each of $\E_RA$, $\E_RB$, $\E_R[AB]$ is at most $-q+2d$ and the parity error of $R$ is at most $d$, since $P_q$ has none. Lemma~\ref{lem:maxmoment} gives $0\le-q+2d+4d$, so $d\ge q/6$. The noise argument of Theorem~\ref{thm:cycle} applies to the witness of Theorem~\ref{thm:squarelinear}, and $d_{\TV}(\widetilde P_q,P_q)\le4\eta$. Theorem~\ref{thm:squarelinear} places $P_{\underline q_t}$ in $\IAI_t(\square)$, so $H^{\mathrm{AI}}_t(\square)\ge \underline q_t/6$, and letting $\eta\downarrow0$ gives the bound over strictly positive laws. Finally $\underline q_t\ge2\ln(16/15)/t$ and $\ln(16/15)/3>1/47$; Lemma~\ref{lem:rootsink} identifies the two suprema.
 \end{proof}
 
 \begin{corollary}[Survivors on the triangle]\label{cor:triangledistance}
-$d_{\TV}(\Pi(-q,-q,-q),\Ctri)\ge q/10$ for $0<q\le1/3$. With flip probability $\eta<1/2$ on each of the three bits and on every copied observation, the noisy target is strictly positive, lies in $\IAI_t(\triangle)=\Iexp_t(\triangle)$ whenever the target does, and is at distance at least $q/10-3\eta$ from $\Ctri$. At $q_t=(9/8)^{2/t}-1$,
+$d_{\TV}(\Pi(-q,-q,-q),\Ctri)\ge q/10$ for $0<q\le1/3$. With flip probability $\eta<1/2$ on each of the three bits and on every copied observation, the noisy target is strictly positive, lies in $\IAI_t(\triangle)=\Iexp_t(\triangle)$ whenever the target does, and is at distance at least $q/10-3\eta$ from $\Ctri$. At $\underline q_t=(9/8)^{2/t}-1$,
 \[
-H^{\mathrm{exp}}_t(\triangle)=H^{\mathrm{AI}}_t(\triangle)\ \ge\ \frac{q_t}{10}\ >\ \frac1{43\,t},
+H^{\mathrm{exp}}_t(\triangle)=H^{\mathrm{AI}}_t(\triangle)\ \ge\ \frac{\underline q_t}{10}\ >\ \frac1{43\,t},
 \]
 and the same bound holds for the supremum over strictly positive accepted laws.
 \end{corollary}
 
 \begin{proof}
-The distance bound is Lemma~\ref{lem:cycledistance} for $m=3$, whose proof uses only Lemma~\ref{lem:quantrigidity} on the triangle itself, and the three flips cost at most $3\eta$ in total variation. Feasibility is Theorem~\ref{thm:trianglelinear} with the noise argument of Theorem~\ref{thm:cycle}. At $q_t$ this gives $H^{\mathrm{AI}}_t(\triangle)\ge q_t/10$, with $\eta\downarrow0$ for strictly positive laws, and $q_t\ge2\ln(9/8)/t$ with $\ln(9/8)/5>1/43$.
+The distance bound is Lemma~\ref{lem:cycledistance} for $m=3$, whose proof uses only Lemma~\ref{lem:quantrigidity} on the triangle itself, and the three flips cost at most $3\eta$ in total variation. Feasibility is Theorem~\ref{thm:trianglelinear} with the noise argument of Theorem~\ref{thm:cycle}. At $\underline q_t$ this gives $H^{\mathrm{AI}}_t(\triangle)\ge \underline q_t/10$, with $\eta\downarrow0$ for strictly positive laws, and $\underline q_t\ge2\ln(9/8)/t$ with $\ln(9/8)/5>1/43$.
 \end{proof}
 
 \subsection{A convex-order upper bound}\label{sec:convexorder}
@@ -247,6 +247,6 @@ Let $s\ge1$ and $t\ge\max\{s,\lfloor3s/2\rfloor\}$. Then $q^{\mathrm{NW}}_t\le q
 
 The proof is in Appendix~\ref{app:parityconversion}. At $s=3$ it gives $q^{\mathrm{NW}}_4\le q^{\mathrm{AI}}_3$, and at these two orders the certified brackets agree, the exception in Proposition~\ref{prop:paritythresholds}(iii).
 
-Table~\ref{tab:thresholds} shows two further regularities that the theorems do not explain. The products $tq^H_t$ increase towards constants near $0.4$ on the square and $0.9$ on the triangle, about three and four times the constants $2\ln(16/15)\approx0.129$ and $2\ln(9/8)\approx0.236$ of Theorems~\ref{thm:squarelinear} and~\ref{thm:trianglelinear}; and the two hierarchies coincide along this direction at every odd order up to nine while separating at every even order. Exact certificates extend the pattern on the triangle: $q^{\mathrm{AI}}_t$ and $q^{\mathrm{NW}}_t$ have the identical bracket at $t=11$ and $t=13$, with an ancestral-independence dual supported on Navascu\'es--Wolfe keys only, and $q^{\mathrm{AI}}_{12}<q^{\mathrm{NW}}_{12}$. The equations that ancestral independence adds are, on the triangle, exactly the balanced tuples with $S\ge2t+2$, and each is equivalent to a parity-weighted moment of degree at most $t-2$; the pure parity-balance equation occurs among them only at even $t$. No map on count distributions independent of $q$ carries Navascu\'es--Wolfe witnesses to solutions of these equations, so a proof of the odd-order coincidence would have to use where the threshold sits. Neither pattern is proved beyond the certified orders, and the floating-point values at triangle order fifteen are too poorly conditioned to decide either way.
+Table~\ref{tab:thresholds} shows two further regularities that the theorems do not explain. The products $tq^H_t$ increase towards constants near $0.4$ on the square and $0.9$ on the triangle, about three and four times the constants $2\ln(16/15)\approx0.129$ and $2\ln(9/8)\approx0.236$ of Theorems~\ref{thm:squarelinear} and~\ref{thm:trianglelinear}; and the two hierarchies have identical certified brackets along this direction at every odd order up to nine, while they separate at every even order. Exact certificates extend the second pattern on the triangle: $q^{\mathrm{AI}}_t$ and $q^{\mathrm{NW}}_t$ have identical certified brackets at $t=11$ and $t=13$, with an ancestral-independence dual supported on Navascu\'es--Wolfe keys only, and $q^{\mathrm{AI}}_{12}<q^{\mathrm{NW}}_{12}$. As in Proposition~\ref{prop:paritythresholds}(ii), identical brackets do not establish equal thresholds. Neither pattern is proved beyond the certified orders.
 
 \input{figures/thresholds}
