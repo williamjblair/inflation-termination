@@ -1,22 +1,15 @@
 # Submitting these statements to Palomar
 
-**Status 2026-09-14:** the classification statement is registered as
-`PALOMAR-2026-09-14-000009` version 1
-(https://palomar-registry.org/entry.html?id=PALOMAR-2026-09-14-000009&version=1) from commit
-`93cc53f1`, after two revision rounds (the compared statement now carries the order-two
-clause; the classification tags, the Boreiri 2023 author list and the Navascués–Wolfe source
-were corrected in `formalization.yaml`; the proof account was made accurate). The manuscript
-now cites the record, and a version 2 from the commit carrying the citation is filed with
-`existing_id`. The checklist below is kept as the record of the procedure.
-
-Nothing in this repository submits anything, and nothing in it has been pushed anywhere.
-This file is the remaining checklist, for the author to work through by hand. Every step
-below is a deliberate act: creating a public repository, pushing it, and registering a
-record that other people will cite.
-
-The certificate artifact now lives at `artifact/` next to `paper/`, so the replay commands of Section 16 run from this repository's root. Everything mechanical is already done. `lake build && bash scripts/check_axioms.sh` passes;
-`formalization.yaml` validates against the live v0.4 schema; both Challenges regenerate
-byte-identically from the library definition files.
+**Status:** the classification statement is registered as `PALOMAR-2026-09-14-000009`
+version 1 (https://palomar-registry.org/entry.html?id=PALOMAR-2026-09-14-000009&version=1)
+from commit `93cc53f1`, after two revision rounds (the compared statement gained the
+order-two clause; the classification tags, the Boreiri 2023 author list and the
+Navascués–Wolfe source in `formalization.yaml` were corrected; the proof account was made
+accurate). A later version-2 submission from commit `53c7c27a` was withdrawn on 2026-09-16
+because the manuscript changed afterwards. The next version will be filed from the final
+manuscript commit, with Section 8 citing that version. The repository is public at
+https://github.com/williamjblair/inflation-termination. The checklist below is kept as the
+record of the procedure.
 
 ## 0. Before anything is public
 
