@@ -14,6 +14,7 @@ import TriangleInflation.Graph.CycleWitness
 import TriangleInflation.Graph.CycleObstruction
 import TriangleInflation.Graph.FivePathWitness
 import TriangleInflation.Graph.TriangleWitness
+import TriangleInflation.Graph.SquareWitness
 import TriangleInflation.Graph.ClassificationTheorem
 
 /-!
