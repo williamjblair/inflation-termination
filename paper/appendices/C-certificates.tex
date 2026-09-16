@@ -27,11 +27,10 @@ Certificate set & Range & Checked properties\\
 Defect cube & $t=1,2,3$ & Root probabilities, line supports, symmetry, copied-triangle marginals, diagonal products and Finner gaps.\\[3pt]
 Full defect table & $t=2$ & All $4096$ assignments; $166$ nonzero entries; $12{,}288$ symmetry equations and $64$ diagonal equations.\\[3pt]
 Fan inequalities & Fourteen rational targets & Passing bounds, fan and second-moment rejection bounds, the pointwise count identity, index embeddings and negative controls.\\[3pt]
-Classification witnesses & Cycles $C_3,C_4,C_5$ and path: $t\le2$; corrected triangle: $t\le3$ & Auxiliary density, nonnegative observed law, symmetry, prescribed marginals and ancestral products, target separation and local flips where supplied.\\[3pt]
+Classification witnesses & Cycles $C_3,C_4,C_5$ and path: $t\le2$; corrected square: $t\le2$; corrected triangle: $t\le3$ & Auxiliary density, nonnegative observed law, symmetry, prescribed marginals and ancestral products, target separation and local flips where supplied.\\[3pt]
 Parity thresholds & Triangle and square, both tests, $1\le t\le10$ & Primal moments, dual signs on every count configuration, interval positivity; brute-force AI degree enumeration for $t\le3$ and explicit realizations through $t=10$.\\[3pt]
 Threshold extension & Triangle, both tests, $t=11,12,13$; square AI, $t=11$ & As above, with identical odd-order brackets, NW-key duals and the order-$12$ separation; degree-set identities.\\[3pt]
-Explicit rejecting orders & Three worked laws; sampled compatible laws & Finner and functional Finner inequalities, fan inequalities at every order, certificate signs and rejecting-order bounds.\\[3pt]
-Hypergraph scenarios & Four scenarios, orders $2$ and $4$; census on at most five observers & Reconstruction reproduces the law; transported witness prescriptions; undecided four-observer scenario is $K_4^{(3)}$ only.\\
+Cubic certificates & Sampled compatible laws & Certificate signs on exact model laws; identities behind the bound $\mathcal F(P)\ge-\Sigma(P)/n$.\\
 \bottomrule
 \end{tabular}
 \caption{Finite certificate coverage. Positivity of an auxiliary density does not imply full support of its observed pushforward. The unflipped cycle witnesses have parity constraints.}\label{tab:verification}
@@ -40,11 +39,8 @@ Hypergraph scenarios & Four scenarios, orders $2$ and $4$; census on at most fiv
 \paragraph{Threshold extension.}
 The directory \texttt{exponent/odd/} holds certificates in the format of the parity-threshold files for the triangle at orders $11$, $12$ and $13$ in both hierarchies, and for the square at order $11$ in the ancestral-independence hierarchy, with brackets for two intermediate degree systems of the triangle at orders four and six. Its checker reuses the threshold checker record by record, binds each file to exactly these records, and adds exact checks of the degree-set identities behind Proposition~\ref{prop:parityconversion} for orders up to $16$, the containment $D_{\mathrm{AI}}(s)\subseteq D_{\mathrm{NW}}(t)$ for $s,t\le12$, and the bracket comparisons quoted after that proposition.
 
-\paragraph{Explicit rejecting orders.}
-The checker in \texttt{beyond-finner/} is exact and self-contained. It tests the certificates of Proposition~\ref{prop:cubiccert} on the exact laws of random finite deterministic models, a falsification test rather than a proof; checks the algebraic identities of Proposition~\ref{prop:cubicbary} by enumeration at small $n$; samples the two parts of Proposition~\ref{prop:finnerdisjoint}; and verifies the laws of Remark~\ref{rem:cubicexamples}: all eight atomic Finner inequalities, the functional Finner inequality, no failing fan inequality at any order, the sign of the certificate and the stated rejecting-order bounds.
-
-\paragraph{Hypergraph scenarios.}
-The checker in \texttt{hypergraph/} runs the reconstruction of Theorem~\ref{thm:hds} on explicit order-two and order-four tables, including tables from genuine models, exact extreme points of the Navascu\'es--Wolfe linear program and mixtures of distinct models of one law, and compares the reconstructed model with the law atom by atom. It checks the transport of Theorem~\ref{thm:hpairset} for the sources $\{1,2,3\},\{1,4\},\{2,4\}$ at order two, with positivity, invariance, the diagonal law and every ancestral-independence prescription; the census of reduced scenarios on at most five observers against its stored record; and negative controls.
+\paragraph{Cubic certificates.}
+The checker in \texttt{beyond-finner/} is exact and self-contained. It tests the certificates of Remark~\ref{rem:cubicorder} on the exact laws of random finite deterministic models, a falsification test rather than a proof, and checks the algebraic identities behind its bound $\mathcal F(P)\ge-\Sigma(P)/n$ by enumeration at small $n$.
 
 \subsection{Finite coverage}
 

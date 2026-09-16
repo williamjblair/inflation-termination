@@ -2,7 +2,7 @@
 
 \subsection{Distance-promised rejecting orders}\label{sec:general}
 
-Theorem~\ref{thm:main} says that the order needed cannot be fixed in advance for the scenario. For a single instance, Theorem~\ref{thm:convexorder} bounds it under a distance promise, Corollary~\ref{cor:cubicorder} bounds it in closed form for parity violations on the square and the triangle, and Proposition~\ref{prop:bits} bounds it in the input size.
+Theorem~\ref{thm:main} says that the order needed cannot be fixed in advance for the scenario. For a single instance, Theorem~\ref{thm:convexorder} bounds it under a distance promise, Proposition~\ref{prop:bits} bounds it in the input size, and Remark~\ref{rem:cubicorder} bounds it in closed form for laws on the square and the triangle that violate a cubic parity certificate.
 
 \begin{corollary}[Distance-promised rejecting order]\label{prop:promised}
 Let $G$ be a correlation scenario with $K$ joint outcomes, using the private-source convention of Section~\ref{sec:convexorder}, and let $\delta_2=d_2(P,\mathcal C_G)$ and $\delta=d_{\TV}(P,\mathcal C_G)$. If $P\in\INW_n(G)$ then
@@ -24,102 +24,22 @@ The proof uses no convexity of $\mathcal C_G$: we extract one compatible law fro
 
 \input{sections/08-bits}
 
-\subsection{Explicit rejecting orders for parity violations}\label{sec:cubicorder}
+\subsection{Rejecting orders from cubic parity certificates}\label{sec:cubicorder}
 
-Throughout, laws on the square and the triangle are written in sign notation. For a law $P$ put $l_1,l_2,l_3$ for $\E_PA,\E_PB,\E_P[AB]$ on the square and for $\E_PA,\E_PB,\E_PC$ on the triangle, and $\Sigma(P)=3-l_1^2-l_2^2-l_3^2$.
-
-\begin{proposition}[Cubic parity certificates]\label{prop:cubiccert}
-Every $R\in\Csq$ satisfies
+\begin{remark}[Cubic certificates and explicit rejecting orders]\label{rem:cubicorder}
+In sign notation, every $R\in\Csq$ and every $R'\in\Ctri$ satisfy
 \[
-\E_RA\,\E_RB\,\E_R[AB]+8\,R(ABCD=-1)\ \ge\ 0,\qquad \E_RA\,\E_RB\,\E_R[AB]+8\,R(ABCD=1)\ \ge\ 0,
+\E_RA\,\E_RB\,\E_R[AB]+8\,R(ABCD=-1)\ \ge\ 0,\qquad
+\E_{R'}A\,\E_{R'}B\,\E_{R'}C+10\,R'(ABC=-1)\ \ge\ 0 .
 \]
-and every $R\in\Ctri$ satisfies
+Replacing $C$ by $-C$ on the square, and $A$ by $-A$ on the triangle, preserves the compatible sets and gives the companion certificates $\E_RA\,\E_RB\,\E_R[AB]+8\,R(ABCD=1)\ge0$ and $-\E_{R'}A\,\E_{R'}B\,\E_{R'}C+10\,R'(ABC=1)\ge0$. For the proof, note that $|xyz-x'y'z'|\le|x-x'|+|y-y'|+|z-z'|$ on $[-1,1]^3$. On the square, fix $z$ in the proof of Lemma~\ref{lem:maxmoment}: the moments $\E A$, $\E B$, $\E[AB]$ differ from those of the comparison pair $(A'_z,B'_z)$ by at most $2\Pr(A\ne A'_z)$, $2\Pr(B\ne B'_z)$ and $2e_z$, in total $4e_z\le8\delta_z$, and the comparison product $(\E f_z)^2(\E g_z)^2(\E h_z)^2$ is nonnegative; averaging over $z$ gives the constant $8$. On the triangle, the proof of Lemma~\ref{lem:quantrigidity} bounds the error of $\E A$ against $\sigma\tau$ by $1-W$ and the errors of $\E B$ and $\E C$ against $\sigma\nu$ and $\tau\nu$ by $4(1-W)$ together, and $(\sigma\tau\nu)^2\ge0$; the total $5(1-W)$ equals $10\,R'(ABC=-1)$. The certificates add the errors of the parity-rigidity argument~\cite{BoreiriEtAl2023,BoreiriEtAl2025} instead of taking their maximum.
+
+Let $\mathcal F$ be one of these four left-hand sides, read as a function of the law, let $l_1,l_2,l_3$ be the three moments in its product and $\Sigma(P)=3-l_1^2-l_2^2-l_3^2\le3$. If $P\in\INW_n(\square)$, respectively $P\in\INW_n(\triangle)$, then
 \[
-\E_RA\,\E_RB\,\E_RC+10\,R(ABC=-1)\ \ge\ 0,\qquad -\E_RA\,\E_RB\,\E_RC+10\,R(ABC=1)\ \ge\ 0 .
+\mathcal F(P)\ \ge\ -\frac{\Sigma(P)}n,\qquad\text{so}\qquad
+\tmin^H(P)\ \le\ \Bigl\lfloor\frac{\Sigma(P)}{-\mathcal F(P)}\Bigr\rfloor+1\ \le\ \Bigl\lfloor\frac3{-\mathcal F(P)}\Bigr\rfloor+1
 \]
-\end{proposition}
+for $H\in\{\mathrm{NW},\mathrm{AI},\mathrm{exp}\}$ whenever $\mathcal F(P)<0$. This is a consequence of Theorem~\ref{thm:convexorder}, which applies without its private-source convention because every observation reads a source. Its compatible laws $q_\omega$ satisfy $\E_\Gamma q_\omega=P$, since its proof gives $\E[\widehat P\mid\omega]=q_\omega$, and \eqref{eq:convexorder} with the convex function $\mu\mapsto(\E_\mu\chi-\E_P\chi)^2$ gives $\E_\Gamma h^2\le(1-(\E_P\chi)^2)/n$ for the deviation $h=\E_{q_\omega}\chi-\E_P\chi$ of each of the three sign functions $\chi$. Expanding the product, $\mathcal F(q_\omega)-\mathcal F(P)$ is a linear function of $q_\omega-P$, whose mean vanishes, plus a remainder bounded by $|h_1h_2|+|h_1h_3|+|h_2h_3|\le h_1^2+h_2^2+h_3^2$. Averaging $\mathcal F(q_\omega)\ge0$ gives the bound, and \eqref{eq:nested} transfers it to the other two hierarchies.
 
-\begin{proof}
-On $[-1,1]^3$ the identity $xyz-x'y'z'=(x-x')yz+x'(y-y')z+x'y'(z-z')$ gives $|xyz-x'y'z'|\le|x-x'|+|y-y'|+|z-z'|$.
-
-\emph{Square.} Fix $z$ in the proof of Lemma~\ref{lem:maxmoment} and put $p_A=\Pr(A\ne A'_z)$, $p_B=\Pr(B\ne B'_z)$, so $e_z=p_A+p_B\le2\delta_z$. The moments $\E A$, $\E B$, $\E[AB]$ differ from those of the comparison pair by at most $2p_A$, $2p_B$ and $2(p_A+p_B)$, in total at most $4e_z\le8\delta_z$, and the comparison product $(\E f_z)^2(\E g_z)^2(\E h_z)^2$ is nonnegative. Hence $\E A\,\E B\,\E[AB]\ge-8\delta_z$ for every $z$, and averaging over $z$ gives the first inequality. Replacing $C$ by $-C$ preserves $\Csq$ and the three moments and exchanges the two parity events, which gives the second.
-
-\emph{Triangle.} In the proof of Lemma~\ref{lem:quantrigidity}, $|\E[a]-\sigma\tau|\le1-W$, and by \eqref{eq:pr}
-\[
-|\E[b]-\sigma\nu|+|\E[c]-\tau\nu|\ \le\ \E_Y[1-\upsilon u]+\E_Y[1-\upsilon w]\ \le\ 4(1-W),
-\]
-the last step being the displayed chain of that proof. The three errors sum to at most $5(1-W)=10\,R(ABC=-1)$ and the comparison product is $(\sigma\tau\nu)^2\ge0$. Replacing $A$ by $-A$ gives the second inequality.
-\end{proof}
-
-The deterministic compatible law $(A,B,C)=(-1,1,1)$ shows that the triangle constant cannot be taken below $1$.
-
-\begin{proposition}[Barycentre bound]\label{prop:cubicbary}
-Let $\mathcal F$ be one of the four left-hand sides of Proposition~\ref{prop:cubiccert}, viewed as a function of the law. If $P\in\INW_n(\square)$, respectively $P\in\INW_n(\triangle)$, then
-\[
-\mathcal F(P)\ \ge\ -\frac{\Sigma(P)}n,\qquad \Sigma(P)\ \le\ \min\bigl\{3,\ 6\,(1-\|P\|_2^2)\bigr\}.
-\]
-\end{proposition}
-
-\begin{proof}
-Every observation of the square and the triangle reads a source, so Theorem~\ref{thm:convexorder} applies without its private-source convention. Let $\Gamma$ be a witness and $q_\omega$ the compatible laws of that theorem. Its proof gives $\E[\widehat P\mid\omega]=q_\omega$ with $\widehat P$ distributed as $\widehat P_n$, so $\E_\Gamma q_\omega=P$. For a sign function $\chi$ the function $\mu\mapsto(\E_\mu\chi-\E_P\chi)^2$ is convex, and \eqref{eq:convexorder} gives
-\begin{equation}\label{eq:charvar}
-\E_\Gamma\bigl(\E_{q_\omega}\chi-\E_P\chi\bigr)^2\ \le\ \frac{1-(\E_P\chi)^2}n .
-\end{equation}
-Write $L_i(\mu)$ for the three moments and $h_i=L_i(q_\omega)-l_i$. Expanding the product,
-\[
-L_1L_2L_3(q_\omega)=l_1l_2l_3+\bigl(h_1l_2l_3+l_1h_2l_3+l_1l_2h_3\bigr)+h_1h_2L_3(q_\omega)+l_2h_1h_3+l_1h_2h_3 .
-\]
-The parity term of $\mathcal F$ is linear in the law, so $\mathcal F(q_\omega)-\mathcal F(P)$ is a linear function of $q_\omega-P$, whose $\Gamma$-mean vanishes, plus a remainder of absolute value at most $|h_1h_2|+|h_1h_3|+|h_2h_3|\le h_1^2+h_2^2+h_3^2$, since the coefficients lie in $[-1,1]$. Proposition~\ref{prop:cubiccert} gives $\mathcal F(q_\omega)\ge0$, so averaging and \eqref{eq:charvar} give $0\le\mathcal F(P)+\Sigma(P)/n$. For the second claim, $1-(\E_P\chi)^2=4p(1-p)$ with $p=P(\chi=1)$, while $1-\|P\|_2^2=\sum_xP(x)(1-P(x))\ge\sum_xP(x)P(\chi\ne\chi(x))=2p(1-p)$.
-\end{proof}
-
-Bounding the same remainder through the Hessian and \eqref{eq:convexl2} gives $\mathcal F(P)\ge-K(1-\|P\|_2^2)/n$ with $K=16$ and $K=8$, and $K$ is the best constant in that form, since the three characters are orthogonal of Euclidean norm $\sqrt K$. The character form above is sharper.
-
-\begin{corollary}[Explicit rejecting orders for parity violations]\label{cor:cubicorder}
-Let $P$ be a law on the square or the triangle and $H\in\{\mathrm{NW},\mathrm{AI},\mathrm{exp}\}$.
-\begin{enumerate}[label=(\roman*),nosep]
-\item If $\mathcal F(P)<0$ for one of the left-hand sides of Proposition~\ref{prop:cubiccert}, then
-\[
-\tmin^H(P)\ \le\ \Bigl\lfloor\frac{\Sigma(P)}{-\mathcal F(P)}\Bigr\rfloor+1\ \le\ \Bigl\lfloor\frac{6(1-\|P\|_2^2)}{-\mathcal F(P)}\Bigr\rfloor+1 .
-\]
-\item Let $\eps=P(ABC=-1)$ on the triangle and let $G(P)$ be the minimum over $s\in\{-1,1\}^3$ of $\max_is_il_i+8\eps_s$, with $\eps_s=\eps$ if $s_1s_2s_3=1$ and $\eps_s=1-\eps$ otherwise. If $G(P)<0$, then
-\[
-\tmin^H(P)\ \le\ \Bigl\lfloor\frac{\bigl(\sqrt{\Sigma(P)}+8\sqrt{\eps(1-\eps)}\bigr)^2}{G(P)^2}\Bigr\rfloor+1 .
-\]
-On the square the same holds with $\eps=P(ABCD=-1)$, with $4$ in place of $8$ in the numerator, and with
-\[
-G(P)=\min_{s_A,s_B}\max\{s_Al_1,\,s_Bl_2,\,s_As_Bl_3\}+4\min\{\eps,1-\eps\}.
-\]
-\end{enumerate}
-\end{corollary}
-
-\begin{proof}
-Part (i) is Proposition~\ref{prop:cubicbary}, since $P\in\INW_n$ forces $n\le\Sigma(P)/(-\mathcal F(P))$, together with \eqref{eq:nested}. For (ii) fix a minimizing orientation. Lemma~\ref{lem:quantrigidity}, applied to the relabelled compatible law, gives $G(q_\omega)\ge0$, while $G(q_\omega)\le G(P)+\max_i|h_i|+8|\eps_s(q_\omega)-\eps_s(P)|$. Taking the $\Gamma$-mean, using Cauchy--Schwarz and \eqref{eq:charvar} for the three moments and for the parity indicator gives $-G(P)\le(\sqrt{\Sigma(P)}+8\sqrt{\eps(1-\eps)})/\sqrt n$. The square is identical with Lemma~\ref{lem:maxmoment}.
-\end{proof}
-
-Both bounds are closed-form in the three moments $l_i$, the parity probability and $\|P\|_2$. Part (ii) is at least as strong as combining Lemma~\ref{lem:quantrigidity} with Corollary~\ref{prop:promised}, which gives $\lfloor175/G(P)^2\rfloor+1$ on the triangle and $\lfloor135/G(P)^2\rfloor+1$ on the square. Every law with $\mathcal F(P)<0$ also has $G(P)<0$, so part (i) detects nothing new; it improves the rate. At $\eps=0$ part (i) is the better bound exactly when the product of the two largest $|l_i|$ exceeds the smallest. Along $\Pi(-q,-q,-q)$ part (i) gives order $O(q^{-3})$ and part (ii) gives $O(q^{-2})$. Along $\Pi(-\delta,-\tfrac{1-\delta}2,-\tfrac{1-\delta}2)$ part (i) gives $O(\delta^{-1})$ and part (ii) gives $O(\delta^{-2})$.
-
-\begin{proposition}[Parity violations satisfy every Finner inequality]\label{prop:finnerdisjoint}
-Let $P$ be a law on three bits.
-\begin{enumerate}[label=(\roman*),nosep]
-\item If $P$ violates the Finner inequality \eqref{eq:finner} at some atom, after relabelling outcomes, then both triangle certificates of Proposition~\ref{prop:cubiccert} are nonnegative at $P$.
-\item If $P$ satisfies \eqref{eq:finner} at all eight atoms, then neither inequality of \eqref{eq:fan} fails at any order, for any atom and any root.
-\end{enumerate}
-\end{proposition}
-
-\begin{proof}
-(i) Relabel so that the violated atom is the all-plus atom. The two certificates are exchanged or fixed. Let $z=P(+{+}+)>0$, let $a,b,c$ be the probabilities of $A=1$, $B=1$, $C=1$, let $p=l_1l_2l_3$ and $\eps=P(ABC=-1)$. From $z^2>abc$ and $z\le\min\{a,b,c\}$ we get $z>\max\{ab,ac,bc\}$. The four atoms with $A=-1$ are the two parity-odd atoms $-{+}+$, $-{-}-$ and two parity-even atoms on $\{B\ne C\}$, and $\Pr(B\ne C)=b+c-2\Pr(B=C=1)\le b+c-2z$. Hence $\eps\ge1-a-b-c+2z$. If some $l_i=0$ there is nothing to prove. Suppose $p<0$. If exactly one of $a,b,c$ is below $\tfrac12$, by symmetry $a<\tfrac12<b,c$; write $b=\tfrac12+\beta$, $c=\tfrac12+\gamma$; then $\eps\ge1-a-b-c+2bc=\tfrac12-a+2\beta\gamma$ and $-p=(1-2a)\,4\beta\gamma\le2\eps$. If $a,b,c<\tfrac12$, write $u,v,w$ for $1-2a,1-2b,1-2c$; then $\eps\ge1-a-b-c+2bc=\tfrac12(u+vw)$ and $-p=uvw\le2\eps$. In both cases $p+10\eps\ge0$. Suppose $p>0$, and note $1-\eps\ge z$. If $a,b,c>\tfrac12$ then $z>bc>\tfrac14$ and $10(1-\eps)>1\ge p$. If exactly one of them exceeds $\tfrac12$, by symmetry $a>\tfrac12>b,c$; then $p\le2a-1$ and $1-\eps\ge P(+{-}-)\ge a-b-c$. For $b+c\le\tfrac12$ this gives $10(1-\eps)\ge10a-5\ge2a-1$. For $b+c>\tfrac12$, the relations $c/2<ac<z\le b$ and $b/2<ab<z\le c$ give $b,c>\tfrac16$, so $z^2>abc>bc/2>\tfrac1{72}$ and $10(1-\eps)\ge10z>1\ge p$. In every case $-p+10(1-\eps)\ge0$.
-
-(ii) With root marginal $a$, other marginals $b,c$ and atom probability $z\le\min\{a,b,c\}$, the second inequality holds at $t=1$ and its left side is nonincreasing in $t$ because $z^2\le abc$. The first holds at $t=1$, and for $t\ge2$ the arithmetic-geometric mean inequality gives $a+\binom t2bc\ge\sqrt{2t(t-1)}\sqrt{abc}\ge\sqrt{2t(t-1)}\,z\ge tz$.
-\end{proof}
-
-Thus Theorem~\ref{thm:fan} rejects exactly the laws that violate some Finner inequality, and Corollary~\ref{cor:cubicorder}(i) applies only to laws that satisfy all of them. The two sets are disjoint.
-
-\begin{remark}[Examples]\label{rem:cubicexamples}
-The following laws satisfy \eqref{eq:finner} at all eight atoms and the functional form $\E f(A)g(B)h(C)\le\|f(A)\|_2\|g(B)\|_2\|h(C)\|_2$ for all nonnegative $f,g,h$, which also holds on $\Ctri$ by the proof of Lemma~\ref{lem:finner} \cite{Finner1992}. By Proposition~\ref{prop:finnerdisjoint}, Theorem~\ref{thm:fan} gives no rejecting order for any of them. The bounds of Corollary~\ref{cor:cubicorder} are:
-\begin{enumerate}[label=(\alph*),nosep]
-\item the W law, uniform on the three outcomes with exactly one $1$: $-\E A\,\E B\,\E C+10P(ABC=1)=-1/27$, part (i) gives $73$ and part (ii) gives $25$;
-\item $\Pi(-\tfrac1{20},-\tfrac9{20},-\tfrac9{20})$ of \eqref{eq:paritylaw}: $\mathcal F=-81/8000$, part (i) gives $257$ and part (ii) gives $1038$;
-\item the full-support law $\tfrac{999}{1000}\Pi(-\tfrac1{20},-\tfrac9{20},-\tfrac9{20})+\tfrac1{1000}\cdot\tfrac18$: part (i) gives $510$ and part (ii) gives $1517$.
-\end{enumerate}
-The exact checks are \texttt{artifact/certificates/beyond-finner/verify\_beyond\_finner.py} in the repository \repo.
+That a polynomial inequality valid on the compatible set holds on $\INW_n$ up to an error of order $1/n$ is Theorem~1 of Navascués and Wolfe with their equation~(34), and their equation~(A5) makes the constant explicit~\cite{NW2020}; that constant depends on the number of sources. The new point is the source-free constant $\Sigma(P)\le3$. Cubic triangle inequalities of the same form, in $\E A$, $\E B$, $\E C$ and $\E[ABC]$, appear among the order-two inequalities of Wolfe, Spekkens and Fritz~\cite[Section IV C, eqs.~(51)--(54) of arXiv v5]{WSF2019}; the certificates above are not among them. A certificate can reject a law that satisfies the Finner inequality \eqref{eq:finner} at every atom. The W law, uniform on the three outcomes with exactly one $1$, has $-\E A\,\E B\,\E C+10\,P(ABC=1)=-1/27$ and $\Sigma=8/3$, so the bound gives $\tmin^H\le73$. Its incompatibility with the triangle is Example~2 of~\cite{WSF2019}, and that it satisfies the Finner inequality is noted in~\cite[footnote 4]{Renou2019}. Navascués and Wolfe report that their hierarchy rejects it at order three~\cite[footnote 2]{NW2020}, so the order above is far from tight on this law.
 \end{remark}

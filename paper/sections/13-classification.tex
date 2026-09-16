@@ -95,6 +95,8 @@ Suppose next that $K$ is a tree. We claim that a tree of diameter at most three 
 So a tree that is not a double-star has diameter at least $4$. Take a geodesic of length at least $4$ and let $v_0,\dots,v_4$ be five consecutive vertices on it. Any edge of $K$ among them other than the four geodesic edges would create a cycle in a tree, so the induced subgraph on $\{v_0,\dots,v_4\}$ is $P_5$.
 \end{proof}
 
+The argument has a direct ancestor. Fritz classified the graph scenarios in which every correlation is classical as the disjoint unions of stars~\cite[Theorem 3.8]{Fritz2012}: every other connected graph has an induced triangle, square or four-vertex path~\cite[Lemma 3.9]{Fritz2012}, and a correlation on that induced subgraph extends to the whole graph by deterministic outcomes at the remaining vertices. Lemma~\ref{lem:exhaustion} and the proof below have the same shape, with double-stars in place of stars, cycles and the five-vertex path as the forbidden induced subgraphs, and inflation witnesses in place of correlations. The framing of scenarios with arbitrary sources as hypergraphs is also Fritz's~\cite[Section 3]{Fritz2012}.
+
 \begin{proof}[Proof of Theorem~\ref{thm:classification}]
 Assume (d). Each component is a double-star with binary observations, so Theorem~\ref{thm:doublestar} and Corollary~\ref{cor:disjointunions} give $\INW_2(G)=\Cscen{G}$. With Proposition~\ref{prop:gsound},
 \[
@@ -122,7 +124,7 @@ the leaves being taken with respect to a choice of central edge in each componen
 \end{remark}
 
 \begin{remark}[Scenarios that are not pair-source]\label{rem:hypergraph}
-Let three observers read one common source. That source can carry a sample of the whole observed triple, so every law on the three outcomes is compatible and the order-one test already characterizes the compatible set, while the observed adjacency graph of this scenario is the triangle, which does not terminate at any order. The adjacency graph alone therefore carries no classification once source hyperedges are allowed; Section~\ref{sec:hypergraph} gives the replacement.
+Let three observers read one common source. That source can carry a sample of the whole observed triple, so every law on the three outcomes is compatible~\cite[Proposition 3.7]{Fritz2012} and the order-one test already characterizes the compatible set, while the observed adjacency graph of this scenario is the triangle, which does not terminate at any order. The adjacency graph alone therefore does not decide termination once a source may be read by three or more observers. Such scenarios are treated in a companion paper.
 \end{remark}
 
 \input{sections/14-double-star}
