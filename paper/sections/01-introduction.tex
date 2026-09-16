@@ -11,6 +11,8 @@ For binary observations, a pair-source scenario has a finite characterizing orde
 
 The proof reconstructs a model on each double-star. Every other connected graph contains an induced cycle or a five-vertex path; explicit witnesses on these subgraphs extend to the ambient graph. Figure~\ref{fig:classification} shows the dividing line.
 
+For scenarios with a source shared by three or more observers, Section~\ref{sec:hypergraph} proves termination for a class that contains the double-star forests and nontermination whenever a restriction to a pair set is not a double-star forest. The scenarios between the two, beginning with the complete $3$-uniform hypergraph on four observers, are Question~\ref{q:hypergraph}.
+
 \input{figures/classification}
 
 \paragraph{Quantitative convergence.}
@@ -18,7 +20,7 @@ Let $H_t^H(G)$ be the largest total-variation distance from compatibility among 
 \[
 \frac{c_G}{t}\le H_t^H(G)\le\frac{C_G}{\sqrt t},
 \]
-with explicit positive constants (Corollary~\ref{cor:brackets}). The lower bounds use parity laws and corrected Fourier densities. The upper bound follows from a convex-order comparison and applies to any correlation scenario with $K$ joint outcomes, with $C_G=\sqrt{K-1}/2$ (Theorem~\ref{thm:convexorder}). On the square, increasing the NW order by a factor at most $3/2$ enforces all AI prescriptions (Theorem~\ref{thm:orderconversion}). Finite certificates also separate these tests at specified orders.
+with explicit positive constants, $c_\square=1/47$ and $c_\triangle=1/43$ (Corollary~\ref{cor:brackets}). The lower bounds use parity laws and corrected Fourier densities. The upper bound follows from a convex-order comparison and applies to any correlation scenario with $K$ joint outcomes, with $C_G=\sqrt{K-1}/2$ (Theorem~\ref{thm:convexorder}). On the square, increasing the NW order by a factor at most $3/2$ enforces all AI prescriptions (Theorem~\ref{thm:orderconversion}). Finite certificates also separate these tests at specified orders.
 
 \paragraph{Rejecting orders near the boundary.}
 A second triangle construction places independent defects in a cube of copy indices. It gives passing witnesses for
@@ -31,9 +33,9 @@ where $\Bern(r)(1)=r$. For $P_\eps=Q(\eps,1-\tfrac12\eps^{2/3})$, a fan inequali
 \tmin^H(P_\eps)=\Theta(\eps^{-1/3})
 =\Theta\bigl(d_{\TV}(P_\eps,\Ctri)^{-1/3}\bigr).
 \]
-We compute the leading distance constant and bound the rejecting-order constants (Proposition~\ref{prop:family}, Theorem~\ref{thm:distance}). This exponent describes this family; the worst-case bounds above concern all accepted laws. For rational binary-triangle inputs of at most $B$ bits, the largest first rejecting order is $2^{\Theta(B)}$ (Proposition~\ref{prop:bits}). A promised distance $\delta>0$ gives the bound $\lfloor(K-1)/(4\delta^2)\rfloor+1$ for any fixed correlation scenario.
+We compute the leading distance constant and bound the rejecting-order constants (Proposition~\ref{prop:family}, Theorem~\ref{thm:distance}). This exponent describes this family; the worst-case bounds above concern all accepted laws. For rational binary-triangle inputs of at most $B$ bits, the largest first rejecting order is $2^{\Theta(B)}$ (Proposition~\ref{prop:bits}). A promised distance $\delta>0$ gives the bound $\lfloor(K-1)/(4\delta^2)\rfloor+1$ for any fixed correlation scenario. For parity violations on the square and the triangle, cubic certificates give rejecting orders in closed form from three moments, the parity probability and $\|P\|_2$ (Corollary~\ref{cor:cubicorder}); on the triangle this reaches laws that satisfy every Finner inequality, where the fan bound gives nothing (Proposition~\ref{prop:finnerdisjoint}).
 
 \input{sections/09-prior-work}
 
 \paragraph{Organization.}
-Section~\ref{sec:setup} defines the scenarios and tests, with the triangle as an example. Section~\ref{sec:classification} proves the classification. Sections~\ref{sec:cyclequant} and~\ref{sec:main} give the convergence bounds and the defect-family analysis; Section~\ref{sec:input} derives the distance and input-size consequences. Open problems and verification scope follow in Sections~\ref{sec:open} and~\ref{sec:repro}. The appendices contain the root-sink proof, order-conversion and threshold details, certificate formats and supplementary inequalities.
+Section~\ref{sec:setup} defines the scenarios and tests, with the triangle as an example. Section~\ref{sec:classification} proves the classification. Sections~\ref{sec:cyclequant} and~\ref{sec:main} give the convergence bounds and the defect-family analysis; Section~\ref{sec:input} derives rejecting orders from distance, parity rigidity and input size. Section~\ref{sec:hypergraph} treats sources shared by three or more observers. Open problems and verification scope follow in Sections~\ref{sec:open} and~\ref{sec:repro}. The appendices contain the root-sink proof, order-conversion and threshold details, certificate formats and supplementary inequalities.

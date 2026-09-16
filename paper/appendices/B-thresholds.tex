@@ -99,3 +99,9 @@ Order one accepts every target law. Proposition~\ref{prop:lowextraction} gives t
 \end{proof}
 
 Some dual expectation polynomials have simple roots, including $2-\sqrt3$, $1/5$ and $1/7$ in the triangle cases. A root yields an upper obstruction; an exact threshold identity would also require a primal witness at that root.
+
+\subsection{Order conversion along the parity direction}\label{app:parityconversion}
+
+\begin{proof}[Proof of Proposition~\ref{prop:parityconversion}]
+On the square this is Theorem~\ref{thm:orderconversion} for $s\ge2$, since $\INW_t(\square)\subseteq\INW_{\lfloor3s/2\rfloor}(\square)\subseteq\IAI_s(\square)$, and it is trivial for $s=1$. On the triangle, $D_{\mathrm{NW}}(t)$ is the set of degree sequences of multigraphs with at most $t$ edges on the three source families, since the even-weight vectors of $\{0,1\}^3$ are the zero vector and the three pairs. A tuple $k$ is such a degree sequence exactly when $S=\sum_gk_g$ is even, $2\max_gk_g\le S$ and $S\le2t$. A tuple of $D_{\mathrm{AI}}(s)$ has even $S$ with $2\max_gk_g\le S\le3s$, hence $S\le2\lfloor3s/2\rfloor\le2t$, so $D_{\mathrm{AI}}(s)\subseteq D_{\mathrm{NW}}(t)$. Now let $\Gamma$ witness $P_{3,q}\in\INW_t(\triangle)$. By the proof of Lemma~\ref{lem:countmomentNW}, after symmetrization $\Gamma$ is a law on sign potentials under which the mean of a product of potential signs depends only on its degree tuple and equals $(-q)^{S/2}$ for every tuple in $D_{\mathrm{NW}}(t)$. Keep the copied observations whose indices lie in $[s]$. The kept table is a symmetric law on sign potentials of height $s$, and each of its characters with degree tuple in $D_{\mathrm{AI}}(s)\subseteq D_{\mathrm{NW}}(t)$ has mean $(-q)^{S/2}$. By the sufficiency part of Lemma~\ref{lem:countmoment} for the triangle, stated in Lemma~\ref{lem:countmomentNW}, this places $P_{3,q}$ in $\IAI_s(\triangle)$.
+\end{proof}

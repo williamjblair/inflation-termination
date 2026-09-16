@@ -46,8 +46,12 @@ for ax, name, ceiling in zip(axes, ("square", "triangle"), (.46, 1.0)):
             ax.annotate("lower bound", (2, ys[1]), xytext=(2.7, .435),
                         fontsize=8, ha="center", color=color,
                         arrowprops={"arrowstyle": "-", "color": color, "lw": .65})
-    ax.axhline(1/16, color=".4", linewidth=.8, linestyle=(0, (3, 3)))
-    ax.text(9.7, 1/16 + ceiling*.02, "$1/16$", fontsize=8, color=".35", ha="right")
+    # All-order analytic guarantee of Theorems 4.3 and 4.4: q = B^(2/t) - 1, B = 16/15 or 9/8.
+    base, label = (16 / 15, r"$t((16/15)^{2/t}-1)$") if name == "square" else (9 / 8, r"$t((9/8)^{2/t}-1)$")
+    grid = [1 + 9 * k / 200 for k in range(201)]
+    guarantee = [u * (base ** (2 / u) - 1) for u in grid]
+    ax.plot(grid, guarantee, color=".4", linewidth=.8, linestyle=(0, (3, 3)))
+    ax.text(9.7, guarantee[-1] + ceiling*.025, label, fontsize=8, color=".35", ha="right")
     ax.set(xlim=(.6, 10.4), ylim=(0, ceiling), xlabel="Inflation order $t$",
            ylabel=r"$t\,q_t^H$", title="Square ($C_4$)" if name == "square" else "Triangle ($C_3$)")
     ax.set_xticks([1, 2, 4, 6, 8, 10])

@@ -16,11 +16,15 @@ Theorem~\ref{thm:orderconversion} shows that on the square the Navascués--Wolfe
 Proposition~\ref{prop:paritythresholds} gives finite-order separations. Whether $\IAI_t\subsetneq\INW_t$ holds at every order on any fixed scenario remains open.
 
 \begin{question}[Beyond pair-source scenarios]\label{q:hypergraph}
-Which scenarios with a source shared by three or more observed variables admit a finite characterizing order?
+Is Conjecture~\ref{conj:hypergraph} true? In particular, does the complete $3$-uniform hypergraph $K_4^{(3)}$ on four observers admit a finite characterizing order?
 \end{question}
+Section~\ref{sec:hypergraph} proves the terminating direction and the nonterminating direction whenever a pair set carries a non-double-star component. $K_4^{(3)}$ is the smallest scenario outside both: every restriction to three observers is unconstrained, so a nontermination witness would need an incompatibility that is genuinely four-party, and a reconstruction would need to extract, from a finite witness, the source that three observers share and the fourth does not read.
+
 \begin{question}[Explicit rejecting orders beyond Finner]\label{q:effective}
 Can one bound the rejecting order in directly evaluable quantities of an incompatible input law that satisfies every Finner inequality?
 \end{question}
+Theorem~\ref{thm:fan} covers the laws that violate a Finner inequality, and Corollary~\ref{cor:cubicorder} covers the laws caught by parity rigidity on the square and the triangle; on the triangle, the laws with $\mathcal F<0$ satisfy every Finner inequality (Proposition~\ref{prop:finnerdisjoint}). What remains are incompatible laws with $\mathcal F\ge0$ and $G\ge0$ for every orientation; the constants $10$ and $8$ in Proposition~\ref{prop:cubiccert} are not known to be sharp, so the size of that remaining class is not known either. The distance and bit-length bounds apply more broadly, but computing the distance or extracting the constants from quantifier elimination need not be practical.
+
 \begin{question}[Quantum and no-signalling analogues]\label{q:quantum}
 For which quantum or no-signalling inflation hierarchies can one construct incompatible laws with an unbounded first rejecting order and determine its growth?
 \end{question}

@@ -20,12 +20,16 @@ so $|1-\prod_ge^{i\theta_g}|\le\sum_g|1-e^{i\theta_g}|$. Cauchy--Schwarz gives $
 \end{proof}
 
 \begin{lemma}[Corrected density]\label{lem:corrected}
-Fix $m\in\{3,4\}$, $t\ge1$ and $0<q\le1/(16t)$, and set $c=4$ for $m=3$ and $c=5$ for $m=4$. On $m$ families of $t$ signs $s_{g,i}$ put
+Fix $m\in\{3,4\}$ and $t\ge1$, and let $q>0$ satisfy
+\begin{equation}\label{eq:Wrange}
+R:=(1+q)^{t/2}\ \le\ \frac{m^2}{m^2-1},\qquad\text{that is}\qquad q\le\Bigl(\tfrac98\Bigr)^{2/t}-1\ \ (m=3),\qquad q\le\Bigl(\tfrac{16}{15}\Bigr)^{2/t}-1\ \ (m=4).
+\end{equation}
+Set $c=mR^{m-1}$. On $m$ families of $t$ signs $s_{g,i}$ put
 \begin{equation}\label{eq:Wdensity}
-f_g=\prod_{i=1}^t\bigl(1+\mathrm{i}\sqrt q\,s_{g,i}\bigr),\qquad R=(1+q)^{t/2},\qquad
+f_g=\prod_{i=1}^t\bigl(1+\mathrm{i}\sqrt q\,s_{g,i}\bigr),\qquad
 W(s)=\Real\prod_{g=1}^mf_g+c\sum_{g=1}^m\bigl(1-\Real f_g\bigr).
 \end{equation}
-Then $W$ is a real polynomial in $q$ with rational coefficients, $W\ge3/5$ for $m=3$ and $W\ge1/3$ for $m=4$, the law $\rho=2^{-mt}W$ is a probability law, and its characters are
+Then $W\ge R^{m-1}\bigl(m^2-(m^2-1)R\bigr)\ge0$, the law $\rho=2^{-mt}W$ is a probability law, and its characters are
 \begin{equation}\label{eq:Wmoments}
 \E_\rho\Bigl[\prod_{w\in S}s_w\Bigr]=
 \begin{cases}
@@ -34,23 +38,24 @@ Then $W$ is a real polynomial in $q$ with rational coefficients, $W\ge3/5$ for $
 (-q)^{|S|/2},&|S|\text{ even, meeting at least two families}.
 \end{cases}
 \end{equation}
+The range \eqref{eq:Wrange} contains $0<q\le1/(8t)$ for $m=4$ and $0<q\le2/(9t)$ for $m=3$.
 \end{lemma}
 
 \begin{proof}
-Here $\mathrm{i}^2=-1$. Taking real parts keeps only even powers of $\mathrm{i}\sqrt q$, so $W$ is a real polynomial in $q$. Since $|1+i\sqrt q\,s|=(1+q)^{1/2}$ we may write $f_g=Re^{i\theta_g}$, and then
+Here $\mathrm{i}^2=-1$. Taking real parts keeps only even powers of $\mathrm{i}\sqrt q$, so $W$ is real. Since $|1+i\sqrt q\,s|=(1+q)^{1/2}$ we may write $f_g=Re^{i\theta_g}$, and then
 \[
 \begin{aligned}
 W&=R^m\cos\Bigl(\sum_g\theta_g\Bigr)+c\sum_g\bigl(1-R\cos\theta_g\bigr)\\
 &=R^m-cm(R-1)-R^m\Bigl(1-\cos\sum_g\theta_g\Bigr)+cR\sum_g\bigl(1-\cos\theta_g\bigr).
 \end{aligned}
 \]
-Lemma~\ref{lem:telescope} gives
+Lemma~\ref{lem:telescope} gives, for every $q\ge0$ and every real $c$,
 \[
 W\ \ge\ R^m-cm(R-1)+\bigl(cR-mR^m\bigr)\sum_g\bigl(1-\cos\theta_g\bigr).
 \]
-From $tq\le1/16$ we get $R^2=(1+q)^t\le\sum_{j\ge0}(tq)^j\le16/15$ and $R-1=(R^2-1)/(R+1)\le1/30$. For $m=3$, $c=4$: $3R^3\le4R$ because $3R^2\le16/5\le4$, and $W\ge1-12/30=3/5$. For $m=4$, $c=5$: $4R^4\le5R$ because $4R^3\le4(16/15)^{3/2}<5$, and $W\ge1-20/30=1/3$.
+With $c=mR^{m-1}$ the last coefficient vanishes, so $W\ge R^m-m^2R^{m-1}(R-1)=R^{m-1}\bigl(m^2-(m^2-1)R\bigr)$, which is nonnegative by \eqref{eq:Wrange}. Since $(1+x/t)^t\le e^x$, the range contains $q\le2\ln(16/15)/t$ and $q\le2\ln(9/8)/t$, hence the stated rational ranges.
 
-For the characters, work under the uniform law on the sign cube, where the families are independent and $\E f_g=1$. For $S$ with parts $S_g$ in the families,
+For the characters, work under the uniform law on the sign cube, where the families are independent and $\E f_g=1$; the constant $c$ does not depend on $s$. For $S$ with parts $S_g$ in the families,
 \[
 \E\Bigl[\prod_gf_g\prod_{w\in S}s_w\Bigr]=\prod_g\E\Bigl[f_g\prod_{w\in S_g}s_w\Bigr]=(i\sqrt q)^{|S|},
 \]
@@ -58,11 +63,11 @@ whose real part is $0$ for odd $|S|$ and $(-q)^{|S|/2}$ for even $|S|$. Also $\E
 \end{proof}
 
 \begin{theorem}[The square at $q=\Theta(1/t)$]\label{thm:squarelinear}
-For every $t\ge1$ and every $0<q\le1/(16t)$, the square parity law $P_q$ of \eqref{eq:squaretarget} lies in $\IAI_t(\square)=\Iexp_t(\square)$.
+For every $t\ge1$ and every $0<q\le(16/15)^{2/t}-1$, in particular every $0<q\le1/(8t)$, the square parity law $P_q$ of \eqref{eq:squaretarget} lies in $\IAI_t(\square)=\Iexp_t(\square)$.
 \end{theorem}
 
 \begin{proof}
-Take $m=4$ and $c=5$ in Lemma~\ref{lem:corrected}, name the four families $x,y,z,w$ after the sources $X,Y,Z,W$, and define every copied observation by
+Take $m=4$ in Lemma~\ref{lem:corrected}, name the four families $x,y,z,w$ after the sources $X,Y,Z,W$, and define every copied observation by
 \[
 A^{il}=x_iw_l,\qquad B^{ij}=x_iy_j,\qquad C^{jk}=y_jz_k,\qquad D^{kl}=z_kw_l,
 \]
@@ -70,16 +75,19 @@ that is by \eqref{eq:cyclewitness} for $m=4$. The density \eqref{eq:Wdensity} is
 \end{proof}
 
 \begin{theorem}[The triangle at $q=\Theta(1/t)$]\label{thm:trianglelinear}
-For every $t\ge1$ and every $0<q\le1/(16t)$, the parity-even law $\Pi(-q,-q,-q)$ of \eqref{eq:paritylaw} lies in $\IAI_t(\triangle)=\Iexp_t(\triangle)$.
+For every $t\ge1$ and every $0<q\le(9/8)^{2/t}-1$, in particular every $0<q\le2/(9t)$, the parity-even law $\Pi(-q,-q,-q)$ of \eqref{eq:paritylaw} lies in $\IAI_t(\triangle)=\Iexp_t(\triangle)$.
 \end{theorem}
 
 \begin{proof}
-Take $m=3$ and $c=4$ in Lemma~\ref{lem:corrected}, name the three families $x,y,z$ after the sources $X,Y,Z$, and define
+Take $m=3$ in Lemma~\ref{lem:corrected}, name the three families $x,y,z$ after the sources $X,Y,Z$, and define
 \[
 A^{ij}=x_iz_j,\qquad B^{ik}=x_iy_k,\qquad C^{jk}=z_jy_k,
 \]
-which is \eqref{eq:cyclewitness} for $m=3$ in the index convention of Section~\ref{sec:triangle}. Positivity and normalization are Lemma~\ref{lem:corrected} with $W\ge3/5$. Symmetry within each family is again immediate. By Lemma~\ref{lem:boundary} every character prescribed by an injectable marginal, by an ancestrally independent product, or by the diagonal law has boundary empty or meeting at least two families, so \eqref{eq:Wmoments} returns $(-q)^{|\partial\cdot|/2}$ and the argument of Lemma~\ref{lem:cyclewitness} applies unchanged. The original copied triangle has $\E A=\E[x_iz_j]=-q$ and likewise $\E B=\E C=-q$, while $ABC=x_iz_jx_iy_kz_jy_k=1$, so its law is $\Pi(-q,-q,-q)=P_{3,q}$. Lemma~\ref{lem:rootsink} gives the recursive prescriptions.
+which is \eqref{eq:cyclewitness} for $m=3$ in the index convention of Section~\ref{sec:triangle}. Positivity and normalization are Lemma~\ref{lem:corrected}. Symmetry within each family is again immediate. By Lemma~\ref{lem:boundary} every character prescribed by an injectable marginal, by an ancestrally independent product, or by the diagonal law has boundary empty or meeting at least two families, so \eqref{eq:Wmoments} returns $(-q)^{|\partial\cdot|/2}$ and the argument of Lemma~\ref{lem:cyclewitness} applies unchanged. The original copied triangle has $\E A=\E[x_iz_j]=-q$ and likewise $\E B=\E C=-q$, while $ABC=x_iz_jx_iy_kz_jy_k=1$, so its law is $\Pi(-q,-q,-q)=P_{3,q}$. Lemma~\ref{lem:rootsink} gives the recursive prescriptions.
 \end{proof}
+
+The exact certificates of Appendix~\ref{app:certificates} and the Lean declarations of Section~\ref{sec:repro} treat the witnesses at $q=1/(16t)$, which lies in both ranges, with the constants $c=5$ for the square and $c=4$ for the triangle. For $tq\le1/16$ these constants satisfy $cR\ge mR^m$, so the bound $W\ge R^m-cm(R-1)$ of the proof holds with them as well.
+
 \subsection{Distance and the worst-case profile}\label{sec:worstcase}
 
 For $H\in\{\mathrm{NW},\mathrm{AI},\mathrm{exp}\}$ and a pair-source scenario $G$ set
@@ -121,26 +129,28 @@ so at least one of the three comparison moments is nonnegative. Each differs fro
 The left side does not depend on $z$; averaging over $z$ finishes the proof.
 \end{proof}
 
-\begin{corollary}[Full-support survivors on the square]\label{cor:squaredistance}
-$d_{\TV}(P_q,\Csq)\ge q/6$ for $0<q\le3-2\sqrt2$. With flip probability $\eta=q/64$ applied to each of the four bits and to every copied observation, $\widetilde P_q=T_\eta^{\otimes4}P_q$ is strictly positive, lies in $\IAI_t(\square)=\Iexp_t(\square)$ for $q\le1/(16t)$, and satisfies $d_{\TV}(\widetilde P_q,\Csq)\ge5q/48$. At $q_t=1/(16t)$,
+\begin{corollary}[Survivors on the square]\label{cor:squaredistance}
+$d_{\TV}(P_q,\Csq)\ge q/6$ for $0<q\le3-2\sqrt2$. With flip probability $\eta<1/2$ applied to each of the four bits and to every copied observation, $\widetilde P_q=T_\eta^{\otimes4}P_q$ is strictly positive, lies in $\IAI_t(\square)=\Iexp_t(\square)$ whenever $P_q$ does, and satisfies $d_{\TV}(\widetilde P_q,\Csq)\ge q/6-4\eta$. At $q_t=(16/15)^{2/t}-1$,
 \[
-H^{\mathrm{exp}}_t(\square)=H^{\mathrm{AI}}_t(\square)\ \ge\ \frac5{768\,t}.
+H^{\mathrm{exp}}_t(\square)=H^{\mathrm{AI}}_t(\square)\ \ge\ \frac{q_t}6\ >\ \frac1{47\,t},
 \]
+and the same bound holds for the supremum over strictly positive accepted laws.
 \end{corollary}
 
 \begin{proof}
-If $R\in\Csq$ and $d=d_{\TV}(P_q,R)$, each of $\E_RA$, $\E_RB$, $\E_R[AB]$ is at most $-q+2d$ and the parity error of $R$ is at most $d$, since $P_q$ has none. Lemma~\ref{lem:maxmoment} gives $0\le-q+2d+4d$, so $d\ge q/6$. The noise argument of Theorem~\ref{thm:cycle} applies to the witness of Theorem~\ref{thm:squarelinear}, and $d_{\TV}(\widetilde P_q,P_q)\le4\eta=q/16$, so $d_{\TV}(\widetilde P_q,\Csq)\ge q/6-q/16=5q/48$. Substituting $q_t=1/(16t)$ gives $5/(768t)$, and Lemma~\ref{lem:rootsink} identifies the two suprema.
+If $R\in\Csq$ and $d=d_{\TV}(P_q,R)$, each of $\E_RA$, $\E_RB$, $\E_R[AB]$ is at most $-q+2d$ and the parity error of $R$ is at most $d$, since $P_q$ has none. Lemma~\ref{lem:maxmoment} gives $0\le-q+2d+4d$, so $d\ge q/6$. The noise argument of Theorem~\ref{thm:cycle} applies to the witness of Theorem~\ref{thm:squarelinear}, and $d_{\TV}(\widetilde P_q,P_q)\le4\eta$. Theorem~\ref{thm:squarelinear} places $P_{q_t}$ in $\IAI_t(\square)$, so $H^{\mathrm{AI}}_t(\square)\ge q_t/6$, and letting $\eta\downarrow0$ gives the bound over strictly positive laws. Finally $q_t\ge2\ln(16/15)/t$ and $\ln(16/15)/3>1/47$; Lemma~\ref{lem:rootsink} identifies the two suprema.
 \end{proof}
 
-\begin{corollary}[Full-support survivors on the triangle]\label{cor:triangledistance}
-$d_{\TV}(\Pi(-q,-q,-q),\Ctri)\ge q/10$ for $0<q\le1/3$. With flip probability $\eta=q/192$ on each of the three bits and on every copied observation, the noisy target is strictly positive, lies in $\IAI_t(\triangle)=\Iexp_t(\triangle)$ for $q\le1/(16t)$, and is at distance at least $27q/320$ from $\Ctri$. At $q_t=1/(16t)$,
+\begin{corollary}[Survivors on the triangle]\label{cor:triangledistance}
+$d_{\TV}(\Pi(-q,-q,-q),\Ctri)\ge q/10$ for $0<q\le1/3$. With flip probability $\eta<1/2$ on each of the three bits and on every copied observation, the noisy target is strictly positive, lies in $\IAI_t(\triangle)=\Iexp_t(\triangle)$ whenever the target does, and is at distance at least $q/10-3\eta$ from $\Ctri$. At $q_t=(9/8)^{2/t}-1$,
 \[
-H^{\mathrm{exp}}_t(\triangle)=H^{\mathrm{AI}}_t(\triangle)\ \ge\ \frac{27}{5120\,t}.
+H^{\mathrm{exp}}_t(\triangle)=H^{\mathrm{AI}}_t(\triangle)\ \ge\ \frac{q_t}{10}\ >\ \frac1{43\,t},
 \]
+and the same bound holds for the supremum over strictly positive accepted laws.
 \end{corollary}
 
 \begin{proof}
-The distance bound is Lemma~\ref{lem:cycledistance} for $m=3$, whose proof uses only Lemma~\ref{lem:quantrigidity} on the triangle itself. The three flips cost at most $3\eta=q/64$ in total variation, and $q/10-q/64=27q/320$. Feasibility is Theorem~\ref{thm:trianglelinear} with the noise argument of Theorem~\ref{thm:cycle}. Substituting $q_t=1/(16t)$ gives $27/(5120t)$.
+The distance bound is Lemma~\ref{lem:cycledistance} for $m=3$, whose proof uses only Lemma~\ref{lem:quantrigidity} on the triangle itself, and the three flips cost at most $3\eta$ in total variation. Feasibility is Theorem~\ref{thm:trianglelinear} with the noise argument of Theorem~\ref{thm:cycle}. At $q_t$ this gives $H^{\mathrm{AI}}_t(\triangle)\ge q_t/10$, with $\eta\downarrow0$ for strictly positive laws, and $q_t\ge2\ln(9/8)/t$ with $\ln(9/8)/5>1/43$.
 \end{proof}
 
 \subsection{A convex-order upper bound}\label{sec:convexorder}
@@ -185,11 +195,12 @@ The conditional-expectation argument removes the source-count factor from the co
 \begin{corollary}[Brackets for the square and the triangle]\label{cor:brackets}\label{thm:brackets-intro}
 For every $t\ge1$,
 \[
-\frac5{768\,t}\ \le\ H^{\mathrm{exp}}_t(\square)=H^{\mathrm{AI}}_t(\square)\ \le\ H^{\mathrm{NW}}_t(\square)\ \le\ \min\Bigl\{1,\frac{\sqrt{15}}{2\sqrt t}\Bigr\},
+\frac16\Bigl(\Bigl(\frac{16}{15}\Bigr)^{2/t}-1\Bigr)\ \le\ H^{\mathrm{exp}}_t(\square)=H^{\mathrm{AI}}_t(\square)\ \le\ H^{\mathrm{NW}}_t(\square)\ \le\ \min\Bigl\{1,\frac{\sqrt{15}}{2\sqrt t}\Bigr\},
 \]
 \[
-\frac{27}{5120\,t}\ \le\ H^{\mathrm{exp}}_t(\triangle)=H^{\mathrm{AI}}_t(\triangle)\ \le\ H^{\mathrm{NW}}_t(\triangle)\ \le\ \frac{\sqrt7}{2\sqrt t}.
+\frac1{10}\Bigl(\Bigl(\frac98\Bigr)^{2/t}-1\Bigr)\ \le\ H^{\mathrm{exp}}_t(\triangle)=H^{\mathrm{AI}}_t(\triangle)\ \le\ H^{\mathrm{NW}}_t(\triangle)\ \le\ \frac{\sqrt7}{2\sqrt t}.
 \]
+The two lower bounds exceed $1/(47t)$ and $1/(43t)$.
 \end{corollary}
 
 \begin{proof}
@@ -227,5 +238,15 @@ Consequently $\INW_3(\square)\subsetneq\IAI_2(\square)=\Iexp_2(\square)\subsetne
 \end{proposition}
 
 The proof is in Appendix~\ref{app:quantitative}. Figure~\ref{fig:thresholds} plots $tq_t^H$.
+
+The degree sets also give an order conversion along the parity direction on both scenarios.
+
+\begin{proposition}[Order conversion along the parity direction]\label{prop:parityconversion}
+Let $s\ge1$ and $t\ge\max\{s,\lfloor3s/2\rfloor\}$. Then $q^{\mathrm{NW}}_t\le q^{\mathrm{AI}}_s$ on the square and on the triangle.
+\end{proposition}
+
+The proof is in Appendix~\ref{app:parityconversion}. At $s=3$ it gives $q^{\mathrm{NW}}_4\le q^{\mathrm{AI}}_3$, and at these two orders the certified brackets agree, the exception in Proposition~\ref{prop:paritythresholds}(iii).
+
+Table~\ref{tab:thresholds} shows two further regularities that the theorems do not explain. The products $tq^H_t$ increase towards constants near $0.4$ on the square and $0.9$ on the triangle, about three and four times the constants $2\ln(16/15)\approx0.129$ and $2\ln(9/8)\approx0.236$ of Theorems~\ref{thm:squarelinear} and~\ref{thm:trianglelinear}; and the two hierarchies coincide along this direction at every odd order up to nine while separating at every even order. Exact certificates extend the pattern on the triangle: $q^{\mathrm{AI}}_t$ and $q^{\mathrm{NW}}_t$ have the identical bracket at $t=11$ and $t=13$, with an ancestral-independence dual supported on Navascu\'es--Wolfe keys only, and $q^{\mathrm{AI}}_{12}<q^{\mathrm{NW}}_{12}$. The equations that ancestral independence adds are, on the triangle, exactly the balanced tuples with $S\ge2t+2$, and each is equivalent to a parity-weighted moment of degree at most $t-2$; the pure parity-balance equation occurs among them only at even $t$. No map on count distributions independent of $q$ carries Navascu\'es--Wolfe witnesses to solutions of these equations, so a proof of the odd-order coincidence would have to use where the threshold sits. Neither pattern is proved beyond the certified orders, and the floating-point values at triangle order fifteen are too poorly conditioned to decide either way.
 
 \input{figures/thresholds}
