@@ -1,6 +1,6 @@
 {
  "artifact": "inflation-nontermination",
- "generated_utc": "2026-09-15T14:56:51Z",
+ "generated_utc": "2026-09-16T18:21:53Z",
  "frozen_identities": {
   "maintained_repository_revision": "768d404c631659574d9fad232c028df4f63fbc3b",
   "original_proof_source_sha256": "a38310645a78b5d9372ef55080899308e4ab4b84f57ee207e21979913f5e3bf4",
@@ -9,8 +9,12 @@
  },
  "files": {
   "README.md": {
-   "sha256": "d931148a7f9dba317cd63101d13796a04bd2ceb2ec0be3ff45bc7a9579c5dddc",
-   "size": 1199
+   "sha256": "fe11605ef078cd6c455b3aca3efb5c2580ef1e780d2c6a835d4261250e20d230",
+   "size": 1683
+  },
+  "certificates/beyond-finner/verify_beyond_finner.py": {
+   "sha256": "70cf6d552b1d7e21026ea67b699875ffe122a3dd800836b443115d998419e92a",
+   "size": 21138
   },
   "certificates/classification/MANIFEST.json": {
    "sha256": "ac7b2b5fd604057cd39b2e97fef90da8360e4132458b2a475c23075a5aedbe3f",
@@ -68,6 +72,22 @@
    "sha256": "916793b7ac8d8c042ef2be879099528b75c3600cb24c387ba1b9fe8078e4049b",
    "size": 226641
   },
+  "certificates/exponent/odd/certificates/layers-triangle.json": {
+   "sha256": "76eb0e187599613ca22d3fb0c62b9401a39a9f497a710fd8c0eacf7b8063db86",
+   "size": 25768
+  },
+  "certificates/exponent/odd/certificates/square.json": {
+   "sha256": "d5546b8e3eb823ee0d7c154b71650ca84778aab50619aaa63ba3894574846c45",
+   "size": 467305
+  },
+  "certificates/exponent/odd/certificates/triangle.json": {
+   "sha256": "bc31172cb97dc3f1afc6e3a2d0e54930a4b483ee320731cdec4da74c7ef761c1",
+   "size": 365924
+  },
+  "certificates/exponent/odd/verify_odd.py": {
+   "sha256": "117b13baf595a1a139c53eb50a4a5b5bc2b5d26f6322aff5110b02f5451d8722",
+   "size": 16605
+  },
   "certificates/exponent/verify_exponent.py": {
    "sha256": "a3b3bb4deaeed55241c60b2615669105e3ba26587ddf9cd13ffe814191ea7441",
    "size": 22075
@@ -115,6 +135,22 @@
   "certificates/fan/verify_certificates.py": {
    "sha256": "0647f8751c7bd5439e330a21ecd8beec57adc780f3ca90a7d061c75529dc852e",
    "size": 8810
+  },
+  "certificates/hypergraph/certificates/S5_transport_record.json": {
+   "sha256": "2e917e2fffd8211fa423fa2b84074d18567434c390e7f06e336d2b6fbff3caf3",
+   "size": 230
+  },
+  "certificates/hypergraph/certificates/S6_census.json": {
+   "sha256": "d6228eccf390eaeb31c8577a3b9742c435c1b9eef3fcd9176618a59898b21ebe",
+   "size": 650
+  },
+  "certificates/hypergraph/certificates/lp_S1.json": {
+   "sha256": "b9d59056a258f163e08c2a2aac3a3ec1c98a6959a14036a910fa9ed20726e578",
+   "size": 28319
+  },
+  "certificates/hypergraph/verify_hypergraph.py": {
+   "sha256": "a1a9220233377944130c7c8335a292077d68606df52860c1fe48f57db62f9154",
+   "size": 49987
   },
   "certificates/nontermination/README.md": {
    "sha256": "3e253d483c53d9577ca0f2f636149772fd2c3917a13b9cf067e2555a92ea51ae",
