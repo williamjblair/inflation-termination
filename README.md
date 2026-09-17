@@ -53,6 +53,16 @@ paper in preparation.
 
 ## Contents
 
+This is the current standalone owner of the pair-source manuscript and its
+verification package. The broader
+[resource-theory programme](https://github.com/williamjblair/resource-theory)
+retains its mathematical ledger and earlier source editions; those snapshots
+do not supersede this paper's current release instructions. Programme direction
+and cross-repository ownership are documented in the
+[science-factory vision](https://github.com/williamjblair/autonomous-science/blob/master/VISION.md)
+and [repository map](https://github.com/williamjblair/autonomous-science/blob/master/docs/REPOSITORY_MAP.md).
+These links do not change theorem scope, publication status or priority.
+
 ```
 paper/                      manuscript sources and PDF
   release/                  arXiv package, claims, non-claims, priority audit, release status
