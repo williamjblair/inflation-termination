@@ -1,22 +1,32 @@
 \begin{figure}[!htbp]
 \centering
 \begin{tikzpicture}[x=1cm,y=1cm]
-\node[font=\small\bfseries,inkgreen] at (1.9,1.6) {Finite termination};
-\node[observer] (b) at (1.1,0) {$b$}; \node[observer] (c) at (2.7,0) {$c$};
-\draw[network,inkgreen,line width=1.4pt] (b)--(c);
-\foreach \i/\x/\y in {1/0/0.85,2/0/-0.85,3/3.8/0.85,4/3.8/-0.85}{\node[observer,minimum size=3mm] (l\i) at (\x,\y) {};}
+\node[paneltitle,inkgreen] at (0,1.55) {(a) Finite termination};
+\node[paneltitle,inkrust] at (6.6,1.55) {(b) No finite characterizing order};
+\draw[inkgreen!40] (0,1.2)--(5.8,1.2);
+\draw[inkrust!40] (6.6,1.2)--(14,1.2);
+\node[observer,fill=inkgreen!8] (b) at (1.8,0) {$b$};
+\node[observer,fill=inkgreen!8] (c) at (4,0) {$c$};
+\foreach \i/\x/\y in {1/.5/.65,2/.5/-.65,3/5.3/.65,4/5.3/-.65}{
+  \node[observer,minimum size=3.5mm] (l\i) at (\x,\y) {};}
+\begin{scope}[on background layer]
+\draw[network,draw=inkgreen,line width=1.6pt] (b)--(c);
 \draw[network] (l1)--(b)--(l2) (l3)--(c)--(l4);
-\node[font=\small,align=center] at (1.9,-1.7) {Double-stars\\[3pt]diameter $\le3$};
-\node[font=\small,inkgreen] at (1.9,-2.65) {$\mathcal I_2^H(G)=\mathcal C_G$};
-\draw[black!25] (4.7,1.9)--(4.7,-2.95);
-\node[font=\small\bfseries,inkrust] at (8.2,1.6) {Obstructions at every order};
-\foreach \i/\a in {0/90,1/18,2/-54,3/-126,4/162}{\node[observer,minimum size=3mm] (v\i) at ($(6.3,0.05)+(\a:.9)$) {};}
-\draw[network] (v0)--(v1)--(v2)--(v3)--(v4)--(v0);
-\node[font=\small,align=center] at (6.3,-1.7) {Induced cycle\\[3pt]$C_m$};
-\foreach \i in {0,...,4}{\node[observer,minimum size=3mm] (p\i) at (8.3+0.62*\i,0) {};}
-\draw[network] (p0)--(p1)--(p2)--(p3)--(p4);
-\node[font=\small,align=center] at (9.55,-1.7) {Induced path\\[3pt]$P_5$};
-\node[font=\small,inkrust] at (8.2,-2.65) {$\mathcal C_G\subsetneq\mathcal I_t^H(G)\quad\text{for every }t$};
+\end{scope}
+\node[figlabel] at (2.9,-1.2) {Every component a double-star};
+\node[fignote] at (2.9,-1.72) {Tree of diameter at most three};
+\foreach \i/\a in {0/90,1/18,2/-54,3/-126,4/162}{
+  \node[observer,minimum size=3.5mm] (v\i) at ($(8.2,0)+(\a:.83)$) {};}
+\foreach \i in {0,...,4}{\node[observer,minimum size=3.5mm] (p\i) at (10.5+.72*\i,0) {};}
+\begin{scope}[on background layer]
+\draw[network,draw=inkrust] (v0)--(v1)--(v2)--(v3)--(v4)--(v0);
+\draw[network,draw=inkrust] (p0)--(p1)--(p2)--(p3)--(p4);
+\end{scope}
+\node[figlabel] at (8.2,-1.2) {Induced cycle $C_m$};
+\node[figlabel] at (11.95,-1.2) {Induced path $P_5$};
+\node[fignote] at (10.3,-1.72) {At least one component contains an obstruction};
+\node[figlabel,inkgreen] at (2.9,-2.4) {$\mathcal I_2^H(G)=\mathcal C_G$};
+\node[figlabel,inkrust] at (10.3,-2.4) {$\mathcal C_G\subsetneq\mathcal I_t^H(G)\quad\text{for every }t$};
 \end{tikzpicture}
 \caption{The classification for binary pair-source scenarios. Vertices denote observers and edges independent pair sources. A graph terminates exactly when each component is a double-star. Here $H$ is NW, AI or exp.}\label{fig:classification}
 \end{figure}

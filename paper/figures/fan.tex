@@ -1,16 +1,24 @@
 \begin{figure}[!htbp]
 \centering
 \begin{tikzpicture}[x=1cm,y=1cm]
-\node[observer,draw=inkblue,minimum size=8mm] (a) at (4.7,2.5) {$A^{11}$};
-\foreach \k/\x in {1/0,2/2.8,3/5.6,4/8.4}{
+\node[paneltitle] at (-.4,3) {(a) Four triangles, one shared observation};
+\node[paneltitle] at (9,3) {(b) A cross pair};
+\node[observer,draw=inkblue,fill=inkblue!8,minimum size=8mm] (a) at (3.6,1.8) {$A^{11}$};
+\foreach \k/\x in {1/0,2/2.1,3/4.2,4/6.3}{
 \node[observer,minimum size=8mm] (b\k) at (\x,0) {$B^{1\k}$};
-\node[observer,minimum size=8mm] (c\k) at (\x+1,0) {$C^{1\k}$};
-}
+\node[observer,minimum size=8mm] (c\k) at (\x+.9,0) {$C^{1\k}$};}
 \begin{scope}[on background layer]
-\foreach \k in {1,...,4}{\draw[network,black!45] (b\k)--(a)--(c\k) (b\k)--(c\k);}
+\foreach \k in {1,...,4}{\draw[network,draw=black!35] (b\k)--(a)--(c\k) (b\k)--(c\k);}
 \end{scope}
-\draw[inkrust,dashed,line width=1pt] (b1.south) .. controls (0,-1.2) and (6.6,-1.2) .. (c3.south);
-\node[font=\small,inkrust,align=center] at (4.7,-1.8) {Different $Y$ indices: disjoint ancestors\\[4pt]$\mathbb E[\mathsf B_1\mathsf C_3]=bc$};
+\node[observer,draw=inkrust,fill=inkrust!8,minimum size=8mm] at (0,0) {$B^{11}$};
+\node[observer,draw=inkrust,fill=inkrust!8,minimum size=8mm] at (5.1,0) {$C^{13}$};
+\draw[inkrust,dashed,line width=.85pt] (b1.south) .. controls (0,-1.6) and (5.1,-1.6) .. (c3.south);
+\node[figlabel,inkrust] at (3.6,-1.9) {$\mathbb E[\mathsf B_1\mathsf C_3]=bc$};
+\node[figlabel,anchor=west] at (9,1.6) {$B^{11}\leftarrow\{X_1,Y_1\}$};
+\node[figlabel,anchor=west] at (9,.5) {$C^{13}\leftarrow\{Z_1,Y_3\}$};
+\draw[black!20] (9,-.2)--(13.3,-.2);
+\node[figlabel,anchor=west] at (9,-.8) {Disjoint source parents};
+\node[fignote,anchor=west] at (9,-1.6) {The cross moment factors\\when the $Y$ indices differ.};
 \end{tikzpicture}
-\caption{A fan with four copied triangles sharing $A^{11}$. Solid edges indicate shared ancestry within each triangle; the drawing is an incidence schematic. The cross pair $B^{1k},C^{1\ell}$ has disjoint ancestors for $k\ne\ell$ and can be placed in distinct diagonal rows. These cross moments yield both inequalities in Theorem~\ref{thm:fan}.}\label{fig:fan}
+\caption{The fan at four copies. In (a), solid edges mark shared ancestry within each copied triangle, not causal arrows. The highlighted pair belongs to different triangles. Its source parents in (b) are disjoint, so the pair can be placed in distinct diagonal rows and its moment factors. These cross moments yield both inequalities in Theorem~\ref{thm:fan}.}\label{fig:fan}
 \end{figure}

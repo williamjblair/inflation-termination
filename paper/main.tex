@@ -22,7 +22,15 @@
 \definecolor{inkblue}{HTML}{245577}
 \definecolor{inkrust}{HTML}{A54F2A}
 \definecolor{inkgreen}{HTML}{35705B}
-\tikzset{observer/.style={circle,draw,fill=white,minimum size=6mm,inner sep=1pt,font=\small},source/.style={rectangle,draw,fill=black!7,minimum size=5mm,inner sep=2pt,font=\small},causal/.style={-{Latex[length=1.6mm]},thin},network/.style={line width=.8pt},every picture/.style={line cap=round}}
+\tikzset{
+  observer/.style={circle,draw=black!75,fill=white,line width=.65pt,minimum size=6mm,inner sep=1pt,font=\small},
+  source/.style={rectangle,draw=black!65,fill=black!5,line width=.65pt,minimum size=5mm,inner sep=2pt,font=\small},
+  causal/.style={-{Latex[length=1.8mm]},line width=.7pt,draw=black!65},
+  network/.style={line width=.85pt,draw=black!65},
+  paneltitle/.style={font=\small\bfseries,anchor=west},
+  figlabel/.style={font=\small,align=center},
+  fignote/.style={font=\footnotesize,align=center,text=black!70},
+  every picture/.style={line cap=round,line join=round}}
 \setlength{\emergencystretch}{1.5em}
 \setcounter{tocdepth}{1}
 

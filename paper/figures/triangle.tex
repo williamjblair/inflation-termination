@@ -1,20 +1,22 @@
 \begin{figure}[!htbp]
 \centering
 \begin{tikzpicture}[x=1cm,y=1cm]
-\foreach \off/\suffix in {0/a,6/b}{
-\node[source] (X\suffix) at (\off,1.2) {\ifnum\off=0 $X$\else $X_i$\fi};
-\node[source] (Z\suffix) at (\off+1.8,1.2) {\ifnum\off=0 $Z$\else $Z_j$\fi};
-\node[source] (Y\suffix) at (\off+3.6,1.2) {\ifnum\off=0 $Y$\else $Y_k$\fi};
-\node[observer,minimum size=8mm] (A\suffix) at (\off+0.3,-.5) {\ifnum\off=0 $A$\else $A^{ij}$\fi};
-\node[observer,minimum size=8mm] (B\suffix) at (\off+1.8,-.5) {\ifnum\off=0 $B$\else $B^{ik}$\fi};
-\node[observer,minimum size=8mm] (C\suffix) at (\off+3.3,-.5) {\ifnum\off=0 $C$\else $C^{jk}$\fi};
-\draw[causal] (X\suffix)--(A\suffix); \draw[causal] (X\suffix)--(B\suffix);
-\draw[causal] (Z\suffix)--(A\suffix); \draw[causal] (Z\suffix)--(C\suffix);
-\draw[causal] (Y\suffix)--(B\suffix); \draw[causal] (Y\suffix)--(C\suffix);
+\foreach \off/\suffix in {0/a,8/b}{
+\node[observer,minimum size=8mm] (A\suffix) at (\off,0) {\ifnum\off=0 $A$\else $A^{ij}$\fi};
+\node[observer,minimum size=8mm] (B\suffix) at (\off+3.8,0) {\ifnum\off=0 $B$\else $B^{ik}$\fi};
+\node[observer,minimum size=8mm] (C\suffix) at (\off+1.9,-2.35) {\ifnum\off=0 $C$\else $C^{jk}$\fi};
+\node[source,draw=inkblue,fill=inkblue!7] (X\suffix) at (\off+1.9,0) {\ifnum\off=0 $X$\else $X_i$\fi};
+\node[source,draw=inkgreen,fill=inkgreen!7] (Z\suffix) at (\off+.95,-1.175) {\ifnum\off=0 $Z$\else $Z_j$\fi};
+\node[source,draw=inkrust,fill=inkrust!7] (Y\suffix) at (\off+2.85,-1.175) {\ifnum\off=0 $Y$\else $Y_k$\fi};
+\draw[causal,draw=inkblue] (X\suffix)--(A\suffix); \draw[causal,draw=inkblue] (X\suffix)--(B\suffix);
+\draw[causal,draw=inkgreen] (Z\suffix)--(A\suffix); \draw[causal,draw=inkgreen] (Z\suffix)--(C\suffix);
+\draw[causal,draw=inkrust] (Y\suffix)--(B\suffix); \draw[causal,draw=inkrust] (Y\suffix)--(C\suffix);
 }
-\node[font=\small] at (1.8,-1.45) {Original scenario};
-\node[font=\small] at (7.8,-1.45) {One copied triangle $\Delta_{ijk}$};
-\draw[-{Latex},black!50] (4.3,.4)--node[above,font=\small] {copy}(5.8,.4);
+\node[paneltitle] at (-.4,.8) {(a) Original scenario};
+\node[paneltitle] at (7.6,.8) {(b) Copied triangle $\Delta_{ijk}$};
+\draw[-{Latex[length=2mm]},black!55] (4.45,-.9)--(7.35,-.9);
+\node[fignote] at (5.9,-.35) {Copy each source};
+\node[fignote] at (5.9,-1.55) {$i,j,k\in[t]$};
 \end{tikzpicture}
 \caption{Sources (squares) and observations (circles) in the triangle. Each copied observation carries the indices of its two source parents. Diagonal triangles $\Delta_{\ell\ell\ell}$ use disjoint source copies; the NW test requires their joint law to be $P^{\otimes t}$. The full order-$t$ table includes all $3t^2$ copied observations.}\label{fig:triangle}
 \end{figure}

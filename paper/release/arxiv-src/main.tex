@@ -22,7 +22,15 @@
 \definecolor{inkblue}{HTML}{245577}
 \definecolor{inkrust}{HTML}{A54F2A}
 \definecolor{inkgreen}{HTML}{35705B}
-\tikzset{observer/.style={circle,draw,fill=white,minimum size=6mm,inner sep=1pt,font=\small},source/.style={rectangle,draw,fill=black!7,minimum size=5mm,inner sep=2pt,font=\small},causal/.style={-{Latex[length=1.6mm]},thin},network/.style={line width=.8pt},every picture/.style={line cap=round}}
+\tikzset{
+  observer/.style={circle,draw=black!75,fill=white,line width=.65pt,minimum size=6mm,inner sep=1pt,font=\small},
+  source/.style={rectangle,draw=black!65,fill=black!5,line width=.65pt,minimum size=5mm,inner sep=2pt,font=\small},
+  causal/.style={-{Latex[length=1.8mm]},line width=.7pt,draw=black!65},
+  network/.style={line width=.85pt,draw=black!65},
+  paneltitle/.style={font=\small\bfseries,anchor=west},
+  figlabel/.style={font=\small,align=center},
+  fignote/.style={font=\footnotesize,align=center,text=black!70},
+  every picture/.style={line cap=round,line join=round}}
 \setlength{\emergencystretch}{1.5em}
 \setcounter{tocdepth}{1}
 
@@ -90,22 +98,32 @@ The proof reconstructs a model on each double-star. Every other connected graph 
 \begin{figure}[!htbp]
 \centering
 \begin{tikzpicture}[x=1cm,y=1cm]
-\node[font=\small\bfseries,inkgreen] at (1.9,1.6) {Finite termination};
-\node[observer] (b) at (1.1,0) {$b$}; \node[observer] (c) at (2.7,0) {$c$};
-\draw[network,inkgreen,line width=1.4pt] (b)--(c);
-\foreach \i/\x/\y in {1/0/0.85,2/0/-0.85,3/3.8/0.85,4/3.8/-0.85}{\node[observer,minimum size=3mm] (l\i) at (\x,\y) {};}
+\node[paneltitle,inkgreen] at (0,1.55) {(a) Finite termination};
+\node[paneltitle,inkrust] at (6.6,1.55) {(b) No finite characterizing order};
+\draw[inkgreen!40] (0,1.2)--(5.8,1.2);
+\draw[inkrust!40] (6.6,1.2)--(14,1.2);
+\node[observer,fill=inkgreen!8] (b) at (1.8,0) {$b$};
+\node[observer,fill=inkgreen!8] (c) at (4,0) {$c$};
+\foreach \i/\x/\y in {1/.5/.65,2/.5/-.65,3/5.3/.65,4/5.3/-.65}{
+  \node[observer,minimum size=3.5mm] (l\i) at (\x,\y) {};}
+\begin{scope}[on background layer]
+\draw[network,draw=inkgreen,line width=1.6pt] (b)--(c);
 \draw[network] (l1)--(b)--(l2) (l3)--(c)--(l4);
-\node[font=\small,align=center] at (1.9,-1.7) {Double-stars\\[3pt]diameter $\le3$};
-\node[font=\small,inkgreen] at (1.9,-2.65) {$\mathcal I_2^H(G)=\mathcal C_G$};
-\draw[black!25] (4.7,1.9)--(4.7,-2.95);
-\node[font=\small\bfseries,inkrust] at (8.2,1.6) {Obstructions at every order};
-\foreach \i/\a in {0/90,1/18,2/-54,3/-126,4/162}{\node[observer,minimum size=3mm] (v\i) at ($(6.3,0.05)+(\a:.9)$) {};}
-\draw[network] (v0)--(v1)--(v2)--(v3)--(v4)--(v0);
-\node[font=\small,align=center] at (6.3,-1.7) {Induced cycle\\[3pt]$C_m$};
-\foreach \i in {0,...,4}{\node[observer,minimum size=3mm] (p\i) at (8.3+0.62*\i,0) {};}
-\draw[network] (p0)--(p1)--(p2)--(p3)--(p4);
-\node[font=\small,align=center] at (9.55,-1.7) {Induced path\\[3pt]$P_5$};
-\node[font=\small,inkrust] at (8.2,-2.65) {$\mathcal C_G\subsetneq\mathcal I_t^H(G)\quad\text{for every }t$};
+\end{scope}
+\node[figlabel] at (2.9,-1.2) {Every component a double-star};
+\node[fignote] at (2.9,-1.72) {Tree of diameter at most three};
+\foreach \i/\a in {0/90,1/18,2/-54,3/-126,4/162}{
+  \node[observer,minimum size=3.5mm] (v\i) at ($(8.2,0)+(\a:.83)$) {};}
+\foreach \i in {0,...,4}{\node[observer,minimum size=3.5mm] (p\i) at (10.5+.72*\i,0) {};}
+\begin{scope}[on background layer]
+\draw[network,draw=inkrust] (v0)--(v1)--(v2)--(v3)--(v4)--(v0);
+\draw[network,draw=inkrust] (p0)--(p1)--(p2)--(p3)--(p4);
+\end{scope}
+\node[figlabel] at (8.2,-1.2) {Induced cycle $C_m$};
+\node[figlabel] at (11.95,-1.2) {Induced path $P_5$};
+\node[fignote] at (10.3,-1.72) {At least one component contains an obstruction};
+\node[figlabel,inkgreen] at (2.9,-2.4) {$\mathcal I_2^H(G)=\mathcal C_G$};
+\node[figlabel,inkrust] at (10.3,-2.4) {$\mathcal C_G\subsetneq\mathcal I_t^H(G)\quad\text{for every }t$};
 \end{tikzpicture}
 \caption{The classification for binary pair-source scenarios. Vertices denote observers and edges independent pair sources. A graph terminates exactly when each component is a double-star. Here $H$ is NW, AI or exp.}\label{fig:classification}
 \end{figure}
@@ -252,20 +270,22 @@ This notation allows stochastic responses as in Definition~\ref{def:ginflation}.
 \begin{figure}[!htbp]
 \centering
 \begin{tikzpicture}[x=1cm,y=1cm]
-\foreach \off/\suffix in {0/a,6/b}{
-\node[source] (X\suffix) at (\off,1.2) {\ifnum\off=0 $X$\else $X_i$\fi};
-\node[source] (Z\suffix) at (\off+1.8,1.2) {\ifnum\off=0 $Z$\else $Z_j$\fi};
-\node[source] (Y\suffix) at (\off+3.6,1.2) {\ifnum\off=0 $Y$\else $Y_k$\fi};
-\node[observer,minimum size=8mm] (A\suffix) at (\off+0.3,-.5) {\ifnum\off=0 $A$\else $A^{ij}$\fi};
-\node[observer,minimum size=8mm] (B\suffix) at (\off+1.8,-.5) {\ifnum\off=0 $B$\else $B^{ik}$\fi};
-\node[observer,minimum size=8mm] (C\suffix) at (\off+3.3,-.5) {\ifnum\off=0 $C$\else $C^{jk}$\fi};
-\draw[causal] (X\suffix)--(A\suffix); \draw[causal] (X\suffix)--(B\suffix);
-\draw[causal] (Z\suffix)--(A\suffix); \draw[causal] (Z\suffix)--(C\suffix);
-\draw[causal] (Y\suffix)--(B\suffix); \draw[causal] (Y\suffix)--(C\suffix);
+\foreach \off/\suffix in {0/a,8/b}{
+\node[observer,minimum size=8mm] (A\suffix) at (\off,0) {\ifnum\off=0 $A$\else $A^{ij}$\fi};
+\node[observer,minimum size=8mm] (B\suffix) at (\off+3.8,0) {\ifnum\off=0 $B$\else $B^{ik}$\fi};
+\node[observer,minimum size=8mm] (C\suffix) at (\off+1.9,-2.35) {\ifnum\off=0 $C$\else $C^{jk}$\fi};
+\node[source,draw=inkblue,fill=inkblue!7] (X\suffix) at (\off+1.9,0) {\ifnum\off=0 $X$\else $X_i$\fi};
+\node[source,draw=inkgreen,fill=inkgreen!7] (Z\suffix) at (\off+.95,-1.175) {\ifnum\off=0 $Z$\else $Z_j$\fi};
+\node[source,draw=inkrust,fill=inkrust!7] (Y\suffix) at (\off+2.85,-1.175) {\ifnum\off=0 $Y$\else $Y_k$\fi};
+\draw[causal,draw=inkblue] (X\suffix)--(A\suffix); \draw[causal,draw=inkblue] (X\suffix)--(B\suffix);
+\draw[causal,draw=inkgreen] (Z\suffix)--(A\suffix); \draw[causal,draw=inkgreen] (Z\suffix)--(C\suffix);
+\draw[causal,draw=inkrust] (Y\suffix)--(B\suffix); \draw[causal,draw=inkrust] (Y\suffix)--(C\suffix);
 }
-\node[font=\small] at (1.8,-1.45) {Original scenario};
-\node[font=\small] at (7.8,-1.45) {One copied triangle $\Delta_{ijk}$};
-\draw[-{Latex},black!50] (4.3,.4)--node[above,font=\small] {copy}(5.8,.4);
+\node[paneltitle] at (-.4,.8) {(a) Original scenario};
+\node[paneltitle] at (7.6,.8) {(b) Copied triangle $\Delta_{ijk}$};
+\draw[-{Latex[length=2mm]},black!55] (4.45,-.9)--(7.35,-.9);
+\node[fignote] at (5.9,-.35) {Copy each source};
+\node[fignote] at (5.9,-1.55) {$i,j,k\in[t]$};
 \end{tikzpicture}
 \caption{Sources (squares) and observations (circles) in the triangle. Each copied observation carries the indices of its two source parents. Diagonal triangles $\Delta_{\ell\ell\ell}$ use disjoint source copies; the NW test requires their joint law to be $P^{\otimes t}$. The full order-$t$ table includes all $3t^2$ copied observations.}\label{fig:triangle}
 \end{figure}
@@ -690,20 +710,33 @@ Let $R\in\Ccyc$ and $\delta=d_{\TV}(P_{m,q},R)$. Total variation does not increa
 \begin{figure}[!htbp]
 \centering
 \begin{tikzpicture}[x=1cm,y=1cm]
+\node[paneltitle] at (-2,2.25) {(a) Partition into three arcs};
+\node[paneltitle] at (6,2.25) {(b) Multiply within each arc};
 \foreach \i/\a in {0/120,1/60,2/0,3/-60,4/-120,5/180}{\node[observer,minimum size=7mm] (o\i) at (\a:1.5) {$O_\i$};}
-\draw[network,inkblue,line width=2pt] (o0)--(o1);
-\draw[network,inkrust,line width=2pt] (o2)--(o3);
-\draw[network,inkgreen,line width=2pt] (o4)--(o5);
-\draw[network] (o1)--node[right=2pt,font=\small] {$S_1$}(o2);
-\draw[network] (o3)--node[below=2pt,font=\small] {$S_3$}(o4);
-\draw[network] (o5)--node[left=2pt,font=\small] {$S_5$}(o0);
-\draw[-{Latex}] (2.5,0)--node[above,align=center,font=\small] {multiply within\\each arc}(5,0);
-\node[observer,draw=inkblue] (v1) at (7,1.2) {$V_1$};
-\node[observer,draw=inkrust] (v2) at (8.3,-1) {$V_2$};
-\node[observer,draw=inkgreen] (v3) at (5.7,-1) {$V_3$};
+\begin{scope}[on background layer]
+\draw[inkblue!15,line width=15pt] (o0)--(o1);
+\draw[inkrust!15,line width=15pt] (o2)--(o3);
+\draw[inkgreen!15,line width=15pt] (o4)--(o5);
+\draw[network,draw=inkblue,line width=1.3pt] (o0)--(o1);
+\draw[network,draw=inkrust,line width=1.3pt] (o2)--(o3);
+\draw[network,draw=inkgreen,line width=1.3pt] (o4)--(o5);
+\draw[network] (o1)--(o2) (o3)--(o4) (o5)--(o0);
+\end{scope}
+\node[fignote] at (1.48,.88) {$S_1$};
+\node[fignote] at (0,-1.72) {$S_3$};
+\node[fignote] at (-1.6,.85) {$S_5$};
+\draw[-{Latex[length=2mm]},black!60] (2.45,0)--(5.3,0);
+\node[fignote] at (3.85,.6) {Boundary sources\\remain independent};
+\node[fignote] at (3.85,-.65) {Internal sources become\\private randomness};
+\node[observer,draw=inkblue,fill=inkblue!8] (v1) at (8,1.25) {$V_1$};
+\node[observer,draw=inkrust,fill=inkrust!8] (v2) at (9.6,-1.25) {$V_2$};
+\node[observer,draw=inkgreen,fill=inkgreen!8] (v3) at (6.4,-1.25) {$V_3$};
 \draw[network] (v1)--node[right=2pt,font=\small] {$S_1$}(v2)--node[below=2pt,font=\small] {$S_3$}(v3)--node[left=2pt,font=\small] {$S_5$}(v1);
-\node[font=\small] at (0,-2.45) {Example: three arcs of $C_6$};
-\node[font=\small] at (7,-2.45) {$V_r=\prod_{v\in\Lambda_r}O_v$};
+\node[fignote,inkblue] at (8,1.8) {$O_0O_1$};
+\node[fignote,inkrust] at (10.5,-1.25) {$O_2O_3$};
+\node[fignote,inkgreen] at (5.6,-1.65) {$O_4O_5$};
+\node[figlabel] at (0,-2.5) {Example: $C_6$};
+\node[figlabel] at (8,-2.5) {$V_r=\prod_{v\in\Lambda_r}O_v$};
 \end{tikzpicture}
 \caption{Reducing cycle incompatibility to triangle parity rigidity. Partition any cycle into three nonempty contiguous arcs and multiply the observations within each arc. The three boundary sources form a triangle; internal sources become private randomness. The target reduces to $\Pi(-q,-q,-q)$, and total variation cannot increase under this map.}\label{fig:cycle-reduction}
 \end{figure}
@@ -747,19 +780,30 @@ A^a,\qquad B^{ai},\qquad C^{ij},\qquad D^{je},\qquad E^e .
 \begin{figure}[!htbp]
 \centering
 \begin{tikzpicture}[x=1cm,y=1cm]
-\foreach \v/\x in {A/0,B/2.4,C/4.8,D/7.2,E/9.6}{\node[observer] (\v) at (\x,0) {$\v$};}
-\foreach \s/\x/\a/\b in {X/1.2/A/B,L/3.6/B/C,R/6/C/D,Z/8.4/D/E}{
-\node[source] (\s) at (\x,1.25) {$\s$};
-\draw[causal] (\s)--(\a);\draw[causal] (\s)--(\b);
-}
-\node[font=\small,below=4mm of A] {$x\in\{0,1\}$};
-\node[font=\small,below=4mm of E] {$z\in\{0,1\}$};
-\draw[inkblue,line width=.8pt] (2.1,-.6)--(2.1,-.75)--(7.5,-.75)--(7.5,-.6);
-\node[font=\small,align=center] at (4.8,-1.5) {Condition on the endpoint outcomes $x,z$\\[4pt]$f_{xz}=\mathbb E_{L,R}[b_x(L)c(L,R)d_z(R)]$};
-\node[font=\small,align=center] at (2.2,-2.65) {Compatibility\\[4pt]$\sqrt{|I|}+\sqrt{|J|}\le1$};
-\node[font=\small,align=center] at (7.4,-2.65) {Target\\[4pt]$I=J=(1+h)/4$};
+\node[paneltitle] at (-.4,2) {(a) Five-observer path};
+\foreach \v/\x in {A/0,B/3,C/6,D/9,E/12}{\node[observer] (\v) at (\x,0) {$\v$};}
+\foreach \s/\x/\a/\b in {X/1.5/A/B,L/4.5/B/C,R/7.5/C/D,Z/10.5/D/E}{
+\node[source] (\s) at (\x,1.05) {$\s$};
+\draw[causal] (\s)--(\a);\draw[causal] (\s)--(\b);}
+\node[observer,draw=inkblue,fill=inkblue!8] at (0,0) {$A$};
+\node[observer,draw=inkblue,fill=inkblue!8] at (12,0) {$E$};
+\node[fignote,inkblue] at (0,-.62) {$A=x$};
+\node[fignote,inkblue] at (12,-.62) {$E=z$};
+\draw[-{Latex},inkblue] (6,-.45)--(6,-1.25);
+\node[fignote,anchor=west] at (6.3,-.85) {Condition on the endpoints};
+\node[paneltitle] at (-.4,-1.5) {(b) Bilocal conditional law};
+\node[source,draw=inkgreen,fill=inkgreen!8] (ll) at (4.5,-2) {$L$};
+\node[source,draw=inkgreen,fill=inkgreen!8] (rr) at (7.5,-2) {$R$};
+\node[figlabel] (bb) at (3,-2.9) {$b_x(L)$};
+\node[figlabel] (cc) at (6,-2.9) {$c(L,R)$};
+\node[figlabel] (dd) at (9,-2.9) {$d_z(R)$};
+\draw[causal,draw=inkgreen] (ll)--(bb); \draw[causal,draw=inkgreen] (ll)--(cc);
+\draw[causal,draw=inkgreen] (rr)--(cc); \draw[causal,draw=inkgreen] (rr)--(dd);
+\node[fignote] at (6,-2) {$L\perp R$};
+\node[figlabel,inkgreen] at (3,-3.8) {Compatible: $\sqrt{|I|}+\sqrt{|J|}\le1$};
+\node[figlabel,inkrust] at (10,-3.8) {Target: $\sqrt{|I|}+\sqrt{|J|}=\sqrt{1+h}$};
 \end{tikzpicture}
-\caption{The five-observer path. Conditioning on $A=x$ and $E=z$ changes only the outer sources $X,Z$; the inner sources $L,R$ remain independent, which gives the bilocal inequality. The target violates it by $\sqrt{1+h}-1$ and has full support.}\label{fig:path}
+\caption{The five-observer path and its bilocal reduction. Conditioning on $A=x$ and $E=z$ changes only the outer sources $X,Z$; the inner sources $L,R$ remain independent. The functions in (b) are conditional response means, whose product averages to $f_{xz}$. The resulting bilocal inequality excludes the full-support target for $h>0$.}\label{fig:path}
 \end{figure}
 
 
@@ -1122,15 +1166,29 @@ using $\|P\|_2^2\ge1/K$. Total variation never exceeds $1$.
 
 \begin{figure}[!htbp]
 \centering
-\begin{tikzpicture}[box/.style={draw,rounded corners=1mm,align=center,font=\small,inner sep=8pt,text width=5.8cm}]
-\node[box,text width=2.2cm] (table) at (0,0) {Draw a table\\[3pt]$\omega\sim\Gamma$};
-\node[box] (emp) at (6.7,1.45) {Permute each source's indices\\read $n$ rows: $\widehat P$\\[3pt]$\widehat P\overset{d}{=}\widehat P_n$};
-\node[box] (comp) at (6.7,-1.45) {Sample source indices independently\\[3pt]compatible law $q_\omega\in\mathcal C_G$};
-\draw[-{Latex}] (table.north east)--(emp.west);
-\draw[-{Latex}] (table.south east)--(comp.west);
-\draw[-{Latex},inkblue] (emp.south)--node[right=5pt,font=\small,fill=white,inner sep=3pt] {$\mathbb E[\widehat P\mid\omega]=q_\omega$}(comp.north);
+\begin{tikzpicture}[x=1cm,y=1cm]
+\node[paneltitle] at (0,2) {(a) Permuted diagonal rows};
+\node[paneltitle] at (7.4,2) {(b) Independent source indices};
+\node[fignote,anchor=west] at (0,1.5) {One permutation $\pi_e$ per source};
+\node[fignote,anchor=west] at (7.4,1.5) {One uniform index $I_e$ per source};
+\foreach \r in {0,1,2}{
+  \fill[inkblue!7] (0,-.44*\r+.1) rectangle (3.3,-.44*\r+.5);
+  \foreach \c in {0,1,2}{
+    \node[font=\footnotesize,text=inkblue] at (.55+1.1*\c,.3-.44*\r) {$\pi_{\number\numexpr\c+1\relax}(\number\numexpr\r+1\relax)$};}}
+\node[fignote] at (1.65,.95) {source indices};
+\draw[-{Latex},black!55] (3.5,-.15)--(4.05,-.15);
+\node[figlabel] at (5.4,-.15) {$\widehat P=\dfrac1n\sum_\ell\delta_{T_\ell}$};
+\foreach \c in {0,1,2}{
+  \node[source,fill=inkgreen!8,draw=inkgreen] (i\c) at (7.95+1.1*\c,.15) {$I_{\number\numexpr\c+1\relax}$};}
+\draw[-{Latex},black!55] (10.75,.15)--(11.9,.15);
+\node[figlabel,inkgreen] at (12.85,.15) {$q_\omega$};
+\node[figlabel,inkblue] at (2.9,-1.22) {$\widehat P\overset d=\widehat P_n$};
+\node[figlabel,inkgreen] at (10.3,-1.22) {$q_\omega\in\mathcal C_G$};
+\draw[black!20] (0,-1.8)--(13.8,-1.8);
+\node[figlabel] at (6.9,-2.3) {Same table $\omega\sim\Gamma$: $\quad\mathbb E[\widehat P\mid\omega]=q_\omega$};
+\node[figlabel,inkblue] at (6.9,-3.02) {$\mathbb E_\Gamma\Phi(q_\omega)\le\mathbb E\Phi(\widehat P_n)\qquad(\Phi\text{ convex})$};
 \end{tikzpicture}
-\caption{The conditional expectation behind the convex-order bound. The same table yields an empirical distribution through permuted diagonal rows and a compatible law through independent source indices. Conditional Jensen's inequality compares their convex functionals. Squared Euclidean distance then gives the source-count-independent bound.}\label{fig:convex-order}
+\caption{The conditional expectation behind the convex-order bound. Schematic rows and source columns illustrate the two sampling rules. Each row in (a) reads the table at permuted source indices; averaging gives $\widehat P\overset d=\widehat P_n$, the empirical law of $n$ independent draws from $P$. Independent indices in (b) define a compatible law. Conditional Jensen gives the comparison below the panels.}\label{fig:convex-order}
 \end{figure}
 
 
@@ -1196,7 +1254,7 @@ At order ten, Table~\ref{tab:thresholds} gives $tq_t^H\approx0.385$ (AI) and $0.
 
 \begin{figure}[!htbp]
 \centering
-\includegraphics[width=.94\linewidth]{figures/thresholds.pdf}
+\includegraphics[width=\linewidth]{figures/thresholds.pdf}
 \caption{Certified parity thresholds through order ten, rescaled by $t$. Markers show lower endpoints; two-sided brackets have width $4\cdot10^{-9}$ before rescaling. The square NW order-two point is a lower bound only. Dashed: the all-order guarantees $q=(16/15)^{2/t}-1$ and $q=(9/8)^{2/t}-1$ of Theorems~\ref{thm:squarelinear} and~\ref{thm:trianglelinear}. Panels use different vertical scales; connecting segments are visual aids only.}\label{fig:thresholds}
 \end{figure}
 
@@ -1268,32 +1326,36 @@ $\Gamma_t$ is a probability law on the copied observations, which is what a fini
 
 \begin{figure}[!htbp]
 \centering
-\begin{minipage}[c]{.48\linewidth}
+\begin{minipage}[c]{.46\linewidth}
 \centering
-\begin{tikzpicture}[x={(1cm,0cm)},y={(.48cm,.32cm)},z={(0cm,1cm)}]
-\foreach \x in {0,...,3}{\foreach \y in {0,...,3}{\draw[black!16,thin] (\x,\y,0)--(\x,\y,3);}}
-\foreach \x in {0,...,3}{\foreach \z in {0,...,3}{\draw[black!16,thin] (\x,0,\z)--(\x,3,\z);}}
-\foreach \y in {0,...,3}{\foreach \z in {0,...,3}{\draw[black!16,thin] (0,\y,\z)--(3,\y,\z);}}
-\draw[inkblue,line width=1.5pt] (1,1,0)--(1,1,3);
-\draw[inkrust,line width=1.5pt,dashed] (1,0,1)--(1,3,1);
-\draw[inkgreen,line width=1.5pt,densely dotted] (0,1,1)--(3,1,1);
-\fill (1,1,1) circle (2.5pt);
-\node[anchor=east,font=\small] (d) at (-.25,0,1.9) {$D_{ijk}$};
-\draw[-{Latex},shorten >=3pt] (d.east)--(1,1,1);
+\begin{tikzpicture}[x={(1cm,0cm)},y={(.45cm,.32cm)},z={(0cm,1cm)}]
+\fill[black!2] (0,0,0)--(3,0,0)--(3,3,0)--(0,3,0)--cycle;
+\foreach \x in {0,...,3}{\foreach \y in {0,...,3}{\draw[black!12,thin] (\x,\y,0)--(\x,\y,3);}}
+\foreach \x in {0,...,3}{\foreach \z in {0,...,3}{\draw[black!12,thin] (\x,0,\z)--(\x,3,\z);}}
+\foreach \y in {0,...,3}{\foreach \z in {0,...,3}{\draw[black!12,thin] (0,\y,\z)--(3,\y,\z);}}
+\draw[black!40] (0,0,0)--(3,0,0)--(3,0,3)--(0,0,3)--cycle;
+\draw[black!30] (3,0,0)--(3,3,0)--(3,3,3)--(3,0,3) (0,0,3)--(0,3,3)--(3,3,3);
+\draw[inkblue,line width=1.8pt] (1,1,0)--(1,1,3);
+\draw[inkrust,line width=1.8pt,dashed] (1,0,1)--(1,3,1);
+\draw[inkgreen,line width=1.8pt,dash pattern=on 0pt off 4pt] (0,1,1)--(3,1,1);
+\fill[white] (1,1,1) circle (4pt);
+\fill[black] (1,1,1) circle (2.5pt);
+\node[anchor=east,font=\small] (d) at (-.3,0,1.8) {$D_{ijk}$};
+\draw[-{Latex},shorten >=5pt] (d.east)--(1,1,1);
+\node[fignote,inkblue] at (1,1,3.35) {$A^{ij}$};
+\node[fignote,inkrust] at (1,3.6,1) {$B^{ik}$};
+\node[fignote,inkgreen] at (3.5,1,1) {$C^{jk}$};
 \end{tikzpicture}
 \end{minipage}\hfill
-\begin{minipage}[c]{.47\linewidth}
+\begin{minipage}[c]{.50\linewidth}
 \small\raggedright
-\begin{tabular}{@{}ll@{}}
-\textcolor{inkblue}{\rule[2pt]{16pt}{1pt}} & $A^{ij}$: vary $k$ (solid)\\[4pt]
-\textcolor{inkrust}{\tikz\draw[dashed,line width=1pt] (0,0)--(.56,0);} & $B^{ik}$: vary $j$ (dashed)\\[4pt]
-\textcolor{inkgreen}{\tikz\draw[densely dotted,line width=1pt] (0,0)--(.56,0);} & $C^{jk}$: vary $i$ (dotted)
-\end{tabular}
-\par\medskip
-The three lines share one cell.\par\smallskip
-$D_{ijk}=1$: all three outputs are zero.\par\smallskip
-$D_{ijk}=0$: the remaining inputs are disjoint, so the three outputs are independent $\Bern(r)$.\par\smallskip
-$\Law(\Delta_{ijk})=Q(\eps,r)$.
+\textbf{One shared cell, two cases}\par\medskip
+\textcolor{inkblue}{$A^{ij}$}: vary $k$ (solid).\\[3pt]
+\textcolor{inkrust}{$B^{ik}$}: vary $j$ (dashed).\\[3pt]
+\textcolor{inkgreen}{$C^{jk}$}: vary $i$ (dotted).\par\medskip
+$D_{ijk}=1\quad\Longrightarrow\quad\Delta_{ijk}=000$.\par\smallskip
+$D_{ijk}=0$: the residual lines and private bits are disjoint, giving three independent $\Bern(r)$ outputs.\par\medskip
+$\Law(\Delta_{ijk})=\eps\delta_{000}+(1-\eps)\Bern(r)^{\otimes3}$.
 \end{minipage}
 \caption{The defect-cube construction, shown for four indices per axis. A copied observation outputs one precisely when all defects on its line and its private bit are zero. The shared cell supplies the $\eps\delta_{000}$ component; disjoint residual lines supply the product component. The defects give an inflation witness; they are not independent pair sources for the target.}\label{fig:defect-cube}
 \end{figure}
@@ -1411,18 +1473,26 @@ Relabelling the local outcomes gives the corresponding bound for a Finner violat
 \begin{figure}[!htbp]
 \centering
 \begin{tikzpicture}[x=1cm,y=1cm]
-\node[observer,draw=inkblue,minimum size=8mm] (a) at (4.7,2.5) {$A^{11}$};
-\foreach \k/\x in {1/0,2/2.8,3/5.6,4/8.4}{
+\node[paneltitle] at (-.4,3) {(a) Four triangles, one shared observation};
+\node[paneltitle] at (9,3) {(b) A cross pair};
+\node[observer,draw=inkblue,fill=inkblue!8,minimum size=8mm] (a) at (3.6,1.8) {$A^{11}$};
+\foreach \k/\x in {1/0,2/2.1,3/4.2,4/6.3}{
 \node[observer,minimum size=8mm] (b\k) at (\x,0) {$B^{1\k}$};
-\node[observer,minimum size=8mm] (c\k) at (\x+1,0) {$C^{1\k}$};
-}
+\node[observer,minimum size=8mm] (c\k) at (\x+.9,0) {$C^{1\k}$};}
 \begin{scope}[on background layer]
-\foreach \k in {1,...,4}{\draw[network,black!45] (b\k)--(a)--(c\k) (b\k)--(c\k);}
+\foreach \k in {1,...,4}{\draw[network,draw=black!35] (b\k)--(a)--(c\k) (b\k)--(c\k);}
 \end{scope}
-\draw[inkrust,dashed,line width=1pt] (b1.south) .. controls (0,-1.2) and (6.6,-1.2) .. (c3.south);
-\node[font=\small,inkrust,align=center] at (4.7,-1.8) {Different $Y$ indices: disjoint ancestors\\[4pt]$\mathbb E[\mathsf B_1\mathsf C_3]=bc$};
+\node[observer,draw=inkrust,fill=inkrust!8,minimum size=8mm] at (0,0) {$B^{11}$};
+\node[observer,draw=inkrust,fill=inkrust!8,minimum size=8mm] at (5.1,0) {$C^{13}$};
+\draw[inkrust,dashed,line width=.85pt] (b1.south) .. controls (0,-1.6) and (5.1,-1.6) .. (c3.south);
+\node[figlabel,inkrust] at (3.6,-1.9) {$\mathbb E[\mathsf B_1\mathsf C_3]=bc$};
+\node[figlabel,anchor=west] at (9,1.6) {$B^{11}\leftarrow\{X_1,Y_1\}$};
+\node[figlabel,anchor=west] at (9,.5) {$C^{13}\leftarrow\{Z_1,Y_3\}$};
+\draw[black!20] (9,-.2)--(13.3,-.2);
+\node[figlabel,anchor=west] at (9,-.8) {Disjoint source parents};
+\node[fignote,anchor=west] at (9,-1.6) {The cross moment factors\\when the $Y$ indices differ.};
 \end{tikzpicture}
-\caption{A fan with four copied triangles sharing $A^{11}$. Solid edges indicate shared ancestry within each triangle; the drawing is an incidence schematic. The cross pair $B^{1k},C^{1\ell}$ has disjoint ancestors for $k\ne\ell$ and can be placed in distinct diagonal rows. These cross moments yield both inequalities in Theorem~\ref{thm:fan}.}\label{fig:fan}
+\caption{The fan at four copies. In (a), solid edges mark shared ancestry within each copied triangle, not causal arrows. The highlighted pair belongs to different triangles. Its source parents in (b) are disjoint, so the pair can be placed in distinct diagonal rows and its moment factors. These cross moments yield both inequalities in Theorem~\ref{thm:fan}.}\label{fig:fan}
 \end{figure}
 
 

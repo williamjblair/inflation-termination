@@ -1,20 +1,33 @@
 \begin{figure}[!htbp]
 \centering
 \begin{tikzpicture}[x=1cm,y=1cm]
+\node[paneltitle] at (-2,2.25) {(a) Partition into three arcs};
+\node[paneltitle] at (6,2.25) {(b) Multiply within each arc};
 \foreach \i/\a in {0/120,1/60,2/0,3/-60,4/-120,5/180}{\node[observer,minimum size=7mm] (o\i) at (\a:1.5) {$O_\i$};}
-\draw[network,inkblue,line width=2pt] (o0)--(o1);
-\draw[network,inkrust,line width=2pt] (o2)--(o3);
-\draw[network,inkgreen,line width=2pt] (o4)--(o5);
-\draw[network] (o1)--node[right=2pt,font=\small] {$S_1$}(o2);
-\draw[network] (o3)--node[below=2pt,font=\small] {$S_3$}(o4);
-\draw[network] (o5)--node[left=2pt,font=\small] {$S_5$}(o0);
-\draw[-{Latex}] (2.5,0)--node[above,align=center,font=\small] {multiply within\\each arc}(5,0);
-\node[observer,draw=inkblue] (v1) at (7,1.2) {$V_1$};
-\node[observer,draw=inkrust] (v2) at (8.3,-1) {$V_2$};
-\node[observer,draw=inkgreen] (v3) at (5.7,-1) {$V_3$};
+\begin{scope}[on background layer]
+\draw[inkblue!15,line width=15pt] (o0)--(o1);
+\draw[inkrust!15,line width=15pt] (o2)--(o3);
+\draw[inkgreen!15,line width=15pt] (o4)--(o5);
+\draw[network,draw=inkblue,line width=1.3pt] (o0)--(o1);
+\draw[network,draw=inkrust,line width=1.3pt] (o2)--(o3);
+\draw[network,draw=inkgreen,line width=1.3pt] (o4)--(o5);
+\draw[network] (o1)--(o2) (o3)--(o4) (o5)--(o0);
+\end{scope}
+\node[fignote] at (1.48,.88) {$S_1$};
+\node[fignote] at (0,-1.72) {$S_3$};
+\node[fignote] at (-1.6,.85) {$S_5$};
+\draw[-{Latex[length=2mm]},black!60] (2.45,0)--(5.3,0);
+\node[fignote] at (3.85,.6) {Boundary sources\\remain independent};
+\node[fignote] at (3.85,-.65) {Internal sources become\\private randomness};
+\node[observer,draw=inkblue,fill=inkblue!8] (v1) at (8,1.25) {$V_1$};
+\node[observer,draw=inkrust,fill=inkrust!8] (v2) at (9.6,-1.25) {$V_2$};
+\node[observer,draw=inkgreen,fill=inkgreen!8] (v3) at (6.4,-1.25) {$V_3$};
 \draw[network] (v1)--node[right=2pt,font=\small] {$S_1$}(v2)--node[below=2pt,font=\small] {$S_3$}(v3)--node[left=2pt,font=\small] {$S_5$}(v1);
-\node[font=\small] at (0,-2.45) {Example: three arcs of $C_6$};
-\node[font=\small] at (7,-2.45) {$V_r=\prod_{v\in\Lambda_r}O_v$};
+\node[fignote,inkblue] at (8,1.8) {$O_0O_1$};
+\node[fignote,inkrust] at (10.5,-1.25) {$O_2O_3$};
+\node[fignote,inkgreen] at (5.6,-1.65) {$O_4O_5$};
+\node[figlabel] at (0,-2.5) {Example: $C_6$};
+\node[figlabel] at (8,-2.5) {$V_r=\prod_{v\in\Lambda_r}O_v$};
 \end{tikzpicture}
 \caption{Reducing cycle incompatibility to triangle parity rigidity. Partition any cycle into three nonempty contiguous arcs and multiply the observations within each arc. The three boundary sources form a triangle; internal sources become private randomness. The target reduces to $\Pi(-q,-q,-q)$, and total variation cannot increase under this map.}\label{fig:cycle-reduction}
 \end{figure}
