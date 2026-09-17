@@ -1,13 +1,15 @@
 # Submitting these statements to Palomar
 
 **Status:** the classification statement is registered as `PALOMAR-2026-09-14-000009`
-version 1 (https://palomar-registry.org/entry.html?id=PALOMAR-2026-09-14-000009&version=1)
-from commit `93cc53f1`, after two revision rounds (the compared statement gained the
+version 2 (https://palomar-registry.org/entry.html?id=PALOMAR-2026-09-14-000009&version=2)
+from commit `898300eb`, registered on 2026-09-17 with a review that raised no warnings.
+Version 1 came from commit `93cc53f1` after two revision rounds (the compared statement gained the
 order-two clause; the classification tags, the Boreiri 2023 author list and the
 Navascués–Wolfe source in `formalization.yaml` were corrected; the proof account was made
 accurate). A later version-2 submission from commit `53c7c27a` was withdrawn on 2026-09-16
-because the manuscript changed afterwards. The next version will be filed from the final
-manuscript commit, with Section 8 citing that version. The repository is public at
+because the manuscript changed afterwards. A second attempt, from `76a1644`, was withdrawn
+after its review flagged stale theorem numbers and an incomplete reconstruction account;
+both were fixed in `898300eb`. The repository is public at
 https://github.com/williamjblair/inflation-termination. The checklist below is kept as the
 record of the procedure.
 
