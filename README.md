@@ -48,8 +48,8 @@ passes the order-`t` test and violates the Finner inequality by at least `ε_t²
 (Proposition 5.13), and over rational inputs of `B` bits the worst required order is
 `2^{Θ(B)}` (Proposition 6.2).
 
-Scenarios in which a source is shared by three or more observers are treated in a companion
-paper in preparation.
+Scenarios in which a source is shared by three or more observers are treated in the
+[hypergraph companion repository](https://github.com/williamjblair/inflation-hypergraph-termination).
 
 ## Contents
 
@@ -65,7 +65,7 @@ These links do not change theorem scope, publication status or priority.
 
 ```
 paper/                      manuscript sources and PDF
-  release/                  arXiv package, claims, non-claims, priority audit, release status
+  release/                  arXiv package, claims, non-claims, priority audit, current status
   review/                   editorial and referee-style audits, verification guide
 artifact/                   exact rational certificates, checkers, replay records, manifest
 TriangleInflation/          the Lean library
@@ -87,6 +87,12 @@ formalization.yaml          provenance and scope in the mathlib-initiative forma
 PORTING.md                  differences from the author's working repository
 SUBMISSION.md               the Palomar registration procedure and its record
 ```
+
+The current repository-facing release summary is
+[`paper/release/CURRENT_STATUS.md`](paper/release/CURRENT_STATUS.md). The longer
+[`paper/release/RELEASE_STATUS.md`](paper/release/RELEASE_STATUS.md) is a
+historical campaign receipt: its dated intermediate states are retained as
+evidence and do not override this README or the current summary.
 
 ## Reproduce
 
